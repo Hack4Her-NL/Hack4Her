@@ -1,4 +1,32 @@
-node_modules
+# Flutter/Dart specific ignores
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.fvm/flutter_sdk
+.packages
+.pub-cache/
+.pub/
+build/
+coverage/
+lib/generated_plugin_registrant.dart
+pubspec.lock
+
+# IDE specific files
+.idea/
+.vscode/*
+!.vscode/launch.json
+!.vscode/settings.json
+*.iml
+*.ipr
+*.iws
+.DS_Store
+.classpath
+.project
+.settings/
+
+# Cloudflare
+node_modules/
+.wrangler/
 
 # Output
 .output
@@ -9,7 +37,6 @@ node_modules
 /build
 
 # OS
-.DS_Store
 Thumbs.db
 
 # Env

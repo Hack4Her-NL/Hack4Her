@@ -1,38 +1,62 @@
-# sv
+# Hack4Her
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+## Flutter Web Project for Cloudflare Pages
 
-## Creating a project
+This project was migrated from Svelte to Flutter for web deployment on Cloudflare Pages.
 
-If you're seeing this, you've probably already done this step. Congrats!
+## Migration Notes
 
-```bash
-# create a new project in the current directory
-npx sv create
+This project was previously a Svelte application. It has been completely migrated to use Flutter for web.
 
-# create a new project in my-app
-npx sv create my-app
-```
+## Development Setup
 
-## Developing
+1. Install Flutter SDK from [flutter.dev](https://flutter.dev/docs/get-started/install)
+2. Enable web support: `flutter config --enable-web`
+3. Clone this repository and navigate to the project folder
+4. Run `flutter pub get` to install dependencies
+5. Run the development server: `flutter run -d chrome`
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
+## Building for Production
 
 ```bash
-npm run build
+flutter build web --release --web-renderer canvaskit
 ```
 
-You can preview the production build with `npm run preview`.
+The build output will be in the `build/web` directory.
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+## Deploying to Cloudflare Pages
+
+This project uses Cloudflare Pages for deployment. The build output from Flutter's web build is deployed to Cloudflare.
+
+### Manual Deployment
+
+```bash
+# Build the project
+flutter build web --release --web-renderer canvaskit
+
+# Deploy to Cloudflare Pages
+wrangler pages deploy build/web
+```
+
+### Using Deployment Scripts
+
+For Windows:
+```
+deploy.bat
+```
+
+For Linux/Mac:
+```
+chmod +x deploy.sh
+./deploy.sh
+```
+
+## Project Structure
+
+- `lib/` - Flutter application code
+  - `main.dart` - Application entry point
+  - `screens/` - Application screens
+  - `widgets/` - Reusable UI components
+- `web/` - Web-specific assets and entry point
+- `assets/` - Images, fonts, and other static assets
+- `build/web/` - Production build output (deployed to Cloudflare)
