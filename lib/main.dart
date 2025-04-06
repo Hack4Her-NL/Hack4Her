@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_web_plugins/flutter_web_plugins.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'screens/home_screen.dart';
 
 void main() {
@@ -17,11 +18,21 @@ class MyApp extends StatelessWidget {
       title: 'Hack4Her',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: const Color(0xFF8A54E1),
+          primary: const Color(0xFF8A54E1),
+          secondary: const Color(0xFF4485EB),
+        ),
         useMaterial3: true,
-        fontFamily: 'Roboto',
+        textTheme: GoogleFonts.robotoTextTheme(),
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: const Color(0xFF8A54E1),
+            foregroundColor: Colors.white,
+          ),
+        ),
       ),
       home: const HomeScreen(),
     );
   }
-} 
+}

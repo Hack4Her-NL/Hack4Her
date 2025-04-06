@@ -1,10 +1,10 @@
 {
-    "name": "hack4her",
-    "short_name": "hack4her",
+    "name": "Hack4Her",
+    "short_name": "Hack4Her",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#0175C2",
-    "theme_color": "#0175C2",
+    "background_color": "#8A54E1",
+    "theme_color": "#8A54E1",
     "description": "Hack4Her project migrated to Flutter",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
@@ -32,4 +32,4 @@
             "purpose": "maskable"
         }
     ]
-} 
+}
