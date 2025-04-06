@@ -1,140 +1,329 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
-import '../widgets/info_card.dart';
+import '../constants/app_theme.dart';
+import '../utils/routes.dart';
+import '../widgets/page_layout.dart';
+import '../widgets/section_container.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
-  Future<void> _launchUrl(String url) async {
-    final Uri uri = Uri.parse(url);
-    if (!await launchUrl(uri)) {
-      throw Exception('Could not launch $url');
-    }
+  @override
+  Widget build(BuildContext context) {
+    final screenSize = MediaQuery.of(context).size;
+
+    return PageLayout(
+      currentRoute: AppRoutes.home,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          // Hero section
+          _buildHeroSection(screenSize, context),
+
+          // About event section
+          SectionContainer(
+            title: 'About Hack4Her',
+            child: Column(
+              children: [
+                const Text(
+                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+                  style: TextStyle(fontSize: 16),
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(height: 30),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, AppRoutes.about);
+                  },
+                  style: AppTheme.primaryButtonStyle,
+                  child: const Text('Learn More'),
+                ),
+              ],
+            ),
+          ),
+
+          // Event highlights
+          SectionContainer(
+            title: 'Event Highlights',
+            useGradientBackground: true,
+            child: _buildEventHighlights(),
+          ),
+
+          // Past Events Images
+          SectionContainer(
+            title: 'Images from Past Events',
+            child: _buildPastEventsGallery(screenSize),
+          ),
+
+          // Sponsors section
+          SectionContainer(
+            title: 'Our Sponsors',
+            child: _buildSponsorsGrid(screenSize),
+          ),
+
+          // CTA section
+          Container(
+            width: double.infinity,
+            padding: const EdgeInsets.symmetric(vertical: 60, horizontal: 20),
+            decoration: AppTheme.gradientBackground,
+            child: Column(
+              children: [
+                const Text(
+                  'Ready to Join Hack4Her?',
+                  style: TextStyle(
+                    fontSize: 36,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(height: 20),
+                const Text(
+                  'Register now and be part of this amazing experience',
+                  style: TextStyle(
+                    fontSize: 18,
+                    color: Colors.white,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(height: 30),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, AppRoutes.registration);
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.white,
+                    foregroundColor: AppTheme.primaryPurple,
+                    padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 15),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                  ),
+                  child: const Text(
+                    'Register Now',
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
   }
+
+  Widget _buildHeroSection(Size screenSize, BuildContext context) {
+    return Container(
+      width: double.infinity,
+      height: screenSize.height * 0.7,
+      decoration: AppTheme.gradientBackground,
+      child: Stack(
+        children: [
+          // Female symbol overlay
+          Positioned(
+            right: screenSize.width * 0.05,
+            top: screenSize.height * 0.1,
+            child: Opacity(
+              opacity: 0.2,
+              child: Icon(
+                Icons.female,
+                size: screenSize.width * 0.25,
+                color: Colors.white,
+              ),
+            ),
+          ),
+          // Main content
+          Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'Hack4Her',
+                  style: TextStyle(
+                    fontSize: AppTheme.responsiveFontSize(86, context),
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                    letterSpacing: 2.0,
+                  ),
+                ),
+                const SizedBox(height: 20),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: Text(
+                    'A hackathon dedicated to empowering women in technology',
+                    style: TextStyle(
+                      fontSize: AppTheme.responsiveFontSize(22, context),
+                      color: Colors.white,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+                const SizedBox(height: 40),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, AppRoutes.registration);
+                  },
+                  style: AppTheme.secondaryButtonStyle,
+                  child: Text(
+                    'Learn More',
+                    style: TextStyle(
+                      fontSize: AppTheme.responsiveFontSize(22, context),
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildEventHighlights() {
+    return const Wrap(
+      spacing: 20,
+      runSpacing: 20,
+      alignment: WrapAlignment.center,
+      children: [
+        _HighlightCard(
+          icon: Icons.people,
+          title: 'Networking',
+          description: 'Connect with like-minded individuals and industry professionals',
+        ),
+        _HighlightCard(
+          icon: Icons.lightbulb,
+          title: 'Innovation',
+          description: 'Develop creative solutions to real-world challenges',
+        ),
+        _HighlightCard(
+          icon: Icons.school,
+          title: 'Learning',
+          description: 'Attend workshops and gain valuable skills',
+        ),
+        _HighlightCard(
+          icon: Icons.emoji_events,
+          title: 'Prizes',
+          description: 'Win amazing prizes and recognition for your work',
+        ),
+      ],
+    );
+  }
+
+  Widget _buildPastEventsGallery(Size screenSize) {
+    final bool isMobile = screenSize.width < AppTheme.mobileBreakpoint;
+    final double imageHeight = isMobile ? 150 : 200;
+
+    return SizedBox(
+      height: imageHeight,
+      child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+        itemCount: 5,
+        itemBuilder: (context, index) {
+          return Container(
+            width: imageHeight * 1.5,
+            margin: const EdgeInsets.symmetric(horizontal: 10),
+            decoration: BoxDecoration(
+              color: AppTheme.primaryPurple.withOpacity(0.1),
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: Center(
+              child: Text(
+                'Event Image ${index + 1}',
+                style: const TextStyle(
+                  color: AppTheme.primaryPurple,
+                ),
+              ),
+            ),
+          );
+        },
+      ),
+    );
+  }
+
+  Widget _buildSponsorsGrid(Size screenSize) {
+    final bool isMobile = screenSize.width < AppTheme.mobileBreakpoint;
+    final int crossAxisCount = isMobile ? 2 : 4;
+
+    return Wrap(
+      spacing: 20,
+      runSpacing: 20,
+      alignment: WrapAlignment.center,
+      children: List.generate(
+        8,
+        (index) => Container(
+          width: 150,
+          height: 80,
+          decoration: BoxDecoration(
+            color: Colors.grey.withOpacity(0.1),
+            borderRadius: BorderRadius.circular(10),
+            border: Border.all(color: Colors.grey.withOpacity(0.3)),
+          ),
+          child: Center(
+            child: Text(
+              'Sponsor ${index + 1}',
+              style: const TextStyle(
+                color: Colors.grey,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _HighlightCard extends StatelessWidget {
+  final IconData icon;
+  final String title;
+  final String description;
+
+  const _HighlightCard({
+    required this.icon,
+    required this.title,
+    required this.description,
+  });
 
   @override
   Widget build(BuildContext context) {
-    // Create a key for the content section
-    final contentKey = GlobalKey();
-    final screenSize = MediaQuery.of(context).size;
-
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Hack4Her'),
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+    return Container(
+      width: 250,
+      padding: const EdgeInsets.all(20),
+      decoration: BoxDecoration(
+        color: Colors.white.withOpacity(0.2),
+        borderRadius: BorderRadius.circular(10),
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Container(
-              width: double.infinity,
-              height: screenSize.height * 0.7, // 70% of screen height
-              decoration: const BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                  colors: [
-                    Color(0xFF8A54E1), // Purple
-                    Color(0xFF4485EB), // Blue
-                  ],
-                ),
-              ),
-              child: Stack(
-                children: [
-                  // Female symbol overlay
-                  Positioned(
-                    right: screenSize.width * 0.05,
-                    top: screenSize.height * 0.1,
-                    child: Opacity(
-                      opacity: 0.2,
-                      child: Icon(
-                        Icons.female,
-                        size: screenSize.width * 0.25, // Responsive size
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
-                  // Main content
-                  Center(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          'Hack4Her',
-                          style: TextStyle(
-                            fontSize: screenSize.width > 600 ? 86 : 48, // Responsive font size
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                            letterSpacing: 2.0,
-                          ),
-                        ),
-                        SizedBox(height: screenSize.height * 0.05),
-                        ElevatedButton(
-                          onPressed: () {
-                            // Scroll to the content section using the key
-                            Scrollable.ensureVisible(
-                              contentKey.currentContext!,
-                              duration: const Duration(milliseconds: 600),
-                              curve: Curves.easeInOut,
-                            );
-                          },
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.white.withOpacity(0.2),
-                            foregroundColor: Colors.white,
-                            padding: EdgeInsets.symmetric(
-                              horizontal: screenSize.width > 600 ? 40 : 20,
-                              vertical: screenSize.width > 600 ? 15 : 10,
-                            ),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(30),
-                            ),
-                          ),
-                          child: Text(
-                            'Learn More',
-                            style: TextStyle(
-                              fontSize: screenSize.width > 600 ? 22 : 16,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Icon(
+            icon,
+            size: 50,
+            color: Colors.white,
+          ),
+          const SizedBox(height: 15),
+          Text(
+            title,
+            style: const TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
             ),
-            Padding(
-              key: contentKey, // Add the key here
-              padding: const EdgeInsets.all(16),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const SizedBox(height: 32),
-                  InfoCard(
-                    title: 'Flutter Documentation',
-                    description:
-                        'Learn more about Flutter framework and how to build amazing apps.',
-                    icon: Icons.book,
-                    onTap: () => _launchUrl('https://flutter.dev/docs'),
-                  ),
-                  InfoCard(
-                    title: 'Cloudflare Pages',
-                    description: 'Deploy and host your web apps on Cloudflare\'s global network.',
-                    icon: Icons.cloud,
-                    onTap: () => _launchUrl('https://pages.cloudflare.com/'),
-                  ),
-                  InfoCard(
-                    title: 'Flutter for Web',
-                    description: 'Build high-performance web experiences using Flutter.',
-                    icon: Icons.web,
-                    onTap: () => _launchUrl('https://flutter.dev/multi-platform/web'),
-                  ),
-                ],
-              ),
+          ),
+          const SizedBox(height: 10),
+          Text(
+            description,
+            style: const TextStyle(
+              fontSize: 14,
+              color: Colors.white,
             ),
-          ],
-        ),
+            textAlign: TextAlign.center,
+          ),
+        ],
       ),
     );
   }

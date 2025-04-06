@@ -5,7 +5,7 @@
     "display": "standalone",
     "background_color": "#8A54E1",
     "theme_color": "#8A54E1",
-    "description": "Hack4Her project migrated to Flutter",
+    "description": "A hackathon dedicated to empowering women in technology",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
@@ -30,6 +30,32 @@
             "sizes": "512x512",
             "type": "image/png",
             "purpose": "maskable"
+        }
+    ],
+    "shortcuts": [
+        {
+            "name": "Register",
+            "short_name": "Register",
+            "description": "Register for Hack4Her",
+            "url": "/registration",
+            "icons": [
+                {
+                    "src": "icons/Icon-192.png",
+                    "sizes": "192x192"
+                }
+            ]
+        },
+        {
+            "name": "Workshops",
+            "short_name": "Workshops",
+            "description": "View Hack4Her Workshops",
+            "url": "/workshops",
+            "icons": [
+                {
+                    "src": "icons/Icon-192.png",
+                    "sizes": "192x192"
+                }
+            ]
         }
     ]
 }

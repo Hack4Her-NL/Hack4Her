@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <base href="$FLUTTER_BASE_HREF">
 
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  <meta name="description" content="Hack4Her Flutter web app">
+  <meta name="description" content="Hack4Her - A hackathon dedicated to empowering women in technology">
 
   <!-- iOS meta tags & icons -->
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -13,8 +14,15 @@
   <meta name="apple-mobile-web-app-title" content="Hack4Her">
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
 
+  <!-- Social media meta tags -->
+  <meta property="og:title" content="Hack4Her">
+  <meta property="og:description" content="A hackathon dedicated to empowering women in technology">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://hack4her.com">
+  <meta property="og:image" content="icons/Icon-512.png">
+
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png"/>
+  <link rel="icon" type="image/png" href="favicon.png" />
 
   <title>Hack4Her</title>
   <link rel="manifest" href="manifest.json">
@@ -25,17 +33,74 @@
   </script>
   <!-- This script adds the flutter initialization JS code -->
   <script src="flutter.js" defer></script>
+
+  <!-- Custom styles for loader/splash screen -->
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right bottom, #8A54E1, #4485EB);
+      height: 100vh;
+      width: 100vw;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .loader {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+
+    .loader h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+
+    .spinner {
+      width: 50px;
+      height: 50px;
+      border: 5px solid rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      border-top-color: white;
+      animation: spin 1s ease-in-out infinite;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
 </head>
+
 <body>
+  <!-- Loading indicator -->
+  <div id="loading" class="loader">
+    <h1>Hack4Her</h1>
+    <div class="spinner"></div>
+  </div>
+
   <script>
-    window.addEventListener('load', function(ev) {
+    window.addEventListener('load', function (ev) {
+      // Hide loading indicator when app is ready
+      var loading = document.querySelector('#loading');
+
       // Download main.dart.js
       _flutter.loader.loadEntrypoint({
         serviceWorker: {
           serviceWorkerVersion: serviceWorkerVersion,
         },
-        onEntrypointLoaded: function(engineInitializer) {
-          engineInitializer.initializeEngine().then(function(appRunner) {
+        onEntrypointLoaded: function (engineInitializer) {
+          engineInitializer.initializeEngine().then(function (appRunner) {
+            loading.style.display = 'none';
             appRunner.runApp();
           });
         }
@@ -43,4 +108,5 @@
     });
   </script>
 </body>
-</html> 
+
+</html>

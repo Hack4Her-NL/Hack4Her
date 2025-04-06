@@ -1,62 +1,68 @@
 # Hack4Her
 
-## Flutter Web Project for Cloudflare Pages
+A Flutter web application for the Hack4Her hackathon - dedicated to empowering women in technology.
 
-This project was migrated from Svelte to Flutter for web deployment on Cloudflare Pages.
+## Features
 
-## Migration Notes
+- **Home Page**: Welcome page with event highlights and countdown
+- **About Page**: Information about the hackathon's mission and team
+- **Registration**: Registration details and guidelines
+- **Workshops**: Schedule and details of available workshops
+- **Challenges**: List of main and sponsored challenges
+- **Previous Events**: History of past hackathons and highlighted projects
 
-This project was previously a Svelte application. It has been completely migrated to use Flutter for web.
+## Getting Started
 
-## Development Setup
+### Prerequisites
 
-1. Install Flutter SDK from [flutter.dev](https://flutter.dev/docs/get-started/install)
-2. Enable web support: `flutter config --enable-web`
-3. Clone this repository and navigate to the project folder
-4. Run `flutter pub get` to install dependencies
-5. Run the development server: `flutter run -d chrome`
+- Flutter SDK (3.0.0 or higher)
+- Dart SDK (3.0.0 or higher)
 
-## Building for Production
+### Installation
 
-```bash
-flutter build web --release --web-renderer canvaskit
+1. Clone the repository
+   ```
+   git clone https://github.com/yourusername/Hack4Her.git
+   ```
+
+2. Navigate to the project directory
+   ```
+   cd Hack4Her
+   ```
+
+3. Get dependencies
+   ```
+   flutter pub get
+   ```
+
+4. Run the application
+   ```
+   flutter run -d chrome
+   ```
+
+## Building for Web
+
+To build the Flutter app for web deployment:
+
+```
+flutter build web
 ```
 
-The build output will be in the `build/web` directory.
+The output will be generated in the `build/web` directory, which can be deployed to any web hosting service.
 
-## Deploying to Cloudflare Pages
+## Architecture
 
-This project uses Cloudflare Pages for deployment. The build output from Flutter's web build is deployed to Cloudflare.
+The application follows a clean architecture with:
 
-### Manual Deployment
+- **Screens**: Main pages of the application
+- **Components**: Reusable UI components
+- **Constants**: Theme and style definitions
+- **Utils**: Utility functions and route definitions
 
-```bash
-# Build the project
-flutter build web --release --web-renderer canvaskit
+## Contributing
 
-# Deploy to Cloudflare Pages
-wrangler pages deploy build/web
-```
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-### Using Deployment Scripts
+## License
 
-For Windows:
-```
-deploy.bat
-```
-
-For Linux/Mac:
-```
-chmod +x deploy.sh
-./deploy.sh
-```
-
-## Project Structure
-
-- `lib/` - Flutter application code
-  - `main.dart` - Application entry point
-  - `screens/` - Application screens
-  - `widgets/` - Reusable UI components
-- `web/` - Web-specific assets and entry point
-- `assets/` - Images, fonts, and other static assets
-- `build/web/` - Production build output (deployed to Cloudflare)
+This project is licensed under the MIT License - see the LICENSE file for details.
