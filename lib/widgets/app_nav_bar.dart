@@ -16,7 +16,6 @@ class AppNavBar extends StatelessWidget {
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
     final bool isMobile = screenWidth < AppTheme.mobileBreakpoint;
-    final isDarkMode = themeNotifier.value == ThemeMode.dark;
     
     return ValueListenableBuilder<ThemeMode>(
       valueListenable: themeNotifier,
@@ -42,8 +41,8 @@ class AppNavBar extends StatelessWidget {
                         fontSize: 24,
                         fontWeight: FontWeight.bold,
                         color: isDark 
-                            ? AppTheme.primaryBlue 
-                            : AppTheme.primaryPurple,
+                            ? AppTheme.primaryPurple  // Purple in dark mode
+                            : AppTheme.primaryBlue,   // Blue in light mode
                       ),
                     ),
                   ],
@@ -61,8 +60,8 @@ class AppNavBar extends StatelessWidget {
                       icon: Icon(
                         Icons.menu, 
                         color: isDark 
-                            ? AppTheme.primaryBlue 
-                            : AppTheme.primaryPurple,
+                            ? AppTheme.primaryPurple  // Purple in dark mode
+                            : AppTheme.primaryBlue,   // Blue in light mode
                       ),
                       onPressed: () {
                         _showMobileMenu(context);
@@ -81,8 +80,8 @@ class AppNavBar extends StatelessWidget {
                                 style: TextButton.styleFrom(
                                   foregroundColor: currentRoute == item['route']
                                       ? (isDark 
-                                          ? AppTheme.primaryBlue 
-                                          : AppTheme.primaryPurple)
+                                          ? AppTheme.primaryPurple  // Purple in dark mode
+                                          : AppTheme.primaryBlue)   // Blue in light mode
                                       : (isDark 
                                           ? AppTheme.textLight 
                                           : AppTheme.textDark),
@@ -141,7 +140,7 @@ class AppNavBar extends StatelessWidget {
                       ),
                       Switch(
                         value: isDarkMode,
-                        activeColor: AppTheme.primaryBlue,
+                        activeColor: AppTheme.primaryPurple,
                         onChanged: (value) {
                           themeNotifier.value = value ? ThemeMode.dark : ThemeMode.light;
                           // Rebuild the sheet with new theme
@@ -160,8 +159,8 @@ class AppNavBar extends StatelessWidget {
                           style: TextStyle(
                             color: currentRoute == item['route']
                                 ? (isDarkMode 
-                                    ? AppTheme.primaryBlue 
-                                    : AppTheme.primaryPurple)
+                                    ? AppTheme.primaryPurple  // Purple in dark mode
+                                    : AppTheme.primaryBlue)   // Blue in light mode
                                 : (isDarkMode 
                                     ? AppTheme.textLight 
                                     : AppTheme.textDark),

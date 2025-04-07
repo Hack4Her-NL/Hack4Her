@@ -4,9 +4,11 @@ class AppTheme {
   // Primary gradient colors
   static const Color primaryPurple = Color(0xFF8A54E1);
   static const Color primaryBlue = Color(0xFF4485EB);
+  static const Color lightBlue = Color(0xFF64B5F6);  // Light blue for light mode
   
   // Dark mode colors
   static const Color darkPurple = Color(0xFF5E35B1);
+  static const Color deeperPurple = Color(0xFF4527A0);  // Deeper purple for dark mode
   static const Color darkBackground = Color(0xFF121212);
   static const Color darkSurface = Color(0xFF1E1E1E);
   
@@ -36,26 +38,26 @@ class AppTheme {
     ),
   );
 
-  // Gradient background decoration
+  // Light mode gradient background decoration - Light blue theme
   static const BoxDecoration gradientBackground = BoxDecoration(
     gradient: LinearGradient(
       begin: Alignment.topLeft,
       end: Alignment.bottomRight,
       colors: [
-        primaryPurple,
         primaryBlue,
+        lightBlue,
       ],
     ),
   );
   
-  // Dark mode gradient background decoration
+  // Dark mode gradient background decoration - Dark purple theme
   static const BoxDecoration darkGradientBackground = BoxDecoration(
     gradient: LinearGradient(
       begin: Alignment.topLeft,
       end: Alignment.bottomRight,
       colors: [
         darkPurple,
-        Color(0xFF303F9F), // Darker blue
+        deeperPurple,
       ],
     ),
   );
@@ -129,9 +131,9 @@ class AppTheme {
   static ThemeData getLightTheme() {
     return ThemeData(
       colorScheme: ColorScheme.fromSeed(
-        seedColor: primaryPurple,
-        primary: primaryPurple,
-        secondary: primaryBlue,
+        seedColor: primaryBlue,  // Use blue as seed color for light theme
+        primary: primaryBlue,
+        secondary: lightBlue,
         brightness: Brightness.light,
       ),
       useMaterial3: true,
@@ -142,19 +144,19 @@ class AppTheme {
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
-          backgroundColor: primaryPurple,
+          backgroundColor: primaryBlue,
           foregroundColor: Colors.white,
         ),
       ),
       outlinedButtonTheme: OutlinedButtonThemeData(
         style: OutlinedButton.styleFrom(
-          foregroundColor: primaryPurple,
-          side: const BorderSide(color: primaryPurple),
+          foregroundColor: primaryBlue,
+          side: const BorderSide(color: primaryBlue),
         ),
       ),
       textButtonTheme: TextButtonThemeData(
         style: TextButton.styleFrom(
-          foregroundColor: primaryPurple,
+          foregroundColor: primaryBlue,
         ),
       ),
     );
@@ -166,7 +168,7 @@ class AppTheme {
       colorScheme: ColorScheme.fromSeed(
         seedColor: darkPurple,
         primary: darkPurple,
-        secondary: primaryBlue,
+        secondary: primaryPurple,
         brightness: Brightness.dark,
         background: darkBackground,
         surface: darkSurface,
@@ -185,13 +187,13 @@ class AppTheme {
       ),
       outlinedButtonTheme: OutlinedButtonThemeData(
         style: OutlinedButton.styleFrom(
-          foregroundColor: primaryBlue,
-          side: const BorderSide(color: primaryBlue),
+          foregroundColor: primaryPurple,
+          side: const BorderSide(color: primaryPurple),
         ),
       ),
       textButtonTheme: TextButtonThemeData(
         style: TextButton.styleFrom(
-          foregroundColor: primaryBlue,
+          foregroundColor: primaryPurple,
         ),
       ),
       cardColor: darkSurface,
