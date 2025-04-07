@@ -6,8 +6,7 @@
 	"scripts": {
 		"preview": "wrangler pages dev build/web",
 		"deploy": "wrangler pages deploy build/web",
-		"dev": "vite dev",
-		"build": "vite build"
+		"build": "flutter build web"
 	},
 	"devDependencies": {
 		"@cloudflare/workers-types": "^4.20250403.0",
