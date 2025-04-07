@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import '../constants/app_theme.dart';
+import '../main.dart'; // Import for themeNotifier
 import 'app_nav_bar.dart';
 import 'app_footer.dart';
 
@@ -32,7 +34,7 @@ class PageLayout extends StatelessWidget {
               child: Column(
                 children: [
                   // Optional gradient header section
-                  if (showGradientHeader) _buildHeader(),
+                  if (showGradientHeader) _buildHeader(context),
 
                   // Main page content
                   child,
@@ -48,36 +50,36 @@ class PageLayout extends StatelessWidget {
     );
   }
 
-  Widget _buildHeader() {
-    return Container(
-      width: double.infinity,
-      padding: const EdgeInsets.symmetric(vertical: 60, horizontal: 24),
-      decoration: const BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors: [
-            Color(0xFF8A54E1), // Purple
-            Color(0xFF4485EB), // Blue
-          ],
-        ),
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          if (headerTitle != null)
-            Text(
-              headerTitle!,
-              style: const TextStyle(
-                fontSize: 48,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-              ),
-              textAlign: TextAlign.center,
-            ),
-          if (headerContent != null) headerContent!,
-        ],
-      ),
+  Widget _buildHeader(BuildContext context) {
+    return ValueListenableBuilder<ThemeMode>(
+      valueListenable: themeNotifier,
+      builder: (context, themeMode, _) {
+        final isDark = themeMode == ThemeMode.dark;
+        
+        return Container(
+          width: double.infinity,
+          padding: const EdgeInsets.symmetric(vertical: 60, horizontal: 24),
+          decoration: isDark
+              ? AppTheme.darkGradientBackground 
+              : AppTheme.gradientBackground,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              if (headerTitle != null)
+                Text(
+                  headerTitle!,
+                  style: const TextStyle(
+                    fontSize: 48,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              if (headerContent != null) headerContent!,
+            ],
+          ),
+        );
+      }
     );
   }
 }

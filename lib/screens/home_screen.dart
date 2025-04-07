@@ -216,25 +216,29 @@ class HomeScreen extends StatelessWidget {
     final bool isMobile = screenSize.width < AppTheme.mobileBreakpoint;
     final double imageHeight = isMobile ? 150 : 200;
 
+    // List of face images to use
+    final List<String> faceImages = [
+      'assets/images/face0.png',
+      'assets/images/face1.jpg',
+      'assets/images/face2.jpg',
+      'assets/images/face3.jpg',
+      'assets/images/face4.jpg',
+    ];
+
     return SizedBox(
       height: imageHeight,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
-        itemCount: 5,
+        itemCount: faceImages.length,
         itemBuilder: (context, index) {
           return Container(
             width: imageHeight * 1.5,
             margin: const EdgeInsets.symmetric(horizontal: 10),
             decoration: BoxDecoration(
-              color: AppTheme.primaryPurple.withOpacity(0.1),
               borderRadius: BorderRadius.circular(10),
-            ),
-            child: Center(
-              child: Text(
-                'Event Image ${index + 1}',
-                style: const TextStyle(
-                  color: AppTheme.primaryPurple,
-                ),
+              image: DecorationImage(
+                image: AssetImage(faceImages[index]),
+                fit: BoxFit.cover,
               ),
             ),
           );
@@ -247,27 +251,34 @@ class HomeScreen extends StatelessWidget {
     final bool isMobile = screenSize.width < AppTheme.mobileBreakpoint;
     final int crossAxisCount = isMobile ? 2 : 4;
 
+    // List of company images to use (use them multiple times since we have 8 slots)
+    final List<String> companyImages = [
+      'assets/images/company0.png',
+      'assets/images/company1.png',
+      'assets/images/company2.png',
+      'assets/images/company3.png',
+      'assets/images/company0.png',
+      'assets/images/company1.png',
+      'assets/images/company2.png',
+      'assets/images/company3.png',
+    ];
+
     return Wrap(
       spacing: 20,
       runSpacing: 20,
       alignment: WrapAlignment.center,
       children: List.generate(
-        8,
+        companyImages.length,
         (index) => Container(
           width: 150,
           height: 80,
           decoration: BoxDecoration(
-            color: Colors.grey.withOpacity(0.1),
+            color: Colors.white,
             borderRadius: BorderRadius.circular(10),
             border: Border.all(color: Colors.grey.withOpacity(0.3)),
-          ),
-          child: Center(
-            child: Text(
-              'Sponsor ${index + 1}',
-              style: const TextStyle(
-                color: Colors.grey,
-                fontWeight: FontWeight.bold,
-              ),
+            image: DecorationImage(
+              image: AssetImage(companyImages[index]),
+              fit: BoxFit.contain,
             ),
           ),
         ),

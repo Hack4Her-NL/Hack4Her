@@ -89,22 +89,40 @@
   </div>
 
   <script>
-    window.addEventListener('load', function (ev) {
-      // Hide loading indicator when app is ready
-      var loading = document.querySelector('#loading');
-
+    // Manually initialize shared_preferences for web
+    window.localStorage.setItem('flutter.theme_mode', window.localStorage.getItem('flutter.theme_mode') || 'light');
+    
+    window.addEventListener('load', function(ev) {
       // Download main.dart.js
-      _flutter.loader.load({
-        serviceWorker: {
-          serviceWorkerVersion: serviceWorkerVersion,
-        },
-        onEntrypointLoaded: function (engineInitializer) {
-          engineInitializer.initializeEngine().then(function (appRunner) {
-            loading.style.display = 'none';
-            appRunner.runApp();
-          });
-        }
+      _flutter = {};
+      var loading = document.querySelector('#loading');
+      
+      // This is preventing a race condition when the page is loaded before the Flutter initialization.
+      window.addEventListener('flutter-first-frame', function() {
+        loading.style.display = 'none';
       });
+      
+      var scriptLoaded = false;
+      function loadMainDartJs() {
+        if (scriptLoaded) {
+          return;
+        }
+        scriptLoaded = true;
+        var scriptTag = document.createElement('script');
+        scriptTag.src = 'main.dart.js';
+        scriptTag.type = 'application/javascript';
+        document.body.append(scriptTag);
+      }
+
+      if ('serviceWorker' in navigator) {
+        // Service workers are supported. Use them.
+        window.addEventListener('load', function () {
+          navigator.serviceWorker.register('./flutter_service_worker.js?v=' + serviceWorkerVersion);
+        });
+      }
+      
+      // Attempt to load dart right away
+      loadMainDartJs();
     });
   </script>
 </body>

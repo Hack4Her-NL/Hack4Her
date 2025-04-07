@@ -80,13 +80,13 @@ class AboutScreen extends StatelessWidget {
             _TeamMemberCard(
               name: 'Jane Doe',
               role: 'Director',
-              imageUrl: null,
+              assetImagePath: 'assets/images/face0.png',
               linkedInUrl: 'https://linkedin.com',
             ),
             _TeamMemberCard(
               name: 'John Smith',
               role: 'Technical Lead',
-              imageUrl: null,
+              assetImagePath: 'assets/images/face1.jpg',
               linkedInUrl: 'https://linkedin.com',
             ),
           ],
@@ -116,89 +116,105 @@ class AboutScreen extends StatelessWidget {
         const SizedBox(height: 30),
         
         // Regular team members (compact cards)
-        Wrap(
+        const Wrap(
           spacing: 15,
           runSpacing: 15,
           alignment: WrapAlignment.center,
-          children: const [
+          children: [
             _CompactTeamMemberCard(
               name: 'Alice Johnson',
               role: 'Marketing',
+              assetImagePath: 'assets/images/face2.jpg',
               linkedInUrl: 'https://linkedin.com',
             ),
             _CompactTeamMemberCard(
               name: 'Bob Williams',
               role: 'Design Lead',
+              assetImagePath: 'assets/images/face3.jpg',
               linkedInUrl: 'https://linkedin.com',
             ),
             _CompactTeamMemberCard(
               name: 'Carol Brown',
               role: 'Operations',
+              assetImagePath: 'assets/images/face4.jpg',
               linkedInUrl: 'https://linkedin.com',
             ),
             _CompactTeamMemberCard(
               name: 'David Lee',
               role: 'Sponsorship',
+              assetImagePath: 'assets/images/face5.jpg',
               linkedInUrl: 'https://linkedin.com',
             ),
             _CompactTeamMemberCard(
               name: 'Emma Wilson',
               role: 'Developer',
+              assetImagePath: 'assets/images/face6.jpg',
               linkedInUrl: 'https://linkedin.com',
             ),
             _CompactTeamMemberCard(
               name: 'Frank Taylor',
               role: 'UX Designer',
+              assetImagePath: 'assets/images/face7.jpg',
               linkedInUrl: 'https://linkedin.com',
             ),
             _CompactTeamMemberCard(
               name: 'Grace Kim',
               role: 'Project Manager',
+              assetImagePath: 'assets/images/face8.jpg',
               linkedInUrl: 'https://linkedin.com',
             ),
             _CompactTeamMemberCard(
               name: 'Henry Chen',
               role: 'Developer',
+              assetImagePath: 'assets/images/face9.jpg',
               linkedInUrl: 'https://linkedin.com',
             ),
             _CompactTeamMemberCard(
               name: 'Irene Lopez',
               role: 'Marketing',
+              assetImagePath: 'assets/images/face10.jpg',
               linkedInUrl: 'https://linkedin.com',
             ),
             _CompactTeamMemberCard(
               name: 'Jack Brown',
               role: 'Content Writer',
+              assetImagePath: 'assets/images/face0.png',
               linkedInUrl: 'https://linkedin.com',
             ),
             _CompactTeamMemberCard(
               name: 'Katie Smith',
               role: 'UI Designer',
+              assetImagePath: 'assets/images/face1.jpg',
               linkedInUrl: 'https://linkedin.com',
             ),
             _CompactTeamMemberCard(
               name: 'Leo Wang',
               role: 'Backend Dev',
+              assetImagePath: 'assets/images/face2.jpg',
               linkedInUrl: 'https://linkedin.com',
             ),
             _CompactTeamMemberCard(
               name: 'Mia Johnson',
               role: 'Community Manager',
+              assetImagePath: 'assets/images/face3.jpg',
               linkedInUrl: 'https://linkedin.com',
             ),
             _CompactTeamMemberCard(
               name: 'Nathan Park',
               role: 'Designer',
+              assetImagePath: 'assets/images/face4.jpg',
               linkedInUrl: 'https://linkedin.com',
             ),
             _CompactTeamMemberCard(
               name: 'Olivia King',
               role: 'Social Media',
+              assetImagePath: 'assets/images/face5.jpg',
               linkedInUrl: 'https://linkedin.com',
             ),
             _CompactTeamMemberCard(
               name: 'Paul Rodriguez',
               role: 'Volunteer Coord',
+              assetImagePath: 'assets/images/face6.jpg',
               linkedInUrl: 'https://linkedin.com',
             ),
           ],
@@ -211,13 +227,13 @@ class AboutScreen extends StatelessWidget {
 class _TeamMemberCard extends StatelessWidget {
   final String name;
   final String role;
-  final String? imageUrl;
+  final String? assetImagePath;
   final String linkedInUrl;
 
   const _TeamMemberCard({
     required this.name,
     required this.role,
-    this.imageUrl,
+    this.assetImagePath,
     required this.linkedInUrl,
   });
 
@@ -242,14 +258,14 @@ class _TeamMemberCard extends StatelessWidget {
               decoration: BoxDecoration(
                 color: Colors.white.withOpacity(0.3),
                 shape: BoxShape.circle,
-                image: imageUrl != null
+                image: assetImagePath != null
                     ? DecorationImage(
-                        image: NetworkImage(imageUrl!),
+                        image: AssetImage(assetImagePath!),
                         fit: BoxFit.cover,
                       )
                     : null,
               ),
-              child: imageUrl == null
+              child: assetImagePath == null
                   ? const Icon(
                       Icons.person,
                       size: 60,
@@ -318,15 +334,17 @@ class _TeamMemberCard extends StatelessWidget {
   }
 }
 
-// Add this new compact card class for regular team members
+// Compact card for regular team members
 class _CompactTeamMemberCard extends StatelessWidget {
   final String name;
   final String role;
+  final String? assetImagePath;
   final String linkedInUrl;
 
   const _CompactTeamMemberCard({
     required this.name,
     required this.role,
+    this.assetImagePath,
     required this.linkedInUrl,
   });
 
@@ -349,19 +367,27 @@ class _CompactTeamMemberCard extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                // Profile icon
+                // Profile icon or image
                 Container(
                   width: 50,
                   height: 50,
                   decoration: BoxDecoration(
                     color: Colors.white.withOpacity(0.3),
                     shape: BoxShape.circle,
+                    image: assetImagePath != null
+                        ? DecorationImage(
+                            image: AssetImage(assetImagePath!),
+                            fit: BoxFit.cover,
+                          )
+                        : null,
                   ),
-                  child: const Icon(
-                    Icons.person,
-                    size: 30,
-                    color: Colors.white,
-                  ),
+                  child: assetImagePath == null
+                      ? const Icon(
+                          Icons.person,
+                          size: 30,
+                          color: Colors.white,
+                        )
+                      : null,
                 ),
                 const SizedBox(height: 10),
                 // Name

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../constants/app_theme.dart';
+import '../main.dart'; // Import for themeNotifier
 
 class SectionContainer extends StatelessWidget {
   final String title;
@@ -19,26 +20,39 @@ class SectionContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      decoration: useGradientBackground ? AppTheme.gradientBackground : null,
-      padding: padding,
-      child: Column(
-        crossAxisAlignment: alignment,
-        children: [
-          Text(
-            title,
-            style: TextStyle(
-              fontSize: 32,
-              fontWeight: FontWeight.bold,
-              color: useGradientBackground ? Colors.white : AppTheme.textDark,
-            ),
-            textAlign: TextAlign.center,
+    return ValueListenableBuilder<ThemeMode>(
+      valueListenable: themeNotifier,
+      builder: (context, themeMode, _) {
+        final isDark = themeMode == ThemeMode.dark;
+        
+        return Container(
+          width: double.infinity,
+          decoration: useGradientBackground
+              ? (isDark
+                  ? AppTheme.darkGradientBackground
+                  : AppTheme.gradientBackground)
+              : null,
+          padding: padding,
+          child: Column(
+            crossAxisAlignment: alignment,
+            children: [
+              Text(
+                title,
+                style: TextStyle(
+                  fontSize: 32,
+                  fontWeight: FontWeight.bold,
+                  color: useGradientBackground
+                      ? Colors.white
+                      : (isDark ? Colors.white : AppTheme.textDark),
+                ),
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: 30),
+              child,
+            ],
           ),
-          const SizedBox(height: 30),
-          child,
-        ],
-      ),
+        );
+      },
     );
   }
 }

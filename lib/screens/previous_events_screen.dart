@@ -381,24 +381,27 @@ class _TimelineEvent extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: stats
                         .map(
-                          (stat) => Column(
-                            children: [
-                              Text(
-                                stat['value']!,
-                                style: const TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white,
+                          (stat) => Flexible(
+                            child: Column(
+                              children: [
+                                Text(
+                                  stat['value']!,
+                                  style: const TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white,
+                                  ),
                                 ),
-                              ),
-                              Text(
-                                stat['label']!,
-                                style: const TextStyle(
-                                  fontSize: 12,
-                                  color: Colors.white70,
+                                Text(
+                                  stat['label']!,
+                                  style: const TextStyle(
+                                    fontSize: 12,
+                                    color: Colors.white70,
+                                  ),
+                                  overflow: TextOverflow.ellipsis,
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
                         )
                         .toList(),
@@ -448,26 +451,29 @@ class _TimelineEvent extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: stats
                           .map(
-                            (stat) => Container(
-                              margin: const EdgeInsets.only(left: 20),
-                              child: Column(
-                                children: [
-                                  Text(
-                                    stat['value']!,
-                                    style: const TextStyle(
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white,
+                            (stat) => Flexible(
+                              child: Container(
+                                margin: const EdgeInsets.only(left: 20),
+                                child: Column(
+                                  children: [
+                                    Text(
+                                      stat['value']!,
+                                      style: const TextStyle(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      ),
                                     ),
-                                  ),
-                                  Text(
-                                    stat['label']!,
-                                    style: const TextStyle(
-                                      fontSize: 14,
-                                      color: Colors.white70,
+                                    Text(
+                                      stat['label']!,
+                                      style: const TextStyle(
+                                        fontSize: 14,
+                                        color: Colors.white70,
+                                      ),
+                                      overflow: TextOverflow.ellipsis,
                                     ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
                             ),
                           )
@@ -529,26 +535,29 @@ class _TimelineEvent extends StatelessWidget {
                     Row(
                       children: stats
                           .map(
-                            (stat) => Container(
-                              margin: const EdgeInsets.only(right: 20),
-                              child: Column(
-                                children: [
-                                  Text(
-                                    stat['value']!,
-                                    style: const TextStyle(
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white,
+                            (stat) => Flexible(
+                              child: Container(
+                                margin: const EdgeInsets.only(right: 20),
+                                child: Column(
+                                  children: [
+                                    Text(
+                                      stat['value']!,
+                                      style: const TextStyle(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      ),
                                     ),
-                                  ),
-                                  Text(
-                                    stat['label']!,
-                                    style: const TextStyle(
-                                      fontSize: 14,
-                                      color: Colors.white70,
+                                    Text(
+                                      stat['label']!,
+                                      style: const TextStyle(
+                                        fontSize: 14,
+                                        color: Colors.white70,
+                                      ),
+                                      overflow: TextOverflow.ellipsis,
                                     ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
                             ),
                           )
@@ -677,12 +686,15 @@ class _ProjectCard extends StatelessWidget {
                     children: [
                       Icon(Icons.people, size: 16, color: Colors.grey[700]),
                       const SizedBox(width: 5),
-                      Text(
-                        team,
-                        style: TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.grey[700],
+                      Flexible(
+                        child: Text(
+                          team,
+                          style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.grey[700],
+                          ),
+                          overflow: TextOverflow.ellipsis,
                         ),
                       ),
                     ],
@@ -692,12 +704,15 @@ class _ProjectCard extends StatelessWidget {
                     children: [
                       const Icon(Icons.emoji_events, size: 16, color: Colors.amber),
                       const SizedBox(width: 5),
-                      Text(
-                        award,
-                        style: const TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.amber,
+                      Flexible(
+                        child: Text(
+                          award,
+                          style: const TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.amber,
+                          ),
+                          overflow: TextOverflow.ellipsis,
                         ),
                       ),
                     ],
