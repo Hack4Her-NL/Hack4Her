@@ -147,7 +147,6 @@ class PreviousEventsScreen extends StatelessWidget {
 
   Widget _buildTimeline(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
-    final isMobile = screenWidth < AppTheme.mobileBreakpoint;
 
     return Container(
       width: double.infinity,
@@ -224,8 +223,7 @@ class PreviousEventsScreen extends StatelessWidget {
 
   Widget _buildPhotoGallery(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
-    final isMobile = screenWidth < AppTheme.mobileBreakpoint;
-    final double imageHeight = isMobile ? 150 : 250;
+    final double imageHeight = screenWidth < AppTheme.mobileBreakpoint ? 150 : 250;
 
     return Column(
       children: [
@@ -325,10 +323,9 @@ class _TimelineEvent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
-    final isMobile = screenWidth < AppTheme.mobileBreakpoint;
 
     // On mobile, always use vertical layout
-    if (isMobile) {
+    if (screenWidth < AppTheme.mobileBreakpoint) {
       return Container(
         margin: const EdgeInsets.only(bottom: 30),
         child: Row(

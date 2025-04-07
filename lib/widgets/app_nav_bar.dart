@@ -172,8 +172,7 @@ class AppNavBar extends StatelessWidget {
                           Navigator.pushNamed(context, item['route']!);
                         },
                       ),
-                    )
-                    .toList(),
+                    ),
               ],
             ),
           );

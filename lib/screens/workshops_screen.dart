@@ -156,7 +156,6 @@ class WorkshopsScreen extends StatelessWidget {
 
   Widget _buildWorkshopSchedule(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
-    final isMobile = screenWidth < AppTheme.mobileBreakpoint;
 
     return Container(
       width: double.infinity,

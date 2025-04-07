@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
-import '../constants/app_theme.dart';
 import '../utils/routes.dart';
 import '../widgets/page_layout.dart';
 import '../widgets/section_container.dart';
@@ -66,9 +65,6 @@ class AboutScreen extends StatelessWidget {
   }
 
   Widget _buildTeamGrid(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
-    final isMobile = screenWidth < AppTheme.mobileBreakpoint;
-
     return Column(
       children: [
         // Main contributors (full-sized cards)
@@ -103,7 +99,7 @@ class AboutScreen extends StatelessWidget {
               child: Text(
                 'Team Members',
                 style: TextStyle(
-                  color: Colors.white.withOpacity(0.7),
+                  color: Colors.white.withAlpha(179),
                   fontSize: 18,
                   fontWeight: FontWeight.w500,
                 ),

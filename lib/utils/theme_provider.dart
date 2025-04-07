@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../constants/app_theme.dart';
+import 'dart:developer' as developer;
 
 class ThemeProvider extends ChangeNotifier {
   static const String _themePreferenceKey = 'theme_mode';
   
   // Default to light mode
   ThemeMode _themeMode = ThemeMode.light;
-  bool _prefsLoaded = false;
   
   ThemeMode get themeMode => _themeMode;
   
@@ -25,14 +25,12 @@ class ThemeProvider extends ChangeNotifier {
       
       if (savedThemeMode != null) {
         _themeMode = savedThemeMode == 'dark' ? ThemeMode.dark : ThemeMode.light;
-        _prefsLoaded = true;
         notifyListeners();
       }
     } catch (e) {
       // If there's an error (like in web sometimes), default to light mode
       _themeMode = ThemeMode.light;
-      _prefsLoaded = false;
-      print('Error loading theme preference: $e');
+      developer.log('Error loading theme preference: $e', name: 'ThemeProvider');
     }
   }
   
@@ -41,10 +39,8 @@ class ThemeProvider extends ChangeNotifier {
     try {
       final prefs = await SharedPreferences.getInstance();
       await prefs.setString(_themePreferenceKey, mode == ThemeMode.dark ? 'dark' : 'light');
-      _prefsLoaded = true;
     } catch (e) {
-      _prefsLoaded = false;
-      print('Error saving theme preference: $e');
+      developer.log('Error saving theme preference: $e', name: 'ThemeProvider');
     }
   }
   

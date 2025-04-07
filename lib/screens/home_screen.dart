@@ -268,7 +268,6 @@ class HomeScreen extends StatelessWidget {
 
   Widget _buildSponsorsGrid(Size screenSize) {
     final bool isMobile = screenSize.width < AppTheme.mobileBreakpoint;
-    final int crossAxisCount = isMobile ? 2 : 4;
 
     // List of company images to use (use them multiple times since we have 8 slots)
     final List<String> companyImages = [
@@ -294,7 +293,7 @@ class HomeScreen extends StatelessWidget {
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(10),
-            border: Border.all(color: Colors.grey.withOpacity(0.3)),
+            border: Border.all(color: Colors.grey.withAlpha(77)),
             image: DecorationImage(
               image: AssetImage(companyImages[index]),
               fit: BoxFit.contain,
@@ -323,7 +322,7 @@ class _HighlightCard extends StatelessWidget {
       width: 250,
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.2),
+        color: Colors.white.withAlpha(51),
         borderRadius: BorderRadius.circular(10),
       ),
       child: Column(
