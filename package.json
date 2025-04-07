@@ -5,7 +5,12 @@
 	"type": "module",
 	"scripts": {
 		"preview": "wrangler pages dev build/web",
-		"deploy": "wrangler pages deploy build/web"
+		"deploy": "wrangler pages deploy build/web",
+		"dev": "vite dev",
+		"build": "vite build",
+		"format": "prettier --write .",
+		"lint": "prettier --check . && eslint .",
+		"cf-typegen": "wrangler types && mv worker-configuration.d.ts src/"
 	},
 	"devDependencies": {
 		"@cloudflare/workers-types": "^4.20250403.0",
