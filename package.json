@@ -11,6 +11,7 @@
 	"devDependencies": {
 		"@cloudflare/workers-types": "^4.20250403.0",
 		"wrangler": "^4.7.0",
-		"vite": "^6.0.0"
+		"flutter": "^3.0.0",
+		"dart": "^3.0.0"
 	}
 }
