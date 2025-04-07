@@ -30,7 +30,7 @@ class AppTheme {
   );
 
   static final ButtonStyle secondaryButtonStyle = ElevatedButton.styleFrom(
-    backgroundColor: Colors.white.withOpacity(0.2),
+    backgroundColor: Colors.white.withAlpha(51),
     foregroundColor: Colors.white,
     padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 15),
     shape: RoundedRectangleBorder(
@@ -92,7 +92,7 @@ class AppTheme {
     borderRadius: BorderRadius.circular(12),
     boxShadow: [
       BoxShadow(
-        color: Colors.black.withOpacity(0.1),
+        color: Colors.black.withAlpha(26),
         blurRadius: 10,
         offset: const Offset(0, 4),
       ),
@@ -105,7 +105,7 @@ class AppTheme {
     borderRadius: BorderRadius.circular(12),
     boxShadow: [
       BoxShadow(
-        color: Colors.black.withOpacity(0.2),
+        color: Colors.black.withAlpha(51),
         blurRadius: 10,
         offset: const Offset(0, 4),
       ),
@@ -170,7 +170,7 @@ class AppTheme {
         primary: darkPurple,
         secondary: primaryPurple,
         brightness: Brightness.dark,
-        background: darkBackground,
+        surfaceContainerLow: darkBackground,
         surface: darkSurface,
       ),
       useMaterial3: true,

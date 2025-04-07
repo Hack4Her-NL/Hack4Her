@@ -8,8 +8,9 @@
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
   <meta name="description" content="Hack4Her - A hackathon dedicated to empowering women in technology">
 
-  <!-- iOS meta tags & icons -->
+  <!-- iOS and Android meta tags -->
   <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <meta name="apple-mobile-web-app-title" content="Hack4Her">
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
@@ -29,10 +30,8 @@
 
   <script>
     // The value below is injected by flutter build, do not touch.
-    const serviceWorkerVersion = "{{flutter_service_worker_version}}";
+    var serviceWorkerVersion = null;
   </script>
-  <!-- This script adds the flutter initialization JS code -->
-  <script src="flutter.js" defer></script>
 
   <!-- Custom styles for loader/splash screen -->
   <style>
@@ -88,41 +87,19 @@
     <div class="spinner"></div>
   </div>
 
+  <script src="main.dart.js" type="application/javascript"></script>
+  
   <script>
     // Manually initialize shared_preferences for web
     window.localStorage.setItem('flutter.theme_mode', window.localStorage.getItem('flutter.theme_mode') || 'light');
     
-    window.addEventListener('load', function(ev) {
-      // Download main.dart.js
-      _flutter = {};
+    window.addEventListener('load', function() {
       var loading = document.querySelector('#loading');
       
-      // This is preventing a race condition when the page is loaded before the Flutter initialization.
+      // Wait for flutter-first-frame event to hide loading indicator
       window.addEventListener('flutter-first-frame', function() {
         loading.style.display = 'none';
       });
-      
-      var scriptLoaded = false;
-      function loadMainDartJs() {
-        if (scriptLoaded) {
-          return;
-        }
-        scriptLoaded = true;
-        var scriptTag = document.createElement('script');
-        scriptTag.src = 'main.dart.js';
-        scriptTag.type = 'application/javascript';
-        document.body.append(scriptTag);
-      }
-
-      if ('serviceWorker' in navigator) {
-        // Service workers are supported. Use them.
-        window.addEventListener('load', function () {
-          navigator.serviceWorker.register('./flutter_service_worker.js?v=' + serviceWorkerVersion);
-        });
-      }
-      
-      // Attempt to load dart right away
-      loadMainDartJs();
     });
   </script>
 </body>
