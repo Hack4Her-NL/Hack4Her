@@ -3,6 +3,7 @@ import '../constants/app_theme.dart';
 import '../utils/routes.dart';
 import '../widgets/page_layout.dart';
 import '../widgets/section_container.dart';
+import '../main.dart'; // Import for themeNotifier
 
 class WorkshopsScreen extends StatelessWidget {
   const WorkshopsScreen({super.key});
@@ -78,76 +79,85 @@ class WorkshopsScreen extends StatelessWidget {
           ),
 
           // Workshop registration
-          Container(
-            width: double.infinity,
-            padding: const EdgeInsets.symmetric(vertical: 60, horizontal: 20),
-            decoration: AppTheme.gradientBackground,
-            child: Column(
-              children: [
-                const Text(
-                  'How to Register for Workshops',
-                  style: TextStyle(
-                    fontSize: 28,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                  ),
-                  textAlign: TextAlign.center,
+          ValueListenableBuilder<ThemeMode>(
+            valueListenable: themeNotifier,
+            builder: (context, themeMode, _) {
+              final isDark = themeMode == ThemeMode.dark;
+              
+              return Container(
+                width: double.infinity,
+                padding: const EdgeInsets.symmetric(vertical: 60, horizontal: 20),
+                decoration: isDark
+                    ? AppTheme.darkGradientBackground
+                    : AppTheme.gradientBackground,
+                child: Column(
+                  children: [
+                    const Text(
+                      'How to Register for Workshops',
+                      style: TextStyle(
+                        fontSize: 28,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                    const SizedBox(height: 20),
+                    const Text(
+                      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: Colors.white,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                    const SizedBox(height: 30),
+                    Container(
+                      width: double.infinity,
+                      margin: const EdgeInsets.symmetric(horizontal: 20),
+                      padding: const EdgeInsets.all(20),
+                      decoration: BoxDecoration(
+                        color: Colors.white.withAlpha(51), // Fix deprecated withOpacity
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Text(
+                            'Workshop Registration Process:',
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            ),
+                          ),
+                          const SizedBox(height: 10),
+                          _buildStep(
+                            '1',
+                            'Register for Hack4Her',
+                            'You must be a registered participant to attend workshops.',
+                          ),
+                          _buildStep(
+                            '2',
+                            'Browse Available Workshops',
+                            'Check out the workshop schedule and select the ones you\'re interested in.',
+                          ),
+                          _buildStep(
+                            '3',
+                            'Sign Up for Workshops',
+                            'Use our workshop registration system to secure your spot.',
+                          ),
+                          _buildStep(
+                            '4',
+                            'Receive Confirmation',
+                            'You\'ll receive a confirmation email with workshop details.',
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
                 ),
-                const SizedBox(height: 20),
-                const Text(
-                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-                  style: TextStyle(
-                    fontSize: 16,
-                    color: Colors.white,
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-                const SizedBox(height: 30),
-                Container(
-                  width: double.infinity,
-                  margin: const EdgeInsets.symmetric(horizontal: 20),
-                  padding: const EdgeInsets.all(20),
-                  decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.2),
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Text(
-                        'Workshop Registration Process:',
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
-                      ),
-                      const SizedBox(height: 10),
-                      _buildStep(
-                        '1',
-                        'Register for Hack4Her',
-                        'You must be a registered participant to attend workshops.',
-                      ),
-                      _buildStep(
-                        '2',
-                        'Browse Available Workshops',
-                        'Check out the workshop schedule and select the ones you\'re interested in.',
-                      ),
-                      _buildStep(
-                        '3',
-                        'Sign Up for Workshops',
-                        'Use our workshop registration system to secure your spot.',
-                      ),
-                      _buildStep(
-                        '4',
-                        'Receive Confirmation',
-                        'You\'ll receive a confirmation email with workshop details.',
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
+              );
+            },
           ),
         ],
       ),
@@ -211,26 +221,37 @@ class WorkshopsScreen extends StatelessWidget {
   }
 
   Widget _buildDayTab(String text, {bool isSelected = false}) {
-    return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 5),
-      child: ElevatedButton(
-        onPressed: () {},
-        style: ElevatedButton.styleFrom(
-          backgroundColor: isSelected ? Colors.white : Colors.white.withOpacity(0.2),
-          foregroundColor: isSelected ? AppTheme.primaryPurple : Colors.white,
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20),
+    return ValueListenableBuilder<ThemeMode>(
+      valueListenable: themeNotifier,
+      builder: (context, themeMode, _) {
+        final isDark = themeMode == ThemeMode.dark;
+        
+        return Container(
+          margin: const EdgeInsets.symmetric(horizontal: 5),
+          child: ElevatedButton(
+            onPressed: () {},
+            style: ElevatedButton.styleFrom(
+              backgroundColor: isSelected 
+                  ? Colors.white 
+                  : Colors.white.withAlpha(51), // 0.2 * 255 = 51
+              foregroundColor: isSelected 
+                  ? (isDark ? AppTheme.darkPurple : AppTheme.primaryPurple)
+                  : Colors.white,
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20),
+              ),
+            ),
+            child: Text(
+              text,
+              style: const TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
           ),
-        ),
-        child: Text(
-          text,
-          style: const TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-      ),
+        );
+      },
     );
   }
 
@@ -247,40 +268,56 @@ class WorkshopsScreen extends StatelessWidget {
       workshopCount = '4';
     }
 
-    return Container(
-      width: 150,
-      height: 150,
-      decoration: BoxDecoration(
-        color: Colors.grey.withOpacity(0.1),
-        borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: Colors.grey.withOpacity(0.3)),
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Icon(
-            icon,
-            size: 50,
-            color: AppTheme.primaryPurple,
-          ),
-          const SizedBox(height: 10),
-          Text(
-            title,
-            style: const TextStyle(
-              fontSize: 18,
-              fontWeight: FontWeight.bold,
+    return ValueListenableBuilder<ThemeMode>(
+      valueListenable: themeNotifier,
+      builder: (context, themeMode, _) {
+        final isDark = themeMode == ThemeMode.dark;
+        
+        return Container(
+          width: 150,
+          height: 150,
+          decoration: BoxDecoration(
+            color: isDark
+                ? AppTheme.darkSurface.withAlpha(128) // Semi-transparent in dark mode
+                : Colors.grey.withAlpha(26), // 0.1 * 255 = 25.5
+            borderRadius: BorderRadius.circular(12),
+            border: Border.all(
+                color: isDark
+                    ? Colors.grey.withAlpha(77) // 0.3 * 255 = 76.5
+                    : Colors.grey.withAlpha(77)
             ),
           ),
-          const SizedBox(height: 5),
-          Text(
-            '$workshopCount Workshops',
-            style: TextStyle(
-              fontSize: 14,
-              color: Colors.grey[700],
-            ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(
+                icon,
+                size: 50,
+                color: isDark
+                    ? AppTheme.primaryPurple
+                    : AppTheme.primaryBlue,
+              ),
+              const SizedBox(height: 10),
+              Text(
+                title,
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                  color: isDark ? Colors.white : AppTheme.textDark,
+                ),
+              ),
+              const SizedBox(height: 5),
+              Text(
+                '$workshopCount Workshops',
+                style: TextStyle(
+                  fontSize: 14,
+                  color: isDark ? Colors.grey[400] : Colors.grey[700],
+                ),
+              ),
+            ],
           ),
-        ],
-      ),
+        );
+      },
     );
   }
 
@@ -354,91 +391,90 @@ class _WorkshopItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      margin: const EdgeInsets.only(bottom: 15),
-      padding: const EdgeInsets.all(20),
-      decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.2),
-        borderRadius: BorderRadius.circular(12),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    return ValueListenableBuilder<ThemeMode>(
+      valueListenable: themeNotifier,
+      builder: (context, themeMode, _) {
+        final isDark = themeMode == ThemeMode.dark;
+        
+        return Container(
+          width: double.infinity,
+          margin: const EdgeInsets.only(bottom: 15),
+          padding: const EdgeInsets.all(20),
+          decoration: BoxDecoration(
+            color: isDark
+                ? AppTheme.darkSurface.withAlpha(128)
+                : Colors.white.withAlpha(51), // 0.2 * 255 = 51
+            borderRadius: BorderRadius.circular(12),
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Expanded(
-                child: Text(
-                  title,
-                  style: const TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Expanded(
+                    child: Text(
+                      title,
+                      style: const TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                    ),
                   ),
-                ),
-              ),
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(0.3),
-                  borderRadius: BorderRadius.circular(15),
-                ),
-                child: Text(
-                  category,
-                  style: const TextStyle(
-                    fontSize: 12,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
+                  Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                    decoration: BoxDecoration(
+                      color: Colors.white.withAlpha(77), // 0.3 * 255 = 76.5
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    child: Text(
+                      category,
+                      style: const TextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                    ),
                   ),
-                ),
+                ],
+              ),
+              const SizedBox(height: 10),
+              Row(
+                children: [
+                  Text(
+                    'Presenter: $presenter',
+                    style: const TextStyle(
+                      fontSize: 14,
+                      color: Colors.white,
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 5),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    time,
+                    style: const TextStyle(
+                      fontSize: 14,
+                      color: Colors.white,
+                    ),
+                  ),
+                  Text(
+                    location,
+                    style: const TextStyle(
+                      fontSize: 14,
+                      color: Colors.white,
+                    ),
+                  ),
+                ],
               ),
             ],
           ),
-          const SizedBox(height: 10),
-          Row(
-            children: [
-              const Icon(Icons.person, color: Colors.white, size: 16),
-              const SizedBox(width: 5),
-              Text(
-                presenter,
-                style: const TextStyle(
-                  fontSize: 14,
-                  color: Colors.white,
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(height: 5),
-          Row(
-            children: [
-              const Icon(Icons.access_time, color: Colors.white, size: 16),
-              const SizedBox(width: 5),
-              Text(
-                time,
-                style: const TextStyle(
-                  fontSize: 14,
-                  color: Colors.white,
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(height: 5),
-          Row(
-            children: [
-              const Icon(Icons.location_on, color: Colors.white, size: 16),
-              const SizedBox(width: 5),
-              Text(
-                location,
-                style: const TextStyle(
-                  fontSize: 14,
-                  color: Colors.white,
-                ),
-              ),
-            ],
-          ),
-        ],
-      ),
+        );
+      },
     );
   }
 }

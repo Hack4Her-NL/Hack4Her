@@ -56,16 +56,22 @@ class AppNavBar extends StatelessWidget {
                   const ThemeToggle(),
                   
                   if (isMobile)
-                    IconButton(
-                      icon: Icon(
-                        Icons.menu, 
-                        color: isDark 
-                            ? AppTheme.primaryPurple  // Purple in dark mode
-                            : AppTheme.primaryBlue,   // Blue in light mode
+                    Theme(
+                      data: Theme.of(context).copyWith(
+                        splashColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
                       ),
-                      onPressed: () {
-                        _showMobileMenu(context);
-                      },
+                      child: IconButton(
+                        icon: Icon(
+                          Icons.menu, 
+                          color: isDark 
+                              ? AppTheme.primaryPurple  // Purple in dark mode
+                              : AppTheme.primaryBlue,   // Blue in light mode
+                        ),
+                        onPressed: () {
+                          _showMobileMenu(context);
+                        },
+                      ),
                     )
                   else
                     Row(
@@ -112,68 +118,97 @@ class AppNavBar extends StatelessWidget {
     
     showModalBottomSheet(
       context: context,
-      backgroundColor: isDark ? AppTheme.darkSurface : Colors.white,
+      backgroundColor: Colors.transparent,
+      isScrollControlled: true, // Makes it taller to fit all items
       builder: (context) => StatefulBuilder(
         builder: (context, setState) {
-          // Use StatefulBuilder to rebuild when theme changes in the modal
+          // Capture the current theme mode at build time
           final isDarkMode = themeNotifier.value == ThemeMode.dark;
           
-          return Container(
-            padding: const EdgeInsets.symmetric(vertical: 20),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                // Theme toggle in mobile menu
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        'Dark Mode',
-                        style: TextStyle(
-                          color: isDarkMode 
-                              ? AppTheme.textLight 
-                              : AppTheme.textDark,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                      Switch(
-                        value: isDarkMode,
-                        activeColor: AppTheme.primaryPurple,
-                        onChanged: (value) {
-                          themeNotifier.value = value ? ThemeMode.dark : ThemeMode.light;
-                          // Rebuild the sheet with new theme
-                          setState(() {});
-                        },
-                      ),
-                    ],
-                  ),
+          return Material(
+            color: Colors.transparent, // Remove default splash color
+            child: Container(
+              padding: const EdgeInsets.symmetric(vertical: 20),
+              // Set a fixed height to ensure all menu items are visible
+              height: MediaQuery.of(context).size.height * 0.7,
+              decoration: BoxDecoration(
+                color: isDarkMode ? AppTheme.darkSurface : Colors.white,
+                borderRadius: const BorderRadius.only(
+                  topLeft: Radius.circular(20),
+                  topRight: Radius.circular(20),
                 ),
-                const Divider(),
-                ...AppRoutes.navigationItems
-                    .map(
-                      (item) => ListTile(
-                        title: Text(
-                          item['title']!,
-                          style: TextStyle(
-                            color: currentRoute == item['route']
-                                ? (isDarkMode 
-                                    ? AppTheme.primaryPurple  // Purple in dark mode
-                                    : AppTheme.primaryBlue)   // Blue in light mode
-                                : (isDarkMode 
-                                    ? AppTheme.textLight 
-                                    : AppTheme.textDark),
-                            fontWeight: FontWeight.w500,
+              ),
+              // Add animated theme transition
+              child: AnimatedTheme(
+                data: Theme.of(context).copyWith(
+                  splashColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
+                ),
+                duration: const Duration(milliseconds: 300),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    // Theme toggle in mobile menu
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            'Dark Mode',
+                            style: TextStyle(
+                              color: isDarkMode 
+                                  ? AppTheme.textLight 
+                                  : AppTheme.textDark,
+                              fontWeight: FontWeight.w500,
+                            ),
                           ),
-                        ),
-                        onTap: () {
-                          Navigator.pop(context); // Close the menu
-                          Navigator.pushNamed(context, item['route']!);
-                        },
+                          Switch(
+                            value: isDarkMode,
+                            activeColor: AppTheme.primaryPurple,
+                            onChanged: (value) {
+                              themeNotifier.value = value ? ThemeMode.dark : ThemeMode.light;
+                              // Rebuild the sheet with new theme
+                              setState(() {});
+                            },
+                          ),
+                        ],
                       ),
                     ),
-              ],
+                    const Divider(),
+                    Expanded(
+                      child: ListView(
+                        children: AppRoutes.navigationItems
+                            .map(
+                              (item) => ListTile(
+                                title: Text(
+                                  item['title']!,
+                                  style: TextStyle(
+                                    color: currentRoute == item['route']
+                                        ? (isDarkMode 
+                                            ? AppTheme.primaryPurple  // Purple in dark mode
+                                            : AppTheme.primaryBlue)   // Blue in light mode
+                                        : (isDarkMode 
+                                            ? AppTheme.textLight 
+                                            : AppTheme.textDark),
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                                onTap: () {
+                                  Navigator.pop(context); // Close the menu
+                                  Navigator.pushNamed(context, item['route']!);
+                                },
+                                splashColor: Colors.transparent, // Remove splash
+                                hoverColor: Colors.transparent, // Remove hover effect
+                                tileColor: Colors.transparent, // Remove background color
+                              ),
+                            )
+                            .toList(),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             ),
           );
         },
