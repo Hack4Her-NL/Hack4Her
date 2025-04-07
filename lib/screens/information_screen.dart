@@ -80,7 +80,7 @@ class InformationScreen extends StatelessWidget {
                 const Padding(
                   padding: EdgeInsets.symmetric(horizontal: 20),
                   child: Text(
-                    'Our 3rd Annual Hack4Her event is taking place on June 7-9, 2024, at VU Amsterdam. This weekend is dedicated to empowering women in tech through collaboration, innovation, and competition.',
+                    'Our 4th Annual Hack4Her event is taking place on June 13-15, 2025, at VU Amsterdam. This weekend is dedicated to empowering women in tech through collaboration, innovation, and competition.',
                     style: TextStyle(
                       fontSize: 16,
                       color: Colors.white,
@@ -120,10 +120,17 @@ class InformationScreen extends StatelessWidget {
               ],
             ),
           ),
-
-          // Code of conduct section
+          
+          // Schedule Section
           SectionContainer(
-            title: 'Code of Conduct',
+            title: 'Event Schedule',
+            useGradientBackground: true,
+            child: _buildScheduleTabs(),
+          ),
+
+          // Eligibility section
+          SectionContainer(
+            title: 'Eligibility',
             child: Column(
               children: [
                 const Padding(
@@ -214,6 +221,168 @@ class InformationScreen extends StatelessWidget {
       throw Exception('Could not launch $url');
     }
   }
+
+  Widget _buildScheduleTabs() {
+    return DefaultTabController(
+      length: 3,
+      child: Column(
+        children: [
+          Container(
+            margin: const EdgeInsets.symmetric(horizontal: 20),
+            decoration: BoxDecoration(
+              color: Colors.white.withOpacity(0.2),
+              borderRadius: BorderRadius.circular(30),
+            ),
+            child: const TabBar(
+              indicatorSize: TabBarIndicatorSize.tab,
+              indicator: BoxDecoration(
+                color: AppTheme.primaryPurple,
+                borderRadius: BorderRadius.all(Radius.circular(30)),
+              ),
+              indicatorColor: Colors.transparent,
+              labelColor: Colors.white,
+              unselectedLabelColor: Colors.white70,
+              tabs: [
+                Tab(text: 'Friday'),
+                Tab(text: 'Saturday'),
+                Tab(text: 'Sunday'),
+              ],
+            ),
+          ),
+          const SizedBox(height: 20),
+          SizedBox(
+            height: 400, // Set a fixed height for the tab content
+            child: TabBarView(
+              children: [
+                _buildDaySchedule(_fridaySchedule),
+                _buildDaySchedule(_saturdaySchedule),
+                _buildDaySchedule(_sundaySchedule),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildDaySchedule(List<Map<String, String>> schedule) {
+    final ScrollController scrollController = ScrollController();
+    
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.white.withOpacity(0.1),
+        borderRadius: BorderRadius.circular(12),
+      ),
+      margin: const EdgeInsets.symmetric(horizontal: 20),
+      child: Scrollbar(
+        controller: scrollController,
+        thickness: 6,
+        radius: const Radius.circular(3),
+        thumbVisibility: true,
+        child: ListView.builder(
+          controller: scrollController,
+          itemCount: schedule.length,
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+          itemBuilder: (context, index) {
+            final item = schedule[index];
+            return Container(
+              margin: const EdgeInsets.only(bottom: 12),
+              decoration: BoxDecoration(
+                color: Colors.white.withOpacity(0.2),
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(15),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    // Time column
+                    Container(
+                      width: 100,
+                      child: Text(
+                        item['time']!,
+                        style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                          fontSize: 14,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(width: 10),
+                    // Activity column with location
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            item['activity']!,
+                            style: const TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                              fontSize: 16,
+                            ),
+                          ),
+                          if (item['location'] != null && item['location']!.isNotEmpty)
+                            Padding(
+                              padding: const EdgeInsets.only(top: 4),
+                              child: Text(
+                                '(${item['location']})',
+                                style: const TextStyle(
+                                  fontStyle: FontStyle.italic,
+                                  color: Colors.white70,
+                                  fontSize: 14,
+                                ),
+                              ),
+                            ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            );
+          },
+        ),
+      ),
+    );
+  }
+
+  // Schedule data
+  static const List<Map<String, String>> _fridaySchedule = [
+    {'time': '11:30 - 12:00', 'activity': 'Participants Arrive', 'location': ''},
+    {'time': '12:00 - 13:00', 'activity': 'Introduction', 'location': ''},
+    {'time': '13:00 - 14:00', 'activity': 'Lunch', 'location': 'Booking.com grads and mentors join to chat with students over lunch!'},
+    {'time': '14:00 - 15:00', 'activity': 'Keynote', 'location': ''},
+    {'time': '15:00 - 16:30', 'activity': 'Workshops Round 1', 'location': ''},
+    {'time': '16:30 - 17:00', 'activity': 'Break and Light Snacks', 'location': ''},
+    {'time': '17:00 - 18:30', 'activity': 'Workshops Round 2', 'location': ''},
+    {'time': '18:30 - 21:00', 'activity': 'Dinner/drinks and networking', 'location': ''},
+    {'time': '21:00', 'activity': 'Participants Leave', 'location': ''},
+  ];
+
+  static const List<Map<String, String>> _saturdaySchedule = [
+    {'time': '9:00 - 9:30', 'activity': 'Participants Arrive', 'location': 'Event Spot'},
+    {'time': '9:30 - 10:00', 'activity': 'Breakfast', 'location': 'Event Spot'},
+    {'time': '10:00 - 10:15', 'activity': 'Introduction', 'location': 'Theatre 1'},
+    {'time': '10:15 - 11:00', 'activity': 'Challenge Workshops', 'location': '2B01, 2B05, 2B12, 2B17, 2B25'},
+    {'time': '11:00 - 14:00', 'activity': 'Hacking', 'location': '2B01, 2B05, 2B12, 2B17, 2B25'},
+    {'time': '14:00 - 15:00', 'activity': 'Lunch', 'location': 'Event Spot'},
+    {'time': '15:00 - 19:00', 'activity': 'Hacking', 'location': '2B01, 2B05, 2B12, 2B17, 2B25'},
+    {'time': '19:00 - 20:00', 'activity': 'Dinner', 'location': 'Event Spot'},
+    {'time': '20:00 - 22:00', 'activity': 'Hacking', 'location': '2B01, 2B05, 2B12, 2B17, 2B25'},
+  ];
+
+  static const List<Map<String, String>> _sundaySchedule = [
+    {'time': '9:00 - 9:30', 'activity': 'Participants Arrive', 'location': 'Event Spot'},
+    {'time': '9:30 - 10:00', 'activity': 'Breakfast', 'location': 'Event Spot'},
+    {'time': '10:00 - 10:05', 'activity': 'Introduction', 'location': 'Theatre 1'},
+    {'time': '10:05 - 14:00', 'activity': 'Hacking', 'location': '2B01, 2B05, 2B12, 2B17, 2B25'},
+    {'time': '14:00 - 15:00', 'activity': 'Lunch', 'location': 'Event Spot'},
+    {'time': '15:00 - 16:00', 'activity': 'Hacking (Last Hour)', 'location': '2B01, 2B05, 2B12, 2B17, 2B25'},
+    {'time': '16:00 - 18:00', 'activity': 'Judging/Presenting', 'location': '4A06, 4A25'},
+    {'time': '18:00 - 18:30', 'activity': 'Deliberation', 'location': '4A06, 4A25'},
+    {'time': '18:30 - 19:30', 'activity': 'Closing and Presentation of Awards', 'location': 'Theatre 1'},
+  ];
 }
 
 class _BulletPoint extends StatelessWidget {

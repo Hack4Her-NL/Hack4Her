@@ -62,7 +62,7 @@ class ChallengesScreen extends StatelessWidget {
           ),
 
           // Challenges (formerly Sponsored Challenges)
-          const SectionContainer(
+          SectionContainer(
             title: 'Challenges',
             useGradientBackground: true,
             child: Column(
@@ -115,83 +115,50 @@ class ChallengesScreen extends StatelessWidget {
           SectionContainer(
             title: 'Judging Criteria',
             useGradientBackground: true,
-            child: Container(
-              width: double.infinity,
-              margin: const EdgeInsets.symmetric(horizontal: 20),
-              padding: const EdgeInsets.all(20),
-              decoration: BoxDecoration(
-                color: Colors.white.withOpacity(0.2),
-                borderRadius: BorderRadius.circular(12),
-              ),
-              child: Column(
-                children: [
-                  _buildCriterionItem(
-                    'Innovation',
-                    'Originality and creativity of the solution',
-                    '25%',
+            child: ValueListenableBuilder<ThemeMode>(
+              valueListenable: themeNotifier,
+              builder: (context, themeMode, _) {
+                final isDark = themeMode == ThemeMode.dark;
+                
+                return Container(
+                  width: double.infinity,
+                  margin: const EdgeInsets.symmetric(horizontal: 20),
+                  padding: const EdgeInsets.all(20),
+                  decoration: BoxDecoration(
+                    color: Colors.white.withOpacity(0.2),
+                    borderRadius: BorderRadius.circular(12),
                   ),
-                  _buildCriterionItem(
-                    'Impact',
-                    'Potential to create meaningful change',
-                    '25%',
+                  child: Column(
+                    children: [
+                      _buildCriterionItem(
+                        'Innovation',
+                        'Originality and creativity of the solution',
+                        '25%',
+                      ),
+                      _buildCriterionItem(
+                        'Impact',
+                        'Potential to create meaningful change',
+                        '25%',
+                      ),
+                      _buildCriterionItem(
+                        'Technical Implementation',
+                        'Quality and complexity of technical work',
+                        '20%',
+                      ),
+                      _buildCriterionItem(
+                        'Design',
+                        'User experience and interface design',
+                        '15%',
+                      ),
+                      _buildCriterionItem(
+                        'Presentation',
+                        'Quality of demo and pitch',
+                        '15%',
+                      ),
+                    ],
                   ),
-                  _buildCriterionItem(
-                    'Technical Implementation',
-                    'Quality and complexity of technical work',
-                    '20%',
-                  ),
-                  _buildCriterionItem(
-                    'Design',
-                    'User experience and interface design',
-                    '15%',
-                  ),
-                  _buildCriterionItem(
-                    'Presentation',
-                    'Quality of demo and pitch',
-                    '15%',
-                  ),
-                ],
-              ),
-            ),
-          ),
-
-          // Prizes Section
-          SectionContainer(
-            title: 'Prizes',
-            child: Wrap(
-              spacing: 20,
-              runSpacing: 20,
-              alignment: WrapAlignment.center,
-              children: [
-                _buildPrizeCard(
-                  'Grand Prize',
-                  '\$5,000',
-                  'For the overall winner of Hack4Her',
-                  Icons.emoji_events,
-                  Colors.amber,
-                ),
-                _buildPrizeCard(
-                  'Runner Up',
-                  '\$2,500',
-                  'For the second place team',
-                  Icons.workspace_premium,
-                  Colors.grey.shade400,
-                ),
-                _buildPrizeCard(
-                  'People\'s Choice',
-                  '\$1,000',
-                  'Voted by all participants',
-                  Icons.favorite,
-                  Colors.redAccent,
-                ),
-                _buildPrizeCard(
-                  'Best Freshman Project',
-                  '\$1,000',
-                  'For first-time hackathon participants',
-                  Icons.star,
-                  Colors.deepPurpleAccent,
-                ),
-              ],
+                );
+              },
             ),
           ),
         ],
@@ -218,62 +185,69 @@ class ChallengesScreen extends StatelessWidget {
   }
 
   Widget _buildCriterionItem(String title, String description, String percentage) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 15),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            width: 60,
-            height: 60,
-            decoration: BoxDecoration(
-              color: Colors.white,
-              shape: BoxShape.circle,
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black.withOpacity(0.1),
-                  blurRadius: 5,
-                  offset: const Offset(0, 2),
+    return ValueListenableBuilder<ThemeMode>(
+      valueListenable: themeNotifier,
+      builder: (context, themeMode, _) {
+        final isDark = themeMode == ThemeMode.dark;
+        
+        return Padding(
+          padding: const EdgeInsets.only(bottom: 15),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                width: 60,
+                height: 60,
+                decoration: BoxDecoration(
+                  color: isDark ? Colors.white.withOpacity(0.9) : Colors.white,
+                  shape: BoxShape.circle,
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.1),
+                      blurRadius: 5,
+                      offset: const Offset(0, 2),
+                    ),
+                  ],
                 ),
-              ],
-            ),
-            child: Center(
-              child: Text(
-                percentage,
-                style: const TextStyle(
-                  color: AppTheme.primaryPurple,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 18,
+                child: Center(
+                  child: Text(
+                    percentage,
+                    style: const TextStyle(
+                      color: AppTheme.primaryPurple,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
+                    ),
+                  ),
                 ),
               ),
-            ),
-          ),
-          const SizedBox(width: 15),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  title,
-                  style: const TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                  ),
+              const SizedBox(width: 15),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      title,
+                      style: const TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                    ),
+                    const SizedBox(height: 5),
+                    Text(
+                      description,
+                      style: const TextStyle(
+                        fontSize: 14,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ],
                 ),
-                const SizedBox(height: 5),
-                Text(
-                  description,
-                  style: const TextStyle(
-                    fontSize: 14,
-                    color: Colors.white,
-                  ),
-                ),
-              ],
-            ),
+              ),
+            ],
           ),
-        ],
-      ),
+        );
+      },
     );
   }
 
@@ -332,7 +306,7 @@ class ChallengesScreen extends StatelessWidget {
   }
 }
 
-class _ChallengeCard extends StatelessWidget {
+class _ChallengeCard extends StatefulWidget {
   final String title;
   final String description;
   final String sponsor;
@@ -348,99 +322,260 @@ class _ChallengeCard extends StatelessWidget {
   });
 
   @override
+  State<_ChallengeCard> createState() => _ChallengeCardState();
+}
+
+class _ChallengeCardState extends State<_ChallengeCard> {
+  bool _isExpanded = false;
+
+  // Additional challenge information (would normally come from a backend)
+  final Map<String, String> _extraInfo = {
+    'AI for Good': 'This challenge focuses on creating AI solutions that address social issues affecting women or underrepresented groups. Participants are encouraged to consider ethical implications of AI and develop responsible AI systems that promote inclusivity and fairness.',
+    'Health & Wellness': 'Create innovative solutions that address women\'s health concerns, improve wellness monitoring, or provide accessible health information. Consider issues like maternal health, mental wellness, or fitness tracking specifically designed for women\'s needs.',
+    'Educational Technology': 'This challenge seeks innovative approaches to make STEM education more engaging and accessible to young women and girls. Solutions might include interactive learning platforms, gamified educational experiences, or tools that connect students with female role models in STEM.',
+    'Sustainable Future': 'Develop technology solutions that address environmental challenges while promoting diversity in green tech. Consider issues like climate change, renewable energy, sustainable consumption, or conservation efforts.',
+    'Women in Tech Empowerment': 'This is our grand prize challenge! Create solutions that directly address barriers faced by women in technology or use technology to empower women globally. Examples might include mentorship platforms, bias detection tools, or career advancement resources.',
+  };
+
+  // Sample requirements based on the challenge
+  final Map<String, List<String>> _requirements = {
+    'AI for Good': [
+      'Must use machine learning or AI components',
+      'Should address a clear social issue affecting women',
+      'Must include documentation on ethical considerations',
+      'Should be accessible to diverse user groups'
+    ],
+    'Health & Wellness': [
+      'Must focus on specific health needs of women',
+      'Should have an intuitive user interface',
+      'Must protect sensitive health information',
+      'Should be evidence-based where possible'
+    ],
+    'Educational Technology': [
+      'Must target K-12 or university-level education',
+      'Should incorporate STEM educational principles',
+      'Must be engaging and interactive',
+      'Should track learning outcomes'
+    ],
+    'Sustainable Future': [
+      'Must address a specific environmental challenge',
+      'Should incorporate data collection or analysis',
+      'Must have a clear sustainability impact',
+      'Should promote inclusion in environmental tech'
+    ],
+    'Women in Tech Empowerment': [
+      'Must directly address challenges women face in tech',
+      'Should be scalable to reach many women',
+      'Must demonstrate measurable impact',
+      'Should incorporate feedback from target users'
+    ],
+  };
+
+  @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-      padding: const EdgeInsets.all(20),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(12),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.1),
-            blurRadius: 5,
-            offset: const Offset(0, 2),
-          ),
-        ],
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                title,
-                style: const TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
+    return ValueListenableBuilder<ThemeMode>(
+      valueListenable: themeNotifier,
+      builder: (context, themeMode, _) {
+        final isDark = themeMode == ThemeMode.dark;
+        
+        return GestureDetector(
+          onTap: () {
+            setState(() {
+              _isExpanded = !_isExpanded;
+            });
+          },
+          child: AnimatedContainer(
+            duration: const Duration(milliseconds: 300),
+            width: double.infinity,
+            margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+            padding: const EdgeInsets.all(20),
+            decoration: BoxDecoration(
+              color: isDark ? AppTheme.darkSurface : Colors.white,
+              borderRadius: BorderRadius.circular(12),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.1),
+                  blurRadius: 5,
+                  offset: const Offset(0, 2),
                 ),
-              ),
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-                decoration: BoxDecoration(
-                  color: AppTheme.primaryPurple,
-                  borderRadius: BorderRadius.circular(20),
+              ],
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      widget.title,
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: isDark ? Colors.white : Colors.black,
+                      ),
+                    ),
+                    Row(
+                      children: [
+                        Container(
+                          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                          decoration: BoxDecoration(
+                            color: AppTheme.primaryPurple,
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          child: Text(
+                            widget.prize,
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 14,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(width: 5),
+                        Icon(
+                          _isExpanded ? Icons.expand_less : Icons.expand_more,
+                          color: isDark ? Colors.white70 : Colors.grey[700],
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
-                child: Text(
-                  prize,
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 14,
+                const SizedBox(height: 10),
+                Text(
+                  widget.description,
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: isDark ? Colors.white70 : Colors.grey[700],
                   ),
                 ),
-              ),
-            ],
-          ),
-          const SizedBox(height: 10),
-          Text(
-            description,
-            style: TextStyle(
-              fontSize: 16,
-              color: Colors.grey[700],
+                const SizedBox(height: 15),
+                Row(
+                  children: [
+                    Icon(
+                      Icons.business, 
+                      size: 16, 
+                      color: isDark ? Colors.white70 : Colors.grey[700],
+                    ),
+                    const SizedBox(width: 5),
+                    Text(
+                      'Sponsored by ${widget.sponsor}',
+                      style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.bold,
+                        color: isDark ? Colors.white70 : Colors.grey[700],
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 15),
+                Wrap(
+                  spacing: 8,
+                  runSpacing: 8,
+                  children: widget.tags.map((tag) {
+                    return Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                      decoration: BoxDecoration(
+                        color: isDark 
+                            ? AppTheme.primaryPurple.withOpacity(0.2)
+                            : AppTheme.primaryBlue.withOpacity(0.1),
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                      child: Text(
+                        tag,
+                        style: TextStyle(
+                          fontSize: 12,
+                          fontWeight: FontWeight.bold,
+                          color: isDark ? Colors.white : AppTheme.primaryBlue,
+                        ),
+                      ),
+                    );
+                  }).toList(),
+                ),
+                // Expanded content
+                if (_isExpanded) ...[
+                  const SizedBox(height: 20),
+                  Divider(color: isDark ? Colors.white30 : Colors.grey[300]),
+                  const SizedBox(height: 10),
+                  Text(
+                    'Challenge Details',
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: isDark ? Colors.white : Colors.black,
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  Text(
+                    _extraInfo[widget.title] ?? 'Additional information coming soon.',
+                    style: TextStyle(
+                      fontSize: 15,
+                      color: isDark ? Colors.white70 : Colors.grey[700],
+                    ),
+                  ),
+                  const SizedBox(height: 15),
+                  Text(
+                    'Requirements',
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: isDark ? Colors.white : Colors.black,
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: (_requirements[widget.title] ?? ['Requirements coming soon'])
+                        .map((req) => Padding(
+                          padding: const EdgeInsets.only(bottom: 8),
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Icon(
+                                Icons.check_circle, 
+                                size: 16, 
+                                color: isDark ? AppTheme.primaryPurple.withOpacity(0.8) : AppTheme.primaryPurple,
+                              ),
+                              const SizedBox(width: 8),
+                              Expanded(
+                                child: Text(
+                                  req,
+                                  style: TextStyle(
+                                    fontSize: 14,
+                                    color: isDark ? Colors.white70 : Colors.grey[700],
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ))
+                        .toList(),
+                  ),
+                  const SizedBox(height: 15),
+                  Center(
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, AppRoutes.registration);
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: AppTheme.primaryPurple,
+                        foregroundColor: Colors.white,
+                        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(25),
+                        ),
+                      ),
+                      child: const Text(
+                        'Apply to this Challenge',
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                  ),
+                ],
+              ],
             ),
           ),
-          const SizedBox(height: 15),
-          Row(
-            children: [
-              Icon(Icons.business, size: 16, color: Colors.grey[700]),
-              const SizedBox(width: 5),
-              Text(
-                'Sponsored by $sponsor',
-                style: TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.grey[700],
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(height: 15),
-          Wrap(
-            spacing: 8,
-            runSpacing: 8,
-            children: tags.map((tag) {
-              return Container(
-                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                decoration: BoxDecoration(
-                  color: AppTheme.primaryBlue.withOpacity(0.1),
-                  borderRadius: BorderRadius.circular(15),
-                ),
-                child: Text(
-                  tag,
-                  style: const TextStyle(
-                    fontSize: 12,
-                    color: AppTheme.primaryBlue,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              );
-            }).toList(),
-          ),
-        ],
-      ),
+        );
+      },
     );
   }
 }

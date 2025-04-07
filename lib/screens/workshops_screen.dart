@@ -316,7 +316,7 @@ class _WorkshopsScreenState extends State<WorkshopsScreen> {
                 location: workshop['location']!,
                 category: workshop['category']!,
                 description: workshop['description']!,
-                onTap: () => _showWorkshopDetails(context, workshop),
+                onTap: () {}, // Empty callback since we're handling taps inside the widget now
               );
             }).toList(),
           ),
@@ -483,146 +483,9 @@ class _WorkshopsScreenState extends State<WorkshopsScreen> {
       _selectedDayIndex = index;
     });
   }
-
-  void _showWorkshopDetails(BuildContext context, Map<String, String> workshop) {
-    final isDark = themeNotifier.value == ThemeMode.dark;
-    
-    showDialog(
-      context: context,
-      builder: (context) => Dialog(
-        backgroundColor: Colors.transparent,
-        child: Container(
-          width: double.infinity,
-          constraints: const BoxConstraints(maxWidth: 500),
-          padding: const EdgeInsets.all(24),
-          decoration: BoxDecoration(
-            color: isDark ? AppTheme.darkSurface : Colors.white,
-            borderRadius: BorderRadius.circular(16),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withAlpha(50),
-                blurRadius: 10,
-                offset: const Offset(0, 5),
-              ),
-            ],
-          ),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Expanded(
-                    child: Text(
-                      workshop['title']!,
-                      style: TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
-                        color: isDark ? Colors.white : AppTheme.textDark,
-                      ),
-                    ),
-                  ),
-                  IconButton(
-                    icon: Icon(Icons.close, color: isDark ? Colors.white70 : Colors.black54),
-                    onPressed: () => Navigator.pop(context),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 16),
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-                decoration: BoxDecoration(
-                  color: isDark ? AppTheme.primaryPurple.withAlpha(50) : AppTheme.primaryBlue.withAlpha(50),
-                  borderRadius: BorderRadius.circular(16),
-                ),
-                child: Text(
-                  workshop['category']!,
-                  style: TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.bold,
-                    color: isDark ? AppTheme.primaryPurple : AppTheme.primaryBlue,
-                  ),
-                ),
-              ),
-              const SizedBox(height: 16),
-              _buildDetailRow(Icons.person, 'Presenter', workshop['presenter']!, isDark),
-              _buildDetailRow(Icons.access_time, 'Time', workshop['time']!, isDark),
-              _buildDetailRow(Icons.location_on, 'Location', workshop['location']!, isDark),
-              const SizedBox(height: 16),
-              Text(
-                'Description',
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                  color: isDark ? Colors.white : AppTheme.textDark,
-                ),
-              ),
-              const SizedBox(height: 8),
-              Text(
-                workshop['description']!,
-                style: TextStyle(
-                  fontSize: 16,
-                  color: isDark ? Colors.white70 : Colors.black87,
-                ),
-              ),
-              const SizedBox(height: 24),
-              SizedBox(
-                width: double.infinity,
-                child: ElevatedButton(
-                  onPressed: () {
-                    // Close the dialog
-                    Navigator.pop(context);
-                    // Navigate to registration screen
-                    Navigator.pushNamed(context, AppRoutes.registration);
-                  },
-                  style: AppTheme.getPrimaryButtonStyle(context, isDark),
-                  child: const Text(
-                    'Register for this Workshop',
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget _buildDetailRow(IconData icon, String label, String value, bool isDark) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 8),
-      child: Row(
-        children: [
-          Icon(
-            icon,
-            size: 20,
-            color: isDark ? Colors.white70 : Colors.black54,
-          ),
-          const SizedBox(width: 8),
-          Text(
-            '$label: ',
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              color: isDark ? Colors.white : AppTheme.textDark,
-            ),
-          ),
-          Expanded(
-            child: Text(
-              value,
-              style: TextStyle(
-                color: isDark ? Colors.white70 : Colors.black87,
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
 }
 
-class _WorkshopItem extends StatelessWidget {
+class _WorkshopItem extends StatefulWidget {
   final String title;
   final String presenter;
   final String time;
@@ -642,26 +505,36 @@ class _WorkshopItem extends StatelessWidget {
   });
 
   @override
+  State<_WorkshopItem> createState() => _WorkshopItemState();
+}
+
+class _WorkshopItemState extends State<_WorkshopItem> {
+  bool _isExpanded = false;
+
+  @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder<ThemeMode>(
       valueListenable: themeNotifier,
       builder: (context, themeMode, _) {
         final isDark = themeMode == ThemeMode.dark;
         
-        return Container(
-          width: double.infinity,
-          margin: const EdgeInsets.only(bottom: 15),
-          padding: const EdgeInsets.all(20),
-          decoration: BoxDecoration(
-            color: isDark
-                ? AppTheme.darkSurface.withAlpha(128)
-                : Colors.white.withAlpha(51), // 0.2 * 255 = 51
-            borderRadius: BorderRadius.circular(12),
-          ),
-          child: InkWell(
-            onTap: onTap,
-            borderRadius: BorderRadius.circular(12),
-            splashColor: Colors.white.withAlpha(30),
+        return GestureDetector(
+          onTap: () {
+            setState(() {
+              _isExpanded = !_isExpanded;
+            });
+          },
+          child: AnimatedContainer(
+            duration: const Duration(milliseconds: 300),
+            width: double.infinity,
+            margin: const EdgeInsets.only(bottom: 15),
+            padding: const EdgeInsets.all(20),
+            decoration: BoxDecoration(
+              color: isDark
+                  ? AppTheme.darkSurface.withAlpha(128)
+                  : Colors.white.withAlpha(51), // 0.2 * 255 = 51
+              borderRadius: BorderRadius.circular(12),
+            ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -670,7 +543,7 @@ class _WorkshopItem extends StatelessWidget {
                   children: [
                     Expanded(
                       child: Text(
-                        title,
+                        widget.title,
                         style: const TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
@@ -678,20 +551,29 @@ class _WorkshopItem extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                      decoration: BoxDecoration(
-                        color: Colors.white.withAlpha(77), // 0.3 * 255 = 76.5
-                        borderRadius: BorderRadius.circular(15),
-                      ),
-                      child: Text(
-                        category,
-                        style: const TextStyle(
-                          fontSize: 12,
-                          fontWeight: FontWeight.bold,
+                    Row(
+                      children: [
+                        Container(
+                          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                          decoration: BoxDecoration(
+                            color: Colors.white.withAlpha(77), // 0.3 * 255 = 76.5
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                          child: Text(
+                            widget.category,
+                            style: const TextStyle(
+                              fontSize: 12,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(width: 5),
+                        Icon(
+                          _isExpanded ? Icons.expand_less : Icons.expand_more,
                           color: Colors.white,
                         ),
-                      ),
+                      ],
                     ),
                   ],
                 ),
@@ -699,7 +581,7 @@ class _WorkshopItem extends StatelessWidget {
                 Row(
                   children: [
                     Text(
-                      'Presenter: $presenter',
+                      'Presenter: ${widget.presenter}',
                       style: const TextStyle(
                         fontSize: 14,
                         color: Colors.white,
@@ -712,14 +594,14 @@ class _WorkshopItem extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      time,
+                      widget.time,
                       style: const TextStyle(
                         fontSize: 14,
                         color: Colors.white,
                       ),
                     ),
                     Text(
-                      location,
+                      widget.location,
                       style: const TextStyle(
                         fontSize: 14,
                         color: Colors.white,
@@ -727,11 +609,73 @@ class _WorkshopItem extends StatelessWidget {
                     ),
                   ],
                 ),
+                // Expanded content
+                if (_isExpanded) ...[
+                  const SizedBox(height: 20),
+                  Divider(color: isDark ? Colors.white30 : Colors.white.withOpacity(0.3)),
+                  const SizedBox(height: 15),
+                  Text(
+                    'Workshop Description',
+                    style: const TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  Text(
+                    widget.description,
+                    style: const TextStyle(
+                      fontSize: 14,
+                      color: Colors.white,
+                    ),
+                  ),
+                  const SizedBox(height: 20),
+                  Text(
+                    'Workshop Details',
+                    style: const TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  _buildDetailItem(Icons.person, 'Presenter', widget.presenter),
+                  _buildDetailItem(Icons.access_time, 'Time', widget.time),
+                  _buildDetailItem(Icons.location_on, 'Location', widget.location),
+                  _buildDetailItem(Icons.category, 'Category', widget.category),
+                ],
               ],
             ),
           ),
         );
       },
+    );
+  }
+  
+  Widget _buildDetailItem(IconData icon, String label, String value) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 8),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Icon(
+            icon,
+            size: 16,
+            color: Colors.white,
+          ),
+          const SizedBox(width: 8),
+          Expanded(
+            child: Text(
+              '$label: $value',
+              style: const TextStyle(
+                fontSize: 14,
+                color: Colors.white,
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
