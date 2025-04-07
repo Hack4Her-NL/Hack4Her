@@ -11,6 +11,7 @@ class AppFooter extends StatelessWidget {
     final bool isMobile = screenWidth < AppTheme.mobileBreakpoint;
 
     return Container(
+      width: double.infinity,
       decoration: AppTheme.gradientBackground,
       padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 48),
       child: Column(

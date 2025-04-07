@@ -69,46 +69,139 @@ class AboutScreen extends StatelessWidget {
     final screenWidth = MediaQuery.of(context).size.width;
     final isMobile = screenWidth < AppTheme.mobileBreakpoint;
 
-    return const Wrap(
-      spacing: 30,
-      runSpacing: 30,
-      alignment: WrapAlignment.center,
+    return Column(
       children: [
-        _TeamMemberCard(
-          name: 'Jane Doe',
-          role: 'Director',
-          imageUrl: null,
-          linkedInUrl: 'https://linkedin.com',
+        // Main contributors (full-sized cards)
+        const Wrap(
+          spacing: 30,
+          runSpacing: 30,
+          alignment: WrapAlignment.center,
+          children: [
+            _TeamMemberCard(
+              name: 'Jane Doe',
+              role: 'Director',
+              imageUrl: null,
+              linkedInUrl: 'https://linkedin.com',
+            ),
+            _TeamMemberCard(
+              name: 'John Smith',
+              role: 'Technical Lead',
+              imageUrl: null,
+              linkedInUrl: 'https://linkedin.com',
+            ),
+          ],
         ),
-        _TeamMemberCard(
-          name: 'John Smith',
-          role: 'Technical Lead',
-          imageUrl: null,
-          linkedInUrl: 'https://linkedin.com',
+        
+        const SizedBox(height: 40),
+        
+        // Section divider with text
+        Row(
+          children: [
+            const Expanded(child: Divider(color: Colors.white30)),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: Text(
+                'Team Members',
+                style: TextStyle(
+                  color: Colors.white.withOpacity(0.7),
+                  fontSize: 18,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+            ),
+            const Expanded(child: Divider(color: Colors.white30)),
+          ],
         ),
-        _TeamMemberCard(
-          name: 'Alice Johnson',
-          role: 'Marketing',
-          imageUrl: null,
-          linkedInUrl: 'https://linkedin.com',
-        ),
-        _TeamMemberCard(
-          name: 'Bob Williams',
-          role: 'Design Lead',
-          imageUrl: null,
-          linkedInUrl: 'https://linkedin.com',
-        ),
-        _TeamMemberCard(
-          name: 'Carol Brown',
-          role: 'Operations',
-          imageUrl: null,
-          linkedInUrl: 'https://linkedin.com',
-        ),
-        _TeamMemberCard(
-          name: 'David Lee',
-          role: 'Sponsorship',
-          imageUrl: null,
-          linkedInUrl: 'https://linkedin.com',
+        
+        const SizedBox(height: 30),
+        
+        // Regular team members (compact cards)
+        Wrap(
+          spacing: 15,
+          runSpacing: 15,
+          alignment: WrapAlignment.center,
+          children: const [
+            _CompactTeamMemberCard(
+              name: 'Alice Johnson',
+              role: 'Marketing',
+              linkedInUrl: 'https://linkedin.com',
+            ),
+            _CompactTeamMemberCard(
+              name: 'Bob Williams',
+              role: 'Design Lead',
+              linkedInUrl: 'https://linkedin.com',
+            ),
+            _CompactTeamMemberCard(
+              name: 'Carol Brown',
+              role: 'Operations',
+              linkedInUrl: 'https://linkedin.com',
+            ),
+            _CompactTeamMemberCard(
+              name: 'David Lee',
+              role: 'Sponsorship',
+              linkedInUrl: 'https://linkedin.com',
+            ),
+            _CompactTeamMemberCard(
+              name: 'Emma Wilson',
+              role: 'Developer',
+              linkedInUrl: 'https://linkedin.com',
+            ),
+            _CompactTeamMemberCard(
+              name: 'Frank Taylor',
+              role: 'UX Designer',
+              linkedInUrl: 'https://linkedin.com',
+            ),
+            _CompactTeamMemberCard(
+              name: 'Grace Kim',
+              role: 'Project Manager',
+              linkedInUrl: 'https://linkedin.com',
+            ),
+            _CompactTeamMemberCard(
+              name: 'Henry Chen',
+              role: 'Developer',
+              linkedInUrl: 'https://linkedin.com',
+            ),
+            _CompactTeamMemberCard(
+              name: 'Irene Lopez',
+              role: 'Marketing',
+              linkedInUrl: 'https://linkedin.com',
+            ),
+            _CompactTeamMemberCard(
+              name: 'Jack Brown',
+              role: 'Content Writer',
+              linkedInUrl: 'https://linkedin.com',
+            ),
+            _CompactTeamMemberCard(
+              name: 'Katie Smith',
+              role: 'UI Designer',
+              linkedInUrl: 'https://linkedin.com',
+            ),
+            _CompactTeamMemberCard(
+              name: 'Leo Wang',
+              role: 'Backend Dev',
+              linkedInUrl: 'https://linkedin.com',
+            ),
+            _CompactTeamMemberCard(
+              name: 'Mia Johnson',
+              role: 'Community Manager',
+              linkedInUrl: 'https://linkedin.com',
+            ),
+            _CompactTeamMemberCard(
+              name: 'Nathan Park',
+              role: 'Designer',
+              linkedInUrl: 'https://linkedin.com',
+            ),
+            _CompactTeamMemberCard(
+              name: 'Olivia King',
+              role: 'Social Media',
+              linkedInUrl: 'https://linkedin.com',
+            ),
+            _CompactTeamMemberCard(
+              name: 'Paul Rodriguez',
+              role: 'Volunteer Coord',
+              linkedInUrl: 'https://linkedin.com',
+            ),
+          ],
         ),
       ],
     );
@@ -213,6 +306,97 @@ class _TeamMemberCard extends StatelessWidget {
             ),
           ),
         ],
+      ),
+    );
+  }
+
+  Future<void> _launchURL(String url) async {
+    final Uri uri = Uri.parse(url);
+    if (!await launchUrl(uri)) {
+      throw Exception('Could not launch $url');
+    }
+  }
+}
+
+// Add this new compact card class for regular team members
+class _CompactTeamMemberCard extends StatelessWidget {
+  final String name;
+  final String role;
+  final String linkedInUrl;
+
+  const _CompactTeamMemberCard({
+    required this.name,
+    required this.role,
+    required this.linkedInUrl,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 150,
+      height: 150,
+      decoration: BoxDecoration(
+        color: Colors.white.withOpacity(0.15),
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
+          onTap: () => _launchURL(linkedInUrl),
+          borderRadius: BorderRadius.circular(10),
+          child: Padding(
+            padding: const EdgeInsets.all(12.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                // Profile icon
+                Container(
+                  width: 50,
+                  height: 50,
+                  decoration: BoxDecoration(
+                    color: Colors.white.withOpacity(0.3),
+                    shape: BoxShape.circle,
+                  ),
+                  child: const Icon(
+                    Icons.person,
+                    size: 30,
+                    color: Colors.white,
+                  ),
+                ),
+                const SizedBox(height: 10),
+                // Name
+                Text(
+                  name,
+                  style: const TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                  textAlign: TextAlign.center,
+                  overflow: TextOverflow.ellipsis,
+                ),
+                const SizedBox(height: 4),
+                // Role
+                Text(
+                  role,
+                  style: TextStyle(
+                    fontSize: 12,
+                    color: Colors.white.withOpacity(0.8),
+                  ),
+                  textAlign: TextAlign.center,
+                  overflow: TextOverflow.ellipsis,
+                ),
+                const SizedBox(height: 6),
+                // LinkedIn icon
+                Icon(
+                  Icons.link,
+                  color: Colors.white.withOpacity(0.7),
+                  size: 14,
+                ),
+              ],
+            ),
+          ),
+        ),
       ),
     );
   }

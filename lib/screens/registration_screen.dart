@@ -226,7 +226,7 @@ class _BulletPoint extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
+          const Text(
             '• ',
             style: TextStyle(
               fontSize: 16,
@@ -237,7 +237,7 @@ class _BulletPoint extends StatelessWidget {
           Expanded(
             child: Text(
               text,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 16,
                 color: AppTheme.useGradientBackground ? Colors.white : AppTheme.textDark,
               ),
