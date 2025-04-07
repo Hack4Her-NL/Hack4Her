@@ -3,6 +3,7 @@ import '../constants/app_theme.dart';
 import '../utils/routes.dart';
 import '../widgets/page_layout.dart';
 import '../widgets/section_container.dart';
+import '../main.dart'; // Import for themeNotifier
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -61,53 +62,62 @@ class HomeScreen extends StatelessWidget {
           ),
 
           // CTA section
-          Container(
-            width: double.infinity,
-            padding: const EdgeInsets.symmetric(vertical: 60, horizontal: 20),
-            decoration: AppTheme.gradientBackground,
-            child: Column(
-              children: [
-                const Text(
-                  'Ready to Join Hack4Her?',
-                  style: TextStyle(
-                    fontSize: 36,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-                const SizedBox(height: 20),
-                const Text(
-                  'Register now and be part of this amazing experience',
-                  style: TextStyle(
-                    fontSize: 18,
-                    color: Colors.white,
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-                const SizedBox(height: 30),
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, AppRoutes.registration);
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.white,
-                    foregroundColor: AppTheme.primaryPurple,
-                    padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 15),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30),
+          ValueListenableBuilder<ThemeMode>(
+            valueListenable: themeNotifier,
+            builder: (context, themeMode, _) {
+              final isDark = themeMode == ThemeMode.dark;
+              
+              return Container(
+                width: double.infinity,
+                padding: const EdgeInsets.symmetric(vertical: 60, horizontal: 20),
+                decoration: isDark 
+                    ? AppTheme.darkGradientBackground 
+                    : AppTheme.gradientBackground,
+                child: Column(
+                  children: [
+                    const Text(
+                      'Ready to Join Hack4Her?',
+                      style: TextStyle(
+                        fontSize: 36,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                      textAlign: TextAlign.center,
                     ),
-                  ),
-                  child: const Text(
-                    'Register Now',
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
+                    const SizedBox(height: 20),
+                    const Text(
+                      'Register now and be part of this amazing experience',
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: Colors.white,
+                      ),
+                      textAlign: TextAlign.center,
                     ),
-                  ),
+                    const SizedBox(height: 30),
+                    ElevatedButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, AppRoutes.registration);
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.white,
+                        foregroundColor: AppTheme.primaryPurple,
+                        padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 15),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30),
+                        ),
+                      ),
+                      child: const Text(
+                        'Register Now',
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
-              ],
-            ),
+              );
+            },
           ),
         ],
       ),
@@ -115,70 +125,79 @@ class HomeScreen extends StatelessWidget {
   }
 
   Widget _buildHeroSection(Size screenSize, BuildContext context) {
-    return Container(
-      width: double.infinity,
-      height: screenSize.height * 0.7,
-      decoration: AppTheme.gradientBackground,
-      child: Stack(
-        children: [
-          // Female symbol overlay
-          Positioned(
-            right: screenSize.width * 0.05,
-            top: screenSize.height * 0.1,
-            child: Opacity(
-              opacity: 0.2,
-              child: Icon(
-                Icons.female,
-                size: screenSize.width * 0.25,
-                color: Colors.white,
-              ),
-            ),
-          ),
-          // Main content
-          Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'Hack4Her',
-                  style: TextStyle(
-                    fontSize: AppTheme.responsiveFontSize(86, context),
-                    fontWeight: FontWeight.bold,
+    return ValueListenableBuilder<ThemeMode>(
+      valueListenable: themeNotifier,
+      builder: (context, themeMode, _) {
+        final isDark = themeMode == ThemeMode.dark;
+        
+        return Container(
+          width: double.infinity,
+          height: screenSize.height * 0.7,
+          decoration: isDark 
+              ? AppTheme.darkGradientBackground 
+              : AppTheme.gradientBackground,
+          child: Stack(
+            children: [
+              // Female symbol overlay
+              Positioned(
+                right: screenSize.width * 0.05,
+                top: screenSize.height * 0.1,
+                child: Opacity(
+                  opacity: 0.2,
+                  child: Icon(
+                    Icons.female,
+                    size: screenSize.width * 0.25,
                     color: Colors.white,
-                    letterSpacing: 2.0,
                   ),
                 ),
-                const SizedBox(height: 20),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
-                  child: Text(
-                    'A hackathon dedicated to empowering women in technology',
-                    style: TextStyle(
-                      fontSize: AppTheme.responsiveFontSize(22, context),
-                      color: Colors.white,
+              ),
+              // Main content
+              Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'Hack4Her',
+                      style: TextStyle(
+                        fontSize: AppTheme.responsiveFontSize(86, context),
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                        letterSpacing: 2.0,
+                      ),
                     ),
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-                const SizedBox(height: 40),
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, AppRoutes.registration);
-                  },
-                  style: AppTheme.secondaryButtonStyle,
-                  child: Text(
-                    'Learn More',
-                    style: TextStyle(
-                      fontSize: AppTheme.responsiveFontSize(22, context),
-                      fontWeight: FontWeight.w500,
+                    const SizedBox(height: 20),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: Text(
+                        'A hackathon dedicated to empowering women in technology',
+                        style: TextStyle(
+                          fontSize: AppTheme.responsiveFontSize(22, context),
+                          color: Colors.white,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
                     ),
-                  ),
+                    const SizedBox(height: 40),
+                    ElevatedButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, AppRoutes.registration);
+                      },
+                      style: AppTheme.secondaryButtonStyle,
+                      child: Text(
+                        'Learn More',
+                        style: TextStyle(
+                          fontSize: AppTheme.responsiveFontSize(22, context),
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
-        ],
-      ),
+        );
+      },
     );
   }
 
