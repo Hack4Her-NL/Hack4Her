@@ -65,22 +65,10 @@ class MyApp extends StatelessWidget {
               settings: settings,
               pageBuilder: (context, animation, secondaryAnimation) => page,
               transitionsBuilder: (context, animation, secondaryAnimation, child) {
-                const begin = Offset(0.0, 0.1);
-                const end = Offset.zero;
-                const curve = Curves.easeInOut;
-    
-                var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
-                var offsetAnimation = animation.drive(tween);
-    
-                return FadeTransition(
-                  opacity: animation,
-                  child: SlideTransition(
-                    position: offsetAnimation,
-                    child: child,
-                  ),
-                );
+                // Remove animation effects
+                return child;
               },
-              transitionDuration: const Duration(milliseconds: 300),
+              transitionDuration: const Duration(milliseconds: 0),
             );
           },
         );

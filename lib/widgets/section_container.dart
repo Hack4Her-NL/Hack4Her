@@ -20,6 +20,13 @@ class SectionContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final horizontalPadding = screenWidth > AppTheme.tabletBreakpoint 
+        ? 120.0  // Larger padding on desktop
+        : screenWidth > AppTheme.mobileBreakpoint 
+            ? 60.0  // Medium padding on tablet
+            : 20.0;  // Default padding on mobile
+    
     return ValueListenableBuilder<ThemeMode>(
       valueListenable: themeNotifier,
       builder: (context, themeMode, _) {
@@ -27,12 +34,10 @@ class SectionContainer extends StatelessWidget {
         
         return Container(
           width: double.infinity,
+          padding: padding ?? EdgeInsets.symmetric(vertical: 40, horizontal: horizontalPadding),
           decoration: useGradientBackground
-              ? (isDark
-                  ? AppTheme.darkGradientBackground
-                  : AppTheme.gradientBackground)
+              ? (isDark ? AppTheme.darkGradientBackground : AppTheme.gradientBackground)
               : null,
-          padding: padding,
           child: Column(
             crossAxisAlignment: alignment,
             children: [

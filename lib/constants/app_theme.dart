@@ -20,14 +20,16 @@ class AppTheme {
   static const bool useGradientBackground = true;
 
   // Button styling
-  static final ButtonStyle primaryButtonStyle = ElevatedButton.styleFrom(
-    backgroundColor: primaryPurple,
-    foregroundColor: Colors.white,
-    padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 15),
-    shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(30),
-    ),
-  );
+  static ButtonStyle getPrimaryButtonStyle(BuildContext context, bool isDark) {
+    return ElevatedButton.styleFrom(
+      backgroundColor: isDark ? primaryPurple : primaryBlue,
+      foregroundColor: Colors.white,
+      padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 15),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(30),
+      ),
+    );
+  }
 
   static final ButtonStyle secondaryButtonStyle = ElevatedButton.styleFrom(
     backgroundColor: Colors.white.withAlpha(51),

@@ -55,10 +55,16 @@ class PageLayout extends StatelessWidget {
       valueListenable: themeNotifier,
       builder: (context, themeMode, _) {
         final isDark = themeMode == ThemeMode.dark;
+        final screenWidth = MediaQuery.of(context).size.width;
+        final horizontalPadding = screenWidth > AppTheme.tabletBreakpoint 
+            ? 120.0  // Larger padding on desktop
+            : screenWidth > AppTheme.mobileBreakpoint 
+                ? 60.0  // Medium padding on tablet
+                : 24.0;  // Default padding
         
         return Container(
           width: double.infinity,
-          padding: const EdgeInsets.symmetric(vertical: 60, horizontal: 24),
+          padding: EdgeInsets.symmetric(vertical: 60, horizontal: horizontalPadding),
           decoration: isDark
               ? AppTheme.darkGradientBackground 
               : AppTheme.gradientBackground,

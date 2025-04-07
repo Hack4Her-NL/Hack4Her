@@ -4,6 +4,7 @@ import '../constants/app_theme.dart';
 import '../utils/routes.dart';
 import '../widgets/page_layout.dart';
 import '../widgets/section_container.dart';
+import '../main.dart'; // Import for themeNotifier
 
 class PreviousEventsScreen extends StatelessWidget {
   const PreviousEventsScreen({super.key});
@@ -38,18 +39,24 @@ class PreviousEventsScreen extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: 30),
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, AppRoutes.registration);
+                ValueListenableBuilder<ThemeMode>(
+                  valueListenable: themeNotifier,
+                  builder: (context, themeMode, _) {
+                    final isDark = themeMode == ThemeMode.dark;
+                    return ElevatedButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, AppRoutes.registration);
+                      },
+                      style: AppTheme.getPrimaryButtonStyle(context, isDark),
+                      child: const Text(
+                        'Join Our Next Event',
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    );
                   },
-                  style: AppTheme.primaryButtonStyle,
-                  child: const Text(
-                    'Join Our Next Event',
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
                 ),
               ],
             ),

@@ -31,12 +31,18 @@ class HomeScreen extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: 30),
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, AppRoutes.about);
+                ValueListenableBuilder<ThemeMode>(
+                  valueListenable: themeNotifier,
+                  builder: (context, themeMode, _) {
+                    final isDark = themeMode == ThemeMode.dark;
+                    return ElevatedButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, AppRoutes.about);
+                      },
+                      style: AppTheme.getPrimaryButtonStyle(context, isDark),
+                      child: const Text('Learn More'),
+                    );
                   },
-                  style: AppTheme.primaryButtonStyle,
-                  child: const Text('Learn More'),
                 ),
               ],
             ),
@@ -98,14 +104,23 @@ class HomeScreen extends StatelessWidget {
                       onPressed: () {
                         Navigator.pushNamed(context, AppRoutes.registration);
                       },
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.white,
-                        foregroundColor: AppTheme.primaryPurple,
-                        padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 15),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30),
-                        ),
-                      ),
+                      style: isDark
+                          ? ElevatedButton.styleFrom(
+                              backgroundColor: Colors.white,
+                              foregroundColor: AppTheme.darkPurple,
+                              padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 15),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(30),
+                              ),
+                            )
+                          : ElevatedButton.styleFrom(
+                              backgroundColor: Colors.white,
+                              foregroundColor: AppTheme.primaryPurple,
+                              padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 15),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(30),
+                              ),
+                            ),
                       child: const Text(
                         'Register Now',
                         style: TextStyle(

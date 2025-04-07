@@ -4,6 +4,7 @@ import '../constants/app_theme.dart';
 import '../utils/routes.dart';
 import '../widgets/page_layout.dart';
 import '../widgets/section_container.dart';
+import '../main.dart'; // Import for themeNotifier
 
 class RegistrationScreen extends StatelessWidget {
   const RegistrationScreen({super.key});
@@ -47,19 +48,25 @@ class RegistrationScreen extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: 30),
-                ElevatedButton(
-                  onPressed: () {
-                    // This would be replaced with the actual registration link
-                    _launchURL('https://example.com/register');
+                ValueListenableBuilder<ThemeMode>(
+                  valueListenable: themeNotifier,
+                  builder: (context, themeMode, _) {
+                    final isDark = themeMode == ThemeMode.dark;
+                    return ElevatedButton(
+                      onPressed: () {
+                        // This would be replaced with the actual registration link
+                        _launchURL('https://example.com/register');
+                      },
+                      style: AppTheme.getPrimaryButtonStyle(context, isDark),
+                      child: const Text(
+                        'Register Here',
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    );
                   },
-                  style: AppTheme.primaryButtonStyle,
-                  child: const Text(
-                    'Register Here',
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
                 ),
               ],
             ),
