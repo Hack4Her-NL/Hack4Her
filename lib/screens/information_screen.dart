@@ -6,19 +6,19 @@ import '../widgets/page_layout.dart';
 import '../widgets/section_container.dart';
 import '../main.dart'; // Import for themeNotifier
 
-class RegistrationScreen extends StatelessWidget {
-  const RegistrationScreen({super.key});
+class InformationScreen extends StatelessWidget {
+  const InformationScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return PageLayout(
-      currentRoute: AppRoutes.registration,
+      currentRoute: AppRoutes.information,
       showGradientHeader: true,
-      headerTitle: 'Registration',
+      headerTitle: 'Information',
       headerContent: const Padding(
         padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
         child: Text(
-          'Register for Hack4Her 2024',
+          'Everything you need to know about Hack4Her',
           style: TextStyle(
             fontSize: 18,
             color: Colors.white,
@@ -28,13 +28,13 @@ class RegistrationScreen extends StatelessWidget {
       ),
       child: Column(
         children: [
-          // Registration button section
+          // Information section
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 20),
             child: Column(
               children: [
                 const Text(
-                  'Registration is now open for Hack4Her 2024!',
+                  'Hack4Her is the only female-focused student hackathon in the Netherlands',
                   style: TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
@@ -43,7 +43,7 @@ class RegistrationScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 20),
                 const Text(
-                  'Join us June 7-9, 2024 at VU Amsterdam for our 3rd annual event. Click the button below to register for this exciting weekend of coding, workshops, and collaboration.',
+                  'Creating a space where technology and diversity meet. We are a coalition of staff and students from the Vrije Universiteit Amsterdam and Universiteit van Amsterdam. Our mission is simple: to create a women-centered space in the tech world.',
                   style: TextStyle(fontSize: 16),
                   textAlign: TextAlign.center,
                 ),
@@ -54,12 +54,11 @@ class RegistrationScreen extends StatelessWidget {
                     final isDark = themeMode == ThemeMode.dark;
                     return ElevatedButton(
                       onPressed: () {
-                        // This would be replaced with the actual registration link
-                        _launchURL('https://hack4her.github.io/');
+                        Navigator.pushNamed(context, AppRoutes.registration);
                       },
                       style: AppTheme.getPrimaryButtonStyle(context, isDark),
                       child: const Text(
-                        'Register Here',
+                        'Register Now',
                         style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
@@ -72,16 +71,16 @@ class RegistrationScreen extends StatelessWidget {
             ),
           ),
 
-          // Registration Process section
+          // Event Details section
           SectionContainer(
-            title: 'Registration Process',
+            title: 'Event Details',
             useGradientBackground: true,
             child: Column(
               children: [
                 const Padding(
                   padding: EdgeInsets.symmetric(horizontal: 20),
                   child: Text(
-                    'The registration process is simple and straightforward. Here\'s what you need to know:',
+                    'Our 3rd Annual Hack4Her event is taking place on June 7-9, 2024, at VU Amsterdam. This weekend is dedicated to empowering women in tech through collaboration, innovation, and competition.',
                     style: TextStyle(
                       fontSize: 16,
                       color: Colors.white,
@@ -102,7 +101,7 @@ class RegistrationScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Registration Steps:',
+                        'Event Highlights:',
                         style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
@@ -110,26 +109,11 @@ class RegistrationScreen extends StatelessWidget {
                         ),
                       ),
                       SizedBox(height: 10),
-                      _RegistrationStep(
-                        number: '1',
-                        title: 'Complete the Registration Form',
-                        description: 'Fill out the basic information about yourself and your skills.',
-                      ),
-                      _RegistrationStep(
-                        number: '2',
-                        title: 'Select Your Preferences',
-                        description: 'Choose workshops you\'re interested in and whether you need accommodation.',
-                      ),
-                      _RegistrationStep(
-                        number: '3',
-                        title: 'Submit Your Application',
-                        description: 'Review your information and submit your registration.',
-                      ),
-                      _RegistrationStep(
-                        number: '4',
-                        title: 'Receive Confirmation',
-                        description: 'You\'ll receive a confirmation email with details about the event.',
-                      ),
+                      _BulletPoint('Open to all students in the Netherlands'),
+                      _BulletPoint('Coding, workshops, lectures, and networking opportunities'),
+                      _BulletPoint('While all genders are welcome, only women are eligible to compete in the hackathon'),
+                      _BulletPoint('Free food and drinks provided'),
+                      _BulletPoint('Chance for free accommodation'),
                     ],
                   ),
                 ),
@@ -137,15 +121,15 @@ class RegistrationScreen extends StatelessWidget {
             ),
           ),
 
-          // Eligibility section
+          // Code of conduct section
           SectionContainer(
-            title: 'Eligibility',
+            title: 'Code of Conduct',
             child: Column(
               children: [
                 const Padding(
                   padding: EdgeInsets.symmetric(horizontal: 20),
                   child: Text(
-                    'Hack4Her is open to all students in the Netherlands. While all genders are welcome to participate in the event, only women are eligible to compete in the hackathon portion.',
+                    'All participants must adhere to our code of conduct throughout the event.',
                     style: TextStyle(fontSize: 16),
                     textAlign: TextAlign.center,
                   ),
@@ -164,19 +148,57 @@ class RegistrationScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'What You\'ll Need:',
+                        'Code of Conduct Summary:',
                         style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                       SizedBox(height: 10),
-                      _BulletPoint('Student ID or proof of student status'),
-                      _BulletPoint('Laptop and charger'),
-                      _BulletPoint('Enthusiasm and willingness to learn'),
-                      _BulletPoint('Optional: Team information if you are registering with a team'),
+                      _BulletPoint('We are committed to providing a safe and inclusive environment for all participants'),
+                      _BulletPoint('Harassment or discrimination of any kind will not be tolerated'),
+                      _BulletPoint('Respect the opinions, skills, and boundaries of other participants'),
+                      _BulletPoint('Follow the event rules and guidelines at all times'),
+                      _BulletPoint('Report any concerns or violations to the event organizers immediately'),
                     ],
                   ),
+                ),
+                const SizedBox(height: 20),
+                TextButton(
+                  onPressed: () {
+                    _launchURL('https://hack4her.github.io/');
+                  },
+                  child: const Text('Read Full Code of Conduct'),
+                ),
+              ],
+            ),
+          ),
+
+          // FAQ Section
+          const SectionContainer(
+            title: 'Frequently Asked Questions',
+            useGradientBackground: true,
+            child: Column(
+              children: [
+                _FaqItem(
+                  question: 'What is Hack4Her?',
+                  answer:
+                      'Hack4Her is the only female-focused student hackathon in the Netherlands, creating a space where technology and diversity meet. We aim to empower women in tech through collaboration, innovation, and competition.',
+                ),
+                _FaqItem(
+                  question: 'Who can participate?',
+                  answer:
+                      'All students in the Netherlands are welcome to attend. While all genders are welcome to participate in the event, only women are eligible to compete in the hackathon portion.',
+                ),
+                _FaqItem(
+                  question: 'Do I need to know how to code?',
+                  answer:
+                      'No, you don\'t need prior coding experience. Hack4Her is designed to be inclusive and educational. We have workshops and mentors to help you learn and develop your skills.',
+                ),
+                _FaqItem(
+                  question: 'What should I bring?',
+                  answer:
+                      'Bring your laptop, charger, any personal items you may need, and most importantly, your enthusiasm and creativity!',
                 ),
               ],
             ),
@@ -232,67 +254,46 @@ class _BulletPoint extends StatelessWidget {
   }
 }
 
-class _RegistrationStep extends StatelessWidget {
-  final String number;
-  final String title;
-  final String description;
+class _FaqItem extends StatelessWidget {
+  final String question;
+  final String answer;
 
-  const _RegistrationStep({
-    required this.number,
-    required this.title,
-    required this.description,
+  const _FaqItem({
+    required this.question,
+    required this.answer,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 15),
-      child: Row(
+    return Container(
+      width: double.infinity,
+      margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      padding: const EdgeInsets.all(20),
+      decoration: BoxDecoration(
+        color: Colors.white.withOpacity(0.2),
+        borderRadius: BorderRadius.circular(12),
+      ),
+      child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Container(
-            width: 30,
-            height: 30,
-            decoration: const BoxDecoration(
+          Text(
+            question,
+            style: const TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
               color: Colors.white,
-              shape: BoxShape.circle,
-            ),
-            child: Center(
-              child: Text(
-                number,
-                style: const TextStyle(
-                  color: AppTheme.primaryPurple,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
             ),
           ),
-          const SizedBox(width: 10),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  title,
-                  style: const TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                  ),
-                ),
-                const SizedBox(height: 5),
-                Text(
-                  description,
-                  style: const TextStyle(
-                    fontSize: 14,
-                    color: Colors.white,
-                  ),
-                ),
-              ],
+          const SizedBox(height: 10),
+          Text(
+            answer,
+            style: const TextStyle(
+              fontSize: 16,
+              color: Colors.white,
             ),
           ),
         ],
       ),
     );
   }
-}
+} 

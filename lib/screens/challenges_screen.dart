@@ -61,53 +61,10 @@ class ChallengesScreen extends StatelessWidget {
             ),
           ),
 
-          // Main Challenge
-          SectionContainer(
-            title: 'Main Challenge',
-            useGradientBackground: true,
-            child: Container(
-              width: double.infinity,
-              margin: const EdgeInsets.symmetric(horizontal: 20),
-              padding: const EdgeInsets.all(30),
-              decoration: BoxDecoration(
-                color: Colors.white.withOpacity(0.2),
-                borderRadius: BorderRadius.circular(15),
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Text(
-                    'Empowering Women in Technology',
-                    style: TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    ),
-                  ),
-                  const SizedBox(height: 15),
-                  const Text(
-                    'Create an innovative solution that addresses challenges faced by women in technology or empowers women through technology.',
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: Colors.white,
-                    ),
-                  ),
-                  const SizedBox(height: 20),
-                  Row(
-                    children: [
-                      _buildChip('Grand Prize', Colors.amber),
-                      const SizedBox(width: 10),
-                      _buildChip('All Teams', Colors.blue),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-          ),
-
-          // Sponsored Challenges
+          // Challenges (formerly Sponsored Challenges)
           const SectionContainer(
-            title: 'Sponsored Challenges',
+            title: 'Challenges',
+            useGradientBackground: true,
             child: Column(
               children: [
                 _ChallengeCard(
@@ -141,6 +98,14 @@ class ChallengesScreen extends StatelessWidget {
                   sponsor: 'GreenFuture',
                   prize: '\$1,000',
                   tags: ['Sustainability', 'IoT'],
+                ),
+                _ChallengeCard(
+                  title: 'Women in Tech Empowerment',
+                  description:
+                      'Create an innovative solution that addresses challenges faced by women in technology or empowers women through technology.',
+                  sponsor: 'Hack4Her',
+                  prize: '\$3,000',
+                  tags: ['Grand Prize', 'All Teams'],
                 ),
               ],
             ),

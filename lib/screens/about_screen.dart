@@ -3,6 +3,8 @@ import 'package:url_launcher/url_launcher.dart';
 import '../utils/routes.dart';
 import '../widgets/page_layout.dart';
 import '../widgets/section_container.dart';
+import '../constants/app_theme.dart';
+import '../main.dart'; // Import for themeNotifier
 
 class AboutScreen extends StatelessWidget {
   const AboutScreen({super.key});
@@ -247,7 +249,7 @@ class _TeamMemberCard extends StatelessWidget {
         children: [
           // Profile image or placeholder
           InkWell(
-            onTap: () => _launchURL(linkedInUrl),
+            onTap: () => _showMemberDetails(context),
             child: Container(
               width: 120,
               height: 120,
@@ -292,32 +294,198 @@ class _TeamMemberCard extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
           const SizedBox(height: 16),
-          // LinkedIn button
-          InkWell(
-            onTap: () => _launchURL(linkedInUrl),
-            child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-              decoration: BoxDecoration(
-                color: Colors.white.withOpacity(0.3),
-                borderRadius: BorderRadius.circular(20),
-              ),
-              child: const Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Icon(Icons.link, color: Colors.white, size: 16),
-                  SizedBox(width: 4),
-                  Text(
-                    'LinkedIn',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 14,
-                    ),
+          // Buttons row
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              // LinkedIn button
+              InkWell(
+                onTap: () => _launchURL(linkedInUrl),
+                child: Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                  decoration: BoxDecoration(
+                    color: Colors.white.withOpacity(0.3),
+                    borderRadius: BorderRadius.circular(20),
                   ),
-                ],
+                  child: const Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Icon(Icons.link, color: Colors.white, size: 16),
+                      SizedBox(width: 4),
+                      Text(
+                        'LinkedIn',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 14,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               ),
-            ),
+              const SizedBox(width: 8),
+              // Info button
+              InkWell(
+                onTap: () => _showMemberDetails(context),
+                child: Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                  decoration: BoxDecoration(
+                    color: Colors.white.withOpacity(0.3),
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: const Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Icon(Icons.info_outline, color: Colors.white, size: 16),
+                      SizedBox(width: 4),
+                      Text(
+                        'Details',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 14,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
           ),
         ],
+      ),
+    );
+  }
+
+  void _showMemberDetails(BuildContext context) {
+    final isDark = themeNotifier.value == ThemeMode.dark;
+    
+    showDialog(
+      context: context,
+      builder: (context) => Dialog(
+        backgroundColor: Colors.transparent,
+        child: Container(
+          width: double.infinity,
+          constraints: const BoxConstraints(maxWidth: 500),
+          padding: const EdgeInsets.all(24),
+          decoration: BoxDecoration(
+            color: isDark ? AppTheme.darkSurface : Colors.white,
+            borderRadius: BorderRadius.circular(16),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withAlpha(50),
+                blurRadius: 10,
+                offset: const Offset(0, 5),
+              ),
+            ],
+          ),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              // Close button at top-right
+              Align(
+                alignment: Alignment.topRight,
+                child: IconButton(
+                  icon: Icon(Icons.close, color: isDark ? Colors.white70 : Colors.black54),
+                  onPressed: () => Navigator.pop(context),
+                ),
+              ),
+              
+              // Profile image
+              Container(
+                width: 120,
+                height: 120,
+                decoration: BoxDecoration(
+                  color: isDark ? Colors.grey.shade800 : Colors.grey.shade200,
+                  shape: BoxShape.circle,
+                  image: assetImagePath != null
+                      ? DecorationImage(
+                          image: AssetImage(assetImagePath!),
+                          fit: BoxFit.cover,
+                        )
+                      : null,
+                ),
+                child: assetImagePath == null
+                    ? Icon(
+                        Icons.person,
+                        size: 60,
+                        color: isDark ? Colors.white70 : Colors.grey,
+                      )
+                    : null,
+              ),
+              const SizedBox(height: 16),
+              
+              // Name
+              Text(
+                name,
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                  color: isDark ? Colors.white : AppTheme.textDark,
+                ),
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: 8),
+              
+              // Role with badge
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
+                decoration: BoxDecoration(
+                  color: isDark
+                      ? AppTheme.primaryPurple.withAlpha(50)
+                      : AppTheme.primaryBlue.withAlpha(50),
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Text(
+                  role,
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: isDark ? AppTheme.primaryPurple : AppTheme.primaryBlue,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 24),
+              
+              // Bio
+              Text(
+                'As ${role.toLowerCase()} at Hack4Her, ${name.split(' ')[0]} is passionate about creating inclusive spaces in tech and empowering women through education and collaboration.',
+                style: TextStyle(
+                  fontSize: 16,
+                  color: isDark ? Colors.white70 : Colors.grey.shade800,
+                ),
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: 16),
+              
+              // Additional info
+              Text(
+                '${name.split(' ')[0]} brings experience from various ${role.toLowerCase() == 'developer' || role.toLowerCase() == 'technical lead' ? 'technical roles and open source projects' : 'organizations and initiatives'} focused on ${role.toLowerCase() == 'marketing' || role.toLowerCase() == 'social media' ? 'digital marketing and community engagement' : role.toLowerCase() == 'design lead' || role.toLowerCase() == 'designer' || role.toLowerCase() == 'ui designer' || role.toLowerCase() == 'ux designer' ? 'user experience and design systems' : 'diversity and inclusion in technology'}.',
+                style: TextStyle(
+                  fontSize: 16,
+                  color: isDark ? Colors.white70 : Colors.grey.shade800,
+                ),
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: 24),
+              
+              // LinkedIn button
+              ElevatedButton.icon(
+                onPressed: () => _launchURL(linkedInUrl),
+                icon: const Icon(Icons.link),
+                label: const Text('Connect on LinkedIn'),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: isDark ? AppTheme.primaryPurple : AppTheme.primaryBlue,
+                  foregroundColor: Colors.white,
+                  padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
@@ -356,7 +524,7 @@ class _CompactTeamMemberCard extends StatelessWidget {
       child: Material(
         color: Colors.transparent,
         child: InkWell(
-          onTap: () => _launchURL(linkedInUrl),
+          onTap: () => _showMemberDetails(context),
           borderRadius: BorderRadius.circular(10),
           child: Padding(
             padding: const EdgeInsets.all(12.0),
@@ -397,26 +565,174 @@ class _CompactTeamMemberCard extends StatelessWidget {
                   textAlign: TextAlign.center,
                   overflow: TextOverflow.ellipsis,
                 ),
-                const SizedBox(height: 4),
+                const SizedBox(height: 2),
                 // Role
                 Text(
                   role,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 12,
-                    color: Colors.white.withOpacity(0.8),
+                    color: Colors.white,
                   ),
                   textAlign: TextAlign.center,
                   overflow: TextOverflow.ellipsis,
                 ),
-                const SizedBox(height: 6),
-                // LinkedIn icon
-                Icon(
-                  Icons.link,
-                  color: Colors.white.withOpacity(0.7),
-                  size: 14,
+                const SizedBox(height: 10),
+                // LinkedIn indicator
+                const Row(
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(
+                      Icons.info_outline,
+                      color: Colors.white,
+                      size: 12,
+                    ),
+                    SizedBox(width: 4),
+                    Text(
+                      'Tap for info',
+                      style: TextStyle(
+                        fontSize: 10,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  void _showMemberDetails(BuildContext context) {
+    final isDark = themeNotifier.value == ThemeMode.dark;
+    
+    showDialog(
+      context: context,
+      builder: (context) => Dialog(
+        backgroundColor: Colors.transparent,
+        child: Container(
+          width: double.infinity,
+          constraints: const BoxConstraints(maxWidth: 500),
+          padding: const EdgeInsets.all(24),
+          decoration: BoxDecoration(
+            color: isDark ? AppTheme.darkSurface : Colors.white,
+            borderRadius: BorderRadius.circular(16),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withAlpha(50),
+                blurRadius: 10,
+                offset: const Offset(0, 5),
+              ),
+            ],
+          ),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              // Close button at top-right
+              Align(
+                alignment: Alignment.topRight,
+                child: IconButton(
+                  icon: Icon(Icons.close, color: isDark ? Colors.white70 : Colors.black54),
+                  onPressed: () => Navigator.pop(context),
+                ),
+              ),
+              
+              // Profile image
+              Container(
+                width: 120,
+                height: 120,
+                decoration: BoxDecoration(
+                  color: isDark ? Colors.grey.shade800 : Colors.grey.shade200,
+                  shape: BoxShape.circle,
+                  image: assetImagePath != null
+                      ? DecorationImage(
+                          image: AssetImage(assetImagePath!),
+                          fit: BoxFit.cover,
+                        )
+                      : null,
+                ),
+                child: assetImagePath == null
+                    ? Icon(
+                        Icons.person,
+                        size: 60,
+                        color: isDark ? Colors.white70 : Colors.grey,
+                      )
+                    : null,
+              ),
+              const SizedBox(height: 16),
+              
+              // Name
+              Text(
+                name,
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                  color: isDark ? Colors.white : AppTheme.textDark,
+                ),
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: 8),
+              
+              // Role with badge
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
+                decoration: BoxDecoration(
+                  color: isDark
+                      ? AppTheme.primaryPurple.withAlpha(50)
+                      : AppTheme.primaryBlue.withAlpha(50),
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Text(
+                  role,
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: isDark ? AppTheme.primaryPurple : AppTheme.primaryBlue,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 24),
+              
+              // Bio
+              Text(
+                'As ${role.toLowerCase()} at Hack4Her, ${name.split(' ')[0]} is passionate about creating inclusive spaces in tech and empowering women through education and collaboration.',
+                style: TextStyle(
+                  fontSize: 16,
+                  color: isDark ? Colors.white70 : Colors.grey.shade800,
+                ),
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: 16),
+              
+              // Additional info
+              Text(
+                '${name.split(' ')[0]} brings experience from various ${role.toLowerCase() == 'developer' || role.toLowerCase() == 'technical lead' || role.toLowerCase() == 'backend dev' ? 'technical roles and open source projects' : 'organizations and initiatives'} focused on ${role.toLowerCase() == 'marketing' || role.toLowerCase() == 'social media' ? 'digital marketing and community engagement' : role.toLowerCase() == 'design lead' || role.toLowerCase() == 'designer' || role.toLowerCase() == 'ui designer' || role.toLowerCase() == 'ux designer' ? 'user experience and design systems' : 'diversity and inclusion in technology'}.',
+                style: TextStyle(
+                  fontSize: 16,
+                  color: isDark ? Colors.white70 : Colors.grey.shade800,
+                ),
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: 24),
+              
+              // LinkedIn button
+              ElevatedButton.icon(
+                onPressed: () => _launchURL(linkedInUrl),
+                icon: const Icon(Icons.link),
+                label: const Text('Connect on LinkedIn'),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: isDark ? AppTheme.primaryPurple : AppTheme.primaryBlue,
+                  foregroundColor: Colors.white,
+                  padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30),
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
       ),

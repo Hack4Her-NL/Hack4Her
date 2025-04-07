@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../screens/home_screen.dart';
 import '../screens/about_screen.dart';
 import '../screens/registration_screen.dart';
+import '../screens/information_screen.dart';
 import '../screens/workshops_screen.dart';
 import '../screens/challenges_screen.dart';
 import '../screens/previous_events_screen.dart';
@@ -10,6 +11,7 @@ class AppRoutes {
   static const String home = '/';
   static const String about = '/about';
   static const String registration = '/registration';
+  static const String information = '/information';
   static const String workshops = '/workshops';
   static const String challenges = '/challenges';
   static const String previousEvents = '/previous-events';
@@ -18,6 +20,7 @@ class AppRoutes {
     home: (context) => const HomeScreen(),
     about: (context) => const AboutScreen(),
     registration: (context) => const RegistrationScreen(),
+    information: (context) => const InformationScreen(),
     workshops: (context) => const WorkshopsScreen(),
     challenges: (context) => const ChallengesScreen(),
     previousEvents: (context) => const PreviousEventsScreen(),
@@ -34,6 +37,7 @@ class AppRoutes {
   static List<Map<String, String>> navigationItems = [
     {'title': 'Home', 'route': home},
     {'title': 'About Us', 'route': about},
+    {'title': 'Information', 'route': information},
     {'title': 'Registration', 'route': registration},
     {'title': 'Workshops', 'route': workshops},
     {'title': 'Challenges', 'route': challenges},

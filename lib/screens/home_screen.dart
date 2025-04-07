@@ -193,18 +193,44 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 40),
-                    ElevatedButton(
-                      onPressed: () {
-                        Navigator.pushNamed(context, AppRoutes.registration);
-                      },
-                      style: AppTheme.secondaryButtonStyle,
-                      child: Text(
-                        'Learn More',
-                        style: TextStyle(
-                          fontSize: AppTheme.responsiveFontSize(22, context),
-                          fontWeight: FontWeight.w500,
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        ElevatedButton(
+                          onPressed: () {
+                            Navigator.pushNamed(context, AppRoutes.information);
+                          },
+                          style: AppTheme.secondaryButtonStyle,
+                          child: Text(
+                            'Learn More',
+                            style: TextStyle(
+                              fontSize: AppTheme.responsiveFontSize(22, context),
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
                         ),
-                      ),
+                        const SizedBox(width: 16),
+                        ElevatedButton(
+                          onPressed: () {
+                            Navigator.pushNamed(context, AppRoutes.registration);
+                          },
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.white,
+                            foregroundColor: isDark ? AppTheme.darkPurple : AppTheme.primaryPurple,
+                            padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(30),
+                            ),
+                          ),
+                          child: Text(
+                            'Register Now',
+                            style: TextStyle(
+                              fontSize: AppTheme.responsiveFontSize(22, context),
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),
@@ -284,36 +310,52 @@ class HomeScreen extends StatelessWidget {
   Widget _buildSponsorsGrid(Size screenSize) {
     final bool isMobile = screenSize.width < AppTheme.mobileBreakpoint;
 
-    // List of company images to use (use them multiple times since we have 8 slots)
-    final List<String> companyImages = [
-      'assets/images/company0.png',
-      'assets/images/company1.png',
-      'assets/images/company2.png',
-      'assets/images/company3.png',
-      'assets/images/company0.png',
-      'assets/images/company1.png',
-      'assets/images/company2.png',
-      'assets/images/company3.png',
-    ];
-
-    return Wrap(
-      spacing: 20,
-      runSpacing: 20,
-      alignment: WrapAlignment.center,
-      children: List.generate(
-        companyImages.length,
-        (index) => Container(
-          width: 150,
-          height: 80,
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(10),
-            border: Border.all(color: Colors.grey.withAlpha(77)),
-            image: DecorationImage(
-              image: AssetImage(companyImages[index]),
-              fit: BoxFit.contain,
-            ),
-          ),
+    return Column(
+      children: [
+        // Remove Platinum sponsors label
+        const SizedBox(height: 20),
+        
+        // Platinum sponsors (larger logos)
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            _buildSponsorLogo('assets/images/company0.png', 200, 120),
+            const SizedBox(width: 40),
+            _buildSponsorLogo('assets/images/company1.png', 200, 120),
+          ],
+        ),
+        
+        const SizedBox(height: 40),
+        
+        // Remove Gold sponsors label
+        const SizedBox(height: 20),
+        
+        // Gold sponsors (medium logos)
+        Wrap(
+          spacing: 30,
+          runSpacing: 30,
+          alignment: WrapAlignment.center,
+          children: [
+            _buildSponsorLogo('assets/images/company2.png', 170, 90),
+            _buildSponsorLogo('assets/images/company3.png', 170, 90),
+            _buildSponsorLogo('assets/images/company0.png', 170, 90),
+          ],
+        ),
+      ],
+    );
+  }
+  
+  Widget _buildSponsorLogo(String imagePath, double width, double height) {
+    return Container(
+      width: width,
+      height: height,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(10),
+        border: Border.all(color: Colors.grey.withAlpha(77)),
+        image: DecorationImage(
+          image: AssetImage(imagePath),
+          fit: BoxFit.contain,
         ),
       ),
     );

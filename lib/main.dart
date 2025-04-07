@@ -8,6 +8,7 @@ import 'screens/registration_screen.dart';
 import 'screens/workshops_screen.dart';
 import 'screens/challenges_screen.dart';
 import 'screens/previous_events_screen.dart';
+import 'screens/information_screen.dart';
 
 // Simple global theme controller that doesn't rely on shared_preferences
 final ValueNotifier<ThemeMode> themeNotifier = ValueNotifier(ThemeMode.light);
@@ -47,6 +48,9 @@ class MyApp extends StatelessWidget {
                 break;
               case AppRoutes.registration:
                 page = const RegistrationScreen();
+                break;
+              case AppRoutes.information:
+                page = const InformationScreen();
                 break;
               case AppRoutes.workshops:
                 page = const WorkshopsScreen();

@@ -76,18 +76,62 @@ class AppFooter extends StatelessWidget {
                 ),
               ),
 
+              const SizedBox(height: 6),
+              
+              // Remove Platinum Sponsors label
               const SizedBox(height: 20),
 
-              // Sponsor logos using company images
+              // Platinum sponsor logos (larger)
+              Wrap(
+                spacing: 30,
+                runSpacing: 20,
+                alignment: WrapAlignment.center,
+                children: [
+                  _buildSponsorLogo('assets/images/company0.png', 'VU Amsterdam', 180, 90),
+                  _buildSponsorLogo('assets/images/company1.png', 'UvA', 180, 90),
+                ],
+              ),
+              
+              const SizedBox(height: 30),
+              
+              // Remove Gold Sponsors label
+              const SizedBox(height: 20),
+
+              // Gold sponsor logos (medium)
               Wrap(
                 spacing: 20,
                 runSpacing: 20,
                 alignment: WrapAlignment.center,
                 children: [
-                  _buildSponsorLogo('assets/images/company0.png', 'Sponsor 1'),
-                  _buildSponsorLogo('assets/images/company1.png', 'Sponsor 2'),
-                  _buildSponsorLogo('assets/images/company2.png', 'Sponsor 3'),
-                  _buildSponsorLogo('assets/images/company3.png', 'Sponsor 4'),
+                  _buildSponsorLogo('assets/images/company2.png', 'Sponsor 3', 140, 70),
+                  _buildSponsorLogo('assets/images/company3.png', 'Sponsor 4', 140, 70),
+                  _buildSponsorLogo('assets/images/company0.png', 'Sponsor 5', 140, 70),
+                ],
+              ),
+
+              const SizedBox(height: 40),
+              
+              // Partners section
+              const Text(
+                'Partners',
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+              ),
+
+              const SizedBox(height: 20),
+
+              // Partner logos
+              Wrap(
+                spacing: 20,
+                runSpacing: 20,
+                alignment: WrapAlignment.center,
+                children: [
+                  _buildSponsorLogo('assets/images/company1.png', 'Partner 1', 120, 60),
+                  _buildSponsorLogo('assets/images/company2.png', 'Partner 2', 120, 60),
+                  _buildSponsorLogo('assets/images/company3.png', 'Partner 3', 120, 60),
                 ],
               ),
 
@@ -108,10 +152,10 @@ class AppFooter extends StatelessWidget {
     );
   }
 
-  Widget _buildSponsorLogo(String imagePath, String name) {
+  Widget _buildSponsorLogo(String imagePath, String name, double width, double height) {
     return Container(
-      width: 120,
-      height: 60,
+      width: width,
+      height: height,
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(8),

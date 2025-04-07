@@ -134,10 +134,10 @@ class PreviousEventsScreen extends StatelessWidget {
                 const SizedBox(height: 30),
                 OutlinedButton.icon(
                   onPressed: () {
-                    _launchURL('https://example.com/previous-events');
+                    _launchURL('https://hack4her.github.io/');
                   },
                   icon: const Icon(Icons.history),
-                  label: const Text('Visit Archive Website'),
+                  label: const Text('Visit Hack4Her Website'),
                   style: OutlinedButton.styleFrom(
                     foregroundColor: AppTheme.primaryPurple,
                     side: const BorderSide(color: AppTheme.primaryPurple),
@@ -162,66 +162,39 @@ class PreviousEventsScreen extends StatelessWidget {
         children: [
           const _TimelineEvent(
             year: '2023',
-            title: 'Hack4Her: Journal of Memories',
+            title: 'Hack4Her: 2nd Annual Event',
             description:
-                'Our 10th annual event with over 2,500 participants and 300+ projects focused on health technology and education.',
+                'Our 2nd annual event, focusing on creating a women-centered space in the tech world where participants collaborated on innovative projects and solutions.',
             stats: [
-              {'label': 'Participants', 'value': '2,500+'},
-              {'label': 'Projects', 'value': '300+'},
-              {'label': 'Sponsors', 'value': '35'},
+              {'label': 'Participants', 'value': '150+'},
+              {'label': 'Projects', 'value': '50+'},
+              {'label': 'Sponsors', 'value': '15'},
             ],
             isLeft: true,
           ),
           const _TimelineEvent(
             year: '2022',
-            title: 'Hack4Her: Digital Transformation',
+            title: 'Hack4Her: 1st Annual Event',
             description:
-                'Focused on leveraging technology for social good, with special emphasis on accessibility and inclusion.',
+                'Our inaugural hackathon dedicated to empowering women in technology, creating a safe and inclusive environment for learning and innovation.',
             stats: [
-              {'label': 'Participants', 'value': '2,200+'},
-              {'label': 'Projects', 'value': '280+'},
-              {'label': 'Sponsors', 'value': '30'},
+              {'label': 'Participants', 'value': '100+'},
+              {'label': 'Projects', 'value': '30+'},
+              {'label': 'Sponsors', 'value': '10'},
             ],
             isLeft: false,
           ),
           const _TimelineEvent(
-            year: '2021',
-            title: 'Hack4Her: Virtual Edition',
+            year: '2024',
+            title: 'Hack4Her: 3rd Annual Event',
             description:
-                'Our first fully virtual hackathon, bringing together participants from over 40 countries during the pandemic.',
+                'Upcoming event scheduled for June 7-9, 2024, at VU Amsterdam. A weekend dedicated to empowering women in tech through collaboration, innovation, and competition.',
             stats: [
-              {'label': 'Participants', 'value': '1,800+'},
-              {'label': 'Projects', 'value': '250+'},
-              {'label': 'Sponsors', 'value': '25'},
+              {'label': 'Expected', 'value': '200+'},
+              {'label': 'Location', 'value': 'VU Amsterdam'},
+              {'label': 'Date', 'value': 'June 7-9'},
             ],
             isLeft: true,
-          ),
-          const _TimelineEvent(
-            year: '2020',
-            title: 'Hack4Her: Future Forward',
-            description:
-                'Exploring the future of technology with a focus on AI, machine learning, and emerging technologies.',
-            stats: [
-              {'label': 'Participants', 'value': '1,500+'},
-              {'label': 'Projects', 'value': '200+'},
-              {'label': 'Sponsors', 'value': '20'},
-            ],
-            isLeft: false,
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 20),
-            child: OutlinedButton.icon(
-              onPressed: () {
-                _launchURL('https://example.com/event-history');
-              },
-              icon: const Icon(Icons.history, color: Colors.white),
-              label: const Text('View Full History'),
-              style: OutlinedButton.styleFrom(
-                foregroundColor: Colors.white,
-                side: const BorderSide(color: Colors.white),
-                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-              ),
-            ),
           ),
         ],
       ),
@@ -723,7 +696,9 @@ class _ProjectCard extends StatelessWidget {
                   ),
                   const SizedBox(height: 15),
                   TextButton.icon(
-                    onPressed: () {},
+                    onPressed: () {
+                      _showProjectDetails(context);
+                    },
                     icon: const Icon(Icons.launch, size: 16),
                     label: const Text('View Project'),
                     style: TextButton.styleFrom(
@@ -733,6 +708,167 @@ class _ProjectCard extends StatelessWidget {
                   ),
                 ],
               ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+  
+  void _showProjectDetails(BuildContext context) {
+    final isDark = themeNotifier.value == ThemeMode.dark;
+    
+    showDialog(
+      context: context,
+      builder: (context) => Dialog(
+        backgroundColor: Colors.transparent,
+        child: Container(
+          width: double.infinity,
+          constraints: const BoxConstraints(maxWidth: 600),
+          padding: const EdgeInsets.all(24),
+          decoration: BoxDecoration(
+            color: isDark ? AppTheme.darkSurface : Colors.white,
+            borderRadius: BorderRadius.circular(16),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withAlpha(50),
+                blurRadius: 10,
+                offset: const Offset(0, 5),
+              ),
+            ],
+          ),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Expanded(
+                    child: Text(
+                      title,
+                      style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                        color: isDark ? Colors.white : AppTheme.textDark,
+                      ),
+                    ),
+                  ),
+                  IconButton(
+                    icon: Icon(Icons.close, color: isDark ? Colors.white70 : Colors.black54),
+                    onPressed: () => Navigator.pop(context),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 16),
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                decoration: BoxDecoration(
+                  color: AppTheme.primaryPurple.withAlpha(50),
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(
+                      year,
+                      style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.bold,
+                        color: isDark ? AppTheme.primaryPurple : AppTheme.primaryPurple,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 24),
+              Text(
+                'Project Description',
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                  color: isDark ? Colors.white : AppTheme.textDark,
+                ),
+              ),
+              const SizedBox(height: 8),
+              Text(
+                description,
+                style: TextStyle(
+                  fontSize: 16,
+                  color: isDark ? Colors.white70 : Colors.black87,
+                ),
+              ),
+              const SizedBox(height: 24),
+              Row(
+                children: [
+                  _buildDetailItem(context, 'Team', team, Icons.people, isDark),
+                  const SizedBox(width: 24),
+                  _buildDetailItem(context, 'Award', award, Icons.emoji_events, isDark),
+                ],
+              ),
+              const SizedBox(height: 24),
+              Text(
+                'Implementation Details',
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                  color: isDark ? Colors.white : AppTheme.textDark,
+                ),
+              ),
+              const SizedBox(height: 8),
+              Text(
+                'This project addressed key challenges in ${year == "2023" ? "health technology" : year == "2022" ? "education technology" : "safety and security"} '
+                'through innovative use of ${year == "2023" ? "machine learning and data analytics" : year == "2022" ? "gamification and user experience design" : "crowdsourced data and real-time monitoring"}. '
+                'The team employed a user-centered design approach, conducted extensive research, and utilized cutting-edge technologies to create a solution that can make a real difference.',
+                style: TextStyle(
+                  fontSize: 16,
+                  color: isDark ? Colors.white70 : Colors.black87,
+                ),
+              ),
+              const SizedBox(height: 24),
+              Center(
+                child: ElevatedButton(
+                  onPressed: () => Navigator.pop(context),
+                  style: AppTheme.getPrimaryButtonStyle(context, isDark),
+                  child: const Text('Close'),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+  
+  Widget _buildDetailItem(BuildContext context, String label, String value, IconData icon, bool isDark) {
+    return Expanded(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Icon(
+                icon, 
+                size: 16, 
+                color: isDark ? Colors.white70 : Colors.grey[700],
+              ),
+              const SizedBox(width: 8),
+              Text(
+                label,
+                style: TextStyle(
+                  fontSize: 14,
+                  color: isDark ? Colors.white70 : Colors.grey[700],
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 4),
+          Text(
+            value,
+            style: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+              color: isDark ? Colors.white : AppTheme.textDark,
             ),
           ),
         ],
