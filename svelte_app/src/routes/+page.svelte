@@ -112,11 +112,30 @@
 <!-- About Section -->
 <section class="section">
   <div class="section-container">
-    <h2 class="section-title">About Hack4Her</h2>
+    <h2 class="section-title">What is Hack4Her?</h2>
     <p class="section-text">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      Hack4Her is the only female-focused student hackathon in the Netherlands, creating a space where technology and diversity meet. We are a coalition of staff and students from the Vrije Universiteit Amsterdam and Universiteit van Amsterdam. Our mission is simple: to create a women-centered space in the tech world. We're dedicated to providing a welcoming atmosphere that fosters learning and innovation for all students.
+    </p>
+    <p class="section-text">
+      Hack4Her is not just a hackathon; it's a movement. A weekend at Hack4Her means engaging in an environment rich with challenges and opportunities, where participants can experiment, innovate, and connect with like-minded individuals and mentors in the tech industry. Our platform celebrates diversity, where all students from across the Netherlands can join in the camaraderie, code, and competition.
     </p>
     <a href={routes.about} class="btn btn-primary">Learn More</a>
+  </div>
+</section>
+
+<!-- Upcoming Event Section -->
+<section class="section upcoming-event">
+  <div class="section-container">
+    <h2 class="section-title">Upcoming Event</h2>
+    <h3 class="event-subtitle">🌟 4th Annual Hack4Her Event 🌟</h3>
+    <p class="event-date">Dates: June 13-15, 2025</p>
+    <p class="section-text">
+      We are planning the 4th Annual Hack4Her, June 13-15, 2025, at VU Amsterdam and the Booking.com offices in Amsterdam Central! Join for a weekend dedicated to empowering women in tech through collaboration, innovation, and competition. Open to all students in the Netherlands, we invite you for coding, workshops, lectures, projects, and networking.
+    </p>
+    <p class="section-text">
+      While all genders are welcome, only women are eligible to compete in the hackathon portion of the event. Enjoy free food, drinks, and a chance at free transport if you are coming from outside of the Amsterdam area.
+    </p>
+    <a href={routes.information} class="btn btn-primary">Want to learn more?</a>
   </div>
 </section>
 
@@ -417,5 +436,23 @@
       width: 200px;
       height: 150px;
     }
+  }
+  
+  /* Upcoming Event Styles */
+  .upcoming-event {
+    background-color: rgba(var(--color-primary-rgb), 0.05);
+  }
+  
+  .event-subtitle {
+    font-size: 1.5rem;
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-small);
+  }
+  
+  .event-date {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: var(--spacing-medium);
+    color: var(--color-primary);
   }
 </style>
