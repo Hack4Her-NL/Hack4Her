@@ -1,38 +1,68 @@
-# sv
+# Hack4Her
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+A Flutter web application for the Hack4Her hackathon - dedicated to empowering women in technology.
 
-## Creating a project
+## Features
 
-If you're seeing this, you've probably already done this step. Congrats!
+- **Home Page**: Welcome page with event highlights and countdown
+- **About Page**: Information about the hackathon's mission and team
+- **Registration**: Registration details and guidelines
+- **Workshops**: Schedule and details of available workshops
+- **Challenges**: List of main and sponsored challenges
+- **Previous Events**: History of past hackathons and highlighted projects
 
-```bash
-# create a new project in the current directory
-npx sv create
+## Getting Started
 
-# create a new project in my-app
-npx sv create my-app
+### Prerequisites
+
+- Flutter SDK (3.0.0 or higher)
+- Dart SDK (3.0.0 or higher)
+
+### Installation
+
+1. Clone the repository
+   ```
+   git clone https://github.com/yourusername/Hack4Her.git
+   ```
+
+2. Navigate to the project directory
+   ```
+   cd Hack4Her
+   ```
+
+3. Get dependencies
+   ```
+   flutter pub get
+   ```
+
+4. Run the application
+   ```
+   flutter run -d chrome
+   ```
+
+## Building for Web
+
+To build the Flutter app for web deployment:
+
+```
+flutter build web
 ```
 
-## Developing
+The output will be generated in the `build/web` directory, which can be deployed to any web hosting service.
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+## Architecture
 
-```bash
-npm run dev
+The application follows a clean architecture with:
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+- **Screens**: Main pages of the application
+- **Components**: Reusable UI components
+- **Constants**: Theme and style definitions
+- **Utils**: Utility functions and route definitions
 
-## Building
+## Contributing
 
-To create a production version of your app:
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-```bash
-npm run build
-```
+## License
 
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+This project is licensed under the MIT License - see the LICENSE file for details.

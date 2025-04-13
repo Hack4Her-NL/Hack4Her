@@ -1,0 +1,120 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+@plugin '@tailwindcss/forms';
+
+:root {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 
+    'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  
+  /* Default theme variables (light theme) */
+  --color-primary: #4485EB;
+  --color-secondary: #64B5F6;
+  --color-background: #FFFFFF;
+  --color-surface: #FFFFFF;
+  --color-text: #1A1A1A;
+  
+  --gradient-background: linear-gradient(to bottom right, #4485EB, #64B5F6);
+  
+  --shadow-card: 0 4px 10px rgba(0, 0, 0, 0.26);
+  
+  --font-size-heading-large: 86px;
+  --font-size-heading-medium: 42px;
+  --font-size-body: 16px;
+  --font-size-button: 22px;
+  
+  --spacing-small: 8px;
+  --spacing-medium: 16px;
+  --spacing-large: 24px;
+  
+  --border-radius: 12px;
+  --border-radius-button: 30px;
+}
+
+/* Dark theme - applied when .dark-mode class is on the body */
+body.dark-mode {
+  --color-primary: #8A54E1;
+  --color-secondary: #4527A0;
+  --color-background: #121212;
+  --color-surface: #1E1E1E;
+  --color-text: #FFFFFF;
+  
+  --gradient-background: linear-gradient(to bottom right, #5E35B1, #4527A0);
+  
+  --shadow-card: 0 4px 10px rgba(0, 0, 0, 0.51);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-background);
+  color: var(--color-text);
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0 0 var(--spacing-medium) 0;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: var(--font-size-heading-large);
+}
+
+h2 {
+  font-size: var(--font-size-heading-medium);
+}
+
+button {
+  font-size: var(--font-size-button);
+  padding: var(--spacing-small) var(--spacing-large);
+  border-radius: var(--border-radius-button);
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  background-color: var(--color-primary);
+  color: #FFFFFF;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+button:hover {
+  filter: brightness(1.1);
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+.card {
+  background-color: var(--color-surface);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-card);
+  padding: var(--spacing-large);
+  margin-bottom: var(--spacing-large);
+}
+
+.gradient-background {
+  background: var(--gradient-background);
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: calc(var(--font-size-heading-large) * 0.6);
+  }
+  
+  h2 {
+    font-size: calc(var(--font-size-heading-medium) * 0.6);
+  }
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+  h1 {
+    font-size: calc(var(--font-size-heading-large) * 0.8);
+  }
+  
+  h2 {
+    font-size: calc(var(--font-size-heading-medium) * 0.8);
+  }
+}
