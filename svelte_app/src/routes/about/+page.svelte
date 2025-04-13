@@ -192,15 +192,17 @@
     <!-- Main Team Members -->
     <div class="team-grid">
       {#each mainTeamMembers as member}
-        <div class="team-card">
+        <div 
+          class="team-card"
+          tabindex="0" 
+          role="button"
+          aria-label="View {member.name}'s details"
+          on:click={() => showMemberDetails(member)}
+          on:keydown={(e) => e.key === 'Enter' && showMemberDetails(member)}
+        >
           <div 
             class="profile-image"
             style="background-image: url({member.imagePath})"
-            on:click={() => showMemberDetails(member)}
-            on:keydown={(e) => e.key === 'Enter' && showMemberDetails(member)}
-            tabindex="0"
-            role="button"
-            aria-label="View {member.name}'s details"
           >
             {#if !member.imagePath}
               <span class="material-icons">person</span>
@@ -214,13 +216,14 @@
               class="link-button"
               target="_blank" 
               rel="noopener noreferrer"
+              on:click|stopPropagation
             >
               <span class="material-icons">link</span>
               LinkedIn
             </a>
             <button 
               class="info-button"
-              on:click={() => showMemberDetails(member)}
+              on:click|stopPropagation
             >
               <span class="material-icons">info_outline</span>
               Details
@@ -240,23 +243,27 @@
     <!-- Rest of Team -->
     <div class="compact-team-grid">
       {#each teamMembers as member}
-        <div class="compact-team-card">
+        <div 
+          class="compact-team-card"
+          on:click={() => showMemberDetails(member)}
+          on:keydown={(e) => e.key === 'Enter' && showMemberDetails(member)}
+          tabindex="0"
+          role="button"
+          aria-label="View {member.name}'s details"
+        >
           <div 
             class="compact-profile-image"
             style="background-image: url({member.imagePath})"
-            on:click={() => showMemberDetails(member)}
-            on:keydown={(e) => e.key === 'Enter' && showMemberDetails(member)}
-            tabindex="0"
-            role="button"
-            aria-label="View {member.name}'s details"
           >
             {#if !member.imagePath}
               <span class="material-icons">person</span>
             {/if}
           </div>
           <div class="compact-info">
-            <h4>{member.name}</h4>
-            <p>{member.role}</p>
+            <div class="compact-text">
+              <h4>{member.name}</h4>
+              <p>{member.role}</p>
+            </div>
             <div class="compact-buttons">
               <a 
                 href={member.linkedInUrl} 
@@ -264,13 +271,14 @@
                 target="_blank" 
                 rel="noopener noreferrer"
                 aria-label="LinkedIn profile"
+                on:click|stopPropagation
               >
                 <span class="material-icons">link</span>
               </a>
               <button 
                 class="small-button info"
-                on:click={() => showMemberDetails(member)}
                 aria-label="View details"
+                on:click|stopPropagation
               >
                 <span class="material-icons">info_outline</span>
               </button>
@@ -395,6 +403,20 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+    position: relative;
+    padding-bottom: 70px;
+  }
+  
+  .team-card:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .team-card:active {
+    transform: translateY(-1px);
   }
   
   .profile-image {
@@ -408,7 +430,6 @@
     align-items: center;
     background-size: cover;
     background-position: center;
-    cursor: pointer;
   }
   
   .profile-image .material-icons {
@@ -420,22 +441,30 @@
     font-size: 20px;
     font-weight: bold;
     margin-bottom: 8px;
+    text-align: center;
   }
   
   .team-card p {
     font-size: 16px;
     margin-bottom: 16px;
+    text-align: center;
   }
   
   .card-buttons {
     display: flex;
-    gap: 8px;
+    gap: 10px;
+    justify-content: center;
+    width: 100%;
+    position: absolute;
+    bottom: 20px;
+    left: 0;
   }
   
   .link-button, .info-button {
     display: flex;
     align-items: center;
-    padding: 6px 12px;
+    justify-content: center;
+    padding: 6px 8px;
     background-color: rgba(255, 255, 255, 0.3);
     border-radius: 20px;
     color: white;
@@ -443,10 +472,19 @@
     text-decoration: none;
     border: none;
     cursor: pointer;
+    width: 90px;
+    min-height: 36px;
+    flex-shrink: 0;
+    transition: background-color 0.2s ease, transform 0.1s ease;
   }
   
   .link-button:hover, .info-button:hover {
     background-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-2px);
+  }
+  
+  .link-button:active, .info-button:active {
+    transform: translateY(0);
   }
   
   .link-button .material-icons, .info-button .material-icons {
@@ -480,27 +518,43 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 15px;
+    max-width: 1000px;
+    margin: 0 auto;
   }
   
+  /* Compact team card */
   .compact-team-card {
-    width: 200px;
-    height: 85px;
+    width: 280px;
+    height: 100px;
     background-color: rgba(255, 255, 255, 0.2);
     border-radius: var(--border-radius);
     display: flex;
     overflow: hidden;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+    position: relative;
+  }
+  
+  .compact-team-card:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .compact-team-card:active {
+    transform: translateY(0);
   }
   
   .compact-profile-image {
-    width: 85px;
-    height: 85px;
+    width: 100px;
+    height: 100px;
     background-color: rgba(255, 255, 255, 0.3);
     background-size: cover;
     background-position: center;
-    cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-shrink: 0;
   }
   
   .compact-profile-image .material-icons {
@@ -510,33 +564,63 @@
   
   .compact-info {
     flex: 1;
-    padding: 10px;
+    padding: 8px 6px 30px 6px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .compact-text {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8px;
   }
   
   .compact-info h4 {
-    font-size: 16px;
+    font-size: 15px;
     font-weight: bold;
     margin: 0;
     color: white;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    letter-spacing: -0.2px;
+    text-align: center;
+    max-width: 95%;
   }
   
   .compact-info p {
-    font-size: 14px;
+    font-size: 13px;
     margin: 4px 0;
     color: white;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    letter-spacing: -0.2px;
+    text-align: center;
+    max-width: 95%;
+    opacity: 0.9;
   }
   
   .compact-buttons {
     display: flex;
-    gap: 5px;
+    gap: 10px;
+    justify-content: center;
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    right: 0;
+    width: 100%;
   }
   
   .small-button {
-    width: 28px;
-    height: 28px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     background-color: rgba(255, 255, 255, 0.3);
     color: white;
@@ -545,14 +629,34 @@
     align-items: center;
     border: none;
     cursor: pointer;
+    flex-shrink: 0;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    min-width: 40px;
+    min-height: 40px;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .small-button.linkedin {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    min-height: 40px;
+    padding: 0;
+  }
+  
+  .small-button .material-icons {
+    font-size: 20px;
+    line-height: 1;
   }
   
   .small-button:hover {
     background-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-2px);
   }
   
-  .small-button .material-icons {
-    font-size: 14px;
+  .small-button:active {
+    transform: translateY(0);
   }
   
   /* Modal */
@@ -664,28 +768,112 @@
     
     .team-card {
       width: 180px;
+      padding-bottom: 65px;
+    }
+    
+    .link-button, .info-button {
+      width: 75px;
+      font-size: 12px;
+      min-height: 32px;
+    }
+    
+    .small-button, .small-button.linkedin {
+      width: 36px;
+      height: 36px;
+      min-width: 36px;
+      min-height: 36px;
+    }
+    
+    .small-button .material-icons {
+      font-size: 18px;
     }
     
     .compact-team-grid {
       gap: 10px;
+      padding: 0 5px;
     }
     
     .compact-team-card {
-      width: 160px;
-      height: 75px;
+      width: 230px;
+      height: 100px;
     }
     
     .compact-profile-image {
-      width: 75px;
-      height: 75px;
+      width: 90px;
+      height: 100px;
+    }
+    
+    .compact-info {
+      padding: 8px 6px 30px 6px;
     }
     
     .compact-info h4 {
-      font-size: 14px;
+      font-size: 13px;
     }
     
     .compact-info p {
-      font-size: 12px;
+      font-size: 11px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .team-card {
+      padding-bottom: 60px;
+    }
+    
+    .card-buttons {
+      bottom: 15px;
+      gap: 8px;
+    }
+    
+    .link-button, .info-button {
+      width: 70px;
+      padding: 6px 4px;
+    }
+    
+    .small-button, .small-button.linkedin {
+      width: 32px;
+      height: 32px;
+      min-width: 32px;
+      min-height: 32px;
+    }
+    
+    .small-button .material-icons {
+      font-size: 16px;
+    }
+    
+    .compact-team-card {
+      width: 100%;
+      max-width: 340px;
+      height: 90px;
+    }
+    
+    .compact-profile-image {
+      width: 80px;
+      height: 90px;
+    }
+    
+    .compact-info {
+      padding: 6px 4px 28px 4px;
+    }
+    
+    .compact-text {
+      margin-bottom: 4px;
+    }
+    
+    .compact-info h4 {
+      font-size: 13px;
+      max-width: 100%;
+    }
+    
+    .compact-info p {
+      font-size: 11px;
+      max-width: 100%;
+    }
+    
+    .compact-buttons {
+      bottom: 2px;
+      gap: 8px;
     }
   }
 </style> 
