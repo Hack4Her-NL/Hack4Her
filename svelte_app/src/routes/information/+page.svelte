@@ -316,10 +316,6 @@
         {/each}
       </ul>
     </div>
-    
-    <button class="text-button" on:click={() => launchURL('https://hack4her.github.io/')}>
-      Read Full Code of Conduct
-    </button>
   </div>
 </section>
 
