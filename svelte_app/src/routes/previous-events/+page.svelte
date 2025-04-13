@@ -2,9 +2,16 @@
   import { pageSeo } from '$lib/utils/seo';
   import { routes } from '$lib/utils/routes';
   import { onMount } from 'svelte';
+  import { fade } from 'svelte/transition';
 
   // Set page-specific SEO metadata
   export const metadata = pageSeo.previousEvents;
+
+  // Modal state
+  let showModal = false;
+  let currentEvent = null;
+  let currentProject = null;
+  let modalType = ''; // 'event' or 'project'
 
   // Past events data
   const pastEvents = [
@@ -117,25 +124,37 @@
   
   // Function to show event details
   function showEventDetails(event) {
-    const eventDetails = {
-      title: event.title,
-      description: event.description,
-      date: event.date,
-      location: event.location,
-      participants: event.participants,
-      projects: event.projects
-    };
-    
-    // In a real app, this would show a modal or navigate to a details page
-    alert(`${eventDetails.title}\n${eventDetails.description}\n${eventDetails.date} at ${eventDetails.location}\n${eventDetails.participants} participants, ${eventDetails.projects} projects`);
+    currentEvent = event;
+    modalType = 'event';
+    showModal = true;
   }
   
   // Function to show project details
   function showProjectDetails(project) {
-    // In a real app, this would show a modal or navigate to a details page
-    alert(`${project.title} (${project.year})\n${project.description}\nTeam: ${project.team}\nAward: ${project.award}`);
+    currentProject = project;
+    modalType = 'project';
+    showModal = true;
+  }
+  
+  // Function to close modal
+  function closeModal() {
+    showModal = false;
+    setTimeout(() => {
+      currentEvent = null;
+      currentProject = null;
+      modalType = '';
+    }, 300); // Wait for the fade-out animation to complete
+  }
+
+  // Close modal when Escape key is pressed
+  function handleKeydown(event) {
+    if (event.key === 'Escape' && showModal) {
+      closeModal();
+    }
   }
 </script>
+
+<svelte:window on:keydown={handleKeydown}/>
 
 <svelte:head>
   <title>{metadata.title}</title>
@@ -174,6 +193,12 @@
     <p class="section-text">
       Since our founding, Hack4Her has hosted 4 successful hackathons, empowering over 400 women in technology. Discover our past events and the amazing projects created.
     </p>
+    
+    <div class="previous-website-info">
+      <p>
+        To get a feel for what the event looked like last year, check out our <a href="https://hack4her.github.io/" target="_blank" rel="noopener noreferrer" class="website-link">old website</a>! Do note it may contain some outdated information. We plan on moving information about all past events here soon, so keep an eye out!
+      </p>
+    </div>
   </div>
 </section>
 
@@ -184,7 +209,12 @@
     
     <div class="timeline-container">
       {#each pastEvents as event}
-        <div class="timeline-event" on:click={() => showEventDetails(event)} on:keydown={(e) => e.key === 'Enter' && showEventDetails(event)} tabindex="0" role="button">
+        <div class="timeline-event" 
+          on:click={() => showEventDetails(event)} 
+          on:keydown={(e) => e.key === 'Enter' && showEventDetails(event)} 
+          tabindex="0" 
+          role="button"
+          aria-label="View details for {event.title}">
           <div class="year-bubble">{event.year}</div>
           
           <div class="event-content">
@@ -212,6 +242,8 @@
                 <span class="stat-label">Projects</span>
               </div>
             </div>
+            
+            <div class="view-details">View Details</div>
           </div>
         </div>
       {/each}
@@ -246,7 +278,12 @@
     
     <div class="projects-container">
       {#each projectShowcases as project}
-        <div class="project-card" on:click={() => showProjectDetails(project)} on:keydown={(e) => e.key === 'Enter' && showProjectDetails(project)} tabindex="0" role="button">
+        <div class="project-card" 
+          on:click={() => showProjectDetails(project)} 
+          on:keydown={(e) => e.key === 'Enter' && showProjectDetails(project)} 
+          tabindex="0" 
+          role="button"
+          aria-label="View details for {project.title}">
           <div class="project-image-container">
             <img src={project.imageUrl} alt={project.title} class="project-image" />
           </div>
@@ -279,6 +316,70 @@
     </div>
   </div>
 </section>
+
+<!-- Modal -->
+{#if showModal}
+  <div class="modal-backdrop" on:click={closeModal} transition:fade={{ duration: 200 }}>
+    <div class="modal-container" on:click|stopPropagation>
+      {#if modalType === 'event' && currentEvent}
+        <div class="modal-header">
+          <h2>{currentEvent.title}</h2>
+          <button class="close-button" on:click={closeModal} aria-label="Close modal">×</button>
+        </div>
+        <div class="modal-content">
+          <div class="modal-image-container">
+            <img src={currentEvent.imageUrl} alt={currentEvent.title} class="modal-image" />
+          </div>
+          <div class="modal-details">
+            <p class="modal-description">{currentEvent.description}</p>
+            
+            <div class="modal-info-grid">
+              <div class="modal-info-item">
+                <span class="info-label">Date</span>
+                <span class="info-value">{currentEvent.date}</span>
+              </div>
+              <div class="modal-info-item">
+                <span class="info-label">Location</span>
+                <span class="info-value">{currentEvent.location}</span>
+              </div>
+              <div class="modal-info-item">
+                <span class="info-label">Participants</span>
+                <span class="info-value">{currentEvent.participants}</span>
+              </div>
+              <div class="modal-info-item">
+                <span class="info-label">Projects</span>
+                <span class="info-value">{currentEvent.projects}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      {:else if modalType === 'project' && currentProject}
+        <div class="modal-header">
+          <h2>{currentProject.title}</h2>
+          <button class="close-button" on:click={closeModal} aria-label="Close modal">×</button>
+        </div>
+        <div class="modal-content">
+          <div class="modal-image-container">
+            <img src={currentProject.imageUrl} alt={currentProject.title} class="modal-image" />
+          </div>
+          <div class="modal-details">
+            <div class="modal-project-header">
+              <span class="project-year-badge">{currentProject.year}</span>
+              <span class="project-award-badge">{currentProject.award}</span>
+            </div>
+            
+            <p class="modal-description">{currentProject.description}</p>
+            
+            <div class="modal-team">
+              <span class="info-label">Team</span>
+              <span class="info-value">{currentProject.team}</span>
+            </div>
+          </div>
+        </div>
+      {/if}
+    </div>
+  </div>
+{/if}
 
 <style>
   /* Header styles */
@@ -363,6 +464,19 @@
     cursor: pointer;
     position: relative;
     z-index: 2;
+    transition: transform 0.2s ease;
+  }
+  
+  .timeline-event:hover {
+    transform: translateX(5px);
+  }
+  
+  .timeline-event:hover .event-content {
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+  
+  .timeline-event:hover .view-details {
+    opacity: 1;
   }
   
   .year-bubble {
@@ -386,6 +500,8 @@
     border-radius: var(--border-radius);
     padding: 20px;
     flex: 1;
+    position: relative;
+    transition: background-color 0.2s ease;
   }
   
   .event-title {
@@ -437,6 +553,24 @@
   .stat-label {
     font-size: 12px;
     color: rgba(255, 255, 255, 0.8);
+  }
+  
+  .view-details {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    background-color: rgba(255, 255, 255, 0.3);
+    color: white;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 5px 10px;
+    border-radius: 15px;
+    opacity: 0;
+    transition: opacity 0.2s ease, background-color 0.2s ease;
+  }
+  
+  .view-details:hover {
+    background-color: rgba(255, 255, 255, 0.5);
   }
   
   /* Photo gallery */
@@ -496,6 +630,12 @@
     overflow: hidden;
     cursor: pointer;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   }
   
   .project-image-container {
@@ -612,6 +752,191 @@
     .event-stats {
       justify-content: space-around;
       width: 100%;
+    }
+  }
+  
+  /* Previous website info styles */
+  .previous-website-info {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background-color: var(--color-primary-light);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  }
+  
+  .previous-website-info p {
+    margin: 0 0 1rem;
+  }
+  
+  .website-link {
+    color: var(--color-primary);
+    font-weight: 600;
+    text-decoration: underline;
+    transition: color 0.2s ease;
+  }
+  
+  .website-link:hover {
+    color: var(--color-secondary);
+  }
+  
+  /* Modal Styles */
+  .modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(3px);
+  }
+  
+  .modal-container {
+    background-color: white;
+    border-radius: var(--border-radius);
+    width: 90%;
+    max-width: 800px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+    animation: modal-appear 0.3s ease;
+  }
+  
+  @keyframes modal-appear {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .modal-header h2 {
+    margin: 0;
+    font-size: 24px;
+    color: var(--color-text);
+  }
+  
+  .close-button {
+    background: none;
+    border: none;
+    font-size: 28px;
+    color: #666;
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+    transition: color 0.2s;
+  }
+  
+  .close-button:hover {
+    color: #333;
+  }
+  
+  .modal-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .modal-image-container {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+    border-radius: var(--border-radius);
+  }
+  
+  .modal-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .modal-details {
+    flex: 1;
+  }
+  
+  .modal-description {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--color-text);
+    margin-bottom: 20px;
+  }
+  
+  .modal-info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+  
+  .modal-info-item {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .info-label {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 5px;
+  }
+  
+  .info-value {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--color-text);
+  }
+  
+  .modal-project-header {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+  }
+  
+  .project-year-badge, .project-award-badge {
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  
+  .project-award-badge {
+    background-color: #fdf2cc;
+    color: #e6a700;
+  }
+  
+  .modal-team {
+    margin-top: 15px;
+  }
+  
+  /* Responsive modal adjustments */
+  @media (min-width: 768px) {
+    .modal-content {
+      flex-direction: row;
+    }
+    
+    .modal-image-container {
+      width: 40%;
+      height: auto;
+      max-height: 350px;
+    }
+  }
+  
+  @media (max-width: 767px) {
+    .modal-info-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .modal-header h2 {
+      font-size: 20px;
     }
   }
 </style> 
