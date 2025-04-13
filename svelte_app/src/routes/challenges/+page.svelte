@@ -324,10 +324,11 @@
   }
   
   .challenge-card {
-    background-color: white;
+    background-color: var(--color-surface);
+    color: var(--color-text);
     border-radius: var(--border-radius);
     padding: 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow-card);
     cursor: pointer;
     text-align: left;
   }
@@ -362,13 +363,14 @@
   }
   
   .expand-icon {
-    color: var(--color-text-light);
+    color: var(--color-text);
     font-size: 24px;
   }
   
   .challenge-description {
     font-size: 16px;
-    color: var(--color-text-light);
+    color: var(--color-text);
+    opacity: 0.8;
     margin-bottom: 15px;
     line-height: 1.5;
   }
@@ -378,7 +380,8 @@
     align-items: center;
     gap: 5px;
     margin-bottom: 15px;
-    color: var(--color-text-light);
+    color: var(--color-text);
+    opacity: 0.8;
     font-size: 14px;
     font-weight: bold;
   }
@@ -411,7 +414,8 @@
   .divider {
     border: none;
     height: 1px;
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: var(--color-text);
+    opacity: 0.1;
     margin: 15px 0;
   }
   
@@ -424,7 +428,8 @@
   
   .challenge-details p {
     font-size: 15px;
-    color: var(--color-text-light);
+    color: var(--color-text);
+    opacity: 0.8;
     line-height: 1.6;
     margin-bottom: 15px;
   }
@@ -440,7 +445,8 @@
     align-items: flex-start;
     gap: 8px;
     margin-bottom: 8px;
-    color: var(--color-text-light);
+    color: var(--color-text);
+    opacity: 0.8;
     font-size: 14px;
   }
   

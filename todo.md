@@ -101,6 +101,7 @@ Flutter generates JavaScript that dynamically creates the DOM at runtime, which 
 - [x] Need to create a static folder for images (/static/images)
 - [x] Add Material Icons for highlight cards
 - [ ] Test to ensure dark mode toggle works correctly
+- [x] Fix challenge cards in dark mode (text turns white but card background remains white)
 - [x] Add SEO meta tags for better indexing
 - [x] Need to add placeholder images for development (added README.txt with instructions)
 - [x] Make sure that the images can be found (migrate the images used in flutter to the svelte version)
