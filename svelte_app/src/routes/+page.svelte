@@ -101,9 +101,11 @@
     </div>
   </div>
   <div class="hero-overlay">
-    <svg class="female-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <path fill="currentColor" d="M12 2C14.21 2 16 3.79 16 6s-1.79 4-4 4-4-1.79-4-4 1.79-4 4-4zm0 12c2.67 0 8 1.33 8 4v4H4v-4c0-2.67 5.33-4 8-4zm5 7v-3c-.59-.7-2.69-2-5-2-2.31 0-4.41 1.3-5 2v3h10z"/>
-    </svg>
+    <img 
+      src="/female-symbol-svgrepo-com.svg" 
+      alt="Female symbol" 
+      class="female-icon"
+    />
   </div>
 </section>
 
@@ -230,7 +232,7 @@
     width: 25%;
     height: auto;
     opacity: 0.2;
-    color: white;
+    filter: invert(1);
   }
   
   /* Section styles */
