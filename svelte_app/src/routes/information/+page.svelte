@@ -9,20 +9,28 @@
   // FAQ data
   const faqItems = [
     {
-      question: 'What is Hack4Her?',
-      answer: 'Hack4Her is the only female-focused student hackathon in the Netherlands, creating a space where technology and diversity meet. We aim to empower women in tech through collaboration, innovation, and competition.'
+      question: 'I signed up via the form, and received an email that I am on the waitlist. What does that mean?',
+      answer: 'Our sign-up procedure operates on a first-come first-served basis. If you have been waitlisted, that means there have been more sign-ups than we have spots. If another participant decides to drop out of the event, your position in the waitlist determines whether you may take their spot.'
     },
     {
-      question: 'Who can participate?',
-      answer: 'All students in the Netherlands are welcome to attend. While all genders are welcome to participate in the event, only women are eligible to compete in the hackathon portion.'
+      question: 'I signed up via the form, is there anything else I need to do?',
+      answer: 'Once you\'ve completed the registration form, there are a few next steps depending on your track. Hackers: Make sure all of your teammates complete the form (and check that you all entered the same team name, otherwise we cannot match you!). Soon after completing the sign-up form, you will receive 3 other forms you must complete: one form via which you will confirm your attendance, one form for choosing the workshops you want to attend on Friday, and lastly the one for picking your challenge. Note that failure to complete the attendance confirmation form will result in your team being waitlisted, and thus you will no longer be able to participate in the event! Non-Hackers: A couple of weeks before the event, you will receive a form via which you confirm your attendance. Note that failure to complete this form will result in being waitlisted and thus you may no longer attend the event! You will also receive a form for choosing the workshops you want to attend on Friday.'
     },
     {
-      question: 'Do I need to know how to code?',
-      answer: 'No, you don\'t need prior coding experience. Hack4Her is designed to be inclusive and educational. We have workshops and mentors to help you learn and develop your skills.'
+      question: 'Do I need to know how to code to participate in the hackathon portion?',
+      answer: 'Generally not. Most of our challenges can be solved with little technical knowledge, though implementing your ideas in code can sometimes get you extra points!'
     },
     {
-      question: 'What should I bring?',
-      answer: 'Bring your laptop, charger, any personal items you may need, and most importantly, your enthusiasm and creativity!'
+      question: 'How many women can be in a team?',
+      answer: 'Teams consist of at most 4 women, though in special cases you are allowed to compete with fewer. Note that complete teams take precedence in the waiting list over incomplete teams!'
+    },
+    {
+      question: 'I don\'t have a (complete) team. Can you help me find teammates?',
+      answer: 'Yes! When you sign up, you can specify whether you would like for us to match you with other incomplete teams. If so, we will do our best to pair you with others such that you form a complete team. Once we notify you of who you\'ve been matched with, we suggest that you meet up at least once before the hackathon to get to know each other!'
+    },
+    {
+      question: 'I identify as a man / I identify as non-binary. Can I still participate?',
+      answer: 'Yes, though not as a Hacker. You can participate on Friday, where we\'ll be hosting a bunch of cool workshops and a networking event with several companies, at the new Booking.com offices in Amsterdam Central!'
     }
   ];
 
@@ -37,23 +45,43 @@
 
   // Code of conduct
   const codeOfConductSummary = [
-    'We are committed to providing a safe and inclusive environment for all participants',
-    'Harassment or discrimination of any kind will not be tolerated',
-    'Respect the opinions, skills, and boundaries of other participants',
-    'Follow the event rules and guidelines at all times',
-    'Report any concerns or violations to the event organizers immediately'
+    'Non-Discrimination: Participants must not discriminate against or harass others based on race, color, ethnicity, nationality, gender, sexual orientation, religion, disability, or any other protected characteristic. Treat all participants with respect and promote a welcoming environment.',
+    'Inclusive Language: Use inclusive language that avoids stereotypes or derogatory terms. Be mindful of the impact your words can have on others and promote an inclusive and diverse atmosphere.',
+    'Respectful Communication: Engage in respectful and constructive communication with fellow participants, mentors, organizers, and judges. Disagreements should be approached with courtesy and professionalism.',
+    'Collaboration: Encourage teamwork, cooperation, and inclusivity within teams. Foster an environment where everyone\'s opinions and contributions are valued and respected.',
+    'Intellectual Property: Respect the intellectual property rights of others. Do not use or incorporate copyrighted material or proprietary information without proper authorization or permission.',
+    'Community Support: Foster a supportive community where participants feel comfortable seeking help, sharing knowledge, and collaborating. We encourage participants to support and uplift each other.',
+    'Note: The organizers retain the right to expel anyone for going against one of the aforementioned rules and guidelines, as well as any ethical/legal/safety concerns not previously mentioned, at their discretion.'
+  ];
+
+  // Free Travel Policy
+  const travelPolicy = [
+    'Be eligible to participate in our hackathon.',
+    'Be signed up to participate in our hackathon.',
+    'Be present on Friday, Saturday, and Sunday.',
+    'Be traveling from outside of Amsterdam to our event.',
+    'Have a travel time to VU of an hour or more (via public transport route).',
+    'Reconfirm need once within a timely manner (72 hours).'
+  ];
+
+  const travelNotes = [
+    'Parking will only be covered in the VU Parking Garage.',
+    'Carpooling is encouraged and may include gas compensation.',
+    'Group train tickets can cover more participants.',
+    'While we aim to cover as much as possible, we cannot guarantee full compensation. We will inform you promptly before the event regarding the coverage of your costs.',
+    'We are committed to making the hackathon accessible and ensuring a positive experience for all participants. We look forward to your participation!'
   ];
 
   // Schedule data
   const fridaySchedule = [
     {time: '11:30 - 12:00', activity: 'Participants Arrive', location: ''},
-    {time: '12:00 - 13:00', activity: 'Introduction', location: ''},
-    {time: '13:00 - 14:00', activity: 'Lunch', location: 'Booking.com grads and mentors join to chat with students over lunch!'},
-    {time: '14:00 - 15:00', activity: 'Keynote', location: ''},
+    {time: '12:00 - 13:00', activity: 'Introduction + Keynote', location: ''},
+    {time: '13:00 - 14:00', activity: 'Lunch', location: 'joined by booking.com grads and mentors!'},
+    {time: '14:00 - 15:00', activity: 'A Word From Our Sponsors!', location: ''},
     {time: '15:00 - 16:30', activity: 'Workshops Round 1', location: ''},
     {time: '16:30 - 17:00', activity: 'Break and Light Snacks', location: ''},
     {time: '17:00 - 18:30', activity: 'Workshops Round 2', location: ''},
-    {time: '18:30 - 21:00', activity: 'Dinner/drinks and networking', location: ''},
+    {time: '18:30 - 21:00', activity: 'Dinner/Drinks and Networking', location: ''},
     {time: '21:00', activity: 'Participants Leave', location: ''}
   ];
 
@@ -132,6 +160,8 @@
     <p class="section-text">
       Creating a space where technology and diversity meet. We are a coalition of staff and students from the Vrije Universiteit Amsterdam and Universiteit van Amsterdam. Our mission is simple: to create a women-centered space in the tech world.
     </p>
+    <h3 class="register-title">Register for the event</h3>
+    <p class="section-text">Sign-ups open soon!</p>
     <a href={routes.registration} class="btn btn-primary">Register Now</a>
   </div>
 </section>
@@ -235,17 +265,48 @@
   </div>
 </section>
 
-<!-- Eligibility Section -->
+<!-- Free Travel Policy Section -->
 <section class="section">
   <div class="section-container">
-    <h2 class="section-title">Eligibility</h2>
+    <h2 class="section-title">Free Travel Policy</h2>
+    <p class="section-text">
+      We aim to make Hack4Her accessible to all eligible participants.
+    </p>
+    
+    <div class="conduct-card">
+      <h3>Eligibility Criteria:</h3>
+      
+      <ul class="conduct-list">
+        {#each travelPolicy as item}
+          <li class="bullet-point">
+            <span class="bullet">•</span>
+            <span>{item}</span>
+          </li>
+        {/each}
+      </ul>
+      
+      <h3 class="travel-note-header">Note:</h3>
+      <ul class="conduct-list">
+        {#each travelNotes as note}
+          <li class="bullet-point">
+            <span class="bullet">•</span>
+            <span>{note}</span>
+          </li>
+        {/each}
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Code of Conduct Section -->
+<section class="section">
+  <div class="section-container">
+    <h2 class="section-title">Code of Conduct</h2>
     <p class="section-text">
       All participants must adhere to our code of conduct throughout the event.
     </p>
     
     <div class="conduct-card">
-      <h3>Code of Conduct Summary:</h3>
-      
       <ul class="conduct-list">
         {#each codeOfConductSummary as item}
           <li class="bullet-point">
@@ -312,6 +373,12 @@
   
   .section-title {
     margin-bottom: var(--spacing-large);
+  }
+  
+  .register-title {
+    font-size: 1.5rem;
+    margin-top: var(--spacing-medium);
+    margin-bottom: var(--spacing-small);
   }
   
   .text-white {
@@ -392,6 +459,13 @@
     font-size: 18px;
     font-weight: bold;
     margin-bottom: var(--spacing-medium);
+  }
+  
+  .travel-note-header {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: var(--spacing-medium);
+    margin-bottom: var(--spacing-small);
   }
   
   .conduct-list {
