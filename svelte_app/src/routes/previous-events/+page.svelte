@@ -190,10 +190,6 @@
 <!-- Overview Section -->
 <section class="section">
   <div class="section-container">
-    <p class="section-text">
-      Since our founding, Hack4Her has hosted 4 successful hackathons, empowering over 400 women in technology. Discover our past events and the amazing projects created.
-    </p>
-    
     <div class="previous-website-info">
       <p>
         To get a feel for what the event looked like last year, check out our <a href="https://hack4her.github.io/" target="_blank" rel="noopener noreferrer" class="website-link">old website</a>! Do note it may contain some outdated information. We plan on moving information about all past events here soon, so keep an eye out!
@@ -202,7 +198,7 @@
   </div>
 </section>
 
-<!-- Timeline Section -->
+<!--
 <section class="section gradient-background">
   <div class="section-container">
     <h2 class="section-title text-white">Event Timeline</h2>
@@ -251,7 +247,6 @@
   </div>
 </section>
 
-<!-- Photo Gallery Section -->
 <section class="section">
   <div class="section-container">
     <h2 class="section-title">Event Photo Gallery</h2>
@@ -271,7 +266,6 @@
   </div>
 </section>
 
-<!-- Project Showcase Section -->
 <section class="section gradient-background">
   <div class="section-container">
     <h2 class="section-title text-white">Winning Projects</h2>
@@ -316,8 +310,10 @@
     </div>
   </div>
 </section>
+-->
 
 <!-- Modal -->
+<!--
 {#if showModal}
   <div class="modal-backdrop" on:click={closeModal} transition:fade={{ duration: 200 }}>
     <div class="modal-container" on:click|stopPropagation>
@@ -380,6 +376,7 @@
     </div>
   </div>
 {/if}
+-->
 
 <style>
   /* Header styles */

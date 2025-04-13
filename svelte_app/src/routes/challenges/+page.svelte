@@ -152,7 +152,19 @@
   </div>
 </div>
 
-<!-- Overview Section -->
+<!-- Coming Soon Section -->
+<section class="section">
+  <div class="section-container">
+    <div class="previous-website-info">
+      <p>
+        Challenges and sign-ups will be posted soon!<br>
+        In the meantime, check our <a href={routes.information} class="website-link">schedule</a> on the information page, or <a href={routes.about} class="website-link">learn more</a> about our event here.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!--
 <section class="section">
   <div class="section-container">
     <p class="section-text">
@@ -162,7 +174,6 @@
   </div>
 </section>
 
-<!-- Challenges Section -->
 <section class="section gradient-background">
   <div class="section-container">
     <h2 class="section-title text-white">Challenges</h2>
@@ -202,24 +213,16 @@
           
           {#if expandedChallenges.has(index)}
             <div class="challenge-details">
-              <hr class="divider" />
+              <p class="details-text">{challenge.extraInfo}</p>
               
-              <h4>Challenge Details</h4>
-              <p>{challenge.extraInfo}</p>
-              
-              <h4>Requirements</h4>
-              <ul class="requirements-list">
-                {#each challenge.requirements as requirement}
-                  <li class="requirement-item">
-                    <span class="material-icons check-icon">check_circle</span>
-                    <span>{requirement}</span>
-                  </li>
-                {/each}
-              </ul>
-              
-              <button class="apply-button">
-                Apply to this Challenge
-              </button>
+              <div class="requirements">
+                <h4>Requirements:</h4>
+                <ul>
+                  {#each challenge.requirements as requirement}
+                    <li>{requirement}</li>
+                  {/each}
+                </ul>
+              </div>
             </div>
           {/if}
         </div>
@@ -228,26 +231,22 @@
   </div>
 </section>
 
-<!-- Judging Criteria Section -->
-<section class="section gradient-background">
+<section class="section">
   <div class="section-container">
-    <h2 class="section-title text-white">Judging Criteria</h2>
+    <h2 class="section-title">Judging Criteria</h2>
     
-    <div class="criteria-card">
-      {#each judgingCriteria as criterion}
-        <div class="criterion-item">
-          <div class="percentage-circle">
-            <span>{criterion.percentage}</span>
-          </div>
-          <div class="criterion-content">
-            <h3>{criterion.title}</h3>
-            <p>{criterion.description}</p>
-          </div>
+    <div class="criteria-container">
+      {#each judgingCriteria as criteria}
+        <div class="criteria-card">
+          <h3 class="criteria-title">{criteria.title}</h3>
+          <div class="criteria-percentage">{criteria.percentage}</div>
+          <p class="criteria-description">{criteria.description}</p>
         </div>
       {/each}
     </div>
   </div>
 </section>
+-->
 
 <style>
   /* Header styles */
@@ -545,5 +544,35 @@
     .percentage-circle {
       margin-bottom: 5px;
     }
+  }
+  
+  /* Previous website info styles */
+  .previous-website-info {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background-color: var(--color-primary-light);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  }
+  
+  .previous-website-info p {
+    margin: 0 0 1rem;
+    font-size: 1.2rem;
+    line-height: 1.6;
+  }
+  
+  .previous-website-info p:last-child {
+    margin-bottom: 0;
+  }
+  
+  .website-link {
+    color: var(--color-primary);
+    font-weight: 600;
+    text-decoration: underline;
+    transition: color 0.2s ease;
+  }
+  
+  .website-link:hover {
+    color: var(--color-secondary);
   }
 </style> 

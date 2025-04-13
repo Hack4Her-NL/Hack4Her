@@ -198,92 +198,85 @@
   </div>
 </div>
 
-<!-- Workshop Overview -->
+<!-- Coming Soon Section -->
+<section class="section">
+  <div class="section-container">
+    <div class="previous-website-info">
+      <p>
+        Workshop schedule and sign-ups will be posted soon!<br>
+        In the meantime, check our <a href={routes.information} class="website-link">schedule</a> on the information page, or <a href={routes.about} class="website-link">learn more</a> about our event here.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!--
 <section class="section">
   <div class="section-container">
     <p class="section-text">
-      Join our expert-led workshops to learn new skills and technologies. All workshops are included with your registration.
+      Our workshops offer a unique opportunity to learn new skills, get hands-on experience, and connect with industry experts. All workshops are free for registered participants.
     </p>
     <a href={routes.registration} class="btn btn-primary">Register Now</a>
   </div>
 </section>
 
-<!-- Workshop Schedule -->
 <section class="section gradient-background">
   <div class="section-container">
     <h2 class="section-title text-white">Workshop Schedule</h2>
     
-    <div class="day-tabs">
-      <button 
-        class="day-tab {selectedDay === 0 ? 'active' : ''}" 
-        on:click={() => selectDay(0)}
-      >
-        Day 1
+    <div class="days-tabs">
+      <button class={selectedDay === 0 ? 'day-tab active' : 'day-tab'} on:click={() => selectDay(0)}>
+        Day 1 <span class="tab-date">Friday</span>
       </button>
-      <button 
-        class="day-tab {selectedDay === 1 ? 'active' : ''}" 
-        on:click={() => selectDay(1)}
-      >
-        Day 2
+      <button class={selectedDay === 1 ? 'day-tab active' : 'day-tab'} on:click={() => selectDay(1)}>
+        Day 2 <span class="tab-date">Saturday</span>
       </button>
-      <button 
-        class="day-tab {selectedDay === 2 ? 'active' : ''}" 
-        on:click={() => selectDay(2)}
-      >
-        Day 3
+      <button class={selectedDay === 2 ? 'day-tab active' : 'day-tab'} on:click={() => selectDay(2)}>
+        Day 3 <span class="tab-date">Sunday</span>
       </button>
     </div>
     
-    <div class="workshops-container">
+    <div class="workshops-list">
       {#each workshopsByDay[selectedDay] as workshop, index}
-        <div 
-          class="workshop-item" 
-          on:click={() => toggleWorkshop(index)}
-          on:keydown={(e) => e.key === 'Enter' && toggleWorkshop(index)}
-          tabindex="0"
-          role="button"
-          aria-expanded={expandedWorkshops.has(index)}
-        >
-          <div class="workshop-header">
-            <h3 class="workshop-title">{workshop.title}</h3>
-            <div class="workshop-header-right">
-              <span class="category-tag">{workshop.category}</span>
+        <div class="workshop-card" class:expanded={expandedWorkshops.has(index)}>
+          <div 
+            class="workshop-header" 
+            on:click={() => toggleWorkshop(index)}
+            on:keydown={(e) => e.key === 'Enter' && toggleWorkshop(index)}
+            tabindex="0"
+            role="button"
+            aria-expanded={expandedWorkshops.has(index)}
+          >
+            <div class="workshop-time">{workshop.time}</div>
+            
+            <div class="workshop-main">
+              <h3 class="workshop-title">{workshop.title}</h3>
+              <div class="workshop-presenter">
+                <span class="material-icons">person</span>
+                {workshop.presenter}
+              </div>
+            </div>
+            
+            <div class="workshop-meta">
+              <div class="category-badge">{workshop.category}</div>
               <span class="material-icons expand-icon">
                 {expandedWorkshops.has(index) ? 'expand_less' : 'expand_more'}
               </span>
             </div>
           </div>
-          <div class="workshop-subheader">
-            <p class="workshop-presenter">Presenter: {workshop.presenter}</p>
-          </div>
-          <div class="workshop-info">
-            <span class="workshop-time">{workshop.time}</span>
-            <span class="workshop-location">{workshop.location}</span>
-          </div>
           
           {#if expandedWorkshops.has(index)}
             <div class="workshop-details">
-              <hr class="divider" />
-              <h4>Workshop Description</h4>
-              <p>{workshop.description}</p>
+              <p class="details-text">{workshop.description}</p>
               
-              <h4>Workshop Details</h4>
               <div class="detail-item">
-                <span class="material-icons detail-icon">person</span>
-                <span>Presenter: {workshop.presenter}</span>
+                <span class="material-icons">location_on</span>
+                <span>{workshop.location}</span>
               </div>
-              <div class="detail-item">
-                <span class="material-icons detail-icon">access_time</span>
-                <span>Time: {workshop.time}</span>
-              </div>
-              <div class="detail-item">
-                <span class="material-icons detail-icon">location_on</span>
-                <span>Location: {workshop.location}</span>
-              </div>
-              <div class="detail-item">
-                <span class="material-icons detail-icon">category</span>
-                <span>Category: {workshop.category}</span>
-              </div>
+              
+              <button class="register-button">
+                Sign Up for Workshop
+              </button>
             </div>
           {/if}
         </div>
@@ -292,7 +285,6 @@
   </div>
 </section>
 
-<!-- Workshop Categories -->
 <section class="section">
   <div class="section-container">
     <h2 class="section-title">Workshop Categories</h2>
@@ -301,39 +293,34 @@
       {#each categories as category}
         <div class="category-card">
           <span class="material-icons category-icon">{category.icon}</span>
-          <h3 class="category-title">{category.title}</h3>
-          <p class="category-count">{category.count} Workshops</p>
+          <h3>{category.title}</h3>
+          <div class="category-count">{category.count} workshops</div>
         </div>
       {/each}
     </div>
   </div>
 </section>
 
-<!-- Workshop Registration Process -->
 <section class="section gradient-background">
   <div class="section-container">
-    <h2 class="section-title text-white">How to Register for Workshops</h2>
-    <p class="section-text text-white">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-    </p>
+    <h2 class="section-title text-white">How to Register</h2>
     
-    <div class="registration-card">
-      <h3>Workshop Registration Process:</h3>
-      
-      <div class="registration-steps">
-        {#each registrationSteps as step}
-          <div class="registration-step">
-            <div class="step-number">{step.number}</div>
-            <div class="step-content">
-              <h4>{step.title}</h4>
-              <p>{step.description}</p>
-            </div>
+    <div class="registration-steps">
+      {#each registrationSteps as step}
+        <div class="step-card">
+          <div class="step-number">{step.number}</div>
+          <div class="step-content">
+            <h3 class="step-title">{step.title}</h3>
+            <p class="step-description">{step.description}</p>
           </div>
-        {/each}
-      </div>
+        </div>
+      {/each}
     </div>
+    
+    <a href={routes.registration} class="btn btn-white">Register Now</a>
   </div>
 </section>
+-->
 
 <style>
   /* Header styles */
@@ -643,5 +630,35 @@
       padding: 10px 15px;
       font-size: 14px;
     }
+  }
+  
+  /* Previous website info styles */
+  .previous-website-info {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background-color: var(--color-primary-light);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  }
+  
+  .previous-website-info p {
+    margin: 0 0 1rem;
+    font-size: 1.2rem;
+    line-height: 1.6;
+  }
+  
+  .previous-website-info p:last-child {
+    margin-bottom: 0;
+  }
+  
+  .website-link {
+    color: var(--color-primary);
+    font-weight: 600;
+    text-decoration: underline;
+    transition: color 0.2s ease;
+  }
+  
+  .website-link:hover {
+    color: var(--color-secondary);
   }
 </style> 
