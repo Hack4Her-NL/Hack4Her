@@ -7,7 +7,7 @@
     <div class="footer-content">
       <div class="footer-section">
         <h3>Hack4Her</h3>
-        <p>Empowering women and non-binary individuals in technology through hackathons and workshops.</p>
+        <p>Empowering women in technology through hackathons and workshops.</p>
       </div>
       
       <div class="footer-section">
@@ -23,10 +23,8 @@
       <div class="footer-section">
         <h3>Connect</h3>
         <ul>
-          <li><a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a></li>
-          <li><a href="https://twitter.com" target="_blank" rel="noopener noreferrer">Twitter</a></li>
-          <li><a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-          <li><a href="mailto:info@hack4her.com">Email Us</a></li>
+          <li><a href="https://www.linkedin.com/company/hack4her/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+          <li><a href="mailto:info.hack4her@gmail.com">Email Us</a></li>
         </ul>
       </div>
     </div>

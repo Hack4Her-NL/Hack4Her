@@ -119,7 +119,7 @@
     <p class="section-text">
       Hack4Her is not just a hackathon; it's a movement. A weekend at Hack4Her means engaging in an environment rich with challenges and opportunities, where participants can experiment, innovate, and connect with like-minded individuals and mentors in the tech industry. Our platform celebrates diversity, where all students from across the Netherlands can join in the camaraderie, code, and competition.
     </p>
-    <a href={routes.about} class="btn btn-primary">Learn More</a>
+    <!-- <a href={routes.about} class="btn btn-primary">Learn More About Us</a> -->
   </div>
 </section>
 

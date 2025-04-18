@@ -9,22 +9,22 @@
     {
       number: '1',
       title: 'Complete the Registration Form',
-      description: 'Fill out the basic information about yourself and your skills.'
+      description: 'Fill out the basic information about yourself and your team.'
     },
     {
       number: '2',
-      title: 'Select Your Preferences',
-      description: 'Choose workshops you\'re interested in and whether you need accommodation.'
-    },
-    {
-      number: '3',
       title: 'Submit Your Application',
       description: 'Review your information and submit your registration.'
     },
     {
-      number: '4',
+      number: '3',
       title: 'Receive Confirmation',
-      description: 'You\'ll receive a confirmation email with details about the event.'
+      description: 'You\'ll receive a confirmation email with details about the next steps.'
+    },
+    {
+      number: '4',
+      title: 'Select Your Preferences',
+      description: 'Prior to the hackathon, you will receive separate forms to choose which workshops and challenge you\'re interested in.'
     }
   ];
 
@@ -54,12 +54,6 @@
   {#if metadata.ogImage}
     <meta property="og:image" content={metadata.ogImage} />
   {/if}
-  <meta name="twitter:card" content={metadata.twitterCard || 'summary'} />
-  <meta name="twitter:title" content={metadata.title} />
-  <meta name="twitter:description" content={metadata.description} />
-  {#if metadata.ogImage}
-    <meta name="twitter:image" content={metadata.ogImage} />
-  {/if}
   {#if metadata.canonicalUrl}
     <link rel="canonical" href={metadata.canonicalUrl} />
   {/if}
@@ -76,16 +70,16 @@
 <!-- Registration Button Section -->
 <section class="section">
   <div class="section-container">
-    <h2 class="section-title">Registration is now open for Hack4Her 2024!</h2>
+    <h2 class="section-title">Registration for Hack4Her 2025 opens soon!</h2>
     <p class="section-text">
-      Join us June 7-9, 2024 at VU Amsterdam for our 3rd annual event. Click the button below to register for this exciting weekend of coding, workshops, and collaboration.
+      Join us June 13-15, 2025 at VU Amsterdam at our 4th annual event, for an exciting weekend of coding, workshops, and collaboration.
     </p>
-    <button
+    <!-- <button
       class="btn btn-primary register-btn"
       on:click={() => launchURL('https://hack4her.github.io/')}
     >
       Register Here
-    </button>
+    </button> -->
   </div>
 </section>
 

@@ -15,16 +15,39 @@
 
   const mainTeamMembers: TeamMember[] = [
     {
-      name: 'Katja Tuma',
-      role: 'Scientific Lead',
-      imagePath: '/images/face0.png',
-      linkedInUrl: 'https://linkedin.com'
-    },
-    {
       name: 'Anca Strulea',
       role: 'Project Lead',
-      imagePath: '/images/face1.jpg',
-      linkedInUrl: 'https://linkedin.com'
+      imagePath: '/images/anca_strulea.jpeg',
+      linkedInUrl: 'https://www.linkedin.com/in/anca-strulea',
+      bio: 'I\'m Anca, a MSc student in Computer Security at the VU. I was a participant in all previous editions of Hack4Her (even won a couple of times ;]), and my goal is now to give back to the community by organizing Hack4Her.'
+    },
+    {
+      name: 'Lieve Jilesen',
+      role: 'PR Team Lead',
+      imagePath: '/images/lieve_jilesen.jpeg',
+      linkedInUrl: 'https://www.linkedin.com/in/lieve-jilesen/',
+      bio: 'I am Lieve, a Master student of Artificial Intelligence at the VU. I have been part of Hack4Her since the very first edition, and ever since I have been helping out behind the scenes. I am known to have a "side-quest" addiction, as I love to get myself involved in as many things as possible! As PR Team Lead, my main tasks include reaching out for potential collaborations with various companies, organisations and academic speakers, as well as managing the volunteers in the PR Team. Additionally, I am involved with promotion of the event, such as giving promotional talks, poster-making, social media promotions, etc.'
+    },
+    {
+      name: 'Lara Popović',
+      role: 'Finance Team Lead',
+      imagePath: '/images/lara_popovic.jpeg',
+      linkedInUrl: 'https://www.linkedin.com/in/lara-popovic-478806299/',
+      bio: ''
+    },
+    {
+      name: 'Eduardo Emanuele',
+      role: 'Challenge Creation Team Lead',
+      imagePath: '/images/face6.jpg',
+      linkedInUrl: 'https://www.linkedin.com/in/caedemor/',
+      bio: ''
+    },
+    {
+      name: 'Katja Tuma',
+      role: 'Scientific Lead',
+      imagePath: '/images/katja_tuma.jpeg',
+      linkedInUrl: 'https://www.linkedin.com/in/katjatuma/',
+      bio: 'Dr. Katja Tuma is an Assistant Professor at TU Eindhoven, specializing in cybersecurity. Her work focuses on the intersection of security and system design, particularly in the context of cyber-physical systems. Dr. Tuma\'s research aims to enhance the understanding of security risks and develop strategies for resilient system design. She actively contributes to academic discourse through publications and serves on various conference committees, reflecting her commitment to advancing cybersecurity knowledge and practice.'
     }
   ];
 
@@ -32,87 +55,79 @@
     {
       name: 'Isabella Venancia Gardner',
       role: 'Advisory Board Member',
-      imagePath: '/images/face2.jpg',
-      linkedInUrl: 'https://linkedin.com'
+      imagePath: '/images/isabella_gardner.jpg',
+      linkedInUrl: 'https://www.linkedin.com/in/ivgardner/',
+      bio: 'Isabella Venancia Gardner (Bella) is currently doing her Master’s in Artificial Intelligence at the Universiteit van Amsterdam. She graduated Cum Laude from Vrije Universiteit Amsterdam with a Bachelor’s in Artificial Intelligence, complemented by a minor in Technology Law and Ethics and completion of the Honour’s Programme. Isabella co-founded and led the first Diversity Committee within the BETA student association, STORM, at Vrije Universiteit Amsterdam, focusing on reducing discrimination and increasing diversity in CS and AI university programs. Her leadership extended to organizing Hack4Her, the inaugural women-focused hackathon at VU Amsterdam, and expanding the event in collaboration with Booking.com, fostering a community dedicated to inclusivity and innovation in technology. Her commitment to advancing diversity in tech and AI has led to notable recognitions, including being a recipient of the Studienstiftung des Deutschen Volkes scholarship, awarded for remarkable academic and social qualities, and the Qualcomm Diversity AI Fellowship 2023 from the ELLIS Foundation, supporting her Master’s studies. Beyond her academic and volunteer achievements, Bella is actively involved in teaching and mentoring roles within Vrije Universiteit Amsterdam. She is/has been a course organizer and teaching assistant for a variety of courses including but not limited to Machine Learning, Databases, and Project Conversational Agents.'
     },
     {
       name: 'Mylène Brown-Coleman',
       role: 'Advisory Board Member',
-      imagePath: '/images/face3.jpg',
-      linkedInUrl: 'https://linkedin.com'
-    },
-    {
-      name: 'Lieve Jilesen',
-      role: 'PR Team Lead',
-      imagePath: '/images/face4.jpg',
-      linkedInUrl: 'https://linkedin.com',
-      bio: 'I am Lieve, a Master student of Artificial Intelligence at the VU. I have been part of Hack4Her since the very first edition, and ever since I have been helping out behind the scenes. I am known to have a "side-quest" addiction, as I love to get myself involved in as many things as possible! As PR Team Lead, my main tasks include reaching out for potential collaborations with various companies, organisations and academic speakers, as well as managing the volunteers in the PR Team. Additionally, I am involved with promotion of the event, such as giving promotional talks, poster-making, social media promotions, etc.'
-    },
-    {
-      name: 'Lara Popović',
-      role: 'Finance Team Lead',
-      imagePath: '/images/face5.jpg',
-      linkedInUrl: 'https://linkedin.com'
-    },
-    {
-      name: 'Eduardo Emanuele',
-      role: 'Challenge Creation Team Lead',
-      imagePath: '/images/face6.jpg',
-      linkedInUrl: 'https://linkedin.com'
+      imagePath: '/images/mylene_brown-coleman.jpeg',
+      linkedInUrl: 'https://www.linkedin.com/in/myl%C3%A8ne/',
+      bio: 'Mylène Brown-Coleman is currently excelling as an AI Consultant at ServiceNow, where she crafts AI solutions to enhance business processes and operational efficiency for clients. Having recently graduated with a degree in Artificial Intelligence from Vrije Universiteit Amsterdam, her education was distinguished by her role as an Artificial Intelligence Research Intern at Gemeente Amsterdam. Here, she developed an end-to-end pipeline for Google review analysis for her thesis project. This project was part of the Amsterdam for All initiative aimed at improving accessibility for individuals with disabilities, demonstrating Mylène\'s ability to translate academic insights into solutions for societal challenges. Her passion for education shines through her work as an Academic and General Teaching Assistant at Vrije Universiteit Amsterdam, where she has served as a teaching assistant for courses including Data Structures & Algorithms, Computational Thinking, and Project Intelligent Systems. Her leadership qualities and commitment to social impact are evident in her founding of a diversity committee and Hack4Her, the first recurring women-centered hackathon in the Netherlands in the last five years, emphasizing her dedication to inclusivity in technology. These initiatives have significantly increased female participation in programming competitions, underlining her role as a catalyst for change within the community. Her achievements include the Generation Google Scholar, Nutanix Women Heart Technology Scholarship, AnitaB.org GHC Scholar, and notably, the Faculty of Science Student Talent Award in January 2024, which recognises her remarkable contributions to her field and community. Mylène Brown-Coleman\'s story is a vivid illustration of her transition from an ambitious AI student to a consultant and advocates for diversity and inclusivity in technology, reflecting not only her profound passion for AI but also her committed effort to utilize technology for the betterment of society.'
     },
     {
       name: 'Arshana Ramautar',
       role: 'Registration Team Lead, Venue Team',
-      imagePath: '/images/face7.jpg',
-      linkedInUrl: 'https://linkedin.com'
+      imagePath: '/images/arshana_ramautar.jpg',
+      linkedInUrl: 'https://www.linkedin.com/in/arshana-ramautar-5638891ba/',
+      bio: ''
     },
     {
       name: 'Carmen Toyas Sanchez',
       role: 'PR Team',
-      imagePath: '/images/face8.jpg',
-      linkedInUrl: 'https://linkedin.com'
+      imagePath: '/images/carmen_sanchez.jpeg',
+      linkedInUrl: 'https://www.linkedin.com/in/carments/',
+      bio: ''
     },
     {
       name: 'Eda Cetinkaya',
       role: 'Visual Designer, PR Team',
-      imagePath: '/images/face9.jpg',
-      linkedInUrl: 'https://linkedin.com'
+      imagePath: '/images/eda_cetinkaya.jpg',
+      linkedInUrl: 'https://www.linkedin.com/in/eda-cetinkaya-52b26533b/',
+      bio: 'Hi, I\'m Eda Cetinkaya, a Computer Science student at VU Amsterdam with a passion for building tech that empowers people, especially in health. I\'m particularly interested in medical AI and I love using creative problem solving to solve real challenges. At Hack4Her, I am excited to collaborate on meaningful, inclusive solutions that make a difference. Outside of tech, I love cooking, exploring the city, and noticing the beauty in everyday moments. I’m always curious, open to learning, and excited to grow both personally and professionally. Feel free to connect with me!'
     },
     {
       name: 'Joey Laarhoven',
       role: 'WebDev Team',
-      imagePath: '/images/face10.jpg',
-      linkedInUrl: 'https://linkedin.com'
+      imagePath: '/images/joey_laarhoven.jpeg',
+      linkedInUrl: 'https://www.linkedin.com/in/joey-laarhoven-084473304/',
+      bio: ''
     },
     {
       name: 'Josephine Dode',
       role: 'Challenge Team',
-      imagePath: '/images/face0.png',
-      linkedInUrl: 'https://linkedin.com'
+      imagePath: '/images/josephine_dode.jpeg',
+      linkedInUrl: 'https://www.linkedin.com/in/josephine-dodde/',
+      bio: ''
     },
     {
       name: 'Laura Stampf',
       role: 'PR Team',
-      imagePath: '/images/face1.jpg',
-      linkedInUrl: 'https://linkedin.com'
+      imagePath: '/images/laura_stampf.jpg',
+      linkedInUrl: 'https://www.linkedin.com/in/laura-stampf/',
+      bio: ''
     },
     {
       name: 'Nehir Kirkgoz',
       role: 'Social Media Manager, PR Team',
-      imagePath: '/images/face2.jpg',
-      linkedInUrl: 'https://linkedin.com'
+      imagePath: '/images/nehir_kirkgoz.jpg',
+      linkedInUrl: 'https://www.linkedin.com/in/nehir-kirkgoz-811529257/',
+      bio: 'Hi, I am Nehir Kirkgoz! As a Computer Science bachelor\'s student at Vrije Universiteit Amsterdam, I am deeply fascinated by the convergence of technology and its societal impact. My passion lies in promoting ethical innovations and creating inclusive spaces where underprivileged communities and individuals can explore their interests in STEM. Through my role at Hack4Her as the Social Media Marketing Director and PR team volunteer, I actively contribute to fostering diversity and accessibility in tech.'
     },
     {
       name: 'Ruveyda Günsili',
       role: 'PR Team, Finance Team',
-      imagePath: '/images/face3.jpg',
-      linkedInUrl: 'https://linkedin.com'
+      imagePath: '/images/ruveyda_gunsili.jpg',
+      linkedInUrl: 'https://www.linkedin.com/in/ruveyda-gunsili-2586452b1/',
+      bio: ''
     },
     {
       name: 'Tuana Durmayuksel',
       role: 'Challenge Team',
-      imagePath: '/images/face4.jpg',
-      linkedInUrl: 'https://linkedin.com'
+      imagePath: '/images/tuana_durmayuksel.jpeg',
+      linkedInUrl: 'https://www.linkedin.com/in/tuana-durmay%C3%BCksel-b64741176/',
+      bio: ''
     }
   ];
 
@@ -183,6 +198,16 @@
   </div>
 </section>
 
+<!-- Mission Section (formerly Vision) -->
+<section class="section">
+  <div class="section-container">
+    <h2 class="section-title">Our Mission</h2>
+    <p class="section-text">
+      Hack4Her is dedicated to fostering a women-centered space in the technology sector. Our mission revolves around providing women with increased opportunities for hackathon participation and project experience, educating all individuals on the importance of women-centered technology and inclusivity, promoting diversity within the tech community, and facilitating connections among people from various backgrounds.
+    </p>
+  </div>
+</section>
+
 <!-- Team Section -->
 <section class="section gradient-background">
   <div class="section-container">
@@ -221,13 +246,6 @@
               <span class="material-icons">link</span>
               LinkedIn
             </a>
-            <button 
-              class="info-button"
-              on:click|stopPropagation
-            >
-              <span class="material-icons">info_outline</span>
-              Details
-            </button>
           </div>
         </div>
       {/each}
@@ -290,13 +308,40 @@
   </div>
 </section>
 
-<!-- Mission Section (formerly Vision) -->
+<!-- Scientific Committee Section -->
 <section class="section">
   <div class="section-container">
-    <h2 class="section-title">Our Mission</h2>
+    <h2 class="section-title">Scientific Committee</h2>
     <p class="section-text">
-      Hack4Her is dedicated to fostering a women-centered space in the technology sector. Our mission revolves around providing women with increased opportunities for hackathon participation and project experience, educating all individuals on the importance of women-centered technology and inclusivity, promoting diversity within the tech community, and facilitating connections among people from various backgrounds.
+      Our scientific committee members serve as consultants for our challenges, assist in promotion, and help ensure impartial and fair conduct of our hackathon.
     </p>
+    <h3>Scientific Committee Members:</h3>
+    <ul>
+      <li>
+        <a class="sc-link" href="https://mengyuanzhang.github.io/">Mengyuan (Maggie) Zhang</a>, Assist. Prof. at the Vrije Universiteit Amsterdam
+      </li>
+      <li>
+        <a class="sc-link" href="https://www.uva.nl/en/profile/o/p/a.m.oprescu/a.m.oprescu.html">Ana Oprescu</a>, Assist. Prof. at the University of Amsterdam
+      </li>
+      <li>
+        <a class="sc-link" href="http://annasperotto.org">Anna Sperotto</a>, Associate Prof. at the University of Twente
+      </li>
+      <li>
+        <a class="sc-link" href="https://research.utwente.nl/en/persons/jan-willem-bullée">Jan-Willem Bullée</a>, Assist. Prof. at the University of Twente
+      </li>
+      <li>
+        <a class="sc-link" href="https://research.tue.nl/en/persons/lavinia-paganini">Lavinia Paganini</a>, Doctoral candidate at Eindhoven University of Technology
+      </li>
+      <li>
+        <a class="sc-link" href="https://www.universiteitleiden.nl/en/staffmembers/lu-cao%5B2%5D#tab-1">Lu Cao</a>, Assist. Prof. at Leiden University
+      </li>
+      <li>
+        <a class="sc-link" href="https://mairieli.com">Mairieli Wessel</a>, Assist. Prof. at Radboud University
+      </li>
+      <li>
+        <a class="sc-link" href="https://www.tilburguniversity.edu/staff/c-guven">Çiçek Güven</a>, Assist. Prof. at Tilburg University
+      </li>
+    </ul>
   </div>
 </section>
 
@@ -321,7 +366,7 @@
       <h4>{selectedMember.role}</h4>
       
       <p class="modal-bio">
-        {selectedMember.bio || 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.'}
+        {selectedMember.bio || 'Bio under construction ;)'}
       </p>
       
       <div class="modal-social">
@@ -340,6 +385,11 @@
 {/if}
 
 <style>
+  /* Link styles */
+  .sc-link {
+    text-decoration: underline;
+  }
+
   /* Header styles */
   .page-header {
     padding: 80px 20px;

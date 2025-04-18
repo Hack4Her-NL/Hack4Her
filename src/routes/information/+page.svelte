@@ -14,7 +14,7 @@
     },
     {
       question: 'I signed up via the form, is there anything else I need to do?',
-      answer: 'Once you\'ve completed the registration form, there are a few next steps depending on your track. Hackers: Make sure all of your teammates complete the form (and check that you all entered the same team name, otherwise we cannot match you!). Soon after completing the sign-up form, you will receive 3 other forms you must complete: one form via which you will confirm your attendance, one form for choosing the workshops you want to attend on Friday, and lastly the one for picking your challenge. Note that failure to complete the attendance confirmation form will result in your team being waitlisted, and thus you will no longer be able to participate in the event! Non-Hackers: A couple of weeks before the event, you will receive a form via which you confirm your attendance. Note that failure to complete this form will result in being waitlisted and thus you may no longer attend the event! You will also receive a form for choosing the workshops you want to attend on Friday.'
+      answer: 'Once you\'ve completed the registration form, there are a few next steps depending on your track. You will receive an email detailing what you need to do.'
     },
     {
       question: 'Do I need to know how to code to participate in the hackathon portion?',
@@ -30,17 +30,17 @@
     },
     {
       question: 'I identify as a man / I identify as non-binary. Can I still participate?',
-      answer: 'Yes, though not as a Hacker. You can participate on Friday, where we\'ll be hosting a bunch of cool workshops and a networking event with several companies, at the new Booking.com offices in Amsterdam Central!'
+      answer: 'Yes, though not as a Hacker. You can participate on Friday, where we\'ll be hosting a bunch of cool workshops and a networking event with several companies, at the Booking.com offices in Amsterdam Central!'
     }
   ];
 
   // Event highlights
   const eventHighlights = [
     'Open to all students in the Netherlands',
-    'Coding, workshops, lectures, and networking opportunities',
+    'Coding, workshops, lectures -- plenty of opportunties to learn and expand your skillset',
     'While all genders are welcome, only women are eligible to compete in the hackathon',
     'Free food and drinks provided',
-    'Chance for free accommodation'
+    'An awesome networking event at the Booking.com offices in Amsterdam!'
   ];
 
   // Code of conduct
@@ -67,14 +67,13 @@
   const travelNotes = [
     'Parking will only be covered in the VU Parking Garage.',
     'Carpooling is encouraged and may include gas compensation.',
-    'Group train tickets can cover more participants.',
-    'While we aim to cover as much as possible, we cannot guarantee full compensation. We will inform you promptly before the event regarding the coverage of your costs.',
-    'We are committed to making the hackathon accessible and ensuring a positive experience for all participants. We look forward to your participation!'
+    'Group train tickets increase your chances of receiving full compensation.',
+    'While we aim to cover as much as possible, we cannot guarantee full compensation. We will inform you promptly before the event regarding the coverage of your costs.'
   ];
 
   // Schedule data
   const fridaySchedule = [
-    {time: '11:30 - 12:00', activity: 'Participants Arrive', location: ''},
+    {time: '11:30 - 12:00', activity: 'Arrival & Check-In', location: 'Booking.com Offices'},
     {time: '12:00 - 13:00', activity: 'Introduction + Keynote', location: ''},
     {time: '13:00 - 14:00', activity: 'Lunch', location: 'joined by booking.com grads and mentors!'},
     {time: '14:00 - 15:00', activity: 'A Word From Our Sponsors!', location: ''},
@@ -82,31 +81,31 @@
     {time: '16:30 - 17:00', activity: 'Break and Light Snacks', location: ''},
     {time: '17:00 - 18:30', activity: 'Workshops Round 2', location: ''},
     {time: '18:30 - 21:00', activity: 'Dinner/Drinks and Networking', location: ''},
-    {time: '21:00', activity: 'Participants Leave', location: ''}
+    {time: '21:00', activity: 'Day Ends', location: ''}
   ];
 
   const saturdaySchedule = [
-    {time: '9:00 - 9:30', activity: 'Participants Arrive', location: 'Event Spot'},
-    {time: '9:30 - 10:00', activity: 'Breakfast', location: 'Event Spot'},
-    {time: '10:00 - 10:15', activity: 'Introduction', location: 'Theatre 1'},
-    {time: '10:15 - 11:00', activity: 'Challenge Workshops', location: '2B01, 2B05, 2B12, 2B17, 2B25'},
-    {time: '11:00 - 14:00', activity: 'Hacking', location: '2B01, 2B05, 2B12, 2B17, 2B25'},
-    {time: '14:00 - 15:00', activity: 'Lunch', location: 'Event Spot'},
-    {time: '15:00 - 19:00', activity: 'Hacking', location: '2B01, 2B05, 2B12, 2B17, 2B25'},
-    {time: '19:00 - 20:00', activity: 'Dinner', location: 'Event Spot'},
-    {time: '20:00 - 22:00', activity: 'Hacking', location: '2B01, 2B05, 2B12, 2B17, 2B25'}
+    {time: '9:00 - 9:30', activity: 'Arrival & Check-In', location: 'Vrije Universiteit NU Building Ground Floor'},
+    {time: '9:30 - 10:00', activity: 'Breakfast', location: 'Vrije Universiteit NU Building Ground Floor'},
+    {time: '10:00 - 10:15', activity: 'Introduction', location: 'NU-Theatre 1'},
+    {time: '10:15 - 11:00', activity: 'Challenge Workshops', location: 'NU-2B01, NU-2B05, NU-2B12, NU-2B17, NU-2B25'},
+    {time: '11:00 - 14:00', activity: 'Hacking', location: 'NU-2B01, NU-2B05, NU-2B12, NU-2B17, NU-2B25'},
+    {time: '14:00 - 15:00', activity: 'Lunch', location: 'Vrije Universiteit NU Building Ground Floor'},
+    {time: '15:00 - 19:00', activity: 'Hacking', location: 'NU-2B01, NU-2B05, NU-2B12, NU-2B17, NU-2B25'},
+    {time: '19:00 - 20:00', activity: 'Dinner', location: 'Vrije Universiteit NU Building Ground Floor'},
+    {time: '20:00 - 22:00', activity: 'Hacking', location: 'NU-2B01, NU-2B05, NU-2B12, NU-2B17, NU-2B25'}
   ];
 
   const sundaySchedule = [
-    {time: '9:00 - 9:30', activity: 'Participants Arrive', location: 'Event Spot'},
-    {time: '9:30 - 10:00', activity: 'Breakfast', location: 'Event Spot'},
-    {time: '10:00 - 10:05', activity: 'Introduction', location: 'Theatre 1'},
-    {time: '10:05 - 14:00', activity: 'Hacking', location: '2B01, 2B05, 2B12, 2B17, 2B25'},
-    {time: '14:00 - 15:00', activity: 'Lunch', location: 'Event Spot'},
-    {time: '15:00 - 16:00', activity: 'Hacking (Last Hour)', location: '2B01, 2B05, 2B12, 2B17, 2B25'},
-    {time: '16:00 - 18:00', activity: 'Judging/Presenting', location: '4A06, 4A25'},
-    {time: '18:00 - 18:30', activity: 'Deliberation', location: '4A06, 4A25'},
-    {time: '18:30 - 19:30', activity: 'Closing and Presentation of Awards', location: 'Theatre 1'}
+    {time: '9:00 - 9:30', activity: 'Arrival & Check-In', location: 'Vrije Universiteit NU Building Ground Floor'},
+    {time: '9:30 - 10:00', activity: 'Breakfast', location: 'Vrije Universiteit NU Building Ground Floor'},
+    {time: '10:00 - 10:05', activity: 'Introduction', location: 'NU-Theatre 1'},
+    {time: '10:05 - 14:00', activity: 'Hacking', location: 'NU-2B01, NU-2B05, NU-2B12, NU-2B17, NU-2B25'},
+    {time: '14:00 - 15:00', activity: 'Lunch', location: 'Vrije Universiteit NU Building Ground Floor'},
+    {time: '15:00 - 16:00', activity: 'Hacking (Last Hour)', location: 'NU-2B01, NU-2B05, NU-2B12, NU-2B17, NU-2B25'},
+    {time: '16:00 - 18:00', activity: 'Judging/Presenting', location: 'NU-4A06, NU-4A25'},
+    {time: '18:00 - 18:30', activity: 'Deliberation', location: 'NU-4A06, NU-4A25'},
+    {time: '18:30 - 19:30', activity: 'Closing and Presentation of Awards', location: 'NU-Theatre 1'}
   ];
 
   // Tab handling
@@ -270,7 +269,7 @@
   <div class="section-container">
     <h2 class="section-title">Free Travel Policy</h2>
     <p class="section-text">
-      We aim to make Hack4Her accessible to all eligible participants.
+      In the past, we have refunded travel costs to Hackers coming from outside the Amsterdam area during the hackathon days. This would not be possible without the support of the universities that the Hackers (you!) come from. To get a better chance at receiving free transport, contact your university to ask whether they would be interested in sponsoring our event!
     </p>
     
     <div class="conduct-card">
@@ -296,6 +295,10 @@
       </ul>
     </div>
   </div>
+
+  <p class="section-text">
+    We are committed to making the hackathon accessible and ensuring a positive experience for all participants. We look forward to your participation!
+  </p>
 </section>
 
 <!-- Code of Conduct Section -->
