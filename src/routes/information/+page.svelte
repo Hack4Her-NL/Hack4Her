@@ -467,6 +467,12 @@
     margin-bottom: var(--spacing-small);
   }
   
+  /* Dark mode adjustment for conduct card */
+  :global(body.dark-mode) .conduct-card {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
   .conduct-list {
     list-style: none;
     padding: 0;

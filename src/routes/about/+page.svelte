@@ -57,7 +57,7 @@
       role: 'Advisory Board Member',
       imagePath: '/images/isabella_gardner.jpg',
       linkedInUrl: 'https://www.linkedin.com/in/ivgardner/',
-      bio: 'Isabella Venancia Gardner (Bella) is currently doing her Master’s in Artificial Intelligence at the Universiteit van Amsterdam. She graduated Cum Laude from Vrije Universiteit Amsterdam with a Bachelor’s in Artificial Intelligence, complemented by a minor in Technology Law and Ethics and completion of the Honour’s Programme. Isabella co-founded and led the first Diversity Committee within the BETA student association, STORM, at Vrije Universiteit Amsterdam, focusing on reducing discrimination and increasing diversity in CS and AI university programs. Her leadership extended to organizing Hack4Her, the inaugural women-focused hackathon at VU Amsterdam, and expanding the event in collaboration with Booking.com, fostering a community dedicated to inclusivity and innovation in technology. Her commitment to advancing diversity in tech and AI has led to notable recognitions, including being a recipient of the Studienstiftung des Deutschen Volkes scholarship, awarded for remarkable academic and social qualities, and the Qualcomm Diversity AI Fellowship 2023 from the ELLIS Foundation, supporting her Master’s studies. Beyond her academic and volunteer achievements, Bella is actively involved in teaching and mentoring roles within Vrije Universiteit Amsterdam. She is/has been a course organizer and teaching assistant for a variety of courses including but not limited to Machine Learning, Databases, and Project Conversational Agents.'
+      bio: 'Isabella Venancia Gardner (Bella) is currently doing her Master\'s in Artificial Intelligence at the Universiteit van Amsterdam. She graduated Cum Laude from Vrije Universiteit Amsterdam with a Bachelor\'s in Artificial Intelligence, complemented by a minor in Technology Law and Ethics and completion of the Honour\'s Programme. Isabella co-founded and led the first Diversity Committee within the BETA student association, STORM, at Vrije Universiteit Amsterdam, focusing on reducing discrimination and increasing diversity in CS and AI university programs. Her leadership extended to organizing Hack4Her, the inaugural women-focused hackathon at VU Amsterdam, and expanding the event in collaboration with Booking.com, fostering a community dedicated to inclusivity and innovation in technology. Her commitment to advancing diversity in tech and AI has led to notable recognitions, including being a recipient of the Studienstiftung des Deutschen Volkes scholarship, awarded for remarkable academic and social qualities, and the Qualcomm Diversity AI Fellowship 2023 from the ELLIS Foundation, supporting her Master\'s studies. Beyond her academic and volunteer achievements, Bella is actively involved in teaching and mentoring roles within Vrije Universiteit Amsterdam. She is/has been a course organizer and teaching assistant for a variety of courses including but not limited to Machine Learning, Databases, and Project Conversational Agents.'
     },
     {
       name: 'Mylène Brown-Coleman',
@@ -85,7 +85,7 @@
       role: 'Visual Designer, PR Team',
       imagePath: '/images/eda_cetinkaya.jpg',
       linkedInUrl: 'https://www.linkedin.com/in/eda-cetinkaya-52b26533b/',
-      bio: 'Hi, I\'m Eda Cetinkaya, a Computer Science student at VU Amsterdam with a passion for building tech that empowers people, especially in health. I\'m particularly interested in medical AI and I love using creative problem solving to solve real challenges. At Hack4Her, I am excited to collaborate on meaningful, inclusive solutions that make a difference. Outside of tech, I love cooking, exploring the city, and noticing the beauty in everyday moments. I’m always curious, open to learning, and excited to grow both personally and professionally. Feel free to connect with me!'
+      bio: 'Hi, I\'m Eda Cetinkaya, a Computer Science student at VU Amsterdam with a passion for building tech that empowers people, especially in health. I\'m particularly interested in medical AI and I love using creative problem solving to solve real challenges. At Hack4Her, I am excited to collaborate on meaningful, inclusive solutions that make a difference. Outside of tech, I love cooking, exploring the city, and noticing the beauty in everyday moments. I\'m always curious, open to learning, and excited to grow both personally and professionally. Feel free to connect with me!'
     },
     {
       name: 'Joey Laarhoven',
@@ -130,6 +130,17 @@
       bio: ''
     }
   ];
+
+  const sponsors = {
+    platinum: [
+      { name: 'Exploding Unicorns', logo: '/images/company0.png', url: '#' },
+    ],
+    gold: [
+      { name: 'Exploding Unicorns Small', logo: '/images/company1.png', url: '#' },
+      { name: 'Exploding Unicorns Splash', logo: '/images/company2.png', url: '#' },
+      { name: 'Exploding Unicorns Logo', logo: '/images/company3.png', url: '#' }
+    ]
+  };
 
   let selectedMember: TeamMember | null = null;
 
@@ -214,40 +225,81 @@
     <h2 class="section-title text-white">Meet Our Team</h2>
     <p class="section-text text-white">Click on any of the volunteer profiles to find out more!</p>
     
-    <!-- Main Team Members -->
+    <!-- Project Lead (Anca) centered above -->
+    <div class="project-lead">
+      {#each mainTeamMembers as member, i}
+        {#if member.role === 'Project Lead'}
+          <div 
+            class="team-card project-lead-card"
+            tabindex="0" 
+            role="button"
+            aria-label="View {member.name}'s details"
+            on:click={() => showMemberDetails(member)}
+            on:keydown={(e) => e.key === 'Enter' && showMemberDetails(member)}
+          >
+            <div 
+              class="profile-image"
+              style="background-image: url({member.imagePath})"
+            >
+              {#if !member.imagePath}
+                <span class="material-icons">person</span>
+              {/if}
+            </div>
+            <h3>{member.name}</h3>
+            <p>{member.role}</p>
+            <div class="card-buttons">
+              <a 
+                href={member.linkedInUrl} 
+                class="link-button"
+                target="_blank" 
+                rel="noopener noreferrer"
+                on:click|stopPropagation
+              >
+                <span class="material-icons">link</span>
+                LinkedIn
+              </a>
+            </div>
+          </div>
+        {/if}
+      {/each}
+    </div>
+    
+    <!-- Other Team Leads -->
     <div class="team-grid">
       {#each mainTeamMembers as member}
-        <div 
-          class="team-card"
-          tabindex="0" 
-          role="button"
-          aria-label="View {member.name}'s details"
-          on:click={() => showMemberDetails(member)}
-          on:keydown={(e) => e.key === 'Enter' && showMemberDetails(member)}
-        >
+        {#if member.role !== 'Project Lead'}
           <div 
-            class="profile-image"
-            style="background-image: url({member.imagePath})"
+            class="team-card"
+            tabindex="0" 
+            role="button"
+            aria-label="View {member.name}'s details"
+            on:click={() => showMemberDetails(member)}
+            on:keydown={(e) => e.key === 'Enter' && showMemberDetails(member)}
           >
-            {#if !member.imagePath}
-              <span class="material-icons">person</span>
-            {/if}
-          </div>
-          <h3>{member.name}</h3>
-          <p>{member.role}</p>
-          <div class="card-buttons">
-            <a 
-              href={member.linkedInUrl} 
-              class="link-button"
-              target="_blank" 
-              rel="noopener noreferrer"
-              on:click|stopPropagation
+            <div 
+              class="profile-image"
+              style="background-image: url({member.imagePath})"
             >
-              <span class="material-icons">link</span>
-              LinkedIn
-            </a>
+              {#if !member.imagePath}
+                <span class="material-icons">person</span>
+              {/if}
+            </div>
+            <h3>{member.name}</h3>
+            <p>{member.role}</p>
+            <div class="card-buttons">
+              <a 
+                href={member.linkedInUrl} 
+                class="link-button"
+                target="_blank" 
+                rel="noopener noreferrer"
+                on:click|stopPropagation
+              >
+                <span class="material-icons">link</span>
+                LinkedIn
+              </a>
+            </div>
           </div>
-        </div>
+        {/if}
       {/each}
     </div>
     
@@ -285,21 +337,15 @@
             <div class="compact-buttons">
               <a 
                 href={member.linkedInUrl} 
-                class="small-button linkedin"
+                class="compact-link-button"
                 target="_blank" 
                 rel="noopener noreferrer"
                 aria-label="LinkedIn profile"
                 on:click|stopPropagation
               >
                 <span class="material-icons">link</span>
+                LinkedIn
               </a>
-              <button 
-                class="small-button info"
-                aria-label="View details"
-                on:click|stopPropagation
-              >
-                <span class="material-icons">info_outline</span>
-              </button>
             </div>
           </div>
         </div>
@@ -315,33 +361,85 @@
     <p class="section-text">
       Our scientific committee members serve as consultants for our challenges, assist in promotion, and help ensure impartial and fair conduct of our hackathon.
     </p>
-    <h3>Scientific Committee Members:</h3>
-    <ul>
-      <li>
-        <a class="sc-link" href="https://mengyuanzhang.github.io/">Mengyuan (Maggie) Zhang</a>, Assist. Prof. at the Vrije Universiteit Amsterdam
-      </li>
-      <li>
-        <a class="sc-link" href="https://www.uva.nl/en/profile/o/p/a.m.oprescu/a.m.oprescu.html">Ana Oprescu</a>, Assist. Prof. at the University of Amsterdam
-      </li>
-      <li>
-        <a class="sc-link" href="http://annasperotto.org">Anna Sperotto</a>, Associate Prof. at the University of Twente
-      </li>
-      <li>
-        <a class="sc-link" href="https://research.utwente.nl/en/persons/jan-willem-bullée">Jan-Willem Bullée</a>, Assist. Prof. at the University of Twente
-      </li>
-      <li>
-        <a class="sc-link" href="https://research.tue.nl/en/persons/lavinia-paganini">Lavinia Paganini</a>, Doctoral candidate at Eindhoven University of Technology
-      </li>
-      <li>
-        <a class="sc-link" href="https://www.universiteitleiden.nl/en/staffmembers/lu-cao%5B2%5D#tab-1">Lu Cao</a>, Assist. Prof. at Leiden University
-      </li>
-      <li>
-        <a class="sc-link" href="https://mairieli.com">Mairieli Wessel</a>, Assist. Prof. at Radboud University
-      </li>
-      <li>
-        <a class="sc-link" href="https://www.tilburguniversity.edu/staff/c-guven">Çiçek Güven</a>, Assist. Prof. at Tilburg University
-      </li>
-    </ul>
+    
+    <div class="scientific-committee">
+      <ul class="committee-list">
+        <li>
+          <a class="sc-link" href="https://mengyuanzhang.github.io/">Mengyuan (Maggie) Zhang</a>, Assist. Prof. at the Vrije Universiteit Amsterdam
+        </li>
+        <li>
+          <a class="sc-link" href="https://www.uva.nl/en/profile/o/p/a.m.oprescu/a.m.oprescu.html">Ana Oprescu</a>, Assist. Prof. at the University of Amsterdam
+        </li>
+        <li>
+          <a class="sc-link" href="http://annasperotto.org">Anna Sperotto</a>, Associate Prof. at the University of Twente
+        </li>
+        <li>
+          <a class="sc-link" href="https://research.utwente.nl/en/persons/jan-willem-bullée">Jan-Willem Bullée</a>, Assist. Prof. at the University of Twente
+        </li>
+        <li>
+          <a class="sc-link" href="https://research.tue.nl/en/persons/lavinia-paganini">Lavinia Paganini</a>, Doctoral candidate at Eindhoven University of Technology
+        </li>
+        <li>
+          <a class="sc-link" href="https://www.universiteitleiden.nl/en/staffmembers/lu-cao%5B2%5D#tab-1">Lu Cao</a>, Assist. Prof. at Leiden University
+        </li>
+        <li>
+          <a class="sc-link" href="https://mairieli.com">Mairieli Wessel</a>, Assist. Prof. at Radboud University
+        </li>
+        <li>
+          <a class="sc-link" href="https://www.tilburguniversity.edu/staff/c-guven">Çiçek Güven</a>, Assist. Prof. at Tilburg University
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Sponsors Section -->
+<section class="section">
+  <div class="section-container">
+    <h2 class="section-title">Our Sponsors</h2>
+    <p class="section-text">
+      We thank our sponsors for their support in making Hack4Her possible and helping us empower women in technology.
+    </p>
+    
+    <!-- Platinum sponsors (top row, larger) -->
+    <div class="sponsors-grid platinum-grid">
+      {#each sponsors.platinum as sponsor}
+        <div class="sponsor-logo platinum-logo">
+          <img src={sponsor.logo} alt="{sponsor.name} logo" />
+        </div>
+      {/each}
+    </div>
+    
+    <!-- Gold sponsors (bottom row, smaller) -->
+    <div class="sponsors-grid gold-grid">
+      {#each sponsors.gold as sponsor}
+        <div class="sponsor-logo gold-logo">
+          <img src={sponsor.logo} alt="{sponsor.name} logo" />
+        </div>
+      {/each}
+    </div>
+  </div>
+</section>
+
+<!-- Partners Section -->
+<section class="section">
+  <div class="section-container">
+    <h2 class="section-title">Our Partners</h2>
+    <p class="section-text">
+      We collaborate with these organizations to create a diverse and inclusive tech community.
+    </p>
+    
+    <div class="partners-grid">
+      <div class="sponsor-logo partner-logo">
+        <img src="/images/company2.png" alt="Partner logo" />
+      </div>
+      <div class="sponsor-logo partner-logo">
+        <img src="/images/company1.png" alt="Partner logo" />
+      </div>
+      <div class="sponsor-logo partner-logo">
+        <img src="/images/company3.png" alt="Partner logo" />
+      </div>
+    </div>
   </div>
 </section>
 
@@ -387,9 +485,54 @@
 <style>
   /* Link styles */
   .sc-link {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  .sc-link:hover {
     text-decoration: underline;
   }
 
+  /* Scientific Committee styles */
+  .scientific-committee {
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-large);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+    text-align: left;
+  }
+  
+  /* Dark mode adjustment for scientific committee */
+  :global(body.dark-mode) .scientific-committee {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .committee-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .committee-list li {
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  .committee-list li:last-child {
+    border-bottom: none;
+  }
+  
+  :global(body.dark-mode) .committee-list li {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  :global(body.dark-mode) .committee-list li:last-child {
+    border-bottom: none;
+  }
+  
   /* Header styles */
   .page-header {
     padding: 80px 20px;
@@ -435,13 +578,23 @@
     line-height: 1.6;
   }
   
-  /* Team grid styles */
-  .team-grid {
+  /* Project lead styling */
+  .project-lead {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
-    gap: 30px;
-    margin-bottom: 40px;
+    margin-bottom: var(--spacing-large);
+  }
+  
+  .project-lead-card {
+    max-width: 350px;
+  }
+  
+  /* Team grid and cards */
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: var(--spacing-large);
+    margin-bottom: var(--spacing-large);
   }
   
   .team-card {
@@ -659,7 +812,6 @@
   
   .compact-buttons {
     display: flex;
-    gap: 10px;
     justify-content: center;
     position: absolute;
     bottom: 5px;
@@ -668,45 +820,34 @@
     width: 100%;
   }
   
-  .small-button {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.3);
-    color: white;
+  .compact-link-button {
     display: flex;
-    justify-content: center;
     align-items: center;
-    border: none;
+    justify-content: center;
+    padding: 6px 12px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    color: white;
+    font-size: 14px;
+    text-decoration: none;
     cursor: pointer;
-    flex-shrink: 0;
+    min-height: 36px;
+    width: 110px;
     transition: background-color 0.2s ease, transform 0.1s ease;
-    min-width: 40px;
-    min-height: 40px;
-    padding: 0;
-    box-sizing: border-box;
   }
   
-  .small-button.linkedin {
-    width: 40px;
-    height: 40px;
-    min-width: 40px;
-    min-height: 40px;
-    padding: 0;
-  }
-  
-  .small-button .material-icons {
-    font-size: 20px;
-    line-height: 1;
-  }
-  
-  .small-button:hover {
+  .compact-link-button:hover {
     background-color: rgba(255, 255, 255, 0.4);
     transform: translateY(-2px);
   }
   
-  .small-button:active {
+  .compact-link-button:active {
     transform: translateY(0);
+  }
+  
+  .compact-link-button .material-icons {
+    font-size: 16px;
+    margin-right: 4px;
   }
   
   /* Modal */
@@ -810,10 +951,84 @@
     margin-right: 8px;
   }
   
-  /* Responsive styles */
+  /* Sponsors Section Styles */
+  .sponsors-grid, .partners-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--spacing-large);
+    margin-bottom: var(--spacing-large);
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .platinum-grid {
+    margin-bottom: 2rem;
+  }
+  
+  .sponsor-logo {
+    background-color: white;
+    border-radius: var(--border-radius);
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .sponsor-logo img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .platinum-logo {
+    width: 250px;
+    height: 150px;
+  }
+  
+  .gold-logo {
+    width: 200px;
+    height: 120px;
+  }
+  
+  .partner-logo {
+    width: 200px;
+    height: 120px;
+  }
+  
+  .sponsor-logo img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .sponsor-logo, .partner-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Media Queries */
   @media (max-width: 768px) {
     .team-grid {
-      gap: 15px;
+      grid-template-columns: 1fr;
+      justify-items: center;
     }
     
     .team-card {
@@ -863,6 +1078,26 @@
     
     .compact-info p {
       font-size: 11px;
+    }
+    
+    .platinum-logo {
+      width: 220px;
+      height: 130px;
+    }
+    
+    .gold-logo {
+      width: 170px;
+      height: 100px;
+    }
+    
+    .partner-logo {
+      width: 170px;
+      height: 100px;
+    }
+    
+    .compact-link-button {
+      width: 100px;
+      font-size: 13px;
     }
   }
   
@@ -924,6 +1159,28 @@
     .compact-buttons {
       bottom: 2px;
       gap: 8px;
+    }
+    
+    .sponsors-grid, .partners-grid {
+      gap: 15px;
+    }
+    
+    .platinum-logo {
+      width: 180px;
+      height: 110px;
+      padding: 15px;
+    }
+    
+    .gold-logo, .partner-logo {
+      width: 140px;
+      height: 90px;
+      padding: 10px;
+    }
+    
+    .compact-link-button {
+      width: 90px;
+      font-size: 12px;
+      padding: 5px 8px;
     }
   }
 </style> 

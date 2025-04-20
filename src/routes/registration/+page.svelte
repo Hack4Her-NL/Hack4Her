@@ -273,6 +273,12 @@
     text-align: left;
   }
   
+  /* Dark mode adjustment for requirements card */
+  :global(body.dark-mode) .requirements-card {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
   .requirements-card h3 {
     font-size: 18px;
     font-weight: bold;

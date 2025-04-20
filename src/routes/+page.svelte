@@ -47,11 +47,10 @@
   ];
 
   const pastEvents = [
-    '/images/face0.png',
-    '/images/face1.jpg',
-    '/images/face2.jpg',
-    '/images/face3.jpg',
-    '/images/face4.jpg'
+    '/images/events/hack4her-2021.jpg',
+    '/images/events/hack4her-2022.jpg',
+    '/images/events/hack4her-2023.jpg',
+    '/images/events/hack4her-2024.jpg',
   ];
 
   const sponsors = {
@@ -65,6 +64,12 @@
       '/images/company0.png'
     ]
   };
+  
+  const partners = [
+    { name: 'Partner 1', logo: '/images/company2.png', url: '#' },
+    { name: 'Partner 2', logo: '/images/company1.png', url: '#' },
+    { name: 'Partner 3', logo: '/images/company3.png', url: '#' }
+  ];
 </script>
 
 <svelte:head>
@@ -172,18 +177,35 @@
   <div class="section-container">
     <h2 class="section-title">Our Sponsors</h2>
     
-    <div class="sponsors-grid platinum">
+    <!-- Platinum sponsors (top row, larger) -->
+    <div class="sponsors-grid platinum-grid">
       {#each sponsors.platinum as sponsor}
-        <div class="sponsor-logo platinum">
+        <div class="sponsor-card platinum-card">
           <img src={sponsor} alt="Sponsor logo" />
         </div>
       {/each}
     </div>
     
-    <div class="sponsors-grid gold">
+    <!-- Gold sponsors (bottom row, smaller) -->
+    <div class="sponsors-grid gold-grid">
       {#each sponsors.gold as sponsor}
-        <div class="sponsor-logo gold">
+        <div class="sponsor-card gold-card">
           <img src={sponsor} alt="Sponsor logo" />
+        </div>
+      {/each}
+    </div>
+  </div>
+</section>
+
+<!-- Partners Section -->
+<section class="section">
+  <div class="section-container">
+    <h2 class="section-title">Partners</h2>
+    
+    <div class="partners-grid">
+      {#each partners as partner}
+        <div class="sponsor-card partner-card">
+          <img src={partner.logo} alt="{partner.name} logo" />
         </div>
       {/each}
     </div>
@@ -327,39 +349,59 @@
     background-position: center;
   }
   
-  /* Sponsors */
-  .sponsors-grid {
+  /* Sponsors and Partners Sections */
+  .sponsors-grid, .partners-grid {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     gap: var(--spacing-large);
     margin-bottom: var(--spacing-large);
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
   }
   
-  .sponsor-logo {
+  .platinum-grid {
+    margin-bottom: 2rem;
+  }
+  
+  .sponsor-card {
     background-color: white;
-    border-radius: var(--border-radius);
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 1.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: var(--spacing-medium);
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
   }
   
-  .sponsor-logo.platinum {
+  .platinum-card {
+    width: 250px;
+    height: 150px;
+  }
+  
+  .gold-card {
     width: 200px;
     height: 120px;
   }
   
-  .sponsor-logo.gold {
-    width: 170px;
-    height: 90px;
+  .partner-card {
+    width: 200px;
+    height: 120px;
   }
   
-  .sponsor-logo img {
-    max-width: 100%;
-    max-height: 100%;
+  .sponsor-card img {
+    max-width: 90%;
+    max-height: 90%;
     object-fit: contain;
+    display: block;
+    margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
   
   /* CTA section */
@@ -435,6 +477,34 @@
     .gallery-item {
       width: 200px;
       height: 150px;
+    }
+    
+    .platinum-card {
+      width: 220px;
+      height: 130px;
+    }
+    
+    .gold-card, .partner-card {
+      width: 170px;
+      height: 100px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .sponsors-grid, .partners-grid {
+      gap: 1rem;
+    }
+    
+    .platinum-card {
+      width: 180px;
+      height: 110px;
+      padding: 1rem;
+    }
+    
+    .gold-card, .partner-card {
+      width: 140px;
+      height: 90px;
+      padding: 0.8rem;
     }
   }
   
