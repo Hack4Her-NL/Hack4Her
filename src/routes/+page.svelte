@@ -55,21 +55,18 @@
 
   const sponsors = {
     platinum: [
-      '/images/company0.png',
-      '/images/company1.png'
+      { name: 'VU', logo: '/images/sponsors/VU.png', url: 'https://www.vu.nl' },
+      { name: 'Booking.com', logo: '/images/sponsors/Booking.com.png', url: 'https://www.booking.com/' },
     ],
     gold: [
-      '/images/company2.png',
-      '/images/company3.png',
-      '/images/company0.png'
+      { name: 'ServiceNow', logo: '/images/sponsors/Servicenow.jpg', url: 'https://www.servicenow.com/' },
+      { name: 'DuckDB', logo: '/images/sponsors/duckdb.svg', url: 'https://duckdb.org/' },
+      { name: 'Network Institute', logo: '/images/sponsors/Network_institute.png', url: 'https://networkinstitute.org/' },
+      { name: 'Postcode Loterij', logo: '/images/sponsors/postcode_loterij.png', url: 'https://www.postcodeloterij.nl/' }
     ]
   };
   
-  const partners = [
-    { name: 'Partner 1', logo: '/images/company2.png', url: '#' },
-    { name: 'Partner 2', logo: '/images/company1.png', url: '#' },
-    { name: 'Partner 3', logo: '/images/company3.png', url: '#' }
-  ];
+  const partners = [];
 </script>
 
 <svelte:head>
@@ -98,7 +95,11 @@
 <!-- Hero Section -->
 <section class="hero gradient-background">
   <div class="hero-content">
-    <h1>Hack4Her</h1>
+    <img 
+      src="/images/Hack4Her_logo_white.png" 
+      alt="Hack4Her" 
+      class="hero-logo"
+    />
     <p class="hero-subtitle">A hackathon dedicated to empowering women in technology</p>
     <div class="button-group">
       <a href={routes.information} class="btn btn-outline">Learn More</a>
@@ -181,7 +182,9 @@
     <div class="sponsors-grid platinum-grid">
       {#each sponsors.platinum as sponsor}
         <div class="sponsor-card platinum-card">
-          <img src={sponsor} alt="Sponsor logo" />
+          <a href={sponsor.url} target="_blank" rel="noopener noreferrer">
+            <img src={sponsor.logo} alt="{sponsor.name} logo" />
+          </a>
         </div>
       {/each}
     </div>
@@ -190,14 +193,17 @@
     <div class="sponsors-grid gold-grid">
       {#each sponsors.gold as sponsor}
         <div class="sponsor-card gold-card">
-          <img src={sponsor} alt="Sponsor logo" />
+          <a href={sponsor.url} target="_blank" rel="noopener noreferrer">
+            <img src={sponsor.logo} alt="{sponsor.name} logo" />
+          </a>
         </div>
       {/each}
     </div>
   </div>
 </section>
 
-<!-- Partners Section -->
+<!-- Partners Section - only show if there are partners -->
+{#if partners.length > 0}
 <section class="section">
   <div class="section-container">
     <h2 class="section-title">Partners</h2>
@@ -211,6 +217,7 @@
     </div>
   </div>
 </section>
+{/if}
 
 <!-- CTA Section -->
 <section class="cta gradient-background">
@@ -237,17 +244,28 @@
     text-align: center;
     z-index: 2;
     max-width: 800px;
+    width: 100%;
+    padding: 0 var(--spacing-medium);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   
-  .hero h1 {
-    color: white;
-    margin-bottom: var(--spacing-medium);
+  .hero-logo {
+    width: 100%;
+    max-width: 500px;
+    max-height: 200px;
+    height: auto;
+    margin: 0 auto var(--spacing-medium);
+    object-fit: contain;
   }
   
   .hero-subtitle {
     color: white;
     font-size: 1.5rem;
     margin-bottom: var(--spacing-large);
+    max-width: 100%;
+    padding: 0 var(--spacing-small);
   }
   
   .button-group {
@@ -466,12 +484,17 @@
       align-items: center;
     }
     
-    .hero h1 {
-      font-size: calc(var(--font-size-heading-large) * 0.6);
+    .hero-logo {
+      max-width: 350px;
     }
     
     .hero-subtitle {
       font-size: 1.2rem;
+      padding: 0;
+    }
+    
+    .hero-content {
+      padding: 0 var(--spacing-small);
     }
     
     .gallery-item {
@@ -493,6 +516,10 @@
   @media (max-width: 480px) {
     .sponsors-grid, .partners-grid {
       gap: 1rem;
+    }
+    
+    .hero-logo {
+      max-width: 250px;
     }
     
     .platinum-card {

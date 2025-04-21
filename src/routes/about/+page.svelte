@@ -133,13 +133,16 @@
 
   const sponsors = {
     platinum: [
-      { name: 'Exploding Unicorns', logo: '/images/company0.png', url: '#' },
+      { name: 'VU', logo: '/images/sponsors/VU.png', url: 'https://www.vu.nl' },
+      { name: 'Booking.com', logo: '/images/sponsors/Booking.com.png', url: 'https://www.booking.com/' },
     ],
     gold: [
-      { name: 'Exploding Unicorns Small', logo: '/images/company1.png', url: '#' },
-      { name: 'Exploding Unicorns Splash', logo: '/images/company2.png', url: '#' },
-      { name: 'Exploding Unicorns Logo', logo: '/images/company3.png', url: '#' }
-    ]
+      { name: 'ServiceNow', logo: '/images/sponsors/Servicenow.jpg', url: 'https://www.servicenow.com/' },
+      { name: 'DuckDB', logo: '/images/sponsors/duckdb.svg', url: 'https://duckdb.org/' },
+      { name: 'Network Institute', logo: '/images/sponsors/Network_institute.png', url: 'https://networkinstitute.org/' },
+      { name: 'Postcode Loterij', logo: '/images/sponsors/postcode_loterij.png', url: 'https://www.postcodeloterij.nl/' }
+    ],
+    partners: []
   };
 
   let selectedMember: TeamMember | null = null;
@@ -421,7 +424,8 @@
   </div>
 </section>
 
-<!-- Partners Section -->
+<!-- Partners Section - only show if there are partners -->
+{#if sponsors.partners && sponsors.partners.length > 0}
 <section class="section">
   <div class="section-container">
     <h2 class="section-title">Our Partners</h2>
@@ -430,18 +434,15 @@
     </p>
     
     <div class="partners-grid">
-      <div class="sponsor-logo partner-logo">
-        <img src="/images/company2.png" alt="Partner logo" />
-      </div>
-      <div class="sponsor-logo partner-logo">
-        <img src="/images/company1.png" alt="Partner logo" />
-      </div>
-      <div class="sponsor-logo partner-logo">
-        <img src="/images/company3.png" alt="Partner logo" />
-      </div>
+      {#each sponsors.partners as partner}
+        <div class="sponsor-logo partner-logo">
+          <img src={partner.logo} alt="{partner.name} logo" />
+        </div>
+      {/each}
     </div>
   </div>
 </section>
+{/if}
 
 <!-- Member Details Modal -->
 {#if selectedMember}
@@ -591,14 +592,16 @@
   
   /* Team grid and cards */
   .team-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: var(--spacing-large);
     margin-bottom: var(--spacing-large);
   }
   
   .team-card {
     width: 220px;
+    margin: 0 var(--spacing-small);
     padding: 20px;
     background-color: rgba(255, 255, 255, 0.2);
     border-radius: var(--border-radius);

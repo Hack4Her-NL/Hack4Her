@@ -3,50 +3,53 @@
   
   const sponsors = {
     platinum: [
-      { name: 'Exploding Unicorns', logo: '/images/company0.png', url: '#' },
-      { name: 'Exploding Unicorns Splash', logo: '/images/company2.png', url: '#' },
+      { name: 'VU', logo: '/images/sponsors/VU.png', url: 'https://www.vu.nl' },
+      { name: 'Booking.com', logo: '/images/sponsors/Booking.com.png', url: 'https://www.booking.com/' },
     ],
     gold: [
-      { name: 'Exploding Unicorns Small', logo: '/images/company1.png', url: '#' },
-      { name: 'Exploding Unicorns Alt', logo: '/images/company3.png', url: '#' },
-      { name: 'Exploding Unicorns Logo', logo: '/images/company0.png', url: '#' }
+      { name: 'ServiceNow', logo: '/images/sponsors/Servicenow.jpg', url: 'https://www.servicenow.com/' },
+      { name: 'DuckDB', logo: '/images/sponsors/duckdb.svg', url: 'https://duckdb.org/' },
+      { name: 'Network Institute', logo: '/images/sponsors/Network_institute.png', url: 'https://networkinstitute.org/' },
+      { name: 'Postcode Loterij', logo: '/images/sponsors/postcode_loterij.png', url: 'https://www.postcodeloterij.nl/' }
     ]
   }
   
-  const partners = [
-    { name: 'Partner 1', logo: '/images/company2.png', url: '#' },
-    { name: 'Partner 2', logo: '/images/company1.png', url: '#' },
-    { name: 'Partner 3', logo: '/images/company3.png', url: '#' }
-  ];
+  const partners = [];
 </script>
 
 <footer class="gradient-background">
   <div class="container">
     <!-- Company Section -->
+    <!--
     <div class="footer-section-title">Company</div>
     <div class="footer-links">
       <a href="/about">About Us</a>
       <a href="/contact">Contact</a>
       <a href="/privacy">Privacy Policy</a>
     </div>
+    -->
     
     <!-- Connect Section -->
     <div class="footer-section-title">Connect with us</div>
     <div class="footer-links">
-      <a href="mailto:info.hack4her@gmail.com">Email</a>
+      <a href="mailto:hack4her2024@gmail.com">Email</a>
+      <!--
       <a href="#" target="_blank" rel="noopener noreferrer">Facebook</a>
       <a href="#" target="_blank" rel="noopener noreferrer">Instagram</a>
       <a href="https://www.linkedin.com/company/hack4her/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
       <a href="#" target="_blank" rel="noopener noreferrer">Twitter</a>
       <a href="#" target="_blank" rel="noopener noreferrer">GitHub</a>
+      -->
     </div>
     
     <!-- Community Section -->
+    <!--
     <div class="footer-section-title">Join the Community</div>
     <div class="footer-links">
       <a href="#">Newsletter</a>
       <a href="#">Discord</a>
     </div>
+    -->
     
     <!-- Sponsors Section -->
     <div class="footer-section-title">Sponsors</div>
@@ -55,7 +58,9 @@
       <div class="logo-grid platinum-grid">
         {#each sponsors.platinum as sponsor}
           <div class="logo-card platinum-card">
-            <img src={sponsor.logo} alt="{sponsor.name} logo" />
+            <a href={sponsor.url} target="_blank" rel="noopener noreferrer">
+              <img src={sponsor.logo} alt="{sponsor.name} logo" />
+            </a>
           </div>
         {/each}
       </div>
@@ -64,13 +69,16 @@
       <div class="logo-grid gold-grid">
         {#each sponsors.gold as sponsor}
           <div class="logo-card gold-card">
-            <img src={sponsor.logo} alt="{sponsor.name} logo" />
+            <a href={sponsor.url} target="_blank" rel="noopener noreferrer">
+              <img src={sponsor.logo} alt="{sponsor.name} logo" />
+            </a>
           </div>
         {/each}
       </div>
     </div>
     
-    <!-- Partners Section -->
+    <!-- Partners Section - only show if there are partners -->
+    {#if partners.length > 0}
     <div class="footer-section-title">Partners</div>
     <div class="partners-container">
       <div class="logo-grid partners-grid">
@@ -81,6 +89,7 @@
         {/each}
       </div>
     </div>
+    {/if}
     
     <!-- Copyright -->
     <div class="footer-bottom">

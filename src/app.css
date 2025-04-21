@@ -9,40 +9,50 @@
   line-height: 1.5;
   
   /* Default theme variables (light theme) */
-  --color-primary: #4485EB;
-  --color-secondary: #64B5F6;
-  --color-background: #FFFFFF;
-  --color-surface: #FFFFFF;
-  --color-text: #1A1A1A;
+  --color-primary: rgb(116, 79, 198);
+  --color-primary-rgb: 116, 79, 198;
+  --color-secondary: #f5f5f5;
+  --color-text: #333333;
+  --color-background: #ffffff;
+  --color-surface: #ffffff;
   
   --gradient-background: linear-gradient(to bottom right, #4485EB, #64B5F6);
   
   --shadow-card: 0 4px 10px rgba(0, 0, 0, 0.26);
   
-  --font-size-heading-large: 86px;
-  --font-size-heading-medium: 42px;
-  --font-size-body: 16px;
-  --font-size-button: 22px;
+  --font-size-heading-large: 3rem;
+  --font-size-heading-medium: 2rem;
+  --font-size-heading-small: 1.5rem;
+  --font-size-body: 1rem;
+  --font-size-small: 0.875rem;
+  --font-size-button: 1rem;
   
-  --spacing-small: 8px;
-  --spacing-medium: 16px;
-  --spacing-large: 24px;
+  --spacing-small: 0.5rem;
+  --spacing-medium: 1rem;
+  --spacing-large: 2rem;
   
-  --border-radius: 12px;
-  --border-radius-button: 30px;
+  --border-radius: 8px;
+  --border-radius-button: 50px;
+  
+  --display-light-mode: block;
+  --display-dark-mode: none;
 }
 
 /* Dark theme - applied when .dark-mode class is on the body */
 body.dark-mode {
-  --color-primary: #8A54E1;
-  --color-secondary: #4527A0;
+  --color-primary: rgb(151, 110, 242);
+  --color-primary-rgb: 151, 110, 242;
+  --color-secondary: #333;
   --color-background: #121212;
-  --color-surface: #1E1E1E;
-  --color-text: #FFFFFF;
+  --color-surface: #1e1e1e;
+  --color-text: #f5f5f5;
   
   --gradient-background: linear-gradient(to bottom right, #5E35B1, #4527A0);
   
   --shadow-card: 0 4px 10px rgba(0, 0, 0, 0.51);
+  
+  --display-light-mode: none;
+  --display-dark-mode: block;
 }
 
 body {

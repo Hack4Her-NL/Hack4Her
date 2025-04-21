@@ -20,7 +20,16 @@
   <div class="nav-container">
     <div class="logo">
       <a href="/" aria-label="Home">
-        <h1>Hack4Her</h1>
+        <img 
+          src="/images/Hack4Her_logo_black.png"
+          alt="Hack4Her"
+          class="logo-img light-logo"
+        />
+        <img 
+          src="/images/Hack4Her_logo_white.png"
+          alt="Hack4Her"
+          class="logo-img dark-logo"
+        />
       </a>
     </div>
     
@@ -90,11 +99,26 @@
     padding: 1rem var(--spacing-medium);
   }
   
-  .logo h1 {
+  .logo {
     margin: 0;
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: var(--color-primary);
+    display: flex;
+    align-items: center;
+    height: 45px;
+    max-width: 162px;
+  }
+  
+  .logo-img {
+    width: 90%;
+    height: 90%;
+    object-fit: contain;
+  }
+  
+  .light-logo {
+    display: var(--display-light-mode);
+  }
+  
+  .dark-logo {
+    display: var(--display-dark-mode);
   }
   
   .desktop-nav {
