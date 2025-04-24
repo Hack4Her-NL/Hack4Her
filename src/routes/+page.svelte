@@ -47,10 +47,11 @@
   ];
 
   const pastEvents = [
-    '/images/events/hack4her-2021.jpg',
-    '/images/events/hack4her-2022.jpg',
-    '/images/events/hack4her-2023.jpg',
-    '/images/events/hack4her-2024.jpg',
+    '/images/events/SP9_36.jpg',
+    '/images/events/SP9_99.jpg',
+    '/images/events/SP9_173.jpg',
+    '/images/events/SP9_12.jpg',
+    '/images/events/SP9_01.jpg',
   ];
 
   const sponsors = {
