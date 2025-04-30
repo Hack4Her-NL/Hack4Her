@@ -32,7 +32,7 @@
     <!-- Connect Section -->
     <div class="footer-section-title">Connect with us</div>
     <div class="footer-links">
-      <a href="mailto:hack4her2024@gmail.com">Email Us</a>
+      <a href="mailto:info.hack4her@gmail.com">Email Us</a>
       <a href="https://www.linkedin.com/company/hack4her/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
       
       <!--
