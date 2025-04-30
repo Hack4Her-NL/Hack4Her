@@ -133,8 +133,6 @@
 
   const sponsors = {
     platinum: [
-
-
       { name: 'ServiceNow', logo: '/images/sponsors/Servicenow.jpg', url: 'https://www.servicenow.com/' },
       { name: 'Booking.com', logo: '/images/sponsors/Booking.com.png', url: 'https://www.booking.com/' },
       { name: 'VU', logo: '/images/sponsors/VU.png', url: 'https://www.vu.nl' },
