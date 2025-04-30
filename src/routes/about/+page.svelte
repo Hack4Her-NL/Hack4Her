@@ -135,8 +135,8 @@
     platinum: [
       { name: 'ServiceNow', logo: '/images/sponsors/Servicenow.jpg', url: 'https://www.servicenow.com/' },
       { name: 'Booking.com', logo: '/images/sponsors/Booking.com.png', url: 'https://www.booking.com/' },
-      { name: 'VU', logo: '/images/sponsors/VU.png', url: 'https://www.vu.nl' },
-    ],platinum  
+      { name: 'VU', logo: '/images/sponsors/VU.png', url: 'https://www.vu.nl' }
+    ],
     gold: [
       { name: 'DuckDB', logo: '/images/sponsors/duckdb.svg', url: 'https://duckdb.org/' },
       { name: 'Network Institute', logo: '/images/sponsors/Network_institute.png', url: 'https://networkinstitute.org/' },

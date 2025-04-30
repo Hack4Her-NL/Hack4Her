@@ -3,11 +3,11 @@
   
   const sponsors = {
     platinum: [
-      { name: 'VU', logo: '/images/sponsors/VU.png', url: 'https://www.vu.nl' },
+      { name: 'ServiceNow', logo: '/images/sponsors/Servicenow.jpg', url: 'https://www.servicenow.com/' },
       { name: 'Booking.com', logo: '/images/sponsors/Booking.com.png', url: 'https://www.booking.com/' },
+      { name: 'VU', logo: '/images/sponsors/VU.png', url: 'https://www.vu.nl' }
     ],
     gold: [
-      { name: 'ServiceNow', logo: '/images/sponsors/Servicenow.jpg', url: 'https://www.servicenow.com/' },
       { name: 'DuckDB', logo: '/images/sponsors/duckdb.svg', url: 'https://duckdb.org/' },
       { name: 'Network Institute', logo: '/images/sponsors/Network_institute.png', url: 'https://networkinstitute.org/' },
       { name: 'Postcode Loterij', logo: '/images/sponsors/postcode_loterij.png', url: 'https://www.postcodeloterij.nl/' }
@@ -32,11 +32,11 @@
     <!-- Connect Section -->
     <div class="footer-section-title">Connect with us</div>
     <div class="footer-links">
-      <a href="mailto:hack4her2024@gmail.com">Email</a>
+      <a href="mailto:hack4her2024@gmail.com">Email Us</a>
+      <a href="https://www.linkedin.com/company/hack4her/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      
       <!--
       <a href="#" target="_blank" rel="noopener noreferrer">Facebook</a>
-      <a href="#" target="_blank" rel="noopener noreferrer">Instagram</a>
-      <a href="https://www.linkedin.com/company/hack4her/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
       <a href="#" target="_blank" rel="noopener noreferrer">Twitter</a>
       <a href="#" target="_blank" rel="noopener noreferrer">GitHub</a>
       -->
