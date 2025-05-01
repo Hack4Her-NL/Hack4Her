@@ -14,11 +14,11 @@
     },
     {
       question: 'I signed up via the form, is there anything else I need to do?',
-      answer: 'Once you\'ve completed the registration form, there are a few next steps depending on your track. You will receive an email detailing what you need to do.'
+      answer: 'Once you\'ve completed the registration form, there are a few next steps depending on your track (Hacking \& Workshops or Workshops only). You will receive an email detailing what you need to do.'
     },
     {
       question: 'Do I need to know how to code to participate in the hackathon portion?',
-      answer: 'Generally not. Most of our challenges can be solved with little technical knowledge, though implementing your ideas in code can sometimes get you extra points!'
+      answer: 'Generally not. Most of our challenges can be solved even with limited technical knowledge, though implementing your ideas in code yields extra points. The rubric for each challenge will be posted prior to the hackathon start date, so keep an eye out!'
     },
     {
       question: 'How many women can be in a team?',

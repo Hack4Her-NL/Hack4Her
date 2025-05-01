@@ -58,7 +58,7 @@
     platinum: [
       { name: 'ServiceNow', logo: '/images/sponsors/Servicenow.jpg', url: 'https://www.servicenow.com/' },
       { name: 'Booking.com', logo: '/images/sponsors/Booking.com.png', url: 'https://www.booking.com/' },
-      { name: 'VU', logo: '/images/sponsors/VU.png', url: 'https://www.vu.nl' }
+      { name: 'VU CS Department', logo: '/images/sponsors/VU.png', url: 'https://vu.nl/en/about-vu/faculties/faculty-of-science/departments/computer-science' }
     ],
     gold: [
       { name: 'DuckDB', logo: '/images/sponsors/duckdb.svg', url: 'https://duckdb.org/' },
@@ -121,7 +121,7 @@
   <div class="section-container">
     <h2 class="section-title">What is Hack4Her?</h2>
     <p class="section-text">
-      Hack4Her is the only female-focused student hackathon in the Netherlands, creating a space where technology and diversity meet. We are a coalition of staff and students from the Vrije Universiteit Amsterdam and Universiteit van Amsterdam. Our mission is simple: to create a women-centered space in the tech world. We're dedicated to providing a welcoming atmosphere that fosters learning and innovation for all students.
+      Hack4Her is the only annual female-focused student hackathon in the Netherlands, creating a space where technology and diversity meet. We are a coalition of staff and students from several universities in the Netherlands. Our mission is simple: to create a women-centered space in the tech world. We're dedicated to providing a welcoming atmosphere that fosters learning and innovation for all students.
     </p>
     <p class="section-text">
       Hack4Her is not just a hackathon; it's a movement. A weekend at Hack4Her means engaging in an environment rich with challenges and opportunities, where participants can experiment, innovate, and connect with like-minded individuals and mentors in the tech industry. Our platform celebrates diversity, where all students from across the Netherlands can join in the camaraderie, code, and competition.

@@ -5,7 +5,7 @@
     platinum: [
       { name: 'ServiceNow', logo: '/images/sponsors/Servicenow.jpg', url: 'https://www.servicenow.com/' },
       { name: 'Booking.com', logo: '/images/sponsors/Booking.com.png', url: 'https://www.booking.com/' },
-      { name: 'VU', logo: '/images/sponsors/VU.png', url: 'https://www.vu.nl' }
+      { name: 'VU CS Department', logo: '/images/sponsors/VU.png', url: 'https://vu.nl/en/about-vu/faculties/faculty-of-science/departments/computer-science' }
     ],
     gold: [
       { name: 'DuckDB', logo: '/images/sponsors/duckdb.svg', url: 'https://duckdb.org/' },

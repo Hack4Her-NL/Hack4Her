@@ -203,7 +203,7 @@
   <div class="section-container">
     <div class="previous-website-info">
       <p>
-        Workshop schedule and sign-ups will be posted soon!<br>
+        Workshop schedule and sign-ups will be posted soon! You can expect workshops from Booking.com, ServiceNow, but also independent female researchers and industry experts.<br>
         In the meantime, check our <a href={routes.information} class="website-link">schedule</a> on the information page, or <a href={routes.about} class="website-link">learn more</a> about our event here.
       </p>
     </div>
