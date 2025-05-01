@@ -157,7 +157,7 @@
   <div class="section-container">
     <h2 class="section-title">Hack4Her is the only female-focused student hackathon in the Netherlands</h2>
     <p class="section-text">
-      Creating a space where technology and diversity meet. We are a coalition of staff and students from the Vrije Universiteit Amsterdam and Universiteit van Amsterdam. Our mission is simple: to create a women-centered space in the tech world.
+      Creating a space where technology and diversity meet. We are a coalition of staff and students from various universities across the Netherlands. Our mission is simple: to create a women-centered space in the tech world.
     </p>
     <h3 class="register-title">Register for the event</h3>
     <p class="section-text">Sign-ups open soon!</p>
