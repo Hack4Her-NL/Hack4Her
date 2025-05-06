@@ -34,6 +34,7 @@
     <div class="footer-links">
       <a href="mailto:info.hack4her@gmail.com">Email Us</a>
       <a href="https://www.linkedin.com/company/hack4her/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="https://www.instagram.com/hack4herofficial/" target="_blank" rel="noopener noreferrer">Instagram</a>
       
       <!--
       <a href="#" target="_blank" rel="noopener noreferrer">Facebook</a>

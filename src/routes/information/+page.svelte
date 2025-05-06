@@ -160,7 +160,7 @@
       Creating a space where technology and diversity meet. We are a coalition of staff and students from various universities across the Netherlands. Our mission is simple: to create a women-centered space in the tech world.
     </p>
     <h3 class="register-title">Register for the event</h3>
-    <p class="section-text">Sign-ups open soon!</p>
+    <p class="section-text">Sign-ups are now open!</p>
     <a href={routes.registration} class="btn btn-primary">Register Now</a>
   </div>
 </section>
