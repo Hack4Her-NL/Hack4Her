@@ -9,12 +9,16 @@
   // FAQ data
   const faqItems = [
     {
+      question: 'I signed up via the form, is there anything else I need to do?',
+      answer: 'Once you\'ve completed the registration form, there are a few next steps depending on your track (Hacking \& Workshops or Workshops only). You will receive an email detailing what you need to do.'
+    },
+    {
       question: 'I signed up via the form, and received an email that I am on the waitlist. What does that mean?',
       answer: 'Our sign-up procedure operates on a first-come first-served basis. If you have been waitlisted, that means there have been more sign-ups than we have spots. If another participant decides to drop out of the event, your position in the waitlist determines whether you may take their spot.'
     },
     {
-      question: 'I signed up via the form, is there anything else I need to do?',
-      answer: 'Once you\'ve completed the registration form, there are a few next steps depending on your track (Hacking \& Workshops or Workshops only). You will receive an email detailing what you need to do.'
+      question: 'I signed up for one of the tracks, but now I would like to switch to the other one. How can I do that?',
+      answer: 'Email us at info.hack4her@gmail.com stating which track you want to switch to. Please use the same email that you signed up with.'
     },
     {
       question: 'Do I need to know how to code to participate in the hackathon portion?',
@@ -22,7 +26,7 @@
     },
     {
       question: 'How many women can be in a team?',
-      answer: 'Teams consist of at most 4 women, though in special cases you are allowed to compete with fewer. Note that complete teams take precedence in the waiting list over incomplete teams!'
+      answer: 'Teams consist of at most 4 women, though in special cases you are allowed to compete with fewer. Note that complete teams take precedence in the waitlist over incomplete teams!'
     },
     {
       question: 'I don\'t have a (complete) team. Can you help me find teammates?',
