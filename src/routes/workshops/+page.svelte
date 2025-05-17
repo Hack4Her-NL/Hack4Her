@@ -6,156 +6,52 @@
   // Set page-specific SEO metadata
   export const metadata = pageSeo.workshops;
 
-  // Workshop data for each day
-  const workshopsByDay = [
-    // Day 1 workshops
-    [
-      {
-        title: 'Introduction to Flutter',
-        presenter: 'Jane Doe',
-        time: '10:00 AM - 11:30 AM',
-        location: 'Room A',
-        category: 'Technical',
-        description: 'Learn the basics of Flutter and how to build cross-platform mobile apps with a single codebase.'
-      },
-      {
-        title: 'UI/UX Design Principles',
-        presenter: 'John Smith',
-        time: '12:00 PM - 1:30 PM',
-        location: 'Room B',
-        category: 'Design',
-        description: 'Discover core principles of effective UI/UX design and how to create intuitive user experiences.'
-      },
-      {
-        title: 'Pitching Your Idea',
-        presenter: 'Alice Johnson',
-        time: '2:00 PM - 3:30 PM',
-        location: 'Room C',
-        category: 'Business',
-        description: 'Learn how to effectively communicate your ideas and pitch your projects to potential investors or partners.'
-      },
-      {
-        title: 'Team Collaboration',
-        presenter: 'Bob Williams',
-        time: '4:00 PM - 5:30 PM',
-        location: 'Room A',
-        category: 'Soft Skills',
-        description: 'Develop effective team collaboration skills essential for hackathons and professional environments.'
-      },
-    ],
-    // Day 2 workshops
-    [
-      {
-        title: 'Advanced Flutter State Management',
-        presenter: 'Emily Chen',
-        time: '9:30 AM - 11:00 AM',
-        location: 'Room A',
-        category: 'Technical',
-        description: 'Deep dive into state management solutions for Flutter applications, including Provider, Riverpod, and Bloc.'
-      },
-      {
-        title: 'Data Visualization',
-        presenter: 'Michael Brown',
-        time: '11:30 AM - 1:00 PM',
-        location: 'Room B',
-        category: 'Technical',
-        description: 'Learn how to create effective and beautiful data visualizations for your applications.'
-      },
-      {
-        title: 'Accessible Design',
-        presenter: 'Sarah Lee',
-        time: '2:00 PM - 3:30 PM',
-        location: 'Room C',
-        category: 'Design',
-        description: 'Learn how to make your applications accessible to all users, including those with disabilities.'
-      },
-      {
-        title: 'Project Management',
-        presenter: 'David Wilson',
-        time: '4:00 PM - 5:30 PM',
-        location: 'Room D',
-        category: 'Business',
-        description: 'Develop project management skills to keep your team organized and on track during the hackathon.'
-      },
-    ],
-    // Day 3 workshops
-    [
-      {
-        title: 'Machine Learning Basics',
-        presenter: 'Rachel Green',
-        time: '9:30 AM - 11:00 AM',
-        location: 'Room A',
-        category: 'Technical',
-        description: 'Introduction to machine learning concepts and how to integrate ML models into your applications.'
-      },
-      {
-        title: 'Cloud Deployment',
-        presenter: 'Thomas Anderson',
-        time: '11:30 AM - 1:00 PM',
-        location: 'Room B',
-        category: 'Technical',
-        description: 'Learn how to deploy your applications to the cloud using services like Firebase, AWS, or Azure.'
-      },
-      {
-        title: 'Presentation Skills',
-        presenter: 'Jessica Parker',
-        time: '2:00 PM - 3:30 PM',
-        location: 'Room C',
-        category: 'Soft Skills',
-        description: 'Develop skills to effectively present your project to judges and audiences.'
-      },
-      {
-        title: 'Final Project Clinic',
-        presenter: 'Hack4Her Team',
-        time: '4:00 PM - 6:00 PM',
-        location: 'All Rooms',
-        category: 'Support',
-        description: 'Get last-minute help and feedback on your projects before the final submissions.'
-      },
-    ],
-  ];
-
-  // Workshop categories
-  const categories = [
-    { title: 'Technical', icon: 'code', count: 8 },
-    { title: 'Design', icon: 'brush', count: 6 },
-    { title: 'Business', icon: 'business', count: 5 },
-    { title: 'Soft Skills', icon: 'people', count: 4 }
-  ];
-
-  // Registration steps
-  const registrationSteps = [
+  // Workshop data - only using Day 1 workshops
+  const workshops = [
     {
-      number: '1',
-      title: 'Register for Hack4Her',
-      description: 'You must be a registered participant to attend workshops.'
+      title: 'Introduction to Flutter',
+      presenter: 'Jane Doe',
+      company: 'FlutterTech',
+      image: '/images/face6.jpg',
+      time: '10:00 AM - 11:30 AM',
+      location: 'Room A',
+      description: 'Learn the basics of Flutter and how to build cross-platform mobile apps with a single codebase.',
+      bio: 'Jane is a senior developer at FlutterTech with over 5 years of experience building mobile applications. She specializes in cross-platform development and has contributed to several open-source Flutter projects.'
     },
     {
-      number: '2',
-      title: 'Browse Available Workshops',
-      description: 'Check out the workshop schedule and select the ones you\'re interested in.'
+      title: 'UI/UX Design Principles',
+      presenter: 'John Smith',
+      company: 'DesignHub',
+      image: '/images/carmen_sanchez.jpeg',
+      time: '12:00 PM - 1:30 PM',
+      location: 'Room B',
+      description: 'Discover core principles of effective UI/UX design and how to create intuitive user experiences.',
+      bio: 'John is a lead UX designer at DesignHub where he has worked on interfaces for Fortune 500 companies. He has a background in cognitive psychology and over 8 years of experience in the design industry.'
     },
     {
-      number: '3',
-      title: 'Sign Up for Workshops',
-      description: 'Use our workshop registration system to secure your spot.'
+      title: 'Pitching Your Idea',
+      presenter: 'Alice Johnson',
+      company: 'StartupMentor',
+      image: '/images/lara_popovic.jpeg',
+      time: '2:00 PM - 3:30 PM',
+      location: 'Room C',
+      description: 'Learn how to effectively communicate your ideas and pitch your projects to potential investors or partners.',
+      bio: 'Alice is the founder of StartupMentor and has helped over 100 startups secure funding. She previously worked as a venture capitalist and has an MBA from Harvard Business School.'
     },
     {
-      number: '4',
-      title: 'Receive Confirmation',
-      description: 'You\'ll receive a confirmation email with workshop details.'
-    }
+      title: 'Team Collaboration',
+      presenter: 'Bob Williams',
+      company: 'TeamWork Solutions',
+      image: '/images/joey_laarhoven.jpeg',
+      time: '4:00 PM - 5:30 PM',
+      location: 'Room A',
+      description: 'Develop effective team collaboration skills essential for hackathons and professional environments.',
+      bio: 'Bob is an organizational psychologist specializing in team dynamics. At TeamWork Solutions, he consults with tech companies to improve collaboration and productivity in diverse teams.'
+    },
   ];
 
   // State
-  let selectedDay = 0;
   let expandedWorkshops = new Set();
-
-  function selectDay(index) {
-    selectedDay = index;
-    expandedWorkshops.clear();
-    expandedWorkshops = expandedWorkshops; // Trigger reactivity
-  }
 
   function toggleWorkshop(index) {
     if (expandedWorkshops.has(index)) {
@@ -199,6 +95,8 @@
 </div>
 
 <!-- Coming Soon Section -->
+<!-- Remove this section since we're now showing workshops -->
+<!--
 <section class="section">
   <div class="section-container">
     <div class="previous-website-info">
@@ -209,14 +107,13 @@
     </div>
   </div>
 </section>
+-->
 
-<!--
 <section class="section">
   <div class="section-container">
     <p class="section-text">
       Our workshops offer a unique opportunity to learn new skills, get hands-on experience, and connect with industry experts. All workshops are free for registered participants.
     </p>
-    <a href={routes.registration} class="btn btn-primary">Register Now</a>
   </div>
 </section>
 
@@ -224,20 +121,8 @@
   <div class="section-container">
     <h2 class="section-title text-white">Workshop Schedule</h2>
     
-    <div class="days-tabs">
-      <button class={selectedDay === 0 ? 'day-tab active' : 'day-tab'} on:click={() => selectDay(0)}>
-        Day 1 <span class="tab-date">Friday</span>
-      </button>
-      <button class={selectedDay === 1 ? 'day-tab active' : 'day-tab'} on:click={() => selectDay(1)}>
-        Day 2 <span class="tab-date">Saturday</span>
-      </button>
-      <button class={selectedDay === 2 ? 'day-tab active' : 'day-tab'} on:click={() => selectDay(2)}>
-        Day 3 <span class="tab-date">Sunday</span>
-      </button>
-    </div>
-    
     <div class="workshops-list">
-      {#each workshopsByDay[selectedDay] as workshop, index}
+      {#each workshops as workshop, index}
         <div class="workshop-card" class:expanded={expandedWorkshops.has(index)}>
           <div 
             class="workshop-header" 
@@ -253,12 +138,11 @@
               <h3 class="workshop-title">{workshop.title}</h3>
               <div class="workshop-presenter">
                 <span class="material-icons">person</span>
-                {workshop.presenter}
+                {workshop.presenter} | {workshop.company}
               </div>
             </div>
             
             <div class="workshop-meta">
-              <div class="category-badge">{workshop.category}</div>
               <span class="material-icons expand-icon">
                 {expandedWorkshops.has(index) ? 'expand_less' : 'expand_more'}
               </span>
@@ -267,16 +151,22 @@
           
           {#if expandedWorkshops.has(index)}
             <div class="workshop-details">
+              <div class="bio-container">
+                <div class="presenter-image" style="background-image: url({workshop.image})">
+                </div>
+                <div class="bio-content">
+                  <h4>About the Presenter</h4>
+                  <p class="details-text">{workshop.bio}</p>
+                </div>
+              </div>
+              
+              <h4>Description</h4>
               <p class="details-text">{workshop.description}</p>
               
               <div class="detail-item">
                 <span class="material-icons">location_on</span>
                 <span>{workshop.location}</span>
               </div>
-              
-              <button class="register-button">
-                Sign Up for Workshop
-              </button>
             </div>
           {/if}
         </div>
@@ -284,43 +174,6 @@
     </div>
   </div>
 </section>
-
-<section class="section">
-  <div class="section-container">
-    <h2 class="section-title">Workshop Categories</h2>
-    
-    <div class="categories-grid">
-      {#each categories as category}
-        <div class="category-card">
-          <span class="material-icons category-icon">{category.icon}</span>
-          <h3>{category.title}</h3>
-          <div class="category-count">{category.count} workshops</div>
-        </div>
-      {/each}
-    </div>
-  </div>
-</section>
-
-<section class="section gradient-background">
-  <div class="section-container">
-    <h2 class="section-title text-white">How to Register</h2>
-    
-    <div class="registration-steps">
-      {#each registrationSteps as step}
-        <div class="step-card">
-          <div class="step-number">{step.number}</div>
-          <div class="step-content">
-            <h3 class="step-title">{step.title}</h3>
-            <p class="step-description">{step.description}</p>
-          </div>
-        </div>
-      {/each}
-    </div>
-    
-    <a href={routes.registration} class="btn btn-white">Register Now</a>
-  </div>
-</section>
--->
 
 <style>
   /* Header styles */
@@ -414,96 +267,108 @@
   }
   
   /* Workshop items */
-  .workshops-container {
+  .workshops-list {
     display: flex;
     flex-direction: column;
     gap: 15px;
   }
-  
-  .workshop-item {
-    background-color: rgba(255, 255, 255, 0.2);
-    border-radius: var(--border-radius);
-    padding: 20px;
-    cursor: pointer;
-    text-align: left;
-    color: white;
-    transition: all 0.3s;
+
+  .workshop-card {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    margin-bottom: 15px;
   }
   
+  .workshop-card.expanded {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  }
+
   .workshop-header {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 10px;
+    padding: 20px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
   }
   
-  .workshop-title {
-    font-size: 18px;
-    font-weight: bold;
-    margin: 0;
+  .workshop-header:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  
+  .workshop-time {
+    flex: 0 0 180px;
+    font-weight: 500;
+    opacity: 0.9;
+    align-self: center;
+  }
+  
+  .workshop-main {
     flex: 1;
   }
   
-  .workshop-header-right {
+  .workshop-meta {
     display: flex;
     align-items: center;
-    gap: 5px;
-  }
-  
-  .category-tag {
-    background-color: rgba(255, 255, 255, 0.3);
-    padding: 5px 10px;
-    border-radius: 15px;
-    font-size: 12px;
-    font-weight: bold;
-    color: white;
   }
   
   .expand-icon {
-    font-size: 20px;
+    transition: transform 0.3s ease;
   }
   
-  .workshop-subheader {
-    margin-bottom: 5px;
+  .workshop-title {
+    margin: 0 0 8px;
+    font-size: 18px;
   }
   
   .workshop-presenter {
-    font-size: 14px;
-    margin: 0;
-  }
-  
-  .workshop-info {
     display: flex;
-    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
     font-size: 14px;
-  }
-  
-  .workshop-time, .workshop-location {
-    margin: 0;
+    opacity: 0.9;
   }
   
   /* Workshop expanded details */
   .workshop-details {
-    margin-top: 20px;
+    padding: 20px;
+    background-color: rgba(0, 90, 180, 0.5);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: left;
   }
   
-  .divider {
-    border: none;
-    height: 1px;
-    background-color: rgba(255, 255, 255, 0.3);
-    margin: 15px 0;
+  .bio-container {
+    display: flex;
+    margin-bottom: 20px;
+    gap: 15px;
+    align-items: flex-start;
+  }
+  
+  .presenter-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    flex-shrink: 0;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+  }
+  
+  .bio-content {
+    flex: 1;
   }
   
   .workshop-details h4 {
     font-size: 16px;
     font-weight: bold;
     margin: 15px 0 10px;
+    color: rgba(255, 255, 255, 0.9);
   }
   
-  .workshop-details p {
-    font-size: 14px;
+  .details-text {
     margin: 0 0 15px;
     line-height: 1.5;
+    font-size: 14px;
   }
   
   .detail-item {
@@ -629,6 +494,38 @@
     .day-tab {
       padding: 10px 15px;
       font-size: 14px;
+    }
+    
+    .workshop-time {
+      flex: 0 0 auto;
+      margin-bottom: 10px;
+    }
+    
+    .workshop-header {
+      flex-direction: column;
+      padding: 15px;
+    }
+    
+    .bio-container {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    
+    .presenter-image {
+      margin-bottom: 10px;
+    }
+    
+    .workshop-details h4 {
+      text-align: center;
+    }
+    
+    .details-text {
+      text-align: center;
+    }
+    
+    .detail-item {
+      justify-content: center;
     }
   }
   
