@@ -48,19 +48,194 @@
       description: 'Develop effective team collaboration skills essential for hackathons and professional environments.',
       bio: 'Bob is an organizational psychologist specializing in team dynamics. At TeamWork Solutions, he consults with tech companies to improve collaboration and productivity in diverse teams.'
     },
+    // Duplicating workshops to fill grid
+    {
+      title: 'Web Development',
+      presenter: 'Jane Doe',
+      company: 'FlutterTech',
+      image: '/images/face6.jpg',
+      time: '10:00 AM - 11:30 AM',
+      location: 'Room A',
+      description: 'Learn the basics of web development and how to build responsive websites with HTML, CSS, and JavaScript.',
+      bio: 'Jane is a senior developer at FlutterTech with over 5 years of experience building web applications. She specializes in frontend development and has contributed to several open-source projects.'
+    },
+    {
+      title: 'Mobile Design',
+      presenter: 'John Smith',
+      company: 'DesignHub',
+      image: '/images/carmen_sanchez.jpeg',
+      time: '12:00 PM - 1:30 PM',
+      location: 'Room B',
+      description: 'Learn how to design effective mobile interfaces that provide great user experiences.',
+      bio: 'John is a lead UX designer at DesignHub where he has worked on interfaces for Fortune 500 companies. He has a background in cognitive psychology and over 8 years of experience in the design industry.'
+    },
+    {
+      title: 'Marketing Strategies',
+      presenter: 'Alice Johnson',
+      company: 'StartupMentor',
+      image: '/images/lara_popovic.jpeg',
+      time: '2:00 PM - 3:30 PM',
+      location: 'Room C',
+      description: 'Discover effective marketing strategies for your startup or project.',
+      bio: 'Alice is the founder of StartupMentor and has helped over 100 startups develop successful marketing strategies. She previously worked in marketing for tech companies and has an MBA from Harvard Business School.'
+    },
+    {
+      title: 'Leadership Skills',
+      presenter: 'Bob Williams',
+      company: 'TeamWork Solutions',
+      image: '/images/joey_laarhoven.jpeg',
+      time: '4:00 PM - 5:30 PM',
+      location: 'Room A',
+      description: 'Develop leadership skills essential for managing teams and projects.',
+      bio: 'Bob is an organizational psychologist specializing in leadership development. At TeamWork Solutions, he consults with tech companies to improve team dynamics and develop effective leaders.'
+    },
+    {
+      title: 'Cloud Computing',
+      presenter: 'Jane Doe',
+      company: 'FlutterTech',
+      image: '/images/face6.jpg',
+      time: '10:00 AM - 11:30 AM',
+      location: 'Room A',
+      description: 'Learn the basics of cloud computing and how to deploy applications to the cloud.',
+      bio: 'Jane is a senior developer at FlutterTech with over 5 years of experience working with cloud platforms. She specializes in serverless architecture and has contributed to several open-source cloud projects.'
+    },
+    {
+      title: 'Accessibility Design',
+      presenter: 'John Smith',
+      company: 'DesignHub',
+      image: '/images/carmen_sanchez.jpeg',
+      time: '12:00 PM - 1:30 PM',
+      location: 'Room B',
+      description: 'Learn how to design accessible interfaces that work for everyone, regardless of ability.',
+      bio: 'John is a lead UX designer at DesignHub where he has worked on accessible interfaces for Fortune 500 companies. He has a background in cognitive psychology and over 8 years of experience in accessibility design.'
+    },
+    {
+      title: 'Financial Planning',
+      presenter: 'Alice Johnson',
+      company: 'StartupMentor',
+      image: '/images/lara_popovic.jpeg',
+      time: '2:00 PM - 3:30 PM',
+      location: 'Room C',
+      description: 'Learn how to create a financial plan for your startup or project.',
+      bio: 'Alice is the founder of StartupMentor and has helped over 100 startups create successful financial plans. She previously worked in venture capital and has an MBA from Harvard Business School.'
+    },
+    {
+      title: 'Conflict Resolution',
+      presenter: 'Bob Williams',
+      company: 'TeamWork Solutions',
+      image: '/images/joey_laarhoven.jpeg',
+      time: '4:00 PM - 5:30 PM',
+      location: 'Room A',
+      description: 'Develop skills for resolving conflicts in team environments.',
+      bio: 'Bob is an organizational psychologist specializing in conflict resolution. At TeamWork Solutions, he consults with tech companies to improve team dynamics and resolve workplace conflicts.'
+    },
+    {
+      title: 'Data Science',
+      presenter: 'Jane Doe',
+      company: 'FlutterTech',
+      image: '/images/face6.jpg',
+      time: '10:00 AM - 11:30 AM',
+      location: 'Room A',
+      description: 'Learn the basics of data science and how to analyze data to make informed decisions.',
+      bio: 'Jane is a senior data scientist at FlutterTech with over 5 years of experience in data analysis. She specializes in machine learning and has contributed to several open-source data science projects.'
+    },
+    {
+      title: 'Product Design',
+      presenter: 'John Smith',
+      company: 'DesignHub',
+      image: '/images/carmen_sanchez.jpeg',
+      time: '12:00 PM - 1:30 PM',
+      location: 'Room B',
+      description: 'Learn how to design products that solve real user problems.',
+      bio: 'John is a lead product designer at DesignHub where he has worked on products for Fortune 500 companies. He has a background in industrial design and over 8 years of experience in product development.'
+    },
+    {
+      title: 'Social Media Strategy',
+      presenter: 'Alice Johnson',
+      company: 'StartupMentor',
+      image: '/images/lara_popovic.jpeg',
+      time: '2:00 PM - 3:30 PM',
+      location: 'Room C',
+      description: 'Develop a social media strategy for your startup or project.',
+      bio: 'Alice is the founder of StartupMentor and has helped over 100 startups develop successful social media strategies. She previously worked in digital marketing and has an MBA from Harvard Business School.'
+    },
+    {
+      title: 'Ethical Leadership',
+      presenter: 'Bob Williams',
+      company: 'TeamWork Solutions',
+      image: '/images/joey_laarhoven.jpeg',
+      time: '4:00 PM - 5:30 PM',
+      location: 'Room A',
+      description: 'Explore the principles of ethical leadership and how to apply them in your organization.',
+      bio: 'Bob is an organizational psychologist specializing in ethical leadership. At TeamWork Solutions, he consults with tech companies to develop ethical leadership practices and improve organizational culture.'
+    },
+    {
+      title: 'Agile Development',
+      presenter: 'Jane Doe',
+      company: 'FlutterTech',
+      image: '/images/face6.jpg',
+      time: '10:00 AM - 11:30 AM',
+      location: 'Room A',
+      description: 'Learn the principles of agile development and how to implement them in your team.',
+      bio: 'Jane is a senior developer at FlutterTech with over 5 years of experience in agile development. She specializes in scrum methodology and has contributed to several open-source agile tools.'
+    },
+    {
+      title: 'Design Thinking',
+      presenter: 'John Smith',
+      company: 'DesignHub',
+      image: '/images/carmen_sanchez.jpeg',
+      time: '12:00 PM - 1:30 PM',
+      location: 'Room B',
+      description: 'Learn how to apply design thinking to solve complex problems.',
+      bio: 'John is a lead designer at DesignHub where he has facilitated design thinking workshops for Fortune 500 companies. He has a background in cognitive psychology and over 8 years of experience in design facilitation.'
+    },
+    {
+      title: 'Investor Relations',
+      presenter: 'Alice Johnson',
+      company: 'StartupMentor',
+      image: '/images/lara_popovic.jpeg',
+      time: '2:00 PM - 3:30 PM',
+      location: 'Room C',
+      description: 'Learn how to build and maintain relationships with investors.',
+      bio: 'Alice is the founder of StartupMentor and has helped over 100 startups secure investment. She previously worked in venture capital and has an MBA from Harvard Business School.'
+    }
   ];
 
   // State
-  let expandedWorkshops = new Set();
+  let selectedWorkshop = null;
+  let modalOpen = false;
 
-  function toggleWorkshop(index) {
-    if (expandedWorkshops.has(index)) {
-      expandedWorkshops.delete(index);
-    } else {
-      expandedWorkshops.add(index);
-    }
-    expandedWorkshops = expandedWorkshops; // Trigger reactivity
+  function openWorkshopModal(workshop) {
+    selectedWorkshop = workshop;
+    modalOpen = true;
+    document.body.style.overflow = 'hidden'; // Prevent scrolling while modal is open
   }
+
+  function closeModal() {
+    modalOpen = false;
+    document.body.style.overflow = ''; // Re-enable scrolling
+  }
+
+  // Close modal when clicking outside
+  function handleBackdropClick(e) {
+    if (e.target === e.currentTarget) {
+      closeModal();
+    }
+  }
+
+  // Close modal when ESC key is pressed
+  function handleKeydown(e) {
+    if (e.key === 'Escape' && modalOpen) {
+      closeModal();
+    }
+  }
+
+  onMount(() => {
+    window.addEventListener('keydown', handleKeydown);
+    return () => {
+      window.removeEventListener('keydown', handleKeydown);
+    }
+  });
 </script>
 
 <svelte:head>
@@ -121,59 +296,82 @@
   <div class="section-container">
     <h2 class="section-title text-white">Workshop Schedule</h2>
     
-    <div class="workshops-list">
+    <div class="workshops-grid">
       {#each workshops as workshop, index}
-        <div class="workshop-card" class:expanded={expandedWorkshops.has(index)}>
-          <div 
-            class="workshop-header" 
-            on:click={() => toggleWorkshop(index)}
-            on:keydown={(e) => e.key === 'Enter' && toggleWorkshop(index)}
-            tabindex="0"
-            role="button"
-            aria-expanded={expandedWorkshops.has(index)}
-          >
+        <div 
+          class="workshop-card" 
+          on:click={() => openWorkshopModal(workshop)}
+          on:keydown={(e) => e.key === 'Enter' && openWorkshopModal(workshop)}
+          tabindex="0"
+          role="button"
+        >
+          <div class="workshop-content">
+            <h3 class="workshop-title">{workshop.title}</h3>
+            <div class="workshop-presenter">
+              <span class="material-icons">person</span>
+              {workshop.presenter}
+            </div>
             <div class="workshop-time">{workshop.time}</div>
-            
-            <div class="workshop-main">
-              <h3 class="workshop-title">{workshop.title}</h3>
-              <div class="workshop-presenter">
-                <span class="material-icons">person</span>
-                {workshop.presenter} | {workshop.company}
-              </div>
-            </div>
-            
-            <div class="workshop-meta">
-              <span class="material-icons expand-icon">
-                {expandedWorkshops.has(index) ? 'expand_less' : 'expand_more'}
-              </span>
-            </div>
           </div>
-          
-          {#if expandedWorkshops.has(index)}
-            <div class="workshop-details">
-              <div class="bio-container">
-                <div class="presenter-image" style="background-image: url({workshop.image})">
-                </div>
-                <div class="bio-content">
-                  <h4>About the Presenter</h4>
-                  <p class="details-text">{workshop.bio}</p>
-                </div>
-              </div>
-              
-              <h4>Description</h4>
-              <p class="details-text">{workshop.description}</p>
-              
-              <div class="detail-item">
-                <span class="material-icons">location_on</span>
-                <span>{workshop.location}</span>
-              </div>
-            </div>
-          {/if}
         </div>
       {/each}
     </div>
   </div>
 </section>
+
+<!-- Workshop Modal -->
+{#if modalOpen && selectedWorkshop}
+  <div 
+    class="modal-backdrop" 
+    on:click={handleBackdropClick}
+    on:keydown={(e) => e.key === 'Escape' && closeModal()}
+    tabindex="-1"
+  >
+    <div class="modal-container">
+      <div class="modal-header">
+        <h2 class="modal-title">{selectedWorkshop.title}</h2>
+        <button class="modal-close" on:click={closeModal}>
+          <span class="material-icons">close</span>
+        </button>
+      </div>
+      
+      <div class="modal-content">
+        <div class="presenter-section">
+          <div class="presenter-image" style="background-image: url({selectedWorkshop.image})"></div>
+          <div class="presenter-info">
+            <h3 class="presenter-name">{selectedWorkshop.presenter}</h3>
+            <p class="presenter-company">{selectedWorkshop.company}</p>
+          </div>
+        </div>
+        
+        <div class="workshop-details-modal">
+          <div class="detail-section">
+            <h4>Description</h4>
+            <p>{selectedWorkshop.description}</p>
+          </div>
+          
+          <div class="detail-section">
+            <h4>About the Presenter</h4>
+            <p>{selectedWorkshop.bio}</p>
+          </div>
+          
+          <div class="detail-section">
+            <div class="workshop-meta">
+              <div class="meta-item">
+                <span class="material-icons">access_time</span>
+                <span>{selectedWorkshop.time}</span>
+              </div>
+              <div class="meta-item">
+                <span class="material-icons">location_on</span>
+                <span>{selectedWorkshop.location}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{/if}
 
 <style>
   /* Header styles */
@@ -202,7 +400,7 @@
   }
   
   .section-container {
-    max-width: 800px;
+    max-width: 1200px;
     margin: 0 auto;
     text-align: center;
   }
@@ -266,59 +464,52 @@
     color: var(--color-primary);
   }
   
-  /* Workshop items */
-  .workshops-list {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+  /* Workshop grid layout */
+  .workshops-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
   }
-
+  
   .workshop-card {
     background-color: rgba(255, 255, 255, 0.1);
     border-radius: 12px;
     overflow: hidden;
     transition: all 0.3s ease;
-    margin-bottom: 15px;
-  }
-  
-  .workshop-card.expanded {
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-  }
-
-  .workshop-header {
-    display: flex;
-    padding: 20px;
+    aspect-ratio: 1 / 1;
     cursor: pointer;
-    transition: background-color 0.2s ease;
-  }
-  
-  .workshop-header:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-  }
-  
-  .workshop-time {
-    flex: 0 0 180px;
-    font-weight: 500;
-    opacity: 0.9;
-    align-self: center;
-  }
-  
-  .workshop-main {
-    flex: 1;
-  }
-  
-  .workshop-meta {
+    position: relative;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
   
-  .expand-icon {
-    transition: transform 0.3s ease;
+  .workshop-card:hover {
+    transform: translateY(-5px) scale(1.03);
+    background-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  .workshop-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
   }
   
   .workshop-title {
-    margin: 0 0 8px;
-    font-size: 18px;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0 0 10px;
+    color: white;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
   
   .workshop-presenter {
@@ -326,206 +517,88 @@
     align-items: center;
     gap: 5px;
     font-size: 14px;
-    opacity: 0.9;
+    margin-bottom: 10px;
   }
   
-  /* Workshop expanded details */
+  .workshop-time {
+    font-size: 12px;
+    opacity: 0.8;
+    margin-top: auto;
+  }
+  
   .workshop-details {
-    padding: 20px;
-    background-color: rgba(0, 90, 180, 0.5);
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    text-align: left;
-  }
-  
-  .bio-container {
-    display: flex;
-    margin-bottom: 20px;
-    gap: 15px;
-    align-items: flex-start;
+    margin-top: 15px;
+    height: 100%;
+    overflow-y: auto;
   }
   
   .presenter-image {
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     background-size: cover;
     background-position: center;
-    flex-shrink: 0;
+    margin: 0 auto 10px;
     border: 2px solid rgba(255, 255, 255, 0.8);
   }
   
-  .bio-content {
-    flex: 1;
+  .presenter-company {
+    text-align: center;
+    font-size: 14px;
+    margin-bottom: 15px;
+    font-style: italic;
   }
   
   .workshop-details h4 {
-    font-size: 16px;
+    font-size: 15px;
     font-weight: bold;
-    margin: 15px 0 10px;
-    color: rgba(255, 255, 255, 0.9);
+    margin: 15px 0 5px;
   }
   
   .details-text {
-    margin: 0 0 15px;
-    line-height: 1.5;
-    font-size: 14px;
+    font-size: 13px;
+    line-height: 1.4;
+    margin: 0 0 10px;
   }
   
   .detail-item {
     display: flex;
     align-items: center;
-    gap: 8px;
-    margin-bottom: 8px;
-    font-size: 14px;
+    gap: 5px;
+    font-size: 13px;
+    margin-top: auto;
   }
   
-  .detail-icon {
-    font-size: 16px;
+  @media (max-width: 1200px) {
+    .workshops-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
   }
   
-  /* Categories grid */
-  .categories-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-  }
-  
-  .category-card {
-    width: 150px;
-    height: 150px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(0, 0, 0, 0.05);
-    border-radius: var(--border-radius);
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    padding: 20px;
-  }
-  
-  .category-icon {
-    font-size: 50px;
-    color: var(--color-primary);
-    margin-bottom: 10px;
-  }
-  
-  .category-title {
-    font-size: 18px;
-    font-weight: bold;
-    margin: 0 0 5px;
-  }
-  
-  .category-count {
-    font-size: 14px;
-    color: var(--color-text-light);
-    margin: 0;
-  }
-  
-  /* Registration process */
-  .registration-card {
-    background-color: rgba(255, 255, 255, 0.2);
-    border-radius: var(--border-radius);
-    padding: 20px;
-    text-align: left;
-    color: white;
-  }
-  
-  .registration-card h3 {
-    font-size: 18px;
-    font-weight: bold;
-    margin: 0 0 20px;
-  }
-  
-  .registration-steps {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-  }
-  
-  .registration-step {
-    display: flex;
-    align-items: flex-start;
-  }
-  
-  .step-number {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    background-color: white;
-    color: var(--color-primary);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    flex-shrink: 0;
-  }
-  
-  .step-content {
-    margin-left: 10px;
-  }
-  
-  .step-content h4 {
-    font-size: 16px;
-    font-weight: bold;
-    margin: 0 0 5px;
-  }
-  
-  .step-content p {
-    font-size: 14px;
-    margin: 0;
-  }
-  
-  /* Responsive styles */
-  @media (max-width: 768px) {
-    .categories-grid {
-      gap: 10px;
+  @media (max-width: 900px) {
+    .workshops-grid {
+      grid-template-columns: repeat(3, 1fr);
     }
     
-    .category-card {
-      width: 135px;
-      height: 135px;
+    .workshop-card.expanded {
+      grid-column: span 2;
+      grid-row: span 2;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .workshops-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
     }
     
-    .category-icon {
-      font-size: 40px;
+    .workshop-card.expanded {
+      grid-column: span 2;
+      grid-row: span 2;
     }
     
-    .day-tab {
-      padding: 10px 15px;
-      font-size: 14px;
-    }
-    
-    .workshop-time {
-      flex: 0 0 auto;
-      margin-bottom: 10px;
-    }
-    
-    .workshop-header {
-      flex-direction: column;
-      padding: 15px;
-    }
-    
-    .bio-container {
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-    }
-    
-    .presenter-image {
-      margin-bottom: 10px;
-    }
-    
-    .workshop-details h4 {
-      text-align: center;
-    }
-    
-    .details-text {
-      text-align: center;
-    }
-    
-    .detail-item {
-      justify-content: center;
+    .section-container {
+      padding: 0 10px;
     }
   }
   
@@ -557,5 +630,156 @@
   
   .website-link:hover {
     color: var(--color-secondary);
+  }
+
+  /* Modal Styles */
+  .modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 20px;
+    backdrop-filter: blur(5px);
+  }
+  
+  .modal-container {
+    background: linear-gradient(135deg, #2463c9 0%, #1c4fa0 100%);
+    border-radius: 16px;
+    max-width: 90%;
+    width: 600px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    position: relative;
+    color: white;
+  }
+  
+  .modal-header {
+    padding: 20px 20px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .modal-title {
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+    padding-right: 30px;
+  }
+  
+  .modal-close {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 24px;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .modal-close:hover {
+    opacity: 1;
+  }
+  
+  .modal-content {
+    padding: 20px;
+  }
+  
+  .presenter-section {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .presenter-section .presenter-image {
+    width: 80px;
+    height: 80px;
+    margin: 0 20px 0 0;
+    flex-shrink: 0;
+  }
+  
+  .presenter-info {
+    flex: 1;
+  }
+  
+  .presenter-name {
+    margin: 0 0 5px;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .presenter-company {
+    margin: 0;
+    font-style: italic;
+    opacity: 0.8;
+  }
+  
+  .workshop-details-modal {
+    color: rgba(255, 255, 255, 0.9);
+  }
+  
+  .detail-section {
+    margin-bottom: 25px;
+  }
+  
+  .detail-section h4 {
+    margin: 0 0 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+  }
+  
+  .detail-section p {
+    margin: 0;
+    line-height: 1.5;
+    font-size: 15px;
+  }
+  
+  .workshop-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 10px;
+  }
+  
+  .meta-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 15px;
+  }
+  
+  @media (max-width: 600px) {
+    .modal-container {
+      width: 100%;
+      max-width: 100%;
+      border-radius: 12px;
+    }
+    
+    .modal-title {
+      font-size: 20px;
+    }
+    
+    .presenter-section {
+      flex-direction: column;
+      text-align: center;
+    }
+    
+    .presenter-section .presenter-image {
+      margin: 0 auto 15px;
+    }
   }
 </style> 
