@@ -274,14 +274,14 @@
           <div class="presenter-info">
             <h3 class="presenter-name">{selectedWorkshop.presenter}</h3>
             <p class="presenter-company">{selectedWorkshop.company}</p>
-          </div>
-        </div>
-        
+              </div>
+            </div>
+            
         <div class="workshop-details-modal">
           <div class="detail-section">
             <h4>Description</h4>
             <p>{selectedWorkshop.description}</p>
-          </div>
+            </div>
           
           <div class="detail-section">
             <h4>About the Presenter</h4>
@@ -363,7 +363,7 @@
     margin: 0 auto var(--spacing-large);
     line-height: 1.6;
   }
-
+  
   /* Schedule Table */
   .workshop-schedule {
     width: 100%;
@@ -392,7 +392,7 @@
     width: calc((100% - 120px) / 5);
     min-width: 150px;
     background-color: rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+    border-radius: var(--border-radius-section);
   }
   
   .room-name {
@@ -424,18 +424,18 @@
     text-align: center;
     height: 120px;
     background-color: rgba(255, 255, 255, 0.07);
-    border-radius: 8px;
+    border-radius: var(--border-radius-section);
     transition: all 0.3s ease;
     vertical-align: middle;
   }
   
   .has-workshop {
-    background-color: rgba(121, 195, 98, 0.3);
+    background-color: rgba(var(--color-primary-rgb), 0.8); /* Using CSS variable to adapt to dark/light mode */
     cursor: pointer;
   }
   
   .has-workshop:hover {
-    background-color: rgba(121, 195, 98, 0.6);
+    background-color: rgba(var(--color-secondary-rgb), 0.6); /* Using CSS variable to adapt to dark/light mode */
     transform: translateY(-3px);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   }
@@ -481,15 +481,15 @@
   }
   
   .modal-container {
-    background: linear-gradient(135deg, #2463c9 0%, #1c4fa0 100%);
-    border-radius: 16px;
+    background: var(--gradient-primary);
+    border-radius: var(--border-radius-section);
     max-width: 90%;
     width: 600px;
     max-height: 90vh;
     overflow-y: auto;
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
     position: relative;
-    color: white;
+    color: #333333; /* Darker text for better contrast */
   }
   
   .modal-header {
@@ -497,7 +497,7 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(51, 51, 51, 0.2);
   }
   
   .modal-title {
@@ -505,12 +505,13 @@
     font-size: 24px;
     font-weight: bold;
     padding-right: 30px;
+    color: #333333;
   }
   
   .modal-close {
     background: none;
     border: none;
-    color: white;
+    color: #333333;
     cursor: pointer;
     font-size: 24px;
     opacity: 0.7;
@@ -564,7 +565,7 @@
   }
   
   .workshop-details-modal {
-    color: rgba(255, 255, 255, 0.9);
+    color: #333333;
   }
   
   .detail-section {
@@ -575,7 +576,7 @@
     margin: 0 0 10px;
     font-size: 16px;
     font-weight: bold;
-    color: white;
+    color: #333333;
   }
   
   .detail-section p {
@@ -608,13 +609,20 @@
     }
     
     .time-header {
-      width: 80px;
+      width: 60px;
       padding: 10px 5px;
+    }
+    
+    .time-cell {
+      width: 60px;
+      padding: 5px 2px;
+      font-size: 13px;
     }
     
     .room-header {
       padding: 10px 5px;
       min-width: 120px;
+      width: calc((100% - 60px) / 5);
     }
     
     .room-name {
@@ -650,6 +658,29 @@
     
     .presenter-section .presenter-image {
       margin: 0 auto 15px;
+    }
+  }
+  
+  /* Add smaller sizes for extra small screens */
+  @media (max-width: 480px) {
+    .time-header {
+      width: 45px;
+      padding: 8px 2px;
+    }
+    
+    .time-cell {
+      width: 45px;
+      padding: 4px 2px;
+      font-size: 12px;
+    }
+    
+    .room-header {
+      width: calc((100% - 45px) / 5);
+      min-width: 100px;
+    }
+    
+    .workshop-cell {
+      height: 100px;
     }
   }
 </style> 

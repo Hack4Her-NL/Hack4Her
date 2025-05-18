@@ -9,14 +9,22 @@
   line-height: 1.5;
   
   /* Default theme variables (light theme) */
-  --color-primary: rgb(116, 79, 198);
-  --color-primary-rgb: 116, 79, 198;
-  --color-secondary: #f5f5f5;
+  --color-primary: #E7C6FF; /* Mauve */
+  --color-primary-rgb: 231, 198, 255;
+  --color-secondary: #BDE0FE; /* Uranian Blue */
+  --color-secondary-rgb: 189, 224, 254;
+  --color-accent: #FFC8DD; /* Fairy Tail (Pink) - for nav */
+  --color-accent-rgb: 255, 200, 221;
+  --color-tertiary: #50D8D7; /* Turquoise - for hero section */
+  --color-tertiary-rgb: 80, 216, 215;
   --color-text: #333333;
   --color-background: #ffffff;
   --color-surface: #ffffff;
   
-  --gradient-background: linear-gradient(to bottom right, #4485EB, #64B5F6);
+  /* Gradient for sections like in the image */
+  --gradient-background: linear-gradient(to bottom right, #50D8D7, #40C4C4); /* Turquoise gradient */
+  --gradient-nav: var(--color-accent); /* Solid color for nav */
+  --gradient-primary: linear-gradient(to bottom right, #BDE0FE, #E7C6FF); /* Uranian Blue to Mauve for other elements */
   
   --shadow-card: 0 4px 10px rgba(0, 0, 0, 0.26);
   
@@ -33,6 +41,7 @@
   
   --border-radius: 8px;
   --border-radius-button: 50px;
+  --border-radius-section: 16px;
   
   --display-light-mode: block;
   --display-dark-mode: none;
@@ -40,14 +49,21 @@
 
 /* Dark theme - applied when .dark-mode class is on the body */
 body.dark-mode {
-  --color-primary: rgb(151, 110, 242);
-  --color-primary-rgb: 151, 110, 242;
-  --color-secondary: #333;
-  --color-background: #121212;
-  --color-surface: #1e1e1e;
+  --color-primary: #AA82AD; /* Much darker Mauve for dark mode */
+  --color-primary-rgb: 170, 130, 173;
+  --color-secondary: #6B8BB3; /* Much darker Uranian Blue for dark mode */
+  --color-secondary-rgb: 107, 139, 179;
+  --color-accent: #B95C7E; /* Much darker pink for dark mode */
+  --color-accent-rgb: 185, 92, 126;
+  --color-tertiary: #207575; /* Much darker turquoise for dark mode */
+  --color-tertiary-rgb: 32, 117, 117;
   --color-text: #f5f5f5;
+  --color-background: #0A0A0A;
+  --color-surface: #121212;
   
-  --gradient-background: linear-gradient(to bottom right, #5E35B1, #4527A0);
+  --gradient-background: linear-gradient(to bottom right, #207575, #165050); /* Darker turquoise gradient */
+  --gradient-nav: var(--color-accent); /* Solid color instead of gradient */
+  --gradient-primary: linear-gradient(to bottom right, #6B8BB3, #AA82AD); /* Darker gradients of primary colors */
   
   --shadow-card: 0 4px 10px rgba(0, 0, 0, 0.51);
   
@@ -107,6 +123,16 @@ button:active {
 
 .gradient-background {
   background: var(--gradient-background);
+  border-radius: var(--border-radius-section);
+  margin: var(--spacing-medium);
+  overflow: hidden;
+}
+
+/* Add rounded corners to all sections */
+.section {
+  border-radius: var(--border-radius-section);
+  margin: var(--spacing-medium);
+  overflow: hidden;
 }
 
 @media (max-width: 600px) {
@@ -116,6 +142,11 @@ button:active {
   
   h2 {
     font-size: calc(var(--font-size-heading-medium) * 0.6);
+  }
+  
+  .section, .gradient-background {
+    margin: var(--spacing-small);
+    border-radius: calc(var(--border-radius-section) * 0.75);
   }
 }
 
@@ -127,4 +158,25 @@ button:active {
   h2 {
     font-size: calc(var(--font-size-heading-medium) * 0.8);
   }
+}
+
+/* Navigation styling - gradient color */
+nav {
+  background: transparent; /* Changed to transparent so it doesn't overlap with navbar gradient */
+  color: white;
+}
+
+/* Hero section to match the turquoise color in the image */
+.hero {
+  background: var(--gradient-background) !important;
+  border-radius: var(--border-radius-section);
+  margin: var(--spacing-medium);
+  overflow: hidden;
+}
+
+/* Page headers with gradient background */
+.page-header {
+  border-radius: var(--border-radius-section);
+  margin: var(--spacing-medium);
+  overflow: hidden;
 }

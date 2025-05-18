@@ -86,7 +86,7 @@
     position: sticky;
     top: 0;
     z-index: 100;
-    background-color: var(--color-surface);
+    background: var(--gradient-nav);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
   
@@ -124,6 +124,7 @@
   .desktop-nav {
     display: flex;
     align-items: center;
+    background: transparent;
   }
   
   .desktop-nav ul {
@@ -131,6 +132,7 @@
     list-style: none;
     margin: 0;
     padding: 0;
+    background: transparent;
   }
   
   .desktop-nav li {
@@ -139,18 +141,19 @@
   
   .desktop-nav a, .mobile-nav a {
     text-decoration: none;
-    color: var(--color-text);
+    color: white;
     font-weight: 500;
     transition: color 0.2s;
   }
   
   .desktop-nav a:hover, .mobile-nav a:hover {
-    color: var(--color-primary);
+    color: rgba(255, 255, 255, 0.8);
   }
   
   li.active a {
-    color: var(--color-primary);
+    color: white;
     font-weight: 700;
+    text-decoration: underline;
   }
   
   .mobile-toggle {
@@ -169,7 +172,7 @@
   .mobile-nav {
     display: none;
     padding: 1rem var(--spacing-medium);
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
   }
   
   .mobile-nav ul {
