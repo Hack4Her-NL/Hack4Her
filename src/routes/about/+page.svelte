@@ -134,8 +134,9 @@
   const sponsors = {
     platinum: [
       { name: 'ServiceNow', logo: '/images/sponsors/Servicenow.jpg', url: 'https://www.servicenow.com/' },
+      { name: 'Randstad Digital', logo: '/images/sponsors/randstad.png', url:'https://www.randstaddigital.nl/nl/'},
       { name: 'Booking.com', logo: '/images/sponsors/Booking.com.png', url: 'https://www.booking.com/' },
-      { name: 'VU', logo: '/images/sponsors/VU.png', url: 'https://www.vu.nl' }
+      { name: 'VU CS Department', logo: '/images/sponsors/VU.png', url: 'https://vu.nl/en/about-vu/faculties/faculty-of-science/departments/computer-science' }
     ],
     gold: [
       { name: 'DuckDB', logo: '/images/sponsors/duckdb.svg', url: 'https://duckdb.org/' },
@@ -192,16 +193,16 @@
   <div class="section-container">
     <h2 class="section-title">Our History</h2>
     <p class="section-text">
-      Hack4Her originated in October 2021, established by Isabella Venancia Gardner (Bella) and Mylène Brown-Coleman. They founded the first Diversity Committee within the BETA student association, STORM, at VU Amsterdam. This initiative was in response to encountering racist and sexist comments among classmates and identifying a lack of clear channels for reporting and seeking assistance.
+      The story began in October 2021, when Isabella Venancia Gardner (Bella) and Mylène Brown-Coleman founded the first Diversity Committee within the BETA student association, STORM, at VU Amsterdam. This initiative was in response to encountering racist and sexist comments among classmates and identifying a lack of clear channels for reporting and seeking assistance.
     </p>
     <p class="section-text">
       Bella served as the Co-founder and Chair of the Diversity Committee, with Mylène as the Vice Chair, up until their graduation. Their efforts were directed towards fostering an environment of inclusivity and respect.
     </p>
     <p class="section-text">
-      During Mylène's time as the AAPCie committee secretary, she observed a significant underrepresentation of women at the Amsterdam Algorithm Programming Preliminary (AAPP). This led to the concept of Hack4Her, aimed at creating a more inclusive and supportive environment for women in competitive programming.
+      During Mylène's time as the AAPPCie committee secretary, she observed a significant underrepresentation of women at the Amsterdam Algorithm Programming Preliminary (AAPP). This lead to the idea of organizing a female-focused hackathon, aimed at creating a more inclusive and supportive environment for women in competitive programming.
     </p>
     <p class="section-text">
-      Supported by BETA faculty member Katja Tuma, the first Hack4Her hackathon took place in June 2022 at VU Amsterdam. The event was women-only and attracted 35 attendees.
+      With Dr. Katja Tuma as scientific lead, the first Hack4Her took place in June 2022, at VU Amsterdam. The event was women-only and attracted 35 attendees.
     </p>
     <p class="section-text">
       In 2023, the event was expanded to welcome all genders while maintaining a focus on women in tech. Held at the Booking.com office with Booking.com as the main sponsor, the participation increased to 75, with a total of 100 attendees. This iteration emphasized a broader learning and networking experience.

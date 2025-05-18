@@ -4,8 +4,9 @@
   const sponsors = {
     platinum: [
       { name: 'ServiceNow', logo: '/images/sponsors/Servicenow.jpg', url: 'https://www.servicenow.com/' },
+      { name: 'Randstad Digital', logo: '/images/sponsors/randstad.png', url:'https://www.randstaddigital.nl/nl/'},
       { name: 'Booking.com', logo: '/images/sponsors/Booking.com.png', url: 'https://www.booking.com/' },
-      { name: 'VU', logo: '/images/sponsors/VU.png', url: 'https://www.vu.nl' }
+      { name: 'VU CS Department', logo: '/images/sponsors/VU.png', url: 'https://vu.nl/en/about-vu/faculties/faculty-of-science/departments/computer-science' }
     ],
     gold: [
       { name: 'DuckDB', logo: '/images/sponsors/duckdb.svg', url: 'https://duckdb.org/' },
@@ -32,8 +33,9 @@
     <!-- Connect Section -->
     <div class="footer-section-title">Connect with us</div>
     <div class="footer-links">
-      <a href="mailto:hack4her2024@gmail.com">Email Us</a>
+      <a href="mailto:info.hack4her@gmail.com">Email Us</a>
       <a href="https://www.linkedin.com/company/hack4her/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="https://www.instagram.com/hack4herofficial/" target="_blank" rel="noopener noreferrer">Instagram</a>
       
       <!--
       <a href="#" target="_blank" rel="noopener noreferrer">Facebook</a>

@@ -9,20 +9,24 @@
   // FAQ data
   const faqItems = [
     {
+      question: 'I signed up via the form, is there anything else I need to do?',
+      answer: 'Once you\'ve completed the registration form, there are a few next steps depending on your track (Hacking \& Workshops or Workshops only). You will receive an email detailing what you need to do.'
+    },
+    {
       question: 'I signed up via the form, and received an email that I am on the waitlist. What does that mean?',
       answer: 'Our sign-up procedure operates on a first-come first-served basis. If you have been waitlisted, that means there have been more sign-ups than we have spots. If another participant decides to drop out of the event, your position in the waitlist determines whether you may take their spot.'
     },
     {
-      question: 'I signed up via the form, is there anything else I need to do?',
-      answer: 'Once you\'ve completed the registration form, there are a few next steps depending on your track. You will receive an email detailing what you need to do.'
+      question: 'I signed up for one of the tracks, but now I would like to switch to the other one. How can I do that?',
+      answer: 'Email us at info.hack4her@gmail.com stating which track you want to switch to. Please use the same email that you signed up with.'
     },
     {
       question: 'Do I need to know how to code to participate in the hackathon portion?',
-      answer: 'Generally not. Most of our challenges can be solved with little technical knowledge, though implementing your ideas in code can sometimes get you extra points!'
+      answer: 'Generally not. Most of our challenges can be solved even with limited technical knowledge, though implementing your ideas in code yields extra points. The rubric for each challenge will be posted prior to the hackathon start date, so keep an eye out!'
     },
     {
       question: 'How many women can be in a team?',
-      answer: 'Teams consist of at most 4 women, though in special cases you are allowed to compete with fewer. Note that complete teams take precedence in the waiting list over incomplete teams!'
+      answer: 'Teams consist of at most 4 women, though in special cases you are allowed to compete with fewer. Note that complete teams take precedence in the waitlist over incomplete teams!'
     },
     {
       question: 'I don\'t have a (complete) team. Can you help me find teammates?',
@@ -157,10 +161,10 @@
   <div class="section-container">
     <h2 class="section-title">Hack4Her is the only female-focused student hackathon in the Netherlands</h2>
     <p class="section-text">
-      Creating a space where technology and diversity meet. We are a coalition of staff and students from the Vrije Universiteit Amsterdam and Universiteit van Amsterdam. Our mission is simple: to create a women-centered space in the tech world.
+      Creating a space where technology and diversity meet. We are a coalition of staff and students from various universities across the Netherlands. Our mission is simple: to create a women-centered space in the tech world.
     </p>
     <h3 class="register-title">Register for the event</h3>
-    <p class="section-text">Sign-ups open soon!</p>
+    <p class="section-text">Sign-ups are now open!</p>
     <a href={routes.registration} class="btn btn-primary">Register Now</a>
   </div>
 </section>
