@@ -8,11 +8,11 @@
 
   // Room data
   const rooms = [
-    { name: "Room 1", capacity: "Large", size: "200 people" },
-    { name: "Room 2", capacity: "Medium", size: "60 people" },
-    { name: "Room 3", capacity: "Small", size: "20 people" },
-    { name: "Room 4", capacity: "Small", size: "20 people" },
-    { name: "Room 5", capacity: "Small", size: "20 people" }
+    { name: "Auditorium", capacity: "Large", size: "150 seats" },
+    { name: "Multifunctional Room", capacity: "Medium", size: "60 seats" },
+    { name: "Room 001", capacity: "Small", size: "20 seats" },
+    { name: "Room 002", capacity: "Small", size: "20 seats" },
+    { name: "Room 003", capacity: "Small", size: "20 seats" }
   ];
 
   // Time slots
@@ -27,71 +27,79 @@
   const schedule = [
     // Room 1
     [
-      null, // 15:00 - 15:40
-      null, // 15:50 - 16:30
+      { // 15:00 - 16:30, spans two slots
+        title: "ServiceNow",
+        presenter: "TBD",
+        company: "ServiceNow",
+        image: "",
+        description: "Coming soon!",
+        bio: "Coming soon!",
+        rowSpan: 2
+      }, 
+      null, // covered by workshop above
       { // 17:00 - 17:40 and 17:50 - 18:30 (spans 2 slots)
-        title: "AWS Workshop",
-        presenter: "Athina Simon?",
-        company: "AWS",
-        image: "/images/face6.jpg",
-        description: "Learn how to deploy applications using AWS services and best practices for cloud infrastructure.",
-        bio: "Athina is a solutions architect at AWS with over 7 years of experience helping companies migrate to the cloud.",
+        title: "Amazon Web Services",
+        presenter: "TBD",
+        company: "Amazon",
+        image: "",
+        description: "Coming soon!",
+        bio: "Coming soon!",
         rowSpan: 2
       },
       null, // 17:50 - 18:30 (filled by the above workshop)
     ],
     // Room 2
     [
-      null, // 15:00 - 15:40
-      null, // 15:50 - 16:30
-      null, // 17:00 - 17:40
+      { // 15:00 - 16:30, spans two slots
+        title: "Randstad Digital",
+        presenter: "TBD",
+        company: "Randstad Digital",
+        image: "",
+        description: "Coming soon!",
+        bio: "Coming soon!",
+        rowSpan: 2
+      }, 
+      null, // covered by previous workshop
+      {
+        title: "Design Yourself: Create Your Visual and Verbal Identity",
+        presenter: "Serena Giust",
+        company: "Booking.com",
+        image: "/images/speakers/Serena.jpg",
+        description: "Join us for a workshop where you'll learn to apply design principles to your personal brand. Just as designers design products, you'll develop your unique identity through a strategic process. In this session, we'll: apply design thinking to personal branding, discover how to articulate core values and mission statement, and reate a coherent visual identity. Whether you're preparing to enter the job market, launching a startup, or simply seeking to present yourself more effectively, this workshop provides practical tools to make you stand out.",
+        bio: "Serena is a strategic content design leader who creates experiences that prioritise human connection, positive impact, and lasting value. With experience leading cross-functional teams since 2017, she builds environments where UX, tech, and product speak one language. She is passionate about branding and education, committed to empowering others to find their voice and express themselves. Having worked across different countries with different nationalities and backgrounds, she's a strong advocate for inclusion, creating spaces where everyone feels welcome, valued, and respected."
+      }, // 17:00 - 17:40
       { // 17:50 - 18:30
-        title: "Randstad Workshop",
+        title: "From Student to CIO: Monique's Unlikely Journey in IT",
         presenter: "Monique De Jong",
         company: "Randstad",
-        image: "/images/carmen_sanchez.jpeg",
-        description: "Discover career opportunities and professional development strategies with Randstad.",
-        bio: "Monique is a senior recruiter at Randstad specializing in connecting tech talent with innovative companies."
+        image: "/images/speakers/monique_de_jong.jpg",
+        description: "Ever thought you had your career all planned out—only to end up somewhere completely unexpected? That’s exactly what happened to Monique. She started with dreams of becoming a veterinarian, but life steered her into the world of technology. In this talk, Monique will share how she went from computer science student to CIO, navigating a career full of twists, challenges, and surprises. She will talk about how to spot and seize the right opportunities, how to uncover your true strengths and passions, and how to stay confident when things don’t go as planned. Monique will also take us through the stages of her career from programmer to tester, test manager, project manager, IT manager, and finally CIO. After reaching the CIO role, she realized her true passion was in the hands-on leadership and team-building aspects of IT management and deliberately stepped back into an IT manager position again to do the work she loves most. Expect to leave the talk inspired to embrace the unexpected and think differently about your own career journey in IT.",
+        bio: "Monique holds a drs. in Computer Science from the Free University of Amsterdam and an MBA from Rotterdam School of Management, Erasmus University. Her unique blend of technical depth, drive to achieve the impossible, strong project management, and people leadership has consistently driven successful and innovative IT transformations. Currently shifting into a coaching position at Randstad Groep Nederland, she’s dedicated to passing on her insights and experience over three decades in IT to the next generation of IT professionals."
       },
     ],
     // Room 3
     [
       { // 15:00 - 15:40 and 15:50 - 16:30 (spans 2 slots)
-        title: "Booking",
-        presenter: "Deborah Davis DeWitt",
+        title: "Hands-On Workshop: Power your start-up launch using AI",
+        presenter: "Deborah Davis-DeWitt",
         company: "Booking.com",
-        image: "/images/lara_popovic.jpeg",
-        description: "Explore how Booking.com leverages technology to create seamless travel experiences.",
-        bio: "Deborah is a product manager at Booking.com with extensive experience in the travel tech industry.",
+        image: "/images/speakers/deborah_davis_dewitt.jpg",
+        description: "Coming soon!",
+        bio: "Deborah, a Senior Technical Programme Manager in Central Tech, is passionate about technical transformation, working closely with developers and steering diversity, equity and inclusion initiatives to provide better opportunities and solidarity for all.",
         rowSpan: 2
       },
       null, // 15:50 - 16:30 (filled by the above workshop)
-      { // 17:00 - 17:40
-        title: "ServiceNow?",
-        presenter: "Technical Expert",
-        company: "ServiceNow",
-        image: "/images/joey_laarhoven.jpeg",
-        description: "Introduction to ServiceNow platform and its capabilities for enterprise workflow management.",
-        bio: "Our ServiceNow expert will share insights on maximizing the platform for your organization."
-      },
-      { // 17:50 - 18:30
-        title: "ServiceNow?",
-        presenter: "Technical Expert",
-        company: "ServiceNow",
-        image: "/images/joey_laarhoven.jpeg",
-        description: "Advanced techniques and development strategies for the ServiceNow platform.",
-        bio: "This workshop builds on the first ServiceNow session with hands-on advanced techniques."
-      },
+      null,
     ],
     // Room 4
     [
       { // 15:00 - 15:40
-        title: "barri",
+        title: "Building While Learning: Yasemin's Journey as a New Tech Founder",
         presenter: "Yasemin Snoek",
         company: "barri",
-        image: "/images/nehir_kirkgoz.jpg",
-        description: "Innovative approaches to urban mobility and transportation solutions.",
-        bio: "Yasemin leads product development at barri, focusing on sustainable urban transportation technology."
+        image: "/images/speakers/yasemin.jpg",
+        description: "Join Yasemin as she shares her journey as the founder of a European tech startup—from the first spark of an idea to navigating the ups and downs of entrepreneurship. Yasemin will dive into the real, behind-the-scenes stories of building a startup, covering everything from securing the first users to handling setbacks. But it won’t just be a story. Yasemin will also share practical tips she’s learned along the way. You’ll get actionable insights on launching a product, building with a small team, and finding your way in an industry where everything feels new. Whether you’re an aspiring entrepreneur, curious about working in a tech startup, or just fascinated by the world of entrepreneurship, this talk is for you. Expect an open, honest look at the highs, the lows, and everything in between.",
+        bio: "Yasemin is the founder and engineer of barri, a mobile app designed to help people with dietary restrictions find food. With a background in software engineering, Yasemin is passionate about creating solutions from the ground up and driving growth through constant experimentation."
       },
       null, // 15:50 - 16:30
       null, // 17:00 - 17:40
@@ -180,7 +188,7 @@
   <div class="section-container">
     <p class="section-text">
       Our workshops offer a unique opportunity to learn new skills, get hands-on experience, and connect with industry experts. 
-      All workshops are free for registered participants. Click on a workshop to see more details.
+      All workshops are free for registered participants. Click on a workshop to see more details. Note that this schedule is tentative, and is subject to change. More workshops are coming soon! 
     </p>
   </div>
 </section>
@@ -290,7 +298,7 @@
           
           <div class="detail-section">
             <div class="workshop-meta">
-              <div class="meta-item">
+              <!-- <div class="meta-item">
                 <span class="material-icons">access_time</span>
                 <span>
                   {#if selectedWorkshop.rowSpan > 1}
@@ -300,7 +308,7 @@
                     {selectedWorkshop.time || "Schedule time"}
                   {/if}
                 </span>
-              </div>
+              </div> -->
               <div class="meta-item">
                 <span class="material-icons">location_on</span>
                 <span>{selectedWorkshop.location}</span>
