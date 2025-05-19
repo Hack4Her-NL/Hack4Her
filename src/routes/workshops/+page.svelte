@@ -61,7 +61,7 @@
       }, 
       null, // covered by previous workshop
       {
-        title: "Design Yourself: Create Your Visual and Verbal Identity",
+        title: "Create Your Visual and Verbal Identity",
         presenter: "Serena Giust",
         company: "Booking.com",
         image: "/images/speakers/Serena.jpg",
@@ -69,7 +69,7 @@
         bio: "Serena is a strategic content design leader who creates experiences that prioritise human connection, positive impact, and lasting value. With experience leading cross-functional teams since 2017, she builds environments where UX, tech, and product speak one language. She is passionate about branding and education, committed to empowering others to find their voice and express themselves. Having worked across different countries with different nationalities and backgrounds, she's a strong advocate for inclusion, creating spaces where everyone feels welcome, valued, and respected."
       }, // 17:00 - 17:40
       { // 17:50 - 18:30
-        title: "From Student to CIO: Monique's Unlikely Journey in IT",
+        title: "From Student to CIO",
         presenter: "Monique De Jong",
         company: "Randstad",
         image: "/images/speakers/monique_de_jong.jpg",
@@ -80,7 +80,7 @@
     // Room 3
     [
       { // 15:00 - 15:40 and 15:50 - 16:30 (spans 2 slots)
-        title: "Hands-On Workshop: Power your start-up launch using AI",
+        title: "Launch Your Start-Up Using AI",
         presenter: "Deborah Davis-DeWitt",
         company: "Booking.com",
         image: "/images/speakers/deborah_davis_dewitt.jpg",
@@ -94,7 +94,7 @@
     // Room 4
     [
       { // 15:00 - 15:40
-        title: "Building While Learning: Yasemin's Journey as a New Tech Founder",
+        title: "Building While Learning",
         presenter: "Yasemin Snoek",
         company: "barri",
         image: "/images/speakers/yasemin.jpg",
