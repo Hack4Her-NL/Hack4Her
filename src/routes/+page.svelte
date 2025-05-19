@@ -95,7 +95,7 @@
 </svelte:head>
 
 <!-- Hero Section -->
-<section class="hero gradient-background">
+<section class="hero">
   <div class="hero-content">
     <img 
       src="/images/Hack4Her_logo_white.png" 
@@ -233,13 +233,19 @@
 <style>
   /* Hero Section */
   .hero {
-    position: relative;
-    height: 70vh;
+    padding: 120px 0;
+    text-align: center;
+    background: var(--gradient-background) !important;
+    color: white;
+    min-height: 500px;
     display: flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
+    position: relative;
     overflow: hidden;
-    padding: 0 var(--spacing-medium);
+    margin: var(--spacing-medium);
+    border-radius: var(--border-radius-section);
   }
   
   .hero-content {
@@ -294,11 +300,15 @@
     height: auto;
     opacity: 0.2;
     filter: invert(1);
+    max-width: 300px;
   }
   
   /* Section styles */
   .section {
     padding: var(--spacing-large) var(--spacing-medium);
+    margin: var(--spacing-medium);
+    border-radius: var(--border-radius-section);
+    overflow: hidden;
   }
   
   .section-container {
@@ -331,10 +341,15 @@
   
   .highlight-card {
     background-color: rgba(255, 255, 255, 0.2);
-    border-radius: var(--border-radius);
+    border-radius: var(--border-radius-section);
     padding: var(--spacing-large);
     width: 250px;
     color: white;
+    transition: transform 0.3s ease;
+  }
+  
+  .highlight-card:hover {
+    transform: translateY(-5px);
   }
   
   .highlight-icon {
@@ -364,9 +379,10 @@
     flex: 0 0 auto;
     width: 300px;
     height: 200px;
-    border-radius: var(--border-radius);
+    border-radius: var(--border-radius-section);
     background-size: cover;
     background-position: center;
+    overflow: hidden;
   }
   
   /* Sponsors and Partners Sections */
@@ -387,7 +403,7 @@
   
   .sponsor-card {
     background-color: white;
-    border-radius: 8px;
+    border-radius: var(--border-radius-section);
     padding: 1.5rem;
     display: flex;
     align-items: center;
@@ -395,6 +411,12 @@
     overflow: hidden;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .sponsor-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
   }
   
   .platinum-card {
@@ -428,6 +450,9 @@
   .cta {
     padding: 60px var(--spacing-medium);
     text-align: center;
+    margin: var(--spacing-medium);
+    border-radius: var(--border-radius-section);
+    overflow: hidden;
   }
   
   .cta-content {
@@ -513,6 +538,10 @@
       width: 170px;
       height: 100px;
     }
+    
+    .section, .hero, .cta {
+      margin: var(--spacing-small);
+    }
   }
   
   @media (max-width: 480px) {
@@ -540,6 +569,8 @@
   /* Upcoming Event Styles */
   .upcoming-event {
     background-color: rgba(var(--color-primary-rgb), 0.05);
+    border-radius: var(--border-radius-section);
+    margin: var(--spacing-medium);
   }
   
   .event-subtitle {

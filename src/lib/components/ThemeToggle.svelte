@@ -76,6 +76,11 @@
     transition: background-color 0.2s;
   }
   
+  /* Override color for nav context to always be white */
+  :global(nav) .theme-toggle {
+    color: white !important;
+  }
+  
   .theme-toggle:hover {
     background-color: rgba(0, 0, 0, 0.05);
   }
