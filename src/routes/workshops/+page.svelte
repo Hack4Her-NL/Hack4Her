@@ -118,9 +118,25 @@
   let selectedWorkshop = null;
   let modalOpen = false;
 
-  function openWorkshopModal(workshop) {
+  function openWorkshopModal(workshop, timeIndex = null, roomIndex = null) {
     if (workshop) {
-      selectedWorkshop = workshop;
+      // Calculate start and end time based on timeIndex and rowSpan
+      let startTime = null;
+      let endTime = null;
+      if (timeIndex !== null && workshop.rowSpan) {
+        startTime = timeSlots[timeIndex].split(' - ')[0];
+        const endSlotIndex = timeIndex + workshop.rowSpan - 1;
+        endTime = timeSlots[endSlotIndex]?.split(' - ')[1] || timeSlots[timeIndex].split(' - ')[1];
+      } else if (timeIndex !== null) {
+        // Single slot
+        [startTime, endTime] = timeSlots[timeIndex].split(' - ');
+      }
+      selectedWorkshop = {
+        ...workshop,
+        location: roomIndex !== null ? rooms[roomIndex].name : workshop.location,
+        startTime,
+        endTime
+      };
       modalOpen = true;
       document.body.style.overflow = 'hidden'; // Prevent scrolling while modal is open
     }
@@ -222,8 +238,8 @@
                     <td 
                       class="workshop-cell has-workshop" 
                       rowspan={schedule[roomIndex][timeIndex].rowSpan}
-                      on:click={() => openWorkshopModal({...schedule[roomIndex][timeIndex], location: room.name})}
-                      on:keydown={(e) => e.key === 'Enter' && openWorkshopModal({...schedule[roomIndex][timeIndex], location: room.name})}
+                      on:click={() => openWorkshopModal(schedule[roomIndex][timeIndex], timeIndex, roomIndex)}
+                      on:keydown={(e) => e.key === 'Enter' && openWorkshopModal(schedule[roomIndex][timeIndex], timeIndex, roomIndex)}
                       tabindex="0"
                       role="button"
                     >
@@ -237,8 +253,8 @@
                 {:else if schedule[roomIndex][timeIndex]}
                   <td 
                     class="workshop-cell has-workshop" 
-                    on:click={() => openWorkshopModal({...schedule[roomIndex][timeIndex], location: room.name})}
-                    on:keydown={(e) => e.key === 'Enter' && openWorkshopModal({...schedule[roomIndex][timeIndex], location: room.name})}
+                    on:click={() => openWorkshopModal(schedule[roomIndex][timeIndex], timeIndex, roomIndex)}
+                    on:keydown={(e) => e.key === 'Enter' && openWorkshopModal(schedule[roomIndex][timeIndex], timeIndex, roomIndex)}
                     tabindex="0"
                     role="button"
                   >
@@ -298,17 +314,16 @@
           
           <div class="detail-section">
             <div class="workshop-meta">
-              <!-- <div class="meta-item">
+              <div class="meta-item">
                 <span class="material-icons">access_time</span>
                 <span>
-                  {#if selectedWorkshop.rowSpan > 1}
-                    {timeSlots[timeSlots.findIndex(slot => slot.includes(selectedWorkshop.time?.split(' - ')[0]) || !selectedWorkshop.time)].split(' - ')[0]} - 
-                    {timeSlots[timeSlots.findIndex(slot => slot.includes(selectedWorkshop.time?.split(' - ')[0]) || !selectedWorkshop.time) + selectedWorkshop.rowSpan - 1].split(' - ')[1]}
+                  {#if selectedWorkshop.startTime && selectedWorkshop.endTime}
+                    {selectedWorkshop.startTime} - {selectedWorkshop.endTime}
                   {:else}
-                    {selectedWorkshop.time || "Schedule time"}
+                    Schedule time
                   {/if}
                 </span>
-              </div> -->
+              </div>
               <div class="meta-item">
                 <span class="material-icons">location_on</span>
                 <span>{selectedWorkshop.location}</span>
