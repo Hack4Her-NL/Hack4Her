@@ -16,19 +16,19 @@ export const colors = {
   paleYellow: '#FCF6BD',       // Lemon Chiffon
   paleGreen: '#D0F4DE',        // Nyanza
   
-  // Dark mode colors
-  darkMauve: '#AA82AD',         // Much darker Mauve for dark mode
-  darkBlue: '#6B8BB3',          // Much darker Uranian Blue for dark mode
-  darkPink: '#B95C7E',          // Much darker Pink for dark mode
-  darkestPink: '#9A3F61',       // Darkest Pink
-  darkTurquoise: '#207575',     // Much darker Turquoise for dark mode
-  darkestTurquoise: '#165050',  // Darkest Turquoise
-  darkBackground: '#0A0A0A',    // Almost black background
-  darkSurface: '#121212',       // Dark surface
+  // Deep dark mode colors (from temp.py/app.css)
+  darkMauve: '#9e16a8',         // Deep dark purple
+  darkBlue: '#006ff9',          // Deep dark blue
+  darkPink: '#741336',          // Deep accent
+  darkestPink: '#62286e',       // For nav gradient
+  darkTurquoise: '#00ffff',     // Cyan (as in temp.py)
+  darkestTurquoise: '#0a0a79',  // For gradient background
+  darkBackground: '#0A0A0A',    // Background
+  darkSurface: '#121212',       // Surface
   
   // Text colors
   textDark: '#333333',
-  textLight: '#FFFFFF'
+  textLight: '#f5f5f5'
 };
 
 // Responsive breakpoints
@@ -42,29 +42,26 @@ export const getCssVariables = (isDark: boolean): Record<string, string> => {
   return {
     // Colors
     '--color-primary': isDark ? colors.darkMauve : colors.primaryMauve,
-    '--color-primary-rgb': isDark ? '170, 130, 173' : '231, 198, 255',
+    '--color-primary-rgb': isDark ? '158, 22, 168' : '231, 198, 255',
     '--color-secondary': isDark ? colors.darkBlue : colors.primaryBlue,
-    '--color-secondary-rgb': isDark ? '107, 139, 179' : '189, 224, 254',
+    '--color-secondary-rgb': isDark ? '0, 111, 249' : '189, 224, 254',
     '--color-accent': isDark ? colors.darkPink : colors.accentPink,
-    '--color-accent-rgb': isDark ? '185, 92, 126' : '255, 200, 221',
+    '--color-accent-rgb': isDark ? '116, 19, 54' : '255, 200, 221',
     '--color-tertiary': isDark ? colors.darkTurquoise : colors.tertiaryTurquoise,
-    '--color-tertiary-rgb': isDark ? '32, 117, 117' : '80, 216, 215',
+    '--color-tertiary-rgb': isDark ? '0, 255, 255' : '80, 216, 215',
     '--color-background': isDark ? colors.darkBackground : '#FFFFFF',
     '--color-surface': isDark ? colors.darkSurface : '#FFFFFF',
     '--color-text': isDark ? colors.textLight : colors.textDark,
     
     // Gradients
     '--gradient-background': isDark 
-      ? `linear-gradient(to bottom right, ${colors.darkTurquoise}, ${colors.darkestTurquoise})`
+      ? `linear-gradient(to bottom right, #090b12, #0a0a79)`
       : `linear-gradient(to bottom right, ${colors.tertiaryTurquoise}, ${colors.tertiaryDarkTurquoise})`,
-    
-    // Updated gradient nav with horizontal gradient (darker on left)
     '--gradient-nav': isDark 
-      ? `linear-gradient(to right, ${colors.darkestTurquoise}, ${colors.darkPink})` // Darker at left for dark mode
-      : `linear-gradient(to right, ${colors.darkestTurquoise}, ${colors.accentPink})`, // Darker at left for light mode
-    
+      ? '#62286e'
+      : `linear-gradient(to right, rgba(241, 108, 173, 1), ${colors.accentPink})`,
     '--gradient-primary': isDark 
-      ? `linear-gradient(to bottom right, ${colors.darkBlue}, ${colors.darkMauve})`
+      ? `linear-gradient(to bottom right, #006ff9, #9e16a8)`
       : `linear-gradient(to bottom right, ${colors.primaryBlue}, ${colors.primaryMauve})`,
     
     // Shadows

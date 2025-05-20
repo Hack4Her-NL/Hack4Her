@@ -512,7 +512,7 @@
     overflow-y: auto;
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
     position: relative;
-    color: #333333; /* Darker text for better contrast */
+    color: var(--color-text);
   }
   
   .modal-header {
@@ -520,7 +520,7 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    border-bottom: 1px solid rgba(51, 51, 51, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   }
   
   .modal-title {
@@ -528,13 +528,13 @@
     font-size: 24px;
     font-weight: bold;
     padding-right: 30px;
-    color: #333333;
+    color: var(--color-text);
   }
   
   .modal-close {
     background: none;
     border: none;
-    color: #333333;
+    color: var(--color-text);
     cursor: pointer;
     font-size: 24px;
     opacity: 0.7;
@@ -552,6 +552,7 @@
   
   .modal-content {
     padding: 20px;
+    color: var(--color-text);
   }
   
   .presenter-section {
@@ -579,16 +580,18 @@
     margin: 0 0 5px;
     font-size: 18px;
     font-weight: bold;
+    color: var(--color-text);
   }
   
   .presenter-company {
     margin: 0;
     font-style: italic;
     opacity: 0.8;
+    color: #e0e0e0;
   }
   
   .workshop-details-modal {
-    color: #333333;
+    color: var(--color-text);
   }
   
   .detail-section {
@@ -599,13 +602,14 @@
     margin: 0 0 10px;
     font-size: 16px;
     font-weight: bold;
-    color: #333333;
+    color: var(--color-text);
   }
   
   .detail-section p {
     margin: 0;
     line-height: 1.5;
     font-size: 15px;
+    color: var(--color-text);
   }
   
   .workshop-meta {
@@ -620,6 +624,7 @@
     align-items: center;
     gap: 10px;
     font-size: 15px;
+    color: var(--color-text);
   }
   
   @media (max-width: 1000px) {

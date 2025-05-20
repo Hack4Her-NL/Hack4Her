@@ -447,38 +447,47 @@
 
 <!-- Member Details Modal -->
 {#if selectedMember}
-  <div class="modal-overlay" on:click={closeMemberDetails}>
-    <div class="modal" on:click|stopPropagation>
-      <button class="close-button" on:click={closeMemberDetails}>
-        <span class="material-icons">close</span>
-      </button>
-      
-      <div 
-        class="modal-profile-image"
-        style="background-image: url({selectedMember.imagePath})"
-      >
-        {#if !selectedMember.imagePath}
-          <span class="material-icons">person</span>
-        {/if}
+  <div class="modal-backdrop" on:click={closeMemberDetails}>
+    <div class="modal-container" on:click|stopPropagation>
+      <div class="modal-header">
+        <h2 class="modal-title">{selectedMember.name}</h2>
+        <button class="modal-close" on:click={closeMemberDetails} aria-label="Close modal">
+          <span class="material-icons">close</span>
+        </button>
       </div>
-      
-      <h2>{selectedMember.name}</h2>
-      <h4>{selectedMember.role}</h4>
-      
-      <p class="modal-bio">
-        {selectedMember.bio || 'Bio under construction ;)'}
-      </p>
-      
-      <div class="modal-social">
-        <a 
-          href={selectedMember.linkedInUrl} 
-          class="social-button"
-          target="_blank" 
-          rel="noopener noreferrer"
-        >
-          <span class="material-icons">link</span>
-          LinkedIn
-        </a>
+      <div class="modal-content">
+        <div class="presenter-section">
+          <div class="presenter-image" style="background-image: url({selectedMember.imagePath})">
+            {#if !selectedMember.imagePath}
+              <span class="material-icons">person</span>
+            {/if}
+          </div>
+          <div class="presenter-info">
+            <h3 class="presenter-name">{selectedMember.name}</h3>
+            <p class="presenter-company">{selectedMember.role}</p>
+          </div>
+        </div>
+        <div class="workshop-details-modal">
+          <div class="detail-section">
+            <h4>About</h4>
+            <p>{selectedMember.bio || 'Bio under construction ;)'}</p>
+          </div>
+          <div class="detail-section">
+            <div class="workshop-meta">
+              <div class="meta-item">
+                <a 
+                  href={selectedMember.linkedInUrl} 
+                  class="social-button"
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                >
+                  <span class="material-icons">link</span>
+                  LinkedIn
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -854,87 +863,144 @@
     margin-right: 4px;
   }
   
-  /* Modal */
-  .modal-overlay {
+  /* Modal Styles */
+  .modal-backdrop {
     position: fixed;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
+    width: 100%;
+    height: 100%;
     background-color: rgba(0, 0, 0, 0.7);
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 1000;
     padding: 20px;
+    backdrop-filter: blur(5px);
   }
   
-  .modal {
+  .modal-container {
+    background: var(--gradient-primary);
+    border-radius: var(--border-radius-section);
+    max-width: 90%;
+    width: 600px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
     position: relative;
-    max-width: 500px;
-    width: 100%;
-    background-color: var(--color-surface);
-    border-radius: 16px;
-    padding: 24px;
-    text-align: center;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    color: var(--color-text);
   }
   
-  .close-button {
-    position: absolute;
-    top: 10px;
-    right: 10px;
+  .modal-header {
+    padding: 20px 20px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  .modal-title {
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+    padding-right: 30px;
+    color: var(--color-text);
+  }
+  
+  .modal-close {
     background: none;
     border: none;
     color: var(--color-text);
-    opacity: 0.7;
     cursor: pointer;
-    padding: 5px;
+    font-size: 24px;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   
-  .close-button:hover {
+  .modal-close:hover {
     opacity: 1;
   }
   
-  .modal-profile-image {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    background-color: rgba(0, 0, 0, 0.1);
-    margin: 0 auto 20px;
+  .modal-content {
+    padding: 20px;
+    color: var(--color-text);
+  }
+  
+  .presenter-section {
     display: flex;
-    justify-content: center;
     align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .presenter-section .presenter-image {
+    width: 80px;
+    height: 80px;
+    margin: 0 20px 0 0;
+    flex-shrink: 0;
     background-size: cover;
     background-position: center;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.8);
   }
   
-  .modal-profile-image .material-icons {
-    font-size: 60px;
-    color: var(--color-primary);
+  .presenter-info {
+    flex: 1;
   }
   
-  .modal h2 {
-    margin-bottom: 5px;
+  .presenter-name {
+    margin: 0 0 5px;
+    font-size: 18px;
+    font-weight: bold;
     color: var(--color-text);
   }
   
-  .modal h4 {
-    color: var(--color-primary);
-    margin-bottom: 20px;
-    font-weight: normal;
+  .presenter-company {
+    margin: 0;
+    font-style: italic;
+    opacity: 0.8;
+    color: #e0e0e0;
   }
   
-  .modal-bio {
-    line-height: 1.6;
-    margin-bottom: 20px;
+  .workshop-details-modal {
     color: var(--color-text);
   }
   
-  .modal-social {
+  .detail-section {
+    margin-bottom: 25px;
+  }
+  
+  .detail-section h4 {
+    margin: 0 0 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--color-text);
+  }
+  
+  .detail-section p {
+    margin: 0;
+    line-height: 1.5;
+    font-size: 15px;
+    color: var(--color-text);
+  }
+  
+  .workshop-meta {
     display: flex;
-    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 10px;
+  }
+  
+  .meta-item {
+    display: flex;
+    align-items: center;
     gap: 10px;
+    font-size: 15px;
+    color: var(--color-text);
   }
   
   .social-button {
@@ -945,6 +1011,7 @@
     border-radius: 20px;
     color: white;
     text-decoration: none;
+    transition: filter 0.2s;
   }
   
   .social-button:hover {
@@ -955,6 +1022,27 @@
     margin-right: 8px;
   }
   
+  @media (max-width: 768px) {
+    .modal-container {
+      width: 100%;
+      max-width: 100%;
+      border-radius: 12px;
+    }
+    
+    .modal-title {
+      font-size: 20px;
+    }
+    
+    .presenter-section {
+      flex-direction: column;
+      text-align: center;
+    }
+    
+    .presenter-section .presenter-image {
+      margin: 0 auto 15px;
+    }
+  }
+
   /* Sponsors Section Styles */
   .sponsors-grid, .partners-grid {
     display: flex;
@@ -1008,18 +1096,6 @@
   .partner-logo {
     width: 200px;
     height: 120px;
-  }
-  
-  .sponsor-logo img {
-    max-width: 90%;
-    max-height: 90%;
-    object-fit: contain;
-    display: block;
-    margin: 0 auto;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
   }
   
   .sponsor-logo, .partner-logo {
