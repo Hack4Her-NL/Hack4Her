@@ -587,7 +587,7 @@
     margin: 0;
     font-style: italic;
     opacity: 0.8;
-    color: #e0e0e0;
+    color: #ffffff;
   }
   
   .workshop-details-modal {
