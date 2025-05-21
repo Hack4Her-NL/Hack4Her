@@ -80,11 +80,11 @@
     // Room 3
     [
       { // 15:00 - 15:40 and 15:50 - 16:30 (spans 2 slots)
-        title: "Launch Your Start-Up Using AI",
+        title: "GenAI Mini-Hackathon",
         presenter: "Deborah Davis-DeWitt",
         company: "Booking.com",
         image: "/images/speakers/deborah_davis_dewitt.jpg",
-        description: "Coming soon!",
+        description: "Learn how to build an AI chatbot, even with limited experience! In this 1.5 hour workshop, you'll build, innovate, and demo your results, all while being coached by Deborah, a Senior Technical Programme Manager at Booking.com.",
         bio: "Deborah, a Senior Technical Programme Manager in Central Tech, is passionate about technical transformation, working closely with developers and steering diversity, equity and inclusion initiatives to provide better opportunities and solidarity for all.",
         rowSpan: 2
       },
