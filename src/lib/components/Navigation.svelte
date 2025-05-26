@@ -21,12 +21,12 @@
     <div class="logo">
       <a href="/" aria-label="Home">
         <img 
-          src="/images/Hack4Her_logo_black.png"
+          src="/images/logos/Hack4Her_logo_black.png"
           alt="Hack4Her"
           class="logo-img light-logo"
         />
         <img 
-          src="/images/Hack4Her_logo_white.png"
+          src="/images/logos/Hack4Her_logo_white.png"
           alt="Hack4Her"
           class="logo-img dark-logo"
         />
