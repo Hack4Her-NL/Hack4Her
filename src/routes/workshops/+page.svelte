@@ -69,7 +69,8 @@
         company: "Booking.com",
         image: "/images/speakers/Serena.jpg",
         description: "Join us for a workshop where you'll learn to apply design principles to your personal brand. Just as designers design products, you'll develop your unique identity through a strategic process. In this session, we'll: apply design thinking to personal branding, discover how to articulate core values and mission statement, and reate a coherent visual identity. Whether you're preparing to enter the job market, launching a startup, or simply seeking to present yourself more effectively, this workshop provides practical tools to make you stand out.",
-        bio: "Serena is a strategic content design leader who creates experiences that prioritise human connection, positive impact, and lasting value. With experience leading cross-functional teams since 2017, she builds environments where UX, tech, and product speak one language. She is passionate about branding and education, committed to empowering others to find their voice and express themselves. Having worked across different countries with different nationalities and backgrounds, she's a strong advocate for inclusion, creating spaces where everyone feels welcome, valued, and respected."
+        bio: "Serena is a strategic content design leader who creates experiences that prioritise human connection, positive impact, and lasting value. With experience leading cross-functional teams since 2017, she builds environments where UX, tech, and product speak one language. She is passionate about branding and education, committed to empowering others to find their voice and express themselves. Having worked across different countries with different nationalities and backgrounds, she's a strong advocate for inclusion, creating spaces where everyone feels welcome, valued, and respected.",
+        linkedin: "https://www.linkedin.com/in/serenagiust/"
       }, // 17:00 - 17:40
       { // 17:50 - 18:30
         title: "From Student to CIO",
@@ -77,7 +78,8 @@
         company: "Randstad",
         image: "/images/speakers/monique_de_jong.jpg",
         description: "Ever thought you had your career all planned out—only to end up somewhere completely unexpected? That’s exactly what happened to Monique. She started with dreams of becoming a veterinarian, but life steered her into the world of technology. In this talk, Monique will share how she went from computer science student to CIO, navigating a career full of twists, challenges, and surprises. She will talk about how to spot and seize the right opportunities, how to uncover your true strengths and passions, and how to stay confident when things don’t go as planned. Monique will also take us through the stages of her career from programmer to tester, test manager, project manager, IT manager, and finally CIO. After reaching the CIO role, she realized her true passion was in the hands-on leadership and team-building aspects of IT management and deliberately stepped back into an IT manager position again to do the work she loves most. Expect to leave the talk inspired to embrace the unexpected and think differently about your own career journey in IT.",
-        bio: "Monique holds a drs. in Computer Science from the Free University of Amsterdam and an MBA from Rotterdam School of Management, Erasmus University. Her unique blend of technical depth, drive to achieve the impossible, strong project management, and people leadership has consistently driven successful and innovative IT transformations. Currently shifting into a coaching position at Randstad Groep Nederland, she’s dedicated to passing on her insights and experience over three decades in IT to the next generation of IT professionals."
+        bio: "Monique holds a drs. in Computer Science from the Free University of Amsterdam and an MBA from Rotterdam School of Management, Erasmus University. Her unique blend of technical depth, drive to achieve the impossible, strong project management, and people leadership has consistently driven successful and innovative IT transformations. Currently shifting into a coaching position at Randstad Groep Nederland, she’s dedicated to passing on her insights and experience over three decades in IT to the next generation of IT professionals.",
+        linkedin: "https://www.linkedin.com/in/monique-de-jong-3912a6/"
       },
     ],
     // Room 3
@@ -89,7 +91,8 @@
         image: "/images/speakers/deborah_davis_dewitt.jpg",
         description: "Learn how to build an AI chatbot, even with limited experience! In this 1.5 hour workshop, you'll build, innovate, and demo your results, all while being coached by Deborah, a Senior Technical Programme Manager at Booking.com.",
         bio: "Deborah, a Senior Technical Programme Manager in Central Tech, is passionate about technical transformation, working closely with developers and steering diversity, equity and inclusion initiatives to provide better opportunities and solidarity for all.",
-        rowSpan: 2
+        rowSpan: 2,
+        linkedin: "https://www.linkedin.com/in/deborahddewitt/"
       },
       null, // 15:50 - 16:30 (filled by the above workshop)
       { // 17:00 - 18:30
@@ -100,6 +103,7 @@
         description: "Coming soon!",
         bio: "Coming soon!",
         rowSpan: 2,
+        linkedin: "https://www.linkedin.com/in/liana-gukasyan/",
         confirmed: false
       }
     ],
@@ -111,7 +115,8 @@
         company: "barri",
         image: "/images/speakers/yasemin.png",
         description: "Join Yasemin as she shares her journey as the founder of a European tech startup—from the first spark of an idea to navigating the ups and downs of entrepreneurship. Yasemin will dive into the real, behind-the-scenes stories of building a startup, covering everything from securing the first users to handling setbacks. But it won’t just be a story. Yasemin will also share practical tips she’s learned along the way. You’ll get actionable insights on launching a product, building with a small team, and finding your way in an industry where everything feels new. Whether you’re an aspiring entrepreneur, curious about working in a tech startup, or just fascinated by the world of entrepreneurship, this talk is for you. Expect an open, honest look at the highs, the lows, and everything in between.",
-        bio: "Yasemin is the founder and engineer of barri, a mobile app designed to help people with dietary restrictions find food. With a background in software engineering, Yasemin is passionate about creating solutions from the ground up and driving growth through constant experimentation."
+        bio: "Yasemin is the founder and engineer of barri, a mobile app designed to help people with dietary restrictions find food. With a background in software engineering, Yasemin is passionate about creating solutions from the ground up and driving growth through constant experimentation.",
+        linkedin: "https://www.linkedin.com/in/yasemin-snoek%F0%9F%8C%B1-563a8b12a"
       },
       { // 15:50 - 16:30
         title: "TBD",
@@ -120,6 +125,7 @@
         image: "",
         description: "Coming soon!",
         bio: "Coming soon!",
+        linkedin: "https://www.linkedin.com/in/niharika-gupta-8bb47882/",
         confirmed: false
       }, 
       null, // 17:00 - 17:40
@@ -321,6 +327,7 @@
             <p class="presenter-company">{selectedWorkshop.company}</p>
               </div>
             </div>
+
             
         <div class="workshop-details-modal">
           <div class="detail-section">
