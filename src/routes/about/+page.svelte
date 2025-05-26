@@ -103,7 +103,7 @@
     },
     {
       name: 'Laura Stampf',
-      role: 'PR Team',
+      role: 'Workshop Lead, PR Team',
       imagePath: '/images/laura_stampf.jpg',
       linkedInUrl: 'https://www.linkedin.com/in/laura-stampf/',
       bio: ''
