@@ -34,7 +34,8 @@
         image: "",
         description: "Coming soon!",
         bio: "Coming soon!",
-        rowSpan: 2
+        rowSpan: 2,
+        confirmed: false
       }, 
       null, // covered by workshop above
       { // 17:00 - 17:40 and 17:50 - 18:30 (spans 2 slots)
@@ -44,7 +45,8 @@
         image: "",
         description: "Coming soon!",
         bio: "Coming soon!",
-        rowSpan: 2
+        rowSpan: 2,
+        confirmed: false
       },
       null, // 17:50 - 18:30 (filled by the above workshop)
     ],
@@ -57,7 +59,8 @@
         image: "",
         description: "Coming soon!",
         bio: "Coming soon!",
-        rowSpan: 2
+        rowSpan: 2,
+        confirmed: false
       }, 
       null, // covered by previous workshop
       {
@@ -96,7 +99,8 @@
         image: "",
         description: "Coming soon!",
         bio: "Coming soon!",
-        rowSpan: 2
+        rowSpan: 2,
+        confirmed: false
       }
     ],
     // Room 4
@@ -115,7 +119,8 @@
         company: "Booking.com",
         image: "",
         description: "Coming soon!",
-        bio: "Coming soon!"
+        bio: "Coming soon!",
+        confirmed: false
       }, 
       null, // 17:00 - 17:40
       null, // 17:50 - 18:30
@@ -130,7 +135,7 @@
   ];
 
   // State for modal
-  let selectedWorkshop = null;
+  let selectedWorkshop: { title: any; image: any; presenter: any; company: any; description: any; bio: any; startTime: any; endTime: any; location: any; } | null = null;
   let modalOpen = false;
 
   function openWorkshopModal(workshop, timeIndex = null, roomIndex = null) {
@@ -251,7 +256,7 @@
                   <!-- First cell of a multi-slot workshop -->
                   {#if timeIndex === 0 || schedule[roomIndex][timeIndex - 1] !== schedule[roomIndex][timeIndex]}
                     <td 
-                      class="workshop-cell has-workshop" 
+                      class="workshop-cell has-workshop {schedule[roomIndex][timeIndex].confirmed === false ? 'unconfirmed' : ''}"
                       rowspan={schedule[roomIndex][timeIndex].rowSpan}
                       on:click={() => openWorkshopModal(schedule[roomIndex][timeIndex], timeIndex, roomIndex)}
                       on:keydown={(e) => e.key === 'Enter' && openWorkshopModal(schedule[roomIndex][timeIndex], timeIndex, roomIndex)}
@@ -267,7 +272,7 @@
                 <!-- Regular single-slot workshop -->
                 {:else if schedule[roomIndex][timeIndex]}
                   <td 
-                    class="workshop-cell has-workshop" 
+                    class="workshop-cell has-workshop {schedule[roomIndex][timeIndex].confirmed === false ? 'unconfirmed' : ''}"
                     on:click={() => openWorkshopModal(schedule[roomIndex][timeIndex], timeIndex, roomIndex)}
                     on:keydown={(e) => e.key === 'Enter' && openWorkshopModal(schedule[roomIndex][timeIndex], timeIndex, roomIndex)}
                     tabindex="0"
@@ -293,6 +298,7 @@
 
 <!-- Workshop Modal -->
 {#if modalOpen && selectedWorkshop}
+  <!-- svelte-ignore a11y_no_static_element_interactions -->
   <div 
     class="modal-backdrop" 
     on:click={handleBackdropClick}
@@ -465,6 +471,18 @@
     border-radius: var(--border-radius-section);
     transition: all 0.3s ease;
     vertical-align: middle;
+  }
+
+  .workshop-cell.unconfirmed {
+    position: relative;
+    overflow: hidden;
+    background-image: repeating-linear-gradient(
+      45deg,
+      #d1b3ff 0px,
+      #d1b3ff 4px,
+      transparent 4px,
+      transparent 16px
+    );
   }
   
   .has-workshop {
