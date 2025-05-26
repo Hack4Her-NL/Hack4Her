@@ -89,7 +89,15 @@
         rowSpan: 2
       },
       null, // 15:50 - 16:30 (filled by the above workshop)
-      null,
+      { // 17:00 - 18:30
+        title: "TBD",
+        presenter: "Liana Gukasyan",
+        company: "JetBrains",
+        image: "",
+        description: "Coming soon!",
+        bio: "Coming soon!",
+        rowSpan: 2
+      }
     ],
     // Room 4
     [
@@ -101,7 +109,14 @@
         description: "Join Yasemin as she shares her journey as the founder of a European tech startup—from the first spark of an idea to navigating the ups and downs of entrepreneurship. Yasemin will dive into the real, behind-the-scenes stories of building a startup, covering everything from securing the first users to handling setbacks. But it won’t just be a story. Yasemin will also share practical tips she’s learned along the way. You’ll get actionable insights on launching a product, building with a small team, and finding your way in an industry where everything feels new. Whether you’re an aspiring entrepreneur, curious about working in a tech startup, or just fascinated by the world of entrepreneurship, this talk is for you. Expect an open, honest look at the highs, the lows, and everything in between.",
         bio: "Yasemin is the founder and engineer of barri, a mobile app designed to help people with dietary restrictions find food. With a background in software engineering, Yasemin is passionate about creating solutions from the ground up and driving growth through constant experimentation."
       },
-      null, // 15:50 - 16:30
+      { // 15:50 - 16:30
+        title: "TBD",
+        presenter: "Niharika Gupta",
+        company: "Booking.com",
+        image: "",
+        description: "Coming soon!",
+        bio: "Coming soon!"
+      }, 
       null, // 17:00 - 17:40
       null, // 17:50 - 18:30
     ],
