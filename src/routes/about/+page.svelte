@@ -92,7 +92,7 @@
       role: 'WebDev Team',
       imageFile: 'joey_laarhoven.jpeg',
       linkedInUrl: 'https://www.linkedin.com/in/joey-laarhoven-084473304/',
-      bio: ''
+      bio: 'Joey Laarhoven is currently pursuing a Master’s degree in Artificial Intelligence at the University of Amsterdam (UvA). He previously completed a Bachelor’s in Computer Science at the Vrije Universiteit Amsterdam (VU), graduating summa cum laude. Alongside his studies, Joey works at Caddy, where he focuses on writing performant and reliable code. He is also a recipient of the ASML scholarship, which supports students with strong academic backgrounds and a passion for technology. Outside of work and academics, Joey contributes to the Hack4Her initiative by managing the event’s website and helping coordinate with sponsors and workshop speakers. He enjoys being part of teams that bring ideas to life and is always looking for ways to grow and make a positive impact through tech.'
     },
     {
       name: 'Josephine Dode',
