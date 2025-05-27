@@ -98,7 +98,7 @@
 <section class="hero">
   <div class="hero-content">
     <img 
-      src="/images/Hack4Her_logo_white.png" 
+      src="/images/logos/Hack4Her_logo_white.png" 
       alt="Hack4Her" 
       class="hero-logo"
     />
