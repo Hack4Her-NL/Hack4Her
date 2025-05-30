@@ -322,7 +322,20 @@
         <div class="presenter-section">
           <div class="presenter-image" style="background-image: url({selectedWorkshop.image})"></div>
           <div class="presenter-info">
-            <h3 class="presenter-name">{selectedWorkshop.presenter}</h3>
+            <h3 class="presenter-name">
+              {selectedWorkshop.presenter}
+              {#if selectedWorkshop.linkedin}
+                <a
+                  href={selectedWorkshop.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="linkedin-inline-btn"
+                  aria-label="LinkedIn profile"
+                >
+                  <span class="material-icons" style="font-size: 18px; vertical-align: middle; margin-left: 4px;">linkedin</span>
+                </a>
+              {/if}
+            </h3>
             <p class="presenter-company">{selectedWorkshop.company}</p>
               </div>
             </div>
@@ -617,9 +630,13 @@
   
   .presenter-name {
     margin: 0 0 5px;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: bold;
     color: var(--color-text);
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    line-height: 1.2;
   }
   
   .presenter-company {
@@ -665,7 +682,7 @@
     font-size: 15px;
     color: var(--color-text);
   }
-  
+
   @media (max-width: 1000px) {
     .schedule-container {
       padding: 0 5px;
@@ -750,4 +767,4 @@
       height: 100px;
     }
   }
-</style> 
+</style>
