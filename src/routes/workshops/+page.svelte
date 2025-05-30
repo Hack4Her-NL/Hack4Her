@@ -118,14 +118,13 @@
         linkedin: "https://www.linkedin.com/in/yasemin-snoek%F0%9F%8C%B1-563a8b12a"
       },
       { // 15:50 - 16:30
-        title: "TBD",
+        title: "Where is engineering in AdTech?",
         presenter: "Niharika Gupta",
         company: "Booking.com",
-        image: "",
-        description: "Coming soon!",
-        bio: "Coming soon!",
-        linkedin: "https://www.linkedin.com/in/niharika-gupta-8bb47882/",
-        confirmed: false
+        image: "/images/speakers/niharika_gupta.jpeg",
+        description: `Ever wondered what a Senior Software Engineer actually does in the world of Advertising Technology (AdTech) and the exciting, scalable systems they build? This interactive workshop, "Decoding AdTech: An Engineer's View from the Inside," offers a unique opportunity to delve into the real-world engineering challenges and solutions in this dynamic field, guided by a woman leading in the space. Designed for aspiring tech innovators at Hack4Her, we’ll move beyond theory to explore concrete examples of AdTech engineering in action. A key highlight will be a presentation of a real-world AWS case study showcasing how Booking.com engineered a cutting-edge, serverless ad rendering solution, slashing costs by 90% and delivering dynamic ads in under a second. You'll also get a glimpse into how robust data pipelines are developed, scalable cloud solutions are delivered, and real-time campaign monitoring systems are built to track and optimize performance. We’ll touch upon complex user tracking flows and the impressive array of technologies involved. Through an engaging presentation featuring these real-world scenarios, including insights from the aforementioned case study and other projects, coupled with introductory hands-on activities, you'll discover the impactful engineering that drives customer activation, retention, and return on ad spend. Join us to demystify AdTech, see firsthand how your problem-solving skills can contribute to innovative solutions, and leave feeling inspired and equipped with a clearer vision of the engineering pathways available in this rapidly evolving sector. Get ready to explore the 'how' and 'why' of engineering that powers the digital advertising you see every day!`,
+        bio: `Niharika Gupta is a Senior Software Engineer at Booking.com, where she's a key part of the AdTech Team within Growth Marketing. She focuses on building solutions that empower stakeholders to enhance customer activation and retention while ensuring a positive brand experience. With a robust background that includes impactful roles at Meta (Facebook) focusing on Business Integrity and at VISA working on Big Data technologies and segmentation, Niharika brings a wealth of experience in leveraging technology to solve complex challenges and drive meaningful outcomes.<br><br>Her journey in tech has seen her contribute to critical projects, from protecting intellectual property for brands at Meta to migrating data pipelines and developing marketing models using machine learning at VISA. Niharika holds an M.Tech in Computer Science and Engineering from IIIT Delhi and her expertise spans areas like Big Data, Algorithms, NLP, AI, and Machine Learning. She even has a patent for 'Generating a Domain Ontology Using Word Embeddings,' showcasing her innovative contributions to the field.<br><br>Niharika is passionate about the power of technology to create, innovate, and connect. She is thrilled to be at Hack4Her, an event championing the crucial role of women in tech, and looks forward to sharing her insights and encouraging participants to explore their potential and build a more inclusive and exciting future in the industry.<br><br>'The future belongs to those who believe in the beauty of their dreams... and then code them into reality.' - Adapted from Eleanor Roosevelt`,
+        linkedin: "https://www.linkedin.com/in/niharika-gupta-8bb47882/"
       }, 
       null, // 17:00 - 17:40
       null, // 17:50 - 18:30
@@ -344,12 +343,12 @@
         <div class="workshop-details-modal">
           <div class="detail-section">
             <h4>Description</h4>
-            <p>{selectedWorkshop.description}</p>
+            <p>{@html selectedWorkshop.description}</p>
             </div>
           
           <div class="detail-section">
             <h4>About the Presenter</h4>
-            <p>{selectedWorkshop.bio}</p>
+            <p>{@html selectedWorkshop.bio}</p>
           </div>
           
           <div class="detail-section">
