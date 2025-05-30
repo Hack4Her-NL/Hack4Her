@@ -67,7 +67,7 @@
         title: "Create Your Visual and Verbal Identity",
         presenter: "Serena Giust",
         company: "Booking.com",
-        image: "/images/speakers/Serena.jpg",
+        image: "/images/speakers/serena_giust.jpg",
         description: "Join us for a workshop where you'll learn to apply design principles to your personal brand. Just as designers design products, you'll develop your unique identity through a strategic process. In this session, we'll: apply design thinking to personal branding, discover how to articulate core values and mission statement, and reate a coherent visual identity. Whether you're preparing to enter the job market, launching a startup, or simply seeking to present yourself more effectively, this workshop provides practical tools to make you stand out.",
         bio: "Serena is a strategic content design leader who creates experiences that prioritise human connection, positive impact, and lasting value. With experience leading cross-functional teams since 2017, she builds environments where UX, tech, and product speak one language. She is passionate about branding and education, committed to empowering others to find their voice and express themselves. Having worked across different countries with different nationalities and backgrounds, she's a strong advocate for inclusion, creating spaces where everyone feels welcome, valued, and respected.",
         linkedin: "https://www.linkedin.com/in/serenagiust/"
@@ -88,7 +88,7 @@
         title: "GenAI Mini-Hackathon",
         presenter: "Deborah Davis-DeWitt",
         company: "Booking.com",
-        image: "/images/speakers/deborah_davis_dewitt.jpg",
+        image: "/images/speakers/deborah_davis-dewitt.jpg",
         description: "Learn how to build an AI chatbot, even with limited experience! In this 1.5 hour workshop, you'll build, innovate, and demo your results, all while being coached by Deborah, a Senior Technical Programme Manager at Booking.com.",
         bio: "Deborah, a Senior Technical Programme Manager in Central Tech, is passionate about technical transformation, working closely with developers and steering diversity, equity and inclusion initiatives to provide better opportunities and solidarity for all.",
         rowSpan: 2,
@@ -113,7 +113,7 @@
         title: "Building While Learning",
         presenter: "Yasemin Snoek",
         company: "barri",
-        image: "/images/speakers/yasemin.png",
+        image: "/images/speakers/yasemin_snoek.png",
         description: "Join Yasemin as she shares her journey as the founder of a European tech startup—from the first spark of an idea to navigating the ups and downs of entrepreneurship. Yasemin will dive into the real, behind-the-scenes stories of building a startup, covering everything from securing the first users to handling setbacks. But it won’t just be a story. Yasemin will also share practical tips she’s learned along the way. You’ll get actionable insights on launching a product, building with a small team, and finding your way in an industry where everything feels new. Whether you’re an aspiring entrepreneur, curious about working in a tech startup, or just fascinated by the world of entrepreneurship, this talk is for you. Expect an open, honest look at the highs, the lows, and everything in between.",
         bio: "Yasemin is the founder and engineer of barri, a mobile app designed to help people with dietary restrictions find food. With a background in software engineering, Yasemin is passionate about creating solutions from the ground up and driving growth through constant experimentation.",
         linkedin: "https://www.linkedin.com/in/yasemin-snoek%F0%9F%8C%B1-563a8b12a"
