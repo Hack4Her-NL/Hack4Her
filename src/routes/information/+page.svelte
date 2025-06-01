@@ -37,7 +37,7 @@
       answer: 'Yes, though not as a Hacker. Only women are eligible to participate in the hackathon portion. You can participate on Friday, where we\'ll be hosting a bunch of cool workshops and a networking event with several companies, at the Booking.com offices in Amsterdam Central!'
     },
     {
-      question: 'I am a trans woman (MtF). Am I welcome at this event?',
+      question: 'I am a trans woman. Am I welcome at this event?',
       answer: 'Yes, both as a Hacker, and as a workshop attendee. Since the first edition of the event, our stance has always been that trans women are women. You are welcome to participate!'
     }
   ];
