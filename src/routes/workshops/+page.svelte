@@ -17,10 +17,8 @@
 
   // Time slots
   const timeSlots = [
-    "15:00 - 15:40",
-    "15:50 - 16:30",
-    "17:00 - 17:40",
-    "17:50 - 18:30"
+    "15:30 - 16:25",
+    "16:30 - 17:25"
   ];
 
   // Workshop schedule data - structured by room and time
@@ -38,17 +36,6 @@
         confirmed: false
       }, 
       null, // covered by workshop above
-      { // 17:00 - 17:40 and 17:50 - 18:30 (spans 2 slots)
-        title: "Amazon Web Services",
-        presenter: "TBD",
-        company: "Amazon",
-        image: "",
-        description: "Coming soon!",
-        bio: "Coming soon!",
-        rowSpan: 2,
-        confirmed: false
-      },
-      null, // 17:50 - 18:30 (filled by the above workshop)
     ],
     // Room 2
     [
@@ -63,50 +50,10 @@
         confirmed: false
       }, 
       null, // covered by previous workshop
-      {
-        title: "Create Your Visual and Verbal Identity",
-        presenter: "Serena Giust",
-        company: "Booking.com",
-        image: "/images/speakers/serena_giust.jpg",
-        description: "Join us for a workshop where you'll learn to apply design principles to your personal brand. Just as designers design products, you'll develop your unique identity through a strategic process. In this session, we'll: apply design thinking to personal branding, discover how to articulate core values and mission statement, and reate a coherent visual identity. Whether you're preparing to enter the job market, launching a startup, or simply seeking to present yourself more effectively, this workshop provides practical tools to make you stand out.",
-        bio: "Serena is a strategic content design leader who creates experiences that prioritise human connection, positive impact, and lasting value. With experience leading cross-functional teams since 2017, she builds environments where UX, tech, and product speak one language. She is passionate about branding and education, committed to empowering others to find their voice and express themselves. Having worked across different countries with different nationalities and backgrounds, she's a strong advocate for inclusion, creating spaces where everyone feels welcome, valued, and respected.",
-        linkedin: "https://www.linkedin.com/in/serenagiust/"
-      }, // 17:00 - 17:40
-      { // 17:50 - 18:30
-        title: "From Student to CIO",
-        presenter: "Monique De Jong",
-        company: "Randstad",
-        image: "/images/speakers/monique_de_jong.jpg",
-        description: "Ever thought you had your career all planned out—only to end up somewhere completely unexpected? That’s exactly what happened to Monique. She started with dreams of becoming a veterinarian, but life steered her into the world of technology. In this talk, Monique will share how she went from computer science student to CIO, navigating a career full of twists, challenges, and surprises. She will talk about how to spot and seize the right opportunities, how to uncover your true strengths and passions, and how to stay confident when things don’t go as planned. Monique will also take us through the stages of her career from programmer to tester, test manager, project manager, IT manager, and finally CIO. After reaching the CIO role, she realized her true passion was in the hands-on leadership and team-building aspects of IT management and deliberately stepped back into an IT manager position again to do the work she loves most. Expect to leave the talk inspired to embrace the unexpected and think differently about your own career journey in IT.",
-        bio: "Monique holds a drs. in Computer Science from the Free University of Amsterdam and an MBA from Rotterdam School of Management, Erasmus University. Her unique blend of technical depth, drive to achieve the impossible, strong project management, and people leadership has consistently driven successful and innovative IT transformations. Currently shifting into a coaching position at Randstad Groep Nederland, she’s dedicated to passing on her insights and experience over three decades in IT to the next generation of IT professionals.",
-        linkedin: "https://www.linkedin.com/in/monique-de-jong-3912a6/"
-      },
+      null, // 17:00 - 17:40
+      
     ],
     // Room 3
-    [
-      { // 15:00 - 15:40 and 15:50 - 16:30 (spans 2 slots)
-        title: "GenAI Mini-Hackathon",
-        presenter: "Deborah Davis-DeWitt",
-        company: "Booking.com",
-        image: "/images/speakers/deborah_davis-dewitt.jpg",
-        description: "Learn how to build an AI chatbot, even with limited experience! In this 1.5 hour workshop, you'll build, innovate, and demo your results, all while being coached by Deborah, a Senior Technical Programme Manager at Booking.com.",
-        bio: "Deborah, a Senior Technical Programme Manager in Central Tech, is passionate about technical transformation, working closely with developers and steering diversity, equity and inclusion initiatives to provide better opportunities and solidarity for all.",
-        rowSpan: 2,
-        linkedin: "https://www.linkedin.com/in/deborahddewitt/"
-      },
-      null, // 15:50 - 16:30 (filled by the above workshop)
-      { // 17:00 - 18:30
-        title: "Go Live with Your Personal Website",
-        presenter: "Liana Gukasyan",
-        company: "JetBrains",
-        image: "/images/speakers/liana_gukasyan.jpg",
-        description: "In this hands-on workshop, you’ll build and deploy a simple personal website from scratch, using basic HTML and CSS. We’ll also explore how AI tools can support your process. By the end of the session, you’ll have your own digital presence online – a personal website you can continue to customize and grow.",
-        bio: "Liana is a Frontend Infrastructure Team Lead with extensive experience in web development and team collaboration. She’s passionate about creating engaging learning experiences and enjoys guiding developers in building practical, real-world projects. She also loves exploring ways to optimize and improve frontend workflows.",
-        rowSpan: 2,
-        linkedin: "https://www.linkedin.com/in/liana-gukasyan/"
-      }
-    ],
-    // Room 4
     [
       { // 15:00 - 15:40
         title: "Building While Learning",
@@ -117,17 +64,29 @@
         bio: "Yasemin is the founder and engineer of barri, a mobile app designed to help people with dietary restrictions find food. With a background in software engineering, Yasemin is passionate about creating solutions from the ground up and driving growth through constant experimentation.",
         linkedin: "https://www.linkedin.com/in/yasemin-snoek%F0%9F%8C%B1-563a8b12a"
       },
-      { // 15:50 - 16:30
-        title: "Decoding AdTech: An Engineer's View from the Inside",
-        presenter: "Niharika Gupta",
-        company: "Booking.com",
-        image: "/images/speakers/niharika_gupta.jpeg",
-        description: `Ever wondered what a Senior Software Engineer actually does in the world of Advertising Technology (AdTech) and the exciting, scalable systems they build? This interactive workshop, "Decoding AdTech: An Engineer's View from the Inside," offers a unique opportunity to delve into the real-world engineering challenges and solutions in this dynamic field, guided by a woman leading in the space. Designed for aspiring tech innovators at Hack4Her, we’ll move beyond theory to explore concrete examples of AdTech engineering in action. A key highlight will be a presentation of a real-world AWS case study showcasing how Booking.com engineered a cutting-edge, serverless ad rendering solution, slashing costs by 90% and delivering dynamic ads in under a second. You'll also get a glimpse into how robust data pipelines are developed, scalable cloud solutions are delivered, and real-time campaign monitoring systems are built to track and optimize performance. We’ll touch upon complex user tracking flows and the impressive array of technologies involved. Through an engaging presentation featuring these real-world scenarios, including insights from the aforementioned case study and other projects, coupled with introductory hands-on activities, you'll discover the impactful engineering that drives customer activation, retention, and return on ad spend. Join us to demystify AdTech, see firsthand how your problem-solving skills can contribute to innovative solutions, and leave feeling inspired and equipped with a clearer vision of the engineering pathways available in this rapidly evolving sector. Get ready to explore the 'how' and 'why' of engineering that powers the digital advertising you see every day!`,
-        bio: `Niharika Gupta is a Senior Software Engineer at Booking.com, where she's a key part of the AdTech Team within Growth Marketing. She focuses on building solutions that empower stakeholders to enhance customer activation and retention while ensuring a positive brand experience. With a robust background that includes impactful roles at Meta (Facebook) focusing on Business Integrity and at VISA working on Big Data technologies and segmentation, Niharika brings a wealth of experience in leveraging technology to solve complex challenges and drive meaningful outcomes.<br><br>Her journey in tech has seen her contribute to critical projects, from protecting intellectual property for brands at Meta to migrating data pipelines and developing marketing models using machine learning at VISA. Niharika holds a Masters in Computer Science and Engineering from IIIT Delhi and her expertise spans areas like Big Data, Algorithms, NLP, AI, and Machine Learning. She even has a patent for 'Generating a Domain Ontology Using Word Embeddings,' showcasing her innovative contributions to the field.<br><br>Niharika is passionate about the power of technology to create, innovate, and connect. She is thrilled to be at Hack4Her, an event championing the crucial role of women in tech, and looks forward to sharing her insights and encouraging participants to explore their potential and build a more inclusive and exciting future in the industry.<br><br>'The future belongs to those who believe in the beauty of their dreams... and then code them into reality.' - Adapted from Eleanor Roosevelt`,
-        linkedin: "https://www.linkedin.com/in/niharika-gupta-8bb47882/"
-      }, 
-      null, // 17:00 - 17:40
-      null, // 17:50 - 18:30
+      { // 17:50 - 18:30
+        title: "From Student to CIO",
+        presenter: "Monique De Jong",
+        company: "Randstad",
+        image: "/images/speakers/monique_de_jong.jpg",
+        description: "Ever thought you had your career all planned out—only to end up somewhere completely unexpected? That’s exactly what happened to Monique. She started with dreams of becoming a veterinarian, but life steered her into the world of technology. In this talk, Monique will share how she went from computer science student to CIO, navigating a career full of twists, challenges, and surprises. She will talk about how to spot and seize the right opportunities, how to uncover your true strengths and passions, and how to stay confident when things don’t go as planned. Monique will also take us through the stages of her career from programmer to tester, test manager, project manager, IT manager, and finally CIO. After reaching the CIO role, she realized her true passion was in the hands-on leadership and team-building aspects of IT management and deliberately stepped back into an IT manager position again to do the work she loves most. Expect to leave the talk inspired to embrace the unexpected and think differently about your own career journey in IT.",
+        bio: "Monique holds a drs. in Computer Science from the Free University of Amsterdam and an MBA from Rotterdam School of Management, Erasmus University. Her unique blend of technical depth, drive to achieve the impossible, strong project management, and people leadership has consistently driven successful and innovative IT transformations. Currently shifting into a coaching position at Randstad Groep Nederland, she’s dedicated to passing on her insights and experience over three decades in IT to the next generation of IT professionals.",
+        linkedin: "https://www.linkedin.com/in/monique-de-jong-3912a6/"
+      },
+    ],
+    // Room 4
+    [
+      { // 17:00 - 18:30
+        title: "Go Live with Your Personal Website",
+        presenter: "Liana Gukasyan",
+        company: "JetBrains",
+        image: "/images/speakers/liana_gukasyan.jpg",
+        description: "In this hands-on workshop, you’ll build and deploy a simple personal website from scratch, using basic HTML and CSS. We’ll also explore how AI tools can support your process. By the end of the session, you’ll have your own digital presence online – a personal website you can continue to customize and grow.",
+        bio: "Liana is a Frontend Infrastructure Team Lead with extensive experience in web development and team collaboration. She’s passionate about creating engaging learning experiences and enjoys guiding developers in building practical, real-world projects. She also loves exploring ways to optimize and improve frontend workflows.",
+        rowSpan: 1,
+        linkedin: "https://www.linkedin.com/in/liana-gukasyan/"
+      },
+      null
     ],
     // Room 5
     [
