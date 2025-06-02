@@ -57,7 +57,7 @@
       role: 'Advisory Board Member',
       imageFile: 'isabella_gardner.jpg',
       linkedInUrl: 'https://www.linkedin.com/in/ivgardner/',
-      bio: 'Isabella Venancia Gardner (Bella) is currently doing her Master\'s in Artificial Intelligence at the Universiteit van Amsterdam. She graduated Cum Laude from Vrije Universiteit Amsterdam with a Bachelor\'s in Artificial Intelligence, complemented by a minor in Technology Law and Ethics and completion of the Honour\'s Programme. Isabella co-founded and led the first Diversity Committee within the BETA student association, STORM, at Vrije Universiteit Amsterdam, focusing on reducing discrimination and increasing diversity in CS and AI university programs. Her leadership extended to organizing Hack4Her, the inaugural women-focused hackathon at VU Amsterdam, and expanding the event in collaboration with Booking.com, fostering a community dedicated to inclusivity and innovation in technology. Her commitment to advancing diversity in tech and AI has led to notable recognitions, including being a recipient of the Studienstiftung des Deutschen Volkes scholarship, awarded for remarkable academic and social qualities, and the Qualcomm Diversity AI Fellowship 2023 from the ELLIS Foundation, supporting her Master\'s studies. Beyond her academic and volunteer achievements, Bella is actively involved in teaching and mentoring roles within Vrije Universiteit Amsterdam. She is/has been a course organizer and teaching assistant for a variety of courses including but not limited to Machine Learning, Databases, and Project Conversational Agents.'
+      bio: 'Isabella Venancia Gardner (Bella) is currently doing her Master\'s in Artificial Intelligence at the Universiteit van Amsterdam. She graduated Cum Laude from Vrije Universiteit Amsterdam with a Bachelor\'s in Artificial Intelligence, complemented by a minor in Technology Law and Ethics and completion of the Honour\'s Programme. Isabella co-founded and led the first Diversity Committee within the BETA student association, STORM, at Vrije Universiteit Amsterdam, focusing on reducing discrimination and increasing diversity in CS and AI university programs. Her leadership extended to organizing Hack4Her, the inaugural women-focused hackathon at VU Amsterdam, fostering a community dedicated to inclusivity and innovation in technology. Her commitment to advancing diversity in tech and AI has led to notable recognitions, including being a recipient of the Studienstiftung des Deutschen Volkes scholarship, awarded for remarkable academic and social qualities, and the Qualcomm Diversity AI Fellowship 2023 from the ELLIS Foundation, supporting her Master\'s studies. Beyond her academic and volunteer achievements, Bella is actively involved in teaching and mentoring roles within Vrije Universiteit Amsterdam. She is/has been a course organizer and teaching assistant for a variety of courses including but not limited to Machine Learning, Databases, and Project Conversational Agents.'
     },
     {
       name: 'Mylène Brown-Coleman',
@@ -135,7 +135,7 @@
     platinum: [
       { name: 'ServiceNow', logo: '/images/sponsors/Servicenow.jpg', url: 'https://www.servicenow.com/' },
       { name: 'Randstad Digital', logo: '/images/sponsors/randstad.png', url:'https://www.randstaddigital.nl/nl/'},
-      { name: 'Booking.com', logo: '/images/sponsors/Booking.com.png', url: 'https://www.booking.com/' },
+      // { name: 'Booking.com', logo: '/images/sponsors/Booking.com.png', url: 'https://www.booking.com/' },
       { name: 'VU CS Department', logo: '/images/sponsors/VU.png', url: 'https://vu.nl/en/about-vu/faculties/faculty-of-science/departments/computer-science' }
     ],
     gold: [
@@ -204,9 +204,9 @@
     <p class="section-text">
       With Dr. Katja Tuma as scientific lead, the first Hack4Her took place in June 2022, at VU Amsterdam. The event was women-only and attracted 35 attendees.
     </p>
-    <p class="section-text">
+    <!-- <p class="section-text">
       In 2023, the event was expanded to welcome all genders while maintaining a focus on women in tech. Held at the Booking.com office with Booking.com as the main sponsor, the participation increased to 75, with a total of 100 attendees. This iteration emphasized a broader learning and networking experience.
-    </p>
+    </p> -->
     <p class="section-text">
       Hack4Her was founded to create a supportive and inclusive tech community. Its evolution reflects a commitment to these principles, with each event building upon the last to advance diversity in technology.
     </p>
