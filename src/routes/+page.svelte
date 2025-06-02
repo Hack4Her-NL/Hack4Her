@@ -58,7 +58,6 @@
     platinum: [
       { name: 'ServiceNow', logo: '/images/sponsors/Servicenow.jpg', url: 'https://www.servicenow.com/' },
       { name: 'Randstad Digital', logo: '/images/sponsors/randstad.png', url:'https://www.randstaddigital.nl/nl/'},
-      { name: 'Booking.com', logo: '/images/sponsors/Booking.com.png', url: 'https://www.booking.com/' },
       { name: 'VU CS Department', logo: '/images/sponsors/VU.png', url: 'https://vu.nl/en/about-vu/faculties/faculty-of-science/departments/computer-science' }
     ],
     gold: [
@@ -117,6 +116,42 @@
   </div>
 </section>
 
+<!-- Public statement Section -->
+<section class="section">
+  <div class="section-container">
+   <h2 class="section-title">Public Statement from Hack4Her</h2>
+  </div>
+  <div class="section-container statement-container">
+    <p class="section-text">
+      To our community,
+    </p>
+    <p class="section-text">
+      We want to directly address issues raised by our participants regarding some of our sponsorships. We have heard your concerns and, therefore, after review, we have voted to drop the sponsorships that have been brought to our attention.
+    </p>
+    <p class="section-text">
+      We acknowledge and respect the voices of those who have raised concerns, and we take this criticism seriously. As an organization with the purpose of inclusivity and intersectional feminism, we stand in solidarity with those advocating for a free and dignified life for all.
+    </p>
+    <p class="section-text">
+      Here are the steps we are taking in response:
+    </p>
+    <ul class="statement-list">
+      <li>We are ending our partnerships with organizations that are not aligned with our values and severing all ties.</li>
+      <li>We'll review our sponsorship policies to ensure alignment with our values and those of the communities we serve. We commit to a more thorough process going forward.</li>
+      <li>We'll set up a donation initiative connected to the hackathon prizes, with proceeds going to humanitarian efforts and justice-focused organizations.</li>
+    </ul>
+    <p class="section-text">
+      As a volunteer-run organization, we rely heavily on external funding, but we must and will do better to ensure that our partnerships reflect our values.
+    </p>
+    <p class="section-text">
+      We are grateful to everyone who has spoken up. Your voices are essential in holding us accountable.
+    </p>
+    <p class="section-text">
+      In solidarity,<br>
+      Hack4Her<br>
+    </p>
+  </div>
+</section>
+
 <!-- About Section -->
 <section class="section">
   <div class="section-container">
@@ -138,7 +173,7 @@
     <h3 class="event-subtitle">🌟 4th Annual Hack4Her Event 🌟</h3>
     <p class="event-date">Dates: June 13-15, 2025</p>
     <p class="section-text">
-      We are planning the 4th Annual Hack4Her, June 13-15, 2025, at VU Amsterdam and the Booking.com offices in Amsterdam Central! Join for a weekend dedicated to empowering women in tech through collaboration, innovation, and competition. Open to all students in the Netherlands, we invite you for coding, workshops, lectures, projects, and networking.
+      We are planning the 4th Annual Hack4Her, June 13-15, 2025, at VU Amsterdam! Join for a weekend dedicated to empowering women in tech through collaboration, innovation, and competition. Open to all students in the Netherlands, we invite you for coding, workshops, lectures, projects, and networking.
     </p>
     <p class="section-text">
       While all genders are welcome, only women are eligible to compete in the hackathon portion of the event. Enjoy free food, drinks, and a chance at free transport if you are coming from outside of the Amsterdam area.
@@ -317,6 +352,14 @@
     text-align: center;
   }
   
+  .statement-container {
+    text-align: left;
+  }
+  
+  .statement-container .section-title {
+    text-align: left;
+  }
+  
   .section-title {
     margin-bottom: var(--spacing-large);
   }
@@ -327,8 +370,30 @@
   
   .section-text {
     max-width: 800px;
-    margin: 0 auto var(--spacing-large);
+    margin: 0 auto var(--spacing-medium);
     line-height: 1.6;
+  }
+  
+  .statement-list {
+    list-style-type: disc; /* Default black bullet */
+    max-width: 800px;
+    margin: 0 auto var(--spacing-medium);
+    text-align: left;
+    line-height: 1.6;
+    padding-left: 20px;
+  }
+  
+  .statement-list li {
+    margin-bottom: var(--spacing-small);
+  }
+  
+  .statement-link {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+  
+  .statement-link:hover {
+    text-decoration: underline;
   }
   
   /* Highlights Grid */
