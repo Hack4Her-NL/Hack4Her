@@ -63,7 +63,8 @@
     gold: [
       { name: 'DuckDB', logo: '/images/sponsors/duckdb.svg', url: 'https://duckdb.org/' },
       { name: 'Network Institute', logo: '/images/sponsors/Network_institute.png', url: 'https://networkinstitute.org/' },
-      { name: 'Postcode Loterij', logo: '/images/sponsors/postcode_loterij.png', url: 'https://www.postcodeloterij.nl/' }
+      { name: 'Postcode Loterij', logo: '/images/sponsors/postcode_loterij.png', url: 'https://www.postcodeloterij.nl/' },
+      { name: 'Tilburg university', logo: '/images/sponsors/tilburg.png', url: 'https://www.tilburguniversity.edu/' }
     ]
   };
   
@@ -117,9 +118,9 @@
 </section>
 
 <!-- Public statement Section -->
+<!--
 <section class="section">
   <div class="section-container">
-   <h2 class="section-title">Public Statement from Hack4Her</h2>
   </div>
   <div class="section-container statement-container">
     <p class="section-text">
@@ -151,6 +152,8 @@
     </p>
   </div>
 </section>
+-->
+
 
 <!-- About Section -->
 <section class="section">

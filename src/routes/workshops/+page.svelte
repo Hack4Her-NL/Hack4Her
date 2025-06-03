@@ -8,11 +8,10 @@
 
   // Room data
   const rooms = [
-    { name: "Auditorium", capacity: "Large", size: "150 seats" },
-    { name: "Multifunctional Room", capacity: "Medium", size: "60 seats" },
-    { name: "Room 001", capacity: "Small", size: "20 seats" },
-    { name: "Room 002", capacity: "Small", size: "20 seats" },
-    { name: "Room 003", capacity: "Small", size: "20 seats" }
+    { name: "NU-4A25", capacity: "Large", size: "60 seats" },
+    { name: "NU-4B43", capacity: "Medium", size: "34 seats" },
+    { name: "NU-4B47", capacity: "Medium", size: "36 seats" },
+    { name: "NU-4B01", capacity: "Small", size: "16 seats" }
   ];
 
   // Time slots
@@ -187,7 +186,7 @@
   <div class="section-container">
     <p class="section-text">
       Our workshops offer a unique opportunity to learn new skills, get hands-on experience, and connect with industry experts. 
-      All workshops are free for registered participants. Click on a workshop to see more details. Note that this schedule is tentative, and is subject to change. More workshops are coming soon! 
+      The workshop page is currently under construction! 
     </p>
   </div>
 </section>

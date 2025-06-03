@@ -34,7 +34,7 @@
     },
     {
       question: 'I identify as a man / I identify as non-binary. Can I still participate?',
-      answer: 'Yes, though not as a Hacker. Only women are eligible to participate in the hackathon portion. You can participate on Friday, where we\'ll be hosting a bunch of cool workshops and a networking event with several companies'
+      answer: 'Yes, though not as a Hacker. Only women are eligible to participate in the hackathon portion. You can participate on Friday, where we\'ll be hosting a bunch of cool workshops and a networking event with several companies.'
     },
     {
       question: 'I am a trans woman. Am I welcome at this event?',
@@ -47,7 +47,8 @@
     'Open to all students in the Netherlands',
     'Coding, workshops, lectures -- plenty of opportunties to learn and expand your skillset',
     'While all genders are welcome, only women are eligible to compete in the hackathon',
-    'Free food and drinks provided'
+    'Free food and drinks provided',
+    'An awesome networking event!'
   ];
 
   // Code of conduct
@@ -80,13 +81,13 @@
 
   // Schedule data
   const fridaySchedule = [
-    {time: '13:45 - 14:00', activity: 'Arrival & Check-In', location: 'Vrije Universiteit NU Building Theater 1'},
-    {time: '14:00 - 14:15', activity: 'Introduction', location: ''},
-    {time: '14:15 - 15:00', activity: 'A Word From Our Sponsors!', location: ''},
-    {time: '15:00 - 15:30', activity: 'Keynote', location: ''},
+    {time: '13:45 - 14:00', activity: 'Arrival & Check-In', location: 'Vrije Universiteit Amsterdam NU Building Ground Floor'},
+    {time: '14:00 - 14:15', activity: 'Introduction', location: 'NU-Theatre 1'},
+    {time: '14:15 - 15:00', activity: 'A word from our sponsors!', location: 'NU-Theatre 1'},
+    {time: '15:00 - 15:30', activity: 'Keynote', location: 'NU-Theatre 1'},
     {time: '15:30 - 16:25', activity: 'Workshops Round 1', location: ''},
     {time: '16:30 - 17:30', activity: 'Workshops Round 2', location: ''},
-    {time: '17:30 - 19:00', activity: 'Networking', location: ''},
+    {time: '17:30 - 19:00', activity: 'Networking Event', location: 'Vrije Universiteit NU Building Ground Floor'},
     {time: '19:00', activity: 'Day Ends', location: ''}
   ];
 
@@ -221,16 +222,6 @@
         </button>
       </div>
       
-      <section class="section">
-        <div class="section-container">
-          <div class="Details-schedule">
-            <p>
-              Details about friday schedule have been updated.<br>
-            </p>
-          </div>
-        </div>
-      </section>
-
       <div class="tab-content">
         {#if activeTab === 'friday'}
           <div class="schedule-container">
