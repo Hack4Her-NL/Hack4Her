@@ -92,7 +92,7 @@
       role: 'WebDev Team',
       imageFile: 'joey_laarhoven.jpeg',
       linkedInUrl: 'https://www.linkedin.com/in/joey-laarhoven-084473304/',
-      bio: ''
+      bio: 'Joey Laarhoven is currently pursuing a Master’s degree in Artificial Intelligence at the University of Amsterdam (UvA). He previously completed a Bachelor’s in Computer Science at the Vrije Universiteit Amsterdam (VU), graduating summa cum laude. Alongside his studies, Joey works at Caddy, where he focuses on writing performant and reliable code. He is also a recipient of the ASML scholarship, which supports students with strong academic backgrounds and a passion for technology. Outside of work and academics, Joey contributes to the Hack4Her initiative by managing the event’s website and helping coordinate with sponsors and workshop speakers. He enjoys being part of teams that bring ideas to life and is always looking for ways to grow and make a positive impact through tech.'
     },
     {
       name: 'Josephine Dode',
@@ -135,13 +135,13 @@
     platinum: [
       { name: 'ServiceNow', logo: '/images/sponsors/Servicenow.jpg', url: 'https://www.servicenow.com/' },
       { name: 'Randstad Digital', logo: '/images/sponsors/randstad.png', url:'https://www.randstaddigital.nl/nl/'},
-      // { name: 'Booking.com', logo: '/images/sponsors/Booking.com.png', url: 'https://www.booking.com/' },
       { name: 'VU CS Department', logo: '/images/sponsors/VU.png', url: 'https://vu.nl/en/about-vu/faculties/faculty-of-science/departments/computer-science' }
     ],
     gold: [
       { name: 'DuckDB', logo: '/images/sponsors/duckdb.svg', url: 'https://duckdb.org/' },
       { name: 'Network Institute', logo: '/images/sponsors/Network_institute.png', url: 'https://networkinstitute.org/' },
-      { name: 'Postcode Loterij', logo: '/images/sponsors/postcode_loterij.png', url: 'https://www.postcodeloterij.nl/' }
+      { name: 'Postcode Loterij', logo: '/images/sponsors/postcode_loterij.png', url: 'https://www.postcodeloterij.nl/' },
+      { name: 'Tilburg university', logo: '/images/sponsors/tilburg.png', url: 'https://www.tilburguniversity.edu/' }
     ],
     partners: []
   };
@@ -963,7 +963,7 @@
     margin: 0;
     font-style: italic;
     opacity: 0.8;
-    color: #ffffff;
+    color:var(--color-text);
   }
   
   .workshop-details-modal {

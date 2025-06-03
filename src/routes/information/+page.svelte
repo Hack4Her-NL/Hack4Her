@@ -527,6 +527,10 @@
     color: white;
     border-radius: 30px;
   }
+
+  .Details-schedule {
+    color: white;
+  }
   
   .tab-content {
     background-color: rgba(255, 255, 255, 0.1);

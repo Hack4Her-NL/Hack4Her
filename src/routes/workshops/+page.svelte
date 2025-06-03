@@ -16,10 +16,8 @@
 
   // Time slots
   const timeSlots = [
-    "15:00 - 15:40",
-    "15:50 - 16:30",
-    "17:00 - 17:40",
-    "17:50 - 18:30"
+    "15:30 - 16:25",
+    "16:30 - 17:25"
   ];
 
   // Workshop schedule data - structured by room and time
@@ -37,8 +35,6 @@
         confirmed: false
       }, 
       null, // covered by workshop above
-      null,
-      null, // 17:50 - 18:30 (filled by the above workshop)
     ],
     // Room 2
     [
@@ -54,32 +50,9 @@
       }, 
       null, // covered by previous workshop
       null, // 17:00 - 17:40
-      { // 17:50 - 18:30
-        title: "From Student to CIO",
-        presenter: "Monique De Jong",
-        company: "Randstad",
-        image: "/images/speakers/monique_de_jong.jpg",
-        description: "Ever thought you had your career all planned out—only to end up somewhere completely unexpected? That’s exactly what happened to Monique. She started with dreams of becoming a veterinarian, but life steered her into the world of technology. In this talk, Monique will share how she went from computer science student to CIO, navigating a career full of twists, challenges, and surprises. She will talk about how to spot and seize the right opportunities, how to uncover your true strengths and passions, and how to stay confident when things don’t go as planned. Monique will also take us through the stages of her career from programmer to tester, test manager, project manager, IT manager, and finally CIO. After reaching the CIO role, she realized her true passion was in the hands-on leadership and team-building aspects of IT management and deliberately stepped back into an IT manager position again to do the work she loves most. Expect to leave the talk inspired to embrace the unexpected and think differently about your own career journey in IT.",
-        bio: "Monique holds a drs. in Computer Science from the Free University of Amsterdam and an MBA from Rotterdam School of Management, Erasmus University. Her unique blend of technical depth, drive to achieve the impossible, strong project management, and people leadership has consistently driven successful and innovative IT transformations. Currently shifting into a coaching position at Randstad Groep Nederland, she’s dedicated to passing on her insights and experience over three decades in IT to the next generation of IT professionals.",
-        linkedin: "https://www.linkedin.com/in/monique-de-jong-3912a6/"
-      },
+      
     ],
     // Room 3
-    [
-      null,
-      null, // 15:50 - 16:30 (filled by the above workshop)
-      { // 17:00 - 18:30
-        title: "Go Live with Your Personal Website",
-        presenter: "Liana Gukasyan",
-        company: "JetBrains",
-        image: "/images/speakers/liana_gukasyan.jpg",
-        description: "In this hands-on workshop, you’ll build and deploy a simple personal website from scratch, using basic HTML and CSS. We’ll also explore how AI tools can support your process. By the end of the session, you’ll have your own digital presence online – a personal website you can continue to customize and grow.",
-        bio: "Liana is a Frontend Infrastructure Team Lead with extensive experience in web development and team collaboration. She’s passionate about creating engaging learning experiences and enjoys guiding developers in building practical, real-world projects. She also loves exploring ways to optimize and improve frontend workflows.",
-        rowSpan: 2,
-        linkedin: "https://www.linkedin.com/in/liana-gukasyan/"
-      }
-    ],
-    // Room 4
     [
       { // 15:00 - 15:40
         title: "Building While Learning",
@@ -90,9 +63,29 @@
         bio: "Yasemin is the founder and engineer of barri, a mobile app designed to help people with dietary restrictions find food. With a background in software engineering, Yasemin is passionate about creating solutions from the ground up and driving growth through constant experimentation.",
         linkedin: "https://www.linkedin.com/in/yasemin-snoek%F0%9F%8C%B1-563a8b12a"
       },
-      null,
-      null, // 17:00 - 17:40
-      null, // 17:50 - 18:30
+      { // 17:50 - 18:30
+        title: "From Student to CIO",
+        presenter: "Monique De Jong",
+        company: "Randstad",
+        image: "/images/speakers/monique_de_jong.jpg",
+        description: "Ever thought you had your career all planned out—only to end up somewhere completely unexpected? That’s exactly what happened to Monique. She started with dreams of becoming a veterinarian, but life steered her into the world of technology. In this talk, Monique will share how she went from computer science student to CIO, navigating a career full of twists, challenges, and surprises. She will talk about how to spot and seize the right opportunities, how to uncover your true strengths and passions, and how to stay confident when things don’t go as planned. Monique will also take us through the stages of her career from programmer to tester, test manager, project manager, IT manager, and finally CIO. After reaching the CIO role, she realized her true passion was in the hands-on leadership and team-building aspects of IT management and deliberately stepped back into an IT manager position again to do the work she loves most. Expect to leave the talk inspired to embrace the unexpected and think differently about your own career journey in IT.",
+        bio: "Monique holds a drs. in Computer Science from the Free University of Amsterdam and an MBA from Rotterdam School of Management, Erasmus University. Her unique blend of technical depth, drive to achieve the impossible, strong project management, and people leadership has consistently driven successful and innovative IT transformations. Currently shifting into a coaching position at Randstad Groep Nederland, she’s dedicated to passing on her insights and experience over three decades in IT to the next generation of IT professionals.",
+        linkedin: "https://www.linkedin.com/in/monique-de-jong-3912a6/"
+      },
+    ],
+    // Room 4
+    [
+      { // 17:00 - 18:30
+        title: "Go Live with Your Personal Website",
+        presenter: "Liana Gukasyan",
+        company: "JetBrains",
+        image: "/images/speakers/liana_gukasyan.jpg",
+        description: "In this hands-on workshop, you’ll build and deploy a simple personal website from scratch, using basic HTML and CSS. We’ll also explore how AI tools can support your process. By the end of the session, you’ll have your own digital presence online – a personal website you can continue to customize and grow.",
+        bio: "Liana is a Frontend Infrastructure Team Lead with extensive experience in web development and team collaboration. She’s passionate about creating engaging learning experiences and enjoys guiding developers in building practical, real-world projects. She also loves exploring ways to optimize and improve frontend workflows.",
+        rowSpan: 1,
+        linkedin: "https://www.linkedin.com/in/liana-gukasyan/"
+      },
+      null
     ],
     // Room 5
     [
