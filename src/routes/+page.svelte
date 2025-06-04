@@ -118,7 +118,7 @@
 </section>
 
 <!-- Public statement Section -->
-<!--
+
 <section class="section">
   <div class="section-container">
   </div>
@@ -152,7 +152,7 @@
     </p>
   </div>
 </section>
--->
+
 
 
 <!-- About Section -->
