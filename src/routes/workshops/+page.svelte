@@ -8,10 +8,10 @@
 
   // Room data
   const rooms = [
-    { name: "NU-4A25", capacity: "Large", size: "60 seats" },
-    { name: "NU-4B43", capacity: "Medium", size: "34 seats" },
-    { name: "NU-4B47", capacity: "Medium", size: "36 seats" },
-    { name: "NU-4B01", capacity: "Small", size: "16 seats" }
+    { name: "NU-4A25", capacity: "", size: "" },
+    { name: "NU-4B43", capacity: "", size: "" },
+    { name: "NU-4B47", capacity: "", size: "" },
+    { name: "NU-4B01", capacity: "", size: "" }
   ];
 
   // Time slots
@@ -75,16 +75,16 @@
     ],
     // Room 4
     [
-      { // 17:00 - 18:30
-        title: "Go Live with Your Personal Website",
-        presenter: "Liana Gukasyan",
-        company: "JetBrains",
-        image: "/images/speakers/liana_gukasyan.jpg",
-        description: "In this hands-on workshop, you’ll build and deploy a simple personal website from scratch, using basic HTML and CSS. We’ll also explore how AI tools can support your process. By the end of the session, you’ll have your own digital presence online – a personal website you can continue to customize and grow.",
-        bio: "Liana is a Frontend Infrastructure Team Lead with extensive experience in web development and team collaboration. She’s passionate about creating engaging learning experiences and enjoys guiding developers in building practical, real-world projects. She also loves exploring ways to optimize and improve frontend workflows.",
-        rowSpan: 1,
-        linkedin: "https://www.linkedin.com/in/liana-gukasyan/"
-      },
+      // { // 17:00 - 18:30
+      //   title: "Go Live with Your Personal Website",
+      //   presenter: "Liana Gukasyan",
+      //   company: "JetBrains",
+      //   image: "/images/speakers/liana_gukasyan.jpg",
+      //   description: "In this hands-on workshop, you’ll build and deploy a simple personal website from scratch, using basic HTML and CSS. We’ll also explore how AI tools can support your process. By the end of the session, you’ll have your own digital presence online – a personal website you can continue to customize and grow.",
+      //   bio: "Liana is a Frontend Infrastructure Team Lead with extensive experience in web development and team collaboration. She’s passionate about creating engaging learning experiences and enjoys guiding developers in building practical, real-world projects. She also loves exploring ways to optimize and improve frontend workflows.",
+      //   rowSpan: 1,
+      //   linkedin: "https://www.linkedin.com/in/liana-gukasyan/"
+      // },
       null
     ],
     // Room 5
