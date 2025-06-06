@@ -111,10 +111,17 @@
     ],
     // Room 5
     [
-      null, // 15:00 - 15:40
+      { // 15:00 - 15:40
+        title: "Chip Design (Logic Synthesis) for AI",
+        presenter: "Dr. Marcel Walter",
+        company: "Technical University of Munich and MQSC",
+        image: "",
+        description: "Machine Learning and Artificial Intelligence are the defining technologies of this decade. However, training and running state-of-the-art models require significant computational power, typically provided by large GPU clusters. One promising solution is the development of Application-Specific Integrated Circuits (ASICs), which are custom hardware designed to accelerate specific applications. In this workshop, attendees will learn about the logic synthesis and physical design processes used to create ASIC layouts from specifications. They will apply these techniques to generate custom machine-learning accelerators and inference engines ready for tape-out. The workshop includes a hands-on session for practical experience.",
+        bio: "Marcel Walter is a Senior Quantum Software Engineer at the Munich Quantum Software Company (MQSC) and a Postdoctoral Researcher at the Technical University of Munich (TUM). He received his Ph.D. in Computer Science from the University of Bremen in 2021 for his work on algorithms for the physical design of emerging post-CMOS nanotechnologies. Previously, Marcel has also contributed to the German Research Center for Artificial Intelligence (DFKI). Dr. Walter is the initiator and maintainer of the fiction framework, a comprehensive tool for the logic synthesis, physical design, verification, and simulation of Field-coupled Nanotechnologies (FCN). His research is dedicated to bridging the design gap between FCN, such as Quantum-dot Cellular Automata (QCA), Nanomagnet Logic (NML), and Silicon Dangling Bonds (SiDB), and classical CMOS devices. These promising post-CMOS technologies offer the potential for exceptional processing performance with significantly reduced power dissipation. The fiction framework serves as a crucial platform for his experiments, proof-of-concept implementations, and as a foundation for future research in this domain (available on his GitHub). He teaches courses in Emerging Technologies and Physical Design, and Logic Synthesis. His research interests encompass Nanotechnologies, Algorithmics, and Formal Methods. Furthermore, Marcel has experience in Quantum Computing, Reversible Logic, Digital Microfluidic Biochips, Optical Circuits, and DNA Computers.",
+        linkedin: "https://www.linkedin.com/in/marcel-walter-94b573195/",
+        website: "https://marcelwa.github.io/"
+      }, // 15:00 - 15:40
       null, // 15:50 - 16:30
-      null, // 17:00 - 17:40
-      null, // 17:50 - 18:30
     ],
   ];
 
@@ -320,6 +327,17 @@
                     aria-label="LinkedIn profile"
                   >
                     <span class="material-icons" style="font-size: 18px; vertical-align: middle; margin-left: 4px;">linkedin</span>
+                  </a>
+                {/if}
+                {#if selectedWorkshop.website}
+                  <a
+                    href={selectedWorkshop.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="website-inline-btn"
+                    aria-label="Personal website"
+                  >
+                    <span class="material-icons" style="font-size: 18px; vertical-align: middle; margin-left: 4px;">language</span>
                   </a>
                 {/if}
               </h3>
@@ -730,6 +748,25 @@
     gap: 10px;
     font-size: 15px;
     color: var(--color-text);
+  }
+  
+  /* Inline social buttons */
+  .linkedin-inline-btn,
+  .website-inline-btn {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    border-radius: 4px;
+    padding: 2px;
+  }
+  
+  .linkedin-inline-btn:hover,
+  .website-inline-btn:hover {
+    color: var(--color-primary);
+    background-color: rgba(var(--color-primary-rgb), 0.1);
+    transform: scale(1.1);
   }
 
   @media (max-width: 1000px) {
