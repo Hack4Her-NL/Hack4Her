@@ -39,14 +39,31 @@
     // Room 2
     [
       { // 15:00 - 16:30, spans two slots
-        title: "Randstad Digital",
-        presenter: "TBD",
+        title: "From Idea to Increment: Creating What Matters",
+        presenter: "Valentina, Saeske & Jacco van der Ven",
         company: "Randstad Digital",
         image: "",
-        description: "Coming soon!",
-        bio: "Coming soon!",
+        description: "Welcome to the PI-Workshop: \"The Perfect Wedding\". Ever wondered how large teams align on a shared goal and deliver real value under pressure? In this interactive workshop, you'll step into the world of scaled Agile—by planning something as personal (and complex) as a wedding.<br><br>Guided by three experienced Agile professionals, you'll take part in a hands-on simulation of a Program Increment (PI) Planning session. The twist? You're planning a wedding for a key stakeholder with high expectations and limited time.<br><br>Together with your team, you'll need to align priorities, manage dependencies, and balance both emotional and practical needs—just like in the real world of tech.<br><br>This workshop is about more than just planning. It's about feeling what it means to build something meaningful for someone else. You'll get a sense of how your future work as a developer, data scientist, or product owner impacts real people. You'll also experience firsthand how business value, collaboration, and shared goals come together in a SAFe Agile environment.<br><br>Join us if you're curious about how great teams turn complexity into clarity—and want to sharpen the collaboration skills you'll need in any tech career.",
+        bio: "About the presenters",
+        presenters: [
+          {
+            name: "Valentina",
+            image: "/images/speakers/Valentina.jpg",
+            bio: "Meet Valentina – from beta student to enabler of change in IT<br><br>With a technical science education as a foundation and a fascination for how systems and people work, Valentina has grown into a strategic force within IT. In her roles as product manager and implementation manager, she daily drives innovation and improvement for clients of Randstad Digital – with an eye for technology, organization, and people.<br><br>What she shares in this workshop is not just theory, but also practice. These are insights and approaches she applies daily: from translating complex IT solutions into understandable applications, to realizing genuine collaboration between teams and users.<br><br>Valentina shows that with a sharp eye and soft power, you can play a valuable role in IT. And that there is plenty of room for women to direct the digital world of tomorrow as enablers of change."
+          },
+          {
+            name: "Saeske",
+            image: "/images/speakers/Saeske.jpg",
+            bio: "Meet Saeske – energizer, inspirator, and productmanager with a passion for tech and progress<br><br>With a background in law and business, Saeske didn't take the standard route into tech. But with curiosity, drive, and a love for understanding how things work, she built a career in digital transformation—helping teams move forward, find clarity, and enjoy the process along the way. In this workshop, she brings that same energy to a hands-on simulation of PI Planning. Expect interaction, structure, and fun—because planning can be both powerful and enjoyable when you do it together. Saeske believes that with the right mindset, almost anything is possible. Whether you're just getting started in tech or already deep in the field, this session will give you a fresh look at what's possible when people align around a shared goal—and have fun doing it."
+          },
+          {
+            name: "Jacco van der Ven",
+            image: "/images/speakers/Jacco.png",
+            bio: "Meet Jacco van der Ven - a passionate and enthusiastic Agile Coach and IT Project Manager<br><br>With a robust background in guiding organizations through Agile transformations and enhancing team collaboration. He brings extensive expertise in Scrum, Kanban, and SAFe methodologies. His experience spans diverse organizations, including prominent names like the Belastingdienst (Dutch Tax and Customs Administration), VodafoneZiggo, and KPN, where he has been instrumental in leading teams through transitions to Agile ways of working.<br><br>His passion extends beyond simply implementing methodologies to truly coaching and motivating people. As a mentor for Product Owners, Scrum Masters, and team members, he fosters a culture of shared vision, openness, and collective responsibility.<br><br>He holds a Bachelor's degree in ICT and Information Management and possesses a strong portfolio of certifications, including Professional Scrum Master (PSM I & II), Professional Product Owner (PSM I), Leading SAFe (SAFe 5 & 6 Agilist), Agile Project Management (DSDM), and PRINCE2 Practitioner.<br><br>Jacco is enthusiastic about leveraging his extensive experience in Agile methodologies, coaching, and project management to help organizations achieve their goals through enhanced collaboration and continuous improvement. He is eager to discuss how his passion for Agile values and his ability to connect and coach people can contribute to an organization's success."
+          }
+        ],
         rowSpan: 2,
-        confirmed: false
+        confirmed: true
       }, 
       null, // covered by previous workshop
       null, // 17:00 - 17:40
@@ -59,7 +76,7 @@
         presenter: "Yasemin Snoek",
         company: "barri",
         image: "/images/speakers/yasemin_snoek.png",
-        description: "Join Yasemin as she shares her journey as the founder of a European tech startup—from the first spark of an idea to navigating the ups and downs of entrepreneurship. Yasemin will dive into the real, behind-the-scenes stories of building a startup, covering everything from securing the first users to handling setbacks. But it won’t just be a story. Yasemin will also share practical tips she’s learned along the way. You’ll get actionable insights on launching a product, building with a small team, and finding your way in an industry where everything feels new. Whether you’re an aspiring entrepreneur, curious about working in a tech startup, or just fascinated by the world of entrepreneurship, this talk is for you. Expect an open, honest look at the highs, the lows, and everything in between.",
+        description: "Join Yasemin as she shares her journey as the founder of a European tech startup—from the first spark of an idea to navigating the ups and downs of entrepreneurship. Yasemin will dive into the real, behind-the-scenes stories of building a startup, covering everything from securing the first users to handling setbacks. But it won't just be a story. Yasemin will also share practical tips she's learned along the way. You'll get actionable insights on launching a product, building with a small team, and finding your way in an industry where everything feels new. Whether you're an aspiring entrepreneur, curious about working in a tech startup, or just fascinated by the world of entrepreneurship, this talk is for you. Expect an open, honest look at the highs, the lows, and everything in between.",
         bio: "Yasemin is the founder and engineer of barri, a mobile app designed to help people with dietary restrictions find food. With a background in software engineering, Yasemin is passionate about creating solutions from the ground up and driving growth through constant experimentation.",
         linkedin: "https://www.linkedin.com/in/yasemin-snoek%F0%9F%8C%B1-563a8b12a"
       },
@@ -68,8 +85,8 @@
         presenter: "Monique De Jong",
         company: "Randstad",
         image: "/images/speakers/monique_de_jong.jpg",
-        description: "Ever thought you had your career all planned out—only to end up somewhere completely unexpected? That’s exactly what happened to Monique. She started with dreams of becoming a veterinarian, but life steered her into the world of technology. In this talk, Monique will share how she went from computer science student to CIO, navigating a career full of twists, challenges, and surprises. She will talk about how to spot and seize the right opportunities, how to uncover your true strengths and passions, and how to stay confident when things don’t go as planned. Monique will also take us through the stages of her career from programmer to tester, test manager, project manager, IT manager, and finally CIO. After reaching the CIO role, she realized her true passion was in the hands-on leadership and team-building aspects of IT management and deliberately stepped back into an IT manager position again to do the work she loves most. Expect to leave the talk inspired to embrace the unexpected and think differently about your own career journey in IT.",
-        bio: "Monique holds a drs. in Computer Science from the Free University of Amsterdam and an MBA from Rotterdam School of Management, Erasmus University. Her unique blend of technical depth, drive to achieve the impossible, strong project management, and people leadership has consistently driven successful and innovative IT transformations. Currently shifting into a coaching position at Randstad Groep Nederland, she’s dedicated to passing on her insights and experience over three decades in IT to the next generation of IT professionals.",
+        description: "Ever thought you had your career all planned out—only to end up somewhere completely unexpected? That's exactly what happened to Monique. She started with dreams of becoming a veterinarian, but life steered her into the world of technology. In this talk, Monique will share how she went from computer science student to CIO, navigating a career full of twists, challenges, and surprises. She will talk about how to spot and seize the right opportunities, how to uncover your true strengths and passions, and how to stay confident when things don't go as planned. Monique will also take us through the stages of her career from programmer to tester, test manager, project manager, IT manager, and finally CIO. After reaching the CIO role, she realized her true passion was in the hands-on leadership and team-building aspects of IT management and deliberately stepped back into an IT manager position again to do the work she loves most. Expect to leave the talk inspired to embrace the unexpected and think differently about your own career journey in IT.",
+        bio: "Monique holds a drs. in Computer Science from the Free University of Amsterdam and an MBA from Rotterdam School of Management, Erasmus University. Her unique blend of technical depth, drive to achieve the impossible, strong project management, and people leadership has consistently driven successful and innovative IT transformations. Currently shifting into a coaching position at Randstad Groep Nederland, she's dedicated to passing on her insights and experience over three decades in IT to the next generation of IT professionals.",
         linkedin: "https://www.linkedin.com/in/monique-de-jong-3912a6/"
       },
     ],
@@ -80,8 +97,8 @@
         presenter: "Liana Gukasyan",
         company: "JetBrains",
         image: "/images/speakers/liana_gukasyan.jpg",
-        description: "In this hands-on workshop, you’ll build and deploy a simple personal website from scratch, using basic HTML and CSS. We’ll also explore how AI tools can support your process. By the end of the session, you’ll have your own digital presence online – a personal website you can continue to customize and grow.",
-        bio: "Liana is a Frontend Infrastructure Team Lead with extensive experience in web development and team collaboration. She’s passionate about creating engaging learning experiences and enjoys guiding developers in building practical, real-world projects. She also loves exploring ways to optimize and improve frontend workflows.",
+        description: "In this hands-on workshop, you'll build and deploy a simple personal website from scratch, using basic HTML and CSS. We'll also explore how AI tools can support your process. By the end of the session, you'll have your own digital presence online – a personal website you can continue to customize and grow.",
+        bio: "Liana is a Frontend Infrastructure Team Lead with extensive experience in web development and team collaboration. She's passionate about creating engaging learning experiences and enjoys guiding developers in building practical, real-world projects. She also loves exploring ways to optimize and improve frontend workflows.",
         rowSpan: 1,
         linkedin: "https://www.linkedin.com/in/liana-gukasyan/"
       },
@@ -276,38 +293,60 @@
       </div>
       
       <div class="modal-content">
-        <div class="presenter-section">
-          <div class="presenter-image" style="background-image: url({selectedWorkshop.image})"></div>
-          <div class="presenter-info">
-            <h3 class="presenter-name">
-              {selectedWorkshop.presenter}
-              {#if selectedWorkshop.linkedin}
-                <a
-                  href={selectedWorkshop.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="linkedin-inline-btn"
-                  aria-label="LinkedIn profile"
-                >
-                  <span class="material-icons" style="font-size: 18px; vertical-align: middle; margin-left: 4px;">linkedin</span>
-                </a>
-              {/if}
-            </h3>
+        {#if selectedWorkshop.presenters && selectedWorkshop.presenters.length > 0}
+          <!-- Multiple presenters layout -->
+          <div class="presenters-section">
+            <h3 class="presenters-title">{selectedWorkshop.presenter}</h3>
             <p class="presenter-company">{selectedWorkshop.company}</p>
-              </div>
+          </div>
+        {:else}
+          <!-- Single presenter layout -->
+          <div class="presenter-section">
+            <div class="presenter-image" style="background-image: url({selectedWorkshop.image})"></div>
+            <div class="presenter-info">
+              <h3 class="presenter-name">
+                {selectedWorkshop.presenter}
+                {#if selectedWorkshop.linkedin}
+                  <a
+                    href={selectedWorkshop.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="linkedin-inline-btn"
+                    aria-label="LinkedIn profile"
+                  >
+                    <span class="material-icons" style="font-size: 18px; vertical-align: middle; margin-left: 4px;">linkedin</span>
+                  </a>
+                {/if}
+              </h3>
+              <p class="presenter-company">{selectedWorkshop.company}</p>
             </div>
-
+          </div>
+        {/if}
             
         <div class="workshop-details-modal">
           <div class="detail-section">
             <h4>Description</h4>
             <p>{@html selectedWorkshop.description}</p>
-            </div>
-          
-          <div class="detail-section">
-            <h4>About the Presenter</h4>
-            <p>{@html selectedWorkshop.bio}</p>
           </div>
+          
+          {#if selectedWorkshop.presenters && selectedWorkshop.presenters.length > 0}
+            <!-- Multiple presenters bios -->
+            {#each selectedWorkshop.presenters as presenter}
+              <div class="detail-section presenter-detail">
+                <div class="presenter-header">
+                  <div class="presenter-image" style="background-image: url({presenter.image})"></div>
+                  <h4 class="presenter-individual-name">{presenter.name}</h4>
+                </div>
+                <p>{@html presenter.bio}</p>
+              </div>
+            {/each}
+          {:else}
+            <!-- Single presenter bio -->
+            <div class="detail-section">
+              <h4>About the Presenter</h4>
+              <p>{@html selectedWorkshop.bio}</p>
+            </div>
+          {/if}
           
           <div class="detail-section">
             <div class="workshop-meta">
@@ -579,6 +618,54 @@
     background-position: center;
     border-radius: 50%;
     border: 2px solid rgba(255, 255, 255, 0.8);
+  }
+  
+  .presenters-section {
+    text-align: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  .presenters-title {
+    margin: 0 0 5px;
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--color-text);
+  }
+  
+  .presenter-detail {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 20px;
+  }
+  
+  .presenter-detail:last-of-type {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+  
+  .presenter-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+  .presenter-header .presenter-image {
+    width: 60px;
+    height: 60px;
+    margin: 0 15px 0 0;
+    flex-shrink: 0;
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+  }
+  
+  .presenter-individual-name {
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--color-text);
   }
   
   .presenter-info {
