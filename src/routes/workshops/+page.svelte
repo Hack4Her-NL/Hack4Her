@@ -76,7 +76,7 @@
         presenter: "Yasemin Snoek",
         company: "barri",
         image: "/images/speakers/yasemin_snoek.png",
-        description: "Join Yasemin as she shares her journey as the founder of a European tech startup—from the first spark of an idea to navigating the ups and downs of entrepreneurship. Yasemin will dive into the real, behind-the-scenes stories of building a startup, covering everything from securing the first users to handling setbacks. But it won't just be a story. Yasemin will also share practical tips she's learned along the way. You'll get actionable insights on launching a product, building with a small team, and finding your way in an industry where everything feels new. Whether you're an aspiring entrepreneur, curious about working in a tech startup, or just fascinated by the world of entrepreneurship, this talk is for you. Expect an open, honest look at the highs, the lows, and everything in between.",
+        description: "Join Yasemin as she shares her journey as the founder of a European tech startup—from the first spark of an idea to navigating the ups and downs of entrepreneurship. Yasemin will dive into the real, behind-the-scenes stories of building a startup, covering everything from securing the first users to handling setbacks. But it won’t just be a story. Yasemin will also share practical tips she’s learned along the way. You’ll get actionable insights on launching a product, building with a small team, and finding your way in an industry where everything feels new. Whether you’re an aspiring entrepreneur, curious about working in a tech startup, or just fascinated by the world of entrepreneurship, this talk is for you. Expect an open, honest look at the highs, the lows, and everything in between.",
         bio: "Yasemin is the founder and engineer of barri, a mobile app designed to help people with dietary restrictions find food. With a background in software engineering, Yasemin is passionate about creating solutions from the ground up and driving growth through constant experimentation.",
         linkedin: "https://www.linkedin.com/in/yasemin-snoek%F0%9F%8C%B1-563a8b12a"
       },
@@ -97,9 +97,9 @@
         presenter: "Liana Gukasyan",
         company: "JetBrains",
         image: "/images/speakers/liana_gukasyan.jpg",
-        description: "In this hands-on workshop, you'll build and deploy a simple personal website from scratch, using basic HTML and CSS. We'll also explore how AI tools can support your process. By the end of the session, you'll have your own digital presence online – a personal website you can continue to customize and grow.",
-        bio: "Liana is a Frontend Infrastructure Team Lead with extensive experience in web development and team collaboration. She's passionate about creating engaging learning experiences and enjoys guiding developers in building practical, real-world projects. She also loves exploring ways to optimize and improve frontend workflows.",
-        rowSpan: 1,
+        description: "In this hands-on workshop, you’ll build and deploy a simple personal website from scratch, using basic HTML and CSS. We’ll also explore how AI tools can support your process. By the end of the session, you’ll have your own digital presence online – a personal website you can continue to customize and grow.",
+        bio: "Liana is a Frontend Infrastructure Team Lead with extensive experience in web development and team collaboration. She’s passionate about creating engaging learning experiences and enjoys guiding developers in building practical, real-world projects. She also loves exploring ways to optimize and improve frontend workflows.",
+        rowSpan: 2,
         linkedin: "https://www.linkedin.com/in/liana-gukasyan/"
       },
       null
