@@ -79,41 +79,7 @@
     'While we aim to cover as much as possible, we cannot guarantee full compensation. We will inform you promptly before the event regarding the coverage of your costs.'
   ];
 
-  // Schedule data
-  const fridaySchedule = [
-    {time: '13:45 - 14:00', activity: 'Arrival & Check-In', location: 'Vrije Universiteit Amsterdam NU Building Ground Floor'},
-    {time: '14:00 - 14:15', activity: 'Introduction', location: 'NU-Theatre 1'},
-    {time: '14:15 - 15:00', activity: 'A word from our sponsors!', location: 'NU-Theatre 1'},
-    {time: '15:00 - 15:30', activity: 'Keynote', location: 'NU-Theatre 1'},
-    {time: '15:30 - 16:25', activity: 'Workshops Round 1', location: ''},
-    {time: '16:30 - 17:30', activity: 'Workshops Round 2', location: ''},
-    {time: '17:30 - 19:00', activity: 'Networking Event', location: 'Vrije Universiteit NU Building Ground Floor'},
-    {time: '19:00', activity: 'Day Ends', location: ''}
-  ];
 
-  const saturdaySchedule = [
-    {time: '9:00 - 9:30', activity: 'Arrival & Check-In', location: 'Vrije Universiteit NU Building Ground Floor'},
-    {time: '9:30 - 10:00', activity: 'Breakfast', location: 'Vrije Universiteit NU Building Ground Floor'},
-    {time: '10:00 - 10:15', activity: 'Introduction', location: 'NU-Theatre 1'},
-    {time: '10:15 - 11:00', activity: 'Challenge Workshops', location: 'NU-2B01, NU-2B05, NU-2B12, NU-2B17, NU-2B25'},
-    {time: '11:00 - 14:00', activity: 'Hacking', location: 'NU-2B01, NU-2B05, NU-2B12, NU-2B17, NU-2B25'},
-    {time: '14:00 - 15:00', activity: 'Lunch', location: 'Vrije Universiteit NU Building Ground Floor'},
-    {time: '15:00 - 19:00', activity: 'Hacking', location: 'NU-2B01, NU-2B05, NU-2B12, NU-2B17, NU-2B25'},
-    {time: '19:00 - 20:00', activity: 'Dinner', location: 'Vrije Universiteit NU Building Ground Floor'},
-    {time: '20:00 - 22:00', activity: 'Hacking', location: 'NU-2B01, NU-2B05, NU-2B12, NU-2B17, NU-2B25'}
-  ];
-
-  const sundaySchedule = [
-    {time: '9:00 - 9:30', activity: 'Arrival & Check-In', location: 'Vrije Universiteit NU Building Ground Floor'},
-    {time: '9:30 - 10:00', activity: 'Breakfast', location: 'Vrije Universiteit NU Building Ground Floor'},
-    {time: '10:00 - 10:05', activity: 'Introduction', location: 'NU-Theatre 1'},
-    {time: '10:05 - 14:00', activity: 'Hacking', location: 'NU-2B01, NU-2B05, NU-2B12, NU-2B17, NU-2B25'},
-    {time: '14:00 - 15:00', activity: 'Lunch', location: 'Vrije Universiteit NU Building Ground Floor'},
-    {time: '15:00 - 16:00', activity: 'Hacking (Last Hour)', location: 'NU-2B01, NU-2B05, NU-2B12, NU-2B17, NU-2B25'},
-    {time: '16:00 - 18:00', activity: 'Judging/Presenting', location: 'NU-4A06, NU-4A25'},
-    {time: '18:00 - 18:30', activity: 'Deliberation', location: 'NU-4A06, NU-4A25'},
-    {time: '18:30 - 19:30', activity: 'Closing and Presentation of Awards', location: 'NU-Theatre 1'}
-  ];
 
   // Tab handling
   let activeTab = 'friday';
@@ -195,81 +161,9 @@
   </div>
 </section>
 
-<!-- Schedule Section -->
-<section class="section gradient-background">
-  <div class="section-container">
-    <h2 class="section-title text-white">Event Schedule</h2>
-    
-    <div class="tabs-container">
-      <div class="tabs">
-        <button 
-          class="tab-button {activeTab === 'friday' ? 'active' : ''}" 
-          on:click={() => setActiveTab('friday')}
-        >
-          Friday
-        </button>
-        <button 
-          class="tab-button {activeTab === 'saturday' ? 'active' : ''}" 
-          on:click={() => setActiveTab('saturday')}
-        >
-          Saturday
-        </button>
-        <button 
-          class="tab-button {activeTab === 'sunday' ? 'active' : ''}" 
-          on:click={() => setActiveTab('sunday')}
-        >
-          Sunday
-        </button>
-      </div>
-      
-      <div class="tab-content">
-        {#if activeTab === 'friday'}
-          <div class="schedule-container">
-            {#each fridaySchedule as item}
-              <div class="schedule-item">
-                <div class="time-column">{item.time}</div>
-                <div class="activity-column">
-                  <div class="activity-title">{item.activity}</div>
-                  {#if item.location}
-                    <div class="activity-location">({item.location})</div>
-                  {/if}
-                </div>
-              </div>
-            {/each}
-          </div>
-        {:else if activeTab === 'saturday'}
-          <div class="schedule-container">
-            {#each saturdaySchedule as item}
-              <div class="schedule-item">
-                <div class="time-column">{item.time}</div>
-                <div class="activity-column">
-                  <div class="activity-title">{item.activity}</div>
-                  {#if item.location}
-                    <div class="activity-location">({item.location})</div>
-                  {/if}
-                </div>
-              </div>
-            {/each}
-          </div>
-        {:else if activeTab === 'sunday'}
-          <div class="schedule-container">
-            {#each sundaySchedule as item}
-              <div class="schedule-item">
-                <div class="time-column">{item.time}</div>
-                <div class="activity-column">
-                  <div class="activity-title">{item.activity}</div>
-                  {#if item.location}
-                    <div class="activity-location">({item.location})</div>
-                  {/if}
-                </div>
-              </div>
-            {/each}
-          </div>
-        {/if}
-      </div>
-    </div>
-  </div>
-</section>
+
+
+<!-- Schedule moved to dedicated /schedule page -->
 
 <!-- Free Travel Policy Section -->
 <section class="section">
@@ -528,9 +422,6 @@
     border-radius: 30px;
   }
 
-  .Details-schedule {
-    color: white;
-  }
   
   .tab-content {
     background-color: rgba(255, 255, 255, 0.1);
@@ -540,44 +431,6 @@
     overflow-y: auto;
   }
   
-  /* Schedule */
-  .schedule-container {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-  
-  .schedule-item {
-    display: flex;
-    background-color: rgba(255, 255, 255, 0.2);
-    border-radius: var(--border-radius);
-    padding: 15px;
-  }
-  
-  .time-column {
-    width: 100px;
-    flex-shrink: 0;
-    font-weight: bold;
-    color: white;
-    font-size: 14px;
-  }
-  
-  .activity-column {
-    flex: 1;
-  }
-  
-  .activity-title {
-    font-weight: bold;
-    color: white;
-    font-size: 16px;
-  }
-  
-  .activity-location {
-    font-style: italic;
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 14px;
-    margin-top: 4px;
-  }
   
   /* FAQ */
   .faq-container {
