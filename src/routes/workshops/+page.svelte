@@ -8,10 +8,15 @@
 
   // Room data
   const rooms = [
-    { name: "NU-4A25", capacity: "", size: "" },
-    { name: "NU-4B43", capacity: "", size: "" },
-    { name: "NU-4B47", capacity: "", size: "" },
-    { name: "NU-4B01", capacity: "", size: "" }
+    //{ name: "NU-4A25", capacity: "", size: "" },
+    //{ name: "NU-4B43", capacity: "", size: "" },
+    //{ name: "NU-4B47", capacity: "", size: "" },
+    //{ name: "NU-4B01", capacity: "", size: "" },
+    { name: "Room 1", capacity: "", size: "" },
+    { name: "Room 2", capacity: "", size: "" },
+    { name: "Room 3", capacity: "", size: "" },
+    { name: "Room 4", capacity: "", size: "" },
+    { name: "Room 5", capacity: "", size: "" }
   ];
 
   // Time slots
