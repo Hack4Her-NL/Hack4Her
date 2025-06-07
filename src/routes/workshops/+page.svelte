@@ -30,14 +30,13 @@
     // Room 1
     [
       { // 15:00 - 16:30, spans two slots
-        title: "ServiceNow",
-        presenter: "TBD",
+        title: "Multilingual AI Evaluation",
+        presenter: "Alexandra Lemer",
         company: "ServiceNow",
-        image: "",
-        description: "Coming soon!",
-        bio: "Coming soon!",
-        rowSpan: 2,
-        confirmed: false
+        image: "/images/speakers/alexandra.jpeg",
+        description: "Learn how experts at ServiceNow leverage customers’ use cases and genuine user experiences to build a result driven and actionable evaluation framework.",
+        bio: "Alexandra Lemer is a Globalization Engineer with significant experience in supporting global customers with multilingual implementations and crafting customized strategies to meet the language needs of both private and public sector customers.<br>Additionally, Alexandra oversees the development and implementation of ServiceNow’s multilingual AI evaluation program, ensuring effective language integration within their AI-powered products and solutions.<br>Her efforts contribute to improving ServiceNow’s usability for all non-English speaking customers.",
+        rowSpan: 2
       }, 
       null, // covered by workshop above
     ],
@@ -102,8 +101,20 @@
         presenter: "Jezabel & Sebastiaan",
         company: "KPN",
         image: "",
-        description: "MIFARE DESFire is the stronger, slightly more expensive sibling of the MIFARE family of smartcards. This workshop aims to cover the basics of the card's functions as well as how the most important crypto works. After a short lecture, it is up to you to analyze captured DESFire traces of vulnerable reader implementations with a Proxmark3 and program your own DESFire card to bypass the reader's security. Proxmark3 devices and DESFire cards will be provided for use during the workshop. \nIMPORTANT: This workshop requires you to bring your own laptop to run the Proxmark3 client software.",
-        bio: "Jezabel works as an Ethical Hacker in the KPN internal redteam. After spending 5 years pentesting in France, they relocated to the Netherlands to continue this activity with another perspective. They love tinkering, hacking, hardware, and learning new things. Sebastiaan is an Ethical Hacker at KPN with an interest in binary analysis and exploitation, system security and breaking programs in general. Before that, he worked as an incident responder and forensic analyst at KPN-CERT. Whenever opportunity arises, he can be found at CTF events.",
+        description: "MIFARE DESFire is the stronger, slightly more expensive sibling of the MIFARE family of smartcards. This workshop aims to cover the basics of the card's functions as well as how the most important crypto works. After a short lecture, it is up to you to analyze captured DESFire traces of vulnerable reader implementations with a Proxmark3 and program your own DESFire card to bypass the reader's security. Proxmark3 devices and DESFire cards will be provided for use during the workshop.<br><br>IMPORTANT: This workshop requires you to bring your own laptop to run the Proxmark3 client software.",
+        bio: "About the presenters",
+        presenters: [
+          {
+            name: "Jezabel Parmentier",
+            image: "/images/speakers/jezabel.png",
+            bio: "Jezabel works as an Ethical Hacker in the KPN internal redteam. After spending 5 years pentesting in France, they relocated to the Netherlands to continue this activity with another perspective. They love tinkering, hacking, hardware, and learning new things."
+          },
+          {
+            name: "Sebastiaan Groot",
+            image: "/images/speakers/sebastiaan.jpg",
+            bio: "Sebastiaan is an Ethical Hacker at KPN with an interest in binary analysis and exploitation, system security and breaking programs in general. Before that, he worked as an incident responder and forensic analyst at KPN-CERT. Whenever opportunity arises, he can be found at CTF events."
+          }
+        ],
         rowSpan: 2
       }, 
       null, // covered by previous workshop
