@@ -1,6 +1,7 @@
 <script lang="ts">
   import { pageSeo } from '$lib/utils/seo';
   import { routes } from '$lib/utils/routes';
+  import { onMount } from 'svelte';
 
   // Set page-specific SEO metadata
   export const metadata = {
@@ -10,12 +11,33 @@
     ogType: 'website'
   };
 
+  // Keynote data
+  const keynoteData = {
+    title: "Reimagining AI Through Inclusion and Integrity",
+    company: "Women4Cyber",
+    presenters: [
+      {
+        name: "Daphne Van Vliet ",
+        image: "/images/speakers/Daphne.png",
+        bio: ""
+      },
+      {
+        name: "Ilse Parra", 
+        image: "/images/speakers/Ilse.png",
+        bio: ""
+      }
+    ],
+    description: "In this keynote, Daphne and Ilse Parra will share the challenges they have overcome to reach the positions they hold today. Building on their experiences, they will introduce key principles of artificial intelligence, encouraging students to consider the concept of just by design—alongside private and secure by design—as a foundational element in AI development. Within this framework, they will present six guiding principles aimed at supporting the creation of AI systems that are just, inclusive, and beneficial for everyone.",
+    time: "15:00 - 15:30",
+    location: "NU-Theatre 1"
+  };
+
   // Schedule data
   const fridaySchedule = [
     {time: '13:45 - 14:00', activity: 'Arrival & Check-In', location: 'Vrije Universiteit Amsterdam NU Building Ground Floor'},
     {time: '14:00 - 14:15', activity: 'Introduction', location: 'NU-Theatre 1'},
     {time: '14:15 - 15:00', activity: 'A word from our sponsors!', location: 'NU-Theatre 1'},
-    {time: '15:00 - 15:30', activity: 'Keynote', location: 'NU-Theatre 1'},
+    {time: '15:00 - 15:30', activity: 'Keynote', location: 'NU-Theatre 1', isKeynote: true},
     {time: '15:30 - 16:25', activity: 'Workshops Round 1', location: ''},
     {time: '16:30 - 17:30', activity: 'Workshops Round 2', location: ''},
     {time: '17:30 - 19:00', activity: 'Networking Event', location: 'Vrije Universiteit NU Building Ground Floor'},
@@ -67,6 +89,43 @@
   function isRegularWorkshop(activity) {
     return activity.toLowerCase().includes('workshop') && !activity.toLowerCase().includes('challenge workshop');
   }
+
+  // Modal handling
+  let modalOpen = false;
+  let selectedKeynote = null;
+
+  function openKeynoteModal() {
+    selectedKeynote = keynoteData;
+    modalOpen = true;
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    modalOpen = false;
+    selectedKeynote = null;
+    document.body.style.overflow = '';
+  }
+
+  // Close modal when clicking outside
+  function handleBackdropClick(e) {
+    if (e.target === e.currentTarget) {
+      closeModal();
+    }
+  }
+
+  // Close modal when ESC key is pressed
+  function handleKeydown(e) {
+    if (e.key === 'Escape' && modalOpen) {
+      closeModal();
+    }
+  }
+
+  onMount(() => {
+    window.addEventListener('keydown', handleKeydown);
+    return () => {
+      window.removeEventListener('keydown', handleKeydown);
+    }
+  });
 </script>
 
 <svelte:head>
@@ -141,7 +200,15 @@
               <div class="schedule-item">
                 <div class="time-column">{item.time}</div>
                 <div class="activity-column">
-                  {#if isChallengeWorkshop(item.activity)}
+                  {#if item.isKeynote}
+                    <button 
+                      class="keynote-button"
+                      on:click={openKeynoteModal}
+                      on:keydown={(e) => e.key === 'Enter' && openKeynoteModal()}
+                    >
+                      <div class="activity-title keynote-title">{item.activity}</div>
+                    </button>
+                  {:else if isChallengeWorkshop(item.activity)}
                     <a href={routes.challenges} class="activity-link">
                       <div class="activity-title">{item.activity}</div>
                     </a>
@@ -241,6 +308,65 @@
     </div>
   </div>
 </section>
+
+<!-- Keynote Modal -->
+{#if modalOpen && selectedKeynote}
+  <!-- svelte-ignore a11y_no_static_element_interactions -->
+  <div 
+    class="modal-backdrop" 
+    on:click={handleBackdropClick}
+    on:keydown={(e) => e.key === 'Escape' && closeModal()}
+    tabindex="-1"
+  >
+    <div class="modal-container">
+      <div class="modal-header">
+        <h2 class="modal-title">{selectedKeynote.title}</h2>
+        <button class="modal-close" on:click={closeModal}>
+          <span class="material-icons">close</span>
+        </button>
+      </div>
+      
+      <div class="modal-content">
+        <div class="presenters-section">
+          <h3 class="presenters-title">Keynote Speakers</h3>
+          <p class="presenter-company">{selectedKeynote.company}</p>
+        </div>
+        
+            
+        <div class="keynote-details-modal">
+          <div class="detail-section">
+            <h4>Description</h4>
+            <p>{@html selectedKeynote.description}</p>
+          </div>
+          
+          <!-- Multiple presenters bios -->
+          {#each selectedKeynote.presenters as presenter}
+            <div class="detail-section presenter-detail">
+              <div class="presenter-header">
+                <div class="presenter-image" style="background-image: url({presenter.image})"></div>
+                <h4 class="presenter-individual-name">{presenter.name}</h4>
+              </div>
+              <p>{@html presenter.bio}</p>
+            </div>
+          {/each}
+          
+          <div class="detail-section">
+            <div class="keynote-meta">
+              <div class="meta-item">
+                <span class="material-icons">access_time</span>
+                <span>{selectedKeynote.time}</span>
+              </div>
+              <div class="meta-item">
+                <span class="material-icons">location_on</span>
+                <span>{selectedKeynote.location}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{/if}
 
 <style>
   /* Header styles */
@@ -393,21 +519,31 @@
     text-decoration: none;
     color: inherit;
     transition: all 0.2s;
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    padding: 8px 12px;
+    margin: 2px 0;
   }
   
   .activity-link:hover {
-    color: var(--color-primary);
-    transform: translateX(2px);
+    color: white;
+    background: rgba(var(--color-primary-rgb), 0.8);
+    border-color: var(--color-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   }
   
   .activity-link .activity-title {
     transition: color 0.2s;
+    margin-bottom: 0;
   }
   
   .activity-link:hover .activity-title {
-    color: var(--color-primary);
+    color: white;
   }
-  
+
   .activity-location {
     font-style: italic;
     color: rgba(255, 255, 255, 0.7);
@@ -496,6 +632,235 @@
     
     .info-grid {
       grid-template-columns: 1fr;
+    }
+  }
+
+  /* Keynote Button Styles */
+  .keynote-button {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.2s;
+    padding: 8px 12px;
+    margin: 2px 0;
+    cursor: pointer;
+    width: auto;
+    display: inline-block;
+  }
+
+  .keynote-button:hover {
+    color: white;
+    background: rgba(var(--color-primary-rgb), 0.8);
+    border-color: var(--color-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  .keynote-title {
+    font-weight: bold;
+    transition: color 0.2s;
+    margin-bottom: 0;
+  }
+
+  .keynote-button:hover .keynote-title {
+    color: white;
+  }
+
+  /* Modal Styles */
+  .modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 20px;
+    backdrop-filter: blur(5px);
+  }
+
+  .modal-container {
+    background: var(--gradient-primary);
+    border-radius: var(--border-radius);
+    max-width: 90%;
+    width: 600px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    position: relative;
+    color: var(--color-text);
+  }
+
+  .modal-header {
+    padding: 20px 20px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .modal-title {
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+    padding-right: 30px;
+    color: var(--color-text);
+  }
+
+  .modal-close {
+    background: none;
+    border: none;
+    color: var(--color-text);
+    cursor: pointer;
+    font-size: 24px;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .modal-close:hover {
+    opacity: 1;
+  }
+
+  .modal-content {
+    padding: 20px;
+    color: var(--color-text);
+  }
+
+  .presenters-section {
+    text-align: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .presenters-title {
+    margin: 0 0 5px;
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--color-text);
+  }
+
+  .keynote-details-modal {
+    color: var(--color-text);
+  }
+
+  .detail-section {
+    margin-bottom: 25px;
+  }
+
+  .detail-section h4 {
+    margin: 0 0 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--color-text);
+  }
+
+  .detail-section p {
+    margin: 0;
+    line-height: 1.5;
+    font-size: 15px;
+    color: var(--color-text);
+  }
+
+  .presenter-detail {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 20px;
+  }
+
+  .presenter-detail:last-of-type {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .presenter-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+
+  .presenter-image {
+    width: 60px;
+    height: 60px;
+    margin: 0 15px 0 0;
+    flex-shrink: 0;
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .presenter-individual-name {
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--color-text);
+  }
+
+  .keynote-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 10px;
+  }
+
+  .meta-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 15px;
+    color: var(--color-text);
+  }
+
+  /* Scrollbar styling for modal */
+  .modal-container {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.3) rgba(255, 255, 255, 0.1);
+  }
+
+  .modal-container::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .modal-container::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+  }
+
+  .modal-container::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 3px;
+  }
+
+  /* Responsive modal styles */
+  @media (max-width: 768px) {
+    .modal-container {
+      width: 100%;
+      max-width: 100%;
+      border-radius: 12px;
+    }
+    
+    .modal-title {
+      font-size: 20px;
+    }
+    
+    .presenter-header {
+      flex-direction: column;
+      text-align: center;
+    }
+    
+    .presenter-image {
+      margin: 0 auto 15px;
     }
   }
 </style> 
