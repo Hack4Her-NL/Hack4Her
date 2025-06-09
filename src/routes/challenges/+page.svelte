@@ -8,73 +8,45 @@
   // Challenge data
   const challenges = [
     {
-      title: 'AI for Good',
-      description: 'Develop an AI-powered solution that addresses a social issue affecting women or underrepresented groups.',
-      sponsor: 'TechCorp',
-      prize: '$2,000',
-      tags: ['AI/ML', 'Social Impact'],
-      extraInfo: 'This challenge focuses on creating AI solutions that address social issues affecting women or underrepresented groups. Participants are encouraged to consider ethical implications of AI and develop responsible AI systems that promote inclusivity and fairness.',
+      title: 'ServiceNow: Ethical AI Agents for Public Services',
+      description: 'How do we build AI systems that support—not replace—humans, especially in sensitive public service workflows? In this challenge, you\'ll step into the role of data scientists at a fictional Dutch municipality and design AI agents that help process childcare subsidy applications.',
+      sponsor: 'ServiceNow',
+      prize: 'TBD',
+      tags: ['Responsible AI', 'Gender equity', 'Human-in-the-loop systems'],
+      extraInfo: 'Your task is to develop agent workflows using ServiceNow\'s AgentLab framework. These agents will classify cases, automate decisions, and escalate when human oversight is needed. You\'ll decide where automation helps and where compassion and care matter most.',
       requirements: [
-        'Must use machine learning or AI components',
-        'Should address a clear social issue affecting women',
-        'Must include documentation on ethical considerations',
-        'Should be accessible to diverse user groups'
+        'Agent design and workflow architecture',
+        'Python programming skills',
+        'Ethical AI thinking and implementation',
+        'Human-in-the-loop system design'
       ]
     },
     {
-      title: 'Health & Wellness',
-      description: 'Create an application that promotes women\'s health and wellness through technology.',
-      sponsor: 'HealthTech',
-      prize: '$1,500',
-      tags: ['Healthcare', 'Mobile'],
-      extraInfo: 'Create innovative solutions that address women\'s health concerns, improve wellness monitoring, or provide accessible health information. Consider issues like maternal health, mental wellness, or fitness tracking specifically designed for women\'s needs.',
+      title: 'Randstad Digital: Decoding Gender Bias in Hiring',
+      description: 'Language matters. In IT and Finance, the way job ads are written can unintentionally discourage women from applying. This challenge asks teams to rethink how vacancies are structured, using AI tools to analyze and redesign job postings for greater inclusivity.',
+      sponsor: 'Randstad Digital',
+      prize: 'TBD',
+      tags: ['Inclusive hiring', 'Gender equity', 'AI for social impact'],
+      extraInfo: 'Working with real and synthetic vacancy data, as well as gender distribution metrics, participants will explore how language shapes opportunity and design tools or prototypes that promote fairer hiring practices.',
       requirements: [
-        'Must focus on specific health needs of women',
-        'Should have an intuitive user interface',
-        'Must protect sensitive health information',
-        'Should be evidence-based where possible'
+        'Natural Language Processing (NLP) skills',
+        'Large Language Models (LLMs) experience',
+        'Data analysis capabilities',
+        'Prompt design and UX thinking'
       ]
     },
     {
-      title: 'Educational Technology',
-      description: 'Build a tool that enhances STEM education for young women and girls.',
-      sponsor: 'EduSolutions',
-      prize: '$1,500',
-      tags: ['Education', 'Web App'],
-      extraInfo: 'This challenge seeks innovative approaches to make STEM education more engaging and accessible to young women and girls. Solutions might include interactive learning platforms, gamified educational experiences, or tools that connect students with female role models in STEM.',
+      title: 'Equileap: Gender Equality Data Hub',
+      description: 'Equileap is the leading provider of data on gender equality in the corporate world. For this challenge, participants will reimagine how that data is presented—transforming it from static reports into a compelling, interactive experience.',
+      sponsor: 'Equileap',
+      prize: 'TBD',
+      tags: ['Data visualization', 'Gender equity in business', 'Ethical tech'],
+      extraInfo: 'The focus: making global gender equality trends accessible and engaging for everyone, without giving away the raw data that powers Equileap\'s business. Transform static reports into compelling, interactive experiences.',
       requirements: [
-        'Must target K-12 or university-level education',
-        'Should incorporate STEM educational principles',
-        'Must be engaging and interactive',
-        'Should track learning outcomes'
-      ]
-    },
-    {
-      title: 'Sustainable Future',
-      description: 'Design a solution that addresses environmental challenges while promoting diversity in green tech.',
-      sponsor: 'GreenFuture',
-      prize: '$1,000',
-      tags: ['Sustainability', 'IoT'],
-      extraInfo: 'Develop technology solutions that address environmental challenges while promoting diversity in green tech. Consider issues like climate change, renewable energy, sustainable consumption, or conservation efforts.',
-      requirements: [
-        'Must address a specific environmental challenge',
-        'Should incorporate data collection or analysis',
-        'Must have a clear sustainability impact',
-        'Should promote inclusion in environmental tech'
-      ]
-    },
-    {
-      title: 'Women in Tech Empowerment',
-      description: 'Create an innovative solution that addresses challenges faced by women in technology or empowers women through technology.',
-      sponsor: 'Hack4Her',
-      prize: '$3,000',
-      tags: ['Grand Prize', 'All Teams'],
-      extraInfo: 'This is our grand prize challenge! Create solutions that directly address barriers faced by women in technology or use technology to empower women globally. Examples might include mentorship platforms, bias detection tools, or career advancement resources.',
-      requirements: [
-        'Must directly address challenges women face in tech',
-        'Should be scalable to reach many women',
-        'Must demonstrate measurable impact',
-        'Should incorporate feedback from target users'
+        'Creative thinking and innovation',
+        'UI/UX design skills',
+        'Frontend/backend development',
+        'Data handling and visualization'
       ]
     }
   ];
@@ -157,14 +129,13 @@
   <div class="section-container">
     <div class="previous-website-info">
       <p>
-        Challenges and sign-ups will be posted soon!<br>
-        In the meantime, check our <a href={routes.information} class="website-link">schedule</a> on the information page, or <a href={routes.about} class="website-link">learn more</a> about our event here.
+        Challenges are now live! Choose one of the exciting challenges below or create your own project that aligns with our theme.<br>
+        Check our <a href={routes.information} class="website-link">schedule</a> on the information page, or <a href={routes.about} class="website-link">learn more</a> about our event here.
       </p>
     </div>
   </div>
 </section>
 
-<!--
 <section class="section">
   <div class="section-container">
     <p class="section-text">
@@ -198,8 +169,6 @@
             </div>
           </div>
           
-          <p class="challenge-description">{challenge.description}</p>
-          
           <div class="challenge-sponsor">
             <span class="material-icons sponsor-icon">business</span>
             <span>Sponsored by {challenge.sponsor}</span>
@@ -213,10 +182,11 @@
           
           {#if expandedChallenges.has(index)}
             <div class="challenge-details">
+              <p class="challenge-description">{challenge.description}</p>
               <p class="details-text">{challenge.extraInfo}</p>
               
               <div class="requirements">
-                <h4>Requirements:</h4>
+                <h4>Skills involved:</h4>
                 <ul>
                   {#each challenge.requirements as requirement}
                     <li>{requirement}</li>
@@ -230,7 +200,7 @@
     </div>
   </div>
 </section>
-
+<!--
 <section class="section">
   <div class="section-container">
     <h2 class="section-title">Judging Criteria</h2>
@@ -247,7 +217,6 @@
   </div>
 </section>
 -->
-
 <style>
   /* Header styles */
   .page-header {
