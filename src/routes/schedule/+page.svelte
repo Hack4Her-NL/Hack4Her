@@ -19,12 +19,12 @@
       {
         name: "Daphne Van Vliet ",
         image: "/images/speakers/Daphne.png",
-        bio: ""
+        bio: "Daphne never set out to work in tech. While pursuing her law degree, she took a student job in the industry, and quickly realized something unexpected: the impact she wanted to make through the legal system could be amplified through technology.\nWhat began as a side job evolved into a career rooted in purpose. Her legal training sharpened her ability to navigate complexity with clarity, ask the right questions, and connect precision with empathy. As a Software Asset Management Consultant, she saw how legal thinking could become a bridge—supporting IT companies in building trust, meeting compliance needs, and driving responsible growth.\nHer work is grounded in human rights, digital ethics, and a belief that technology must serve people, not the other way around. She thrives at the edge of independent thinking, emotional intelligence, and purpose-driven leadership."
       },
       {
         name: "Ilse Parra", 
         image: "/images/speakers/Ilse.png",
-        bio: ""
+        bio: "Ilse is passionately dedicated to championing women's empowerment within the Cybersecurity industry and fostering inclusivity for diverse communities, cultures, and perspectives within corporate environments. Her commitment funded the initiative, \"Skilling Women in Cybersecurity\", where she provides personal career motivation for women that would like to step in a formal role in IT."
       }
     ],
     description: "In this keynote, Daphne and Ilse Parra will share the challenges they have overcome to reach the positions they hold today. Building on their experiences, they will introduce key principles of artificial intelligence, encouraging students to consider the concept of just by design—alongside private and secure by design—as a foundational element in AI development. Within this framework, they will present six guiding principles aimed at supporting the creation of AI systems that are just, inclusive, and beneficial for everyone.",
