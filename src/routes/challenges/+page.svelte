@@ -16,7 +16,7 @@
       extraInfo: 'Your task is to develop agent workflows using ServiceNow\'s AgentLab framework. These agents will classify cases, automate decisions, and escalate when human oversight is needed. You\'ll decide where automation helps and where compassion and care matter most.',
       requirements: [
         'Agent design and workflow architecture',
-        'Python programming skills',
+        'Python programming',
         'Ethical AI thinking and implementation',
         'Human-in-the-loop system design'
       ]
@@ -29,9 +29,9 @@
       tags: ['Inclusive hiring', 'Gender equity', 'AI for social impact'],
       extraInfo: 'Working with real and synthetic vacancy data, as well as gender distribution metrics, participants will explore how language shapes opportunity and design tools or prototypes that promote fairer hiring practices.',
       requirements: [
-        'Natural Language Processing (NLP) skills',
-        'Large Language Models (LLMs) experience',
-        'Data analysis capabilities',
+        'Natural Language Processing (NLP)',
+        'Large Language Models (LLMs)',
+        'Data analysis',
         'Prompt design and UX thinking'
       ]
     },
@@ -44,7 +44,7 @@
       extraInfo: 'The focus: making global gender equality trends accessible and engaging for everyone, without giving away the raw data that powers Equileap\'s business. Transform static reports into compelling, interactive experiences.',
       requirements: [
         'Creative thinking and innovation',
-        'UI/UX design skills',
+        'UI/UX design',
         'Frontend/backend development',
         'Data handling and visualization'
       ]
@@ -124,18 +124,19 @@
   </div>
 </div>
 
-<!-- Coming Soon Section -->
+<!--
 <section class="section">
   <div class="section-container">
     <div class="previous-website-info">
       <p>
-        Challenges are now live! Choose one of the exciting challenges below or create your own project that aligns with our theme.<br>
+        Challenges are now live! Choose one of the exciting challenges below.<br>
         Check our <a href={routes.information} class="website-link">schedule</a> on the information page, or <a href={routes.about} class="website-link">learn more</a> about our event here.
       </p>
     </div>
   </div>
 </section>
-
+-->
+<!--
 <section class="section">
   <div class="section-container">
     <p class="section-text">
@@ -144,6 +145,8 @@
     <a href={routes.registration} class="btn btn-primary">Register Now</a>
   </div>
 </section>
+-->
+
 
 <section class="section gradient-background">
   <div class="section-container">
@@ -162,7 +165,7 @@
           <div class="challenge-header">
             <h3 class="challenge-title">{challenge.title}</h3>
             <div class="challenge-header-right">
-              <span class="prize-tag">{challenge.prize}</span>
+              <span class="prize-tag">Prize: {challenge.prize}</span>
               <span class="material-icons expand-icon">
                 {expandedChallenges.has(index) ? 'expand_less' : 'expand_more'}
               </span>
