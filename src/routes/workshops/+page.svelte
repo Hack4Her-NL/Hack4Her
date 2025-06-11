@@ -123,7 +123,7 @@
     // Room 5
     [
       { // 15:00 - 15:40
-        title: "Chip Design (Logic Synthesis) for AI",
+        title: "Chip Design for AI",
         presenter: "Dr. Marcel Walter",
         company: "Technical University of Munich and MQSC",
         image: "/images/speakers/Marcel.png",
