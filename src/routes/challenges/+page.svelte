@@ -13,7 +13,7 @@
       sponsor: 'ServiceNow',
       prize: 'TBD',
       tags: ['Responsible AI', 'Gender equity', 'Human-in-the-loop systems'],
-      extraInfo: 'Your task is to develop agent workflows using ServiceNow\'s AgentLab framework. These agents will classify cases, automate decisions, and escalate when human oversight is needed. You\'ll decide where automation helps and where compassion and care matter most.',
+      extraInfo: 'Your task is to develop agent workflows using ServiceNow\'s TapeAgents framework. These agents will classify cases, automate decisions, and escalate when human oversight is needed. You\'ll decide where automation helps and where compassion and care matter most.',
       requirements: [
         'Agent design and workflow architecture',
         'Python programming',
