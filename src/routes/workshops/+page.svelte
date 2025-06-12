@@ -14,7 +14,7 @@
     //{ name: "NU-4B01", capacity: "", size: "" },
     { name: "NU-4B11", capacity: "", size: "" },
     { name: "NU-4B43", capacity: "", size: "" },
-    { name: "NU-4A57", capacity: "", size: "" },
+    { name: "NU-4A54", capacity: "", size: "" },
     { name: "NU-4B01", capacity: "", size: "" },
     { name: "NU-4B47", capacity: "", size: "" }
   ];
