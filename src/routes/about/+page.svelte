@@ -126,7 +126,7 @@
       name:'Chi Zhang',
       role: 'Registration Team',
       imageFile: 'chi_zhang.png',
-      linkedInUrl: 'www.linkedin.com/in/chi-zhang-9a59762aa ',
+      linkedInUrl: 'https://www.linkedin.com/in/chi-zhang-9a59762aa/',
       bio:'I am Chi, I am currently studying for a Bachelor\'s degree in Artificial Intelligence at the Vrije Universiteit Amsterdam (VU). As a volunteer with Hack4Her, my goal is to support the team in creating an inspiring and memorable event for all participants.'
     },
     {
