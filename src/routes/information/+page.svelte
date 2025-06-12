@@ -68,7 +68,7 @@
     'Be signed up to participate in our hackathon.',
     'Be present on Friday, Saturday, and Sunday.',
     'Be traveling from outside of Amsterdam to our event.',
-    'Have a travel time to VU of an hour or more (via public transport route).',
+    'Have a travel time to Amsterdam Zuid of an hour or more (via public transport route).',
     'Reconfirm need once within a timely manner (72 hours).'
   ];
 
