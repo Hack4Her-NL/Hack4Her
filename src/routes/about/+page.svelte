@@ -115,13 +115,13 @@
       linkedInUrl: 'https://www.linkedin.com/in/nehir-kirkgoz-811529257/',
       bio: 'Hi, I am Nehir Kirkgoz! As a Computer Science bachelor\'s student at Vrije Universiteit Amsterdam, I am deeply fascinated by the convergence of technology and its societal impact. My passion lies in promoting ethical innovations and creating inclusive spaces where underprivileged communities and individuals can explore their interests in STEM. Through my role at Hack4Her as the Social Media Marketing Director and PR team volunteer, I actively contribute to fostering diversity and accessibility in tech.'
     },
-    // { No longer a volunteer
-    //   name: 'Ruveyda Günsili',
-    //   role: 'PR Team, Finance Team',
-    //   imageFile: 'ruveyda_gunsili.jpg',
-    //   linkedInUrl: 'https://www.linkedin.com/in/ruveyda-gunsili-2586452b1/',
-    //   bio: ''
-    // },
+    { 
+      name: 'Ruveyda Günsili',
+      role: 'PR Team, Finance Team',
+      imageFile: 'ruveyda_gunsili.jpg',
+      linkedInUrl: 'https://www.linkedin.com/in/ruveyda-gunsili-2586452b1/',
+      bio: ''
+    },
     {
       name:'Chi Zhang',
       role: 'Registration Team',
