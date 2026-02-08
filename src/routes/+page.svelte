@@ -117,44 +117,6 @@
   </div>
 </section>
 
-<!-- Public statement Section -->
-
-<section class="section">
-  <div class="section-container">
-  </div>
-  <div class="section-container statement-container">
-    <p class="section-text">
-      To our community,
-    </p>
-    <p class="section-text">
-      We want to directly address issues raised by our participants regarding some of our sponsorships. We have heard your concerns and, therefore, after review, we have voted to drop the sponsorships that have been brought to our attention.
-    </p>
-    <p class="section-text">
-      We acknowledge and respect the voices of those who have raised concerns, and we take this criticism seriously. As an organization with the purpose of inclusivity and intersectional feminism, we stand in solidarity with those advocating for a free and dignified life for all.
-    </p>
-    <p class="section-text">
-      Here are the steps we are taking in response:
-    </p>
-    <ul class="statement-list">
-      <li>We are ending our partnerships with organizations that are not aligned with our values and severing all ties.</li>
-      <li>We'll review our sponsorship policies to ensure alignment with our values and those of the communities we serve. We commit to a more thorough process going forward.</li>
-      <li>We'll set up a donation initiative connected to the hackathon prizes, with proceeds going to humanitarian efforts and justice-focused organizations.</li>
-    </ul>
-    <p class="section-text">
-      As a volunteer-run organization, we rely heavily on external funding, but we must and will do better to ensure that our partnerships reflect our values.
-    </p>
-    <p class="section-text">
-      We are grateful to everyone who has spoken up. Your voices are essential in holding us accountable.
-    </p>
-    <p class="section-text">
-      In solidarity,<br>
-      Hack4Her<br>
-    </p>
-  </div>
-</section>
-
-
-
 <!-- About Section -->
 <section class="section">
   <div class="section-container">
@@ -165,7 +127,6 @@
     <p class="section-text">
       Hack4Her is not just a hackathon; it's a movement. A weekend at Hack4Her means engaging in an environment rich with challenges and opportunities, where participants can experiment, innovate, and connect with like-minded individuals and mentors in the tech industry. Our platform celebrates diversity, where all students from across the Netherlands can join in the camaraderie, code, and competition.
     </p>
-    <!-- <a href={routes.about} class="btn btn-primary">Learn More About Us</a> -->
   </div>
 </section>
 
@@ -173,13 +134,13 @@
 <section class="section upcoming-event">
   <div class="section-container">
     <h2 class="section-title">Upcoming Event</h2>
-    <h3 class="event-subtitle">🌟 4th Annual Hack4Her Event 🌟</h3>
-    <p class="event-date">Dates: June 13-15, 2025</p>
+    <h3 class="event-subtitle">🌟 5th Annual Hack4Her Event 🌟</h3>
+    <p class="event-date">Dates: June 12-14, 2026</p>
     <p class="section-text">
-      We are planning the 4th Annual Hack4Her, June 13-15, 2025, at VU Amsterdam! Join for a weekend dedicated to empowering women in tech through collaboration, innovation, and competition. Open to all students in the Netherlands, we invite you for coding, workshops, lectures, projects, and networking.
+      We are planning the 4th Annual Hack4Her, June 12-14, 2026, at VU Amsterdam! Join for a weekend dedicated to empowering women in tech through collaboration, innovation, and competition. Open to all students in the Netherlands, we invite you for coding, workshops, lectures, projects, and networking.
     </p>
     <p class="section-text">
-      While all genders are welcome, only women are eligible to compete in the hackathon portion of the event. Enjoy free food, drinks, and a chance at free transport if you are coming from outside of the Amsterdam area.
+      While all genders are welcome, only women are eligible to compete in the hackathon portion of the event. Enjoy free food, drinks, and free transport if you are coming from outside of the Amsterdam area.
     </p>
     <a href={routes.information} class="btn btn-primary">Want to learn more?</a>
   </div>
