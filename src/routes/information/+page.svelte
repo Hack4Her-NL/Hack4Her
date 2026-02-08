@@ -132,9 +132,10 @@
     <p class="section-text">
       Creating a space where technology and diversity meet. We are a coalition of staff and students from various universities across the Netherlands. Our mission is simple: to create a women-centered space in the tech world.
     </p>
-    <h3 class="register-title">Register for the event</h3>
+    <h3 class="register-title"> Sign-ups open soon! </h3>
+    <!-- <h3 class="register-title">Register for the event</h3>
     <p class="section-text">Sign-ups are now open!</p>
-    <a href={routes.registration} class="btn btn-primary">Register Now</a>
+    <a href={routes.registration} class="btn btn-primary">Register Now</a> -->
   </div>
 </section>
 
@@ -143,7 +144,7 @@
   <div class="section-container">
     <h2 class="section-title text-white">Event Details</h2>
     <p class="section-text text-white">
-      Our 4th Annual Hack4Her event is taking place on June 13-15, 2025, at VU Amsterdam. This weekend is dedicated to empowering women in tech through collaboration, innovation, and competition.
+      Our 5th Annual Hack4Her event is taking place on June 12-14, 2026, at VU Amsterdam. This weekend is dedicated to empowering women in tech through collaboration, innovation, and competition.
     </p>
     
     <div class="details-card">
