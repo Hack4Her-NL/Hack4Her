@@ -122,7 +122,7 @@
   <div class="section-container">
     <h2 class="section-title"> Hack4Her goes national: Amsterdam and Eindhoven!</h2>
     <p class="section-text">
-      Information about the event in Eindhoven is hosted on <a style="white-space:nowrap;" href="https://hack4her.github.io/">this website</a>. For the information about the event in Amsterdam, you’re in the right place! 
+      Information about the event in Eindhoven is hosted on <a class="sc-link" style="white-space:nowrap;" href="https://hack4her.github.io/">this website</a>. For the information about the event in Amsterdam, you’re in the right place! 
     </p>
   </div>
 </section>
