@@ -117,6 +117,17 @@
   </div>
 </section>
 
+<!-- Eindhoven event -->
+<section class="section">
+  <div class="section-container">
+    <h2 class="section-title"> Hack4Her is now a national event!</h2>
+    <p class="section-text">
+      It has been nearly 5 years since the first edition of Hack4Her took place at VU Amsterdam, bringing together 50 female students attending Vrije Universiteit Amsterdam to compete, network with each other, and learn. Over the course of four editions, Hack4Her has grown to inspire students across the entire country. Now, a brand new team is organizing Hack4Her at TU Eindhoven! The Amsterdam event will run in parallel to the event in Eindhoven, making it more accessible for women across the country to participate in the event. The two events will sport different challenges and partner companies. Planning on participating in the Eindhoven event? Check them out here:
+    </p>
+    <a href="https://hack4her.github.io/">Hack4Her TU Eindhoven</a>
+  </div>
+</section>
+
 <!-- About Section -->
 <section class="section">
   <div class="section-container">
