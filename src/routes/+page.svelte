@@ -120,11 +120,10 @@
 <!-- Eindhoven event -->
 <section class="section">
   <div class="section-container">
-    <h2 class="section-title"> Hack4Her is now a national event!</h2>
+    <h2 class="section-title"> Hack4Her goes national: Amsterdam and Eindhoven!</h2>
     <p class="section-text">
-      It has been nearly 5 years since the first edition of Hack4Her took place at VU Amsterdam, bringing together 50 female students attending Vrije Universiteit Amsterdam to compete, network with each other, and learn. Over the course of four editions, Hack4Her has grown to inspire students across the entire country. Now, a brand new team is organizing Hack4Her at TU Eindhoven! The Amsterdam event will run in parallel to the event in Eindhoven, making it more accessible for women across the country to participate in the event. The two events will sport different challenges and partner companies. Planning on participating in the Eindhoven event? Check them out here:
+      Information about the event in Eindhoven is hosted on <a style="white-space:nowrap;" href="https://hack4her.github.io/">this website</a>. For the information about the event in Amsterdam, you’re in the right place! 
     </p>
-    <a href="https://hack4her.github.io/" class="btn btn-primary">Hack4Her TU Eindhoven</a>
   </div>
 </section>
 
@@ -133,10 +132,7 @@
   <div class="section-container">
     <h2 class="section-title">What is Hack4Her?</h2>
     <p class="section-text">
-      Hack4Her is the first annual female-focused student hackathon in the Netherlands, creating a space where technology and diversity meet. We are a coalition of staff and students from several universities in the Netherlands. Our mission is simple: to create a women-centered space in the tech world. We're dedicated to providing a welcoming atmosphere that fosters learning and innovation for all students.
-    </p>
-    <p class="section-text">
-      Hack4Her is not just a hackathon; it's a movement. A weekend at Hack4Her means engaging in an environment rich with challenges and opportunities, where participants can experiment, innovate, and connect with like-minded individuals and mentors in the tech industry. Our platform celebrates diversity, where all students from across the Netherlands can join in the camaraderie, code, and competition.
+      Hack4Her is the first annual female-focused student hackathon in the Netherlands, creating a space where technology and diversity meet. We are a coalition of staff and students from several universities in the Netherlands. Our mission is simple: to create a women-centered space in the tech world. We're dedicated to providing a welcoming atmosphere that fosters learning and innovation for all students. We aim to bridge the gender gap in technology by fostering a diverse ecosystem of students, mentors, and leaders.
     </p>
   </div>
 </section>
@@ -148,7 +144,7 @@
     <h3 class="event-subtitle">🌟 5th Annual Hack4Her Event 🌟</h3>
     <p class="event-date">Dates: June 12-14, 2026</p>
     <p class="section-text">
-      We are planning the 4th Annual Hack4Her, June 12-14, 2026, at VU Amsterdam! Join for a weekend dedicated to empowering women in tech through collaboration, innovation, and competition. Open to all students in the Netherlands, we invite you for coding, workshops, lectures, projects, and networking.
+      We are planning the 5th Annual Hack4Her, June 12-14, 2026, at VU Amsterdam! Join for a weekend dedicated to empowering women in tech through collaboration, innovation, and competition. Open to all students in the Netherlands, we invite you for coding, workshops, lectures, projects, and networking.
     </p>
     <p class="section-text">
       While all genders are welcome, only women are eligible to compete in the hackathon portion of the event. Enjoy free food, drinks, and free transport if you are coming from outside of the Amsterdam area.
