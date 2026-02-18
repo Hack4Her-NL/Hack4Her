@@ -237,6 +237,17 @@
 </section>
 
 <style>
+  /* Link styles */
+  .sc-link {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  .sc-link:hover {
+    text-decoration: underline;
+  }
+
   /* Hero Section */
   .hero {
     padding: 120px 0;
