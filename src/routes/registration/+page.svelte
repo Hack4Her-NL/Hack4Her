@@ -63,21 +63,21 @@
 <div class="page-header gradient-background">
   <div class="header-content">
     <h1>Registration</h1>
-    <p>Register for Hack4Her 2024</p>
+    <p>Register for Hack4Her 2026</p>
   </div>
 </div>
 
 <!-- Registration Button Section -->
 <section class="section">
   <div class="section-container">
-    <h2 class="section-title">Registration for Hack4Her 2025 is now open!</h2>
+    <h2 class="section-title">Registration for Hack4Her 2026 opens soon!</h2>
     <p class="section-text">
-      Join us June 13-15, 2025 at VU Amsterdam at our 4th annual event, for an exciting weekend of coding, workshops, and collaboration.
+      Join us June 19-21, 2026 at VU Amsterdam at our 5th annual event, for an exciting weekend of coding, workshops, and collaboration.
     </p>
-    <button
+    <!-- <button
       class="btn btn-primary register-btn"
       on:click={() => launchURL('https://forms.gle/crdG5nzErGEuyfar5')}
-    >
+    > -->
       Register Here
     </button>
   </div>
