@@ -77,9 +77,9 @@
     <!-- <button
       class="btn btn-primary register-btn"
       on:click={() => launchURL('https://forms.gle/crdG5nzErGEuyfar5')}
-    > -->
+    >
       Register Here
-    </button>
+    </button> -->
   </div>
 </section>
 
