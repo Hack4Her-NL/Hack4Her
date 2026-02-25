@@ -144,7 +144,7 @@
   <div class="section-container">
     <h2 class="section-title text-white">Event Details</h2>
     <p class="section-text text-white">
-      Our 5th Annual Hack4Her event is taking place on June 12-14, 2026, at VU Amsterdam. This weekend is dedicated to empowering women in tech through collaboration, innovation, and competition.
+      Our 5th Annual Hack4Her event is taking place on June 19-21, 2026, at VU Amsterdam. This weekend is dedicated to empowering women in tech through collaboration, innovation, and competition.
     </p>
     
     <div class="details-card">

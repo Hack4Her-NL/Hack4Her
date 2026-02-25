@@ -142,9 +142,9 @@
   <div class="section-container">
     <h2 class="section-title">Upcoming Event</h2>
     <h3 class="event-subtitle">🌟 5th Annual Hack4Her Event 🌟</h3>
-    <p class="event-date">Dates: June 12-14, 2026</p>
+    <p class="event-date">Dates: June 19-21, 2026</p>
     <p class="section-text">
-      We are planning the 5th Annual Hack4Her, June 12-14, 2026, at VU Amsterdam! Join for a weekend dedicated to empowering women in tech through collaboration, innovation, and competition. Open to all students in the Netherlands, we invite you for coding, workshops, lectures, projects, and networking.
+      We are planning the 5th Annual Hack4Her, June 19-21, 2026, at VU Amsterdam! Join for a weekend dedicated to empowering women in tech through collaboration, innovation, and competition. Open to all students in the Netherlands, we invite you for coding, workshops, lectures, projects, and networking.
     </p>
     <p class="section-text">
       While all genders are welcome, only women are eligible to compete in the hackathon portion of the event. Enjoy free food, drinks, and free transport if you are coming from outside of the Amsterdam area.
