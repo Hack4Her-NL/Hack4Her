@@ -181,35 +181,6 @@
   </div>
 </section>
 
-<!-- Sponsors Section -->
-<section class="section">
-  <div class="section-container">
-    <h2 class="section-title">Our Sponsors</h2>
-    
-    <!-- Platinum sponsors (top row, larger) -->
-    <div class="sponsors-grid platinum-grid">
-      {#each sponsors.platinum as sponsor}
-        <div class="sponsor-card platinum-card">
-          <a href={sponsor.url} target="_blank" rel="noopener noreferrer">
-            <img src={sponsor.logo} alt="{sponsor.name} logo" />
-          </a>
-        </div>
-      {/each}
-    </div>
-    
-    <!-- Gold sponsors (bottom row, smaller) -->
-    <div class="sponsors-grid gold-grid">
-      {#each sponsors.gold as sponsor}
-        <div class="sponsor-card gold-card">
-          <a href={sponsor.url} target="_blank" rel="noopener noreferrer">
-            <img src={sponsor.logo} alt="{sponsor.name} logo" />
-          </a>
-        </div>
-      {/each}
-    </div>
-  </div>
-</section>
-
 <!-- Partners Section - only show if there are partners -->
 {#if partners.length > 0}
 <section class="section">

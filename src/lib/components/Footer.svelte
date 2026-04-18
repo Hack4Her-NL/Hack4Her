@@ -2,19 +2,10 @@
   const currentYear = new Date().getFullYear();
   
   const sponsors = {
-    platinum: [
-      { name: 'ServiceNow', logo: '/images/sponsors/Servicenow.jpg', url: 'https://www.servicenow.com/' },
-      { name: 'Randstad Digital', logo: '/images/sponsors/randstad.png', url:'https://www.randstaddigital.nl/nl/'},
-      { name: 'VU CS Department', logo: '/images/sponsors/VU.png', url: 'https://vu.nl/en/about-vu/faculties/faculty-of-science/departments/computer-science' }
-    ],
-    gold: [
-      { name: 'DuckDB', logo: '/images/sponsors/duckdb.svg', url: 'https://duckdb.org/' },
-      { name: 'Network Institute', logo: '/images/sponsors/Network_institute.png', url: 'https://networkinstitute.org/' },
-      { name: 'Postcode Loterij', logo: '/images/sponsors/postcode_loterij.png', url: 'https://www.postcodeloterij.nl/' },
-      { name: 'Tilburg university', logo: '/images/sponsors/tilburg.png', url: 'https://www.tilburguniversity.edu/' }
-    ]  
+    platinum: [ ],
+    gold: [ ]
   }
-  
+
   const partners = [];
 </script>
 
@@ -54,6 +45,7 @@
     -->
     
     <!-- Sponsors Section -->
+    {#if sponsors.platinum.length > 0 || sponsors.gold.length > 0}
     <div class="footer-section-title">Sponsors</div>
     <div class="sponsors-container">
       <!-- Platinum sponsors (top row, larger) -->
@@ -78,6 +70,7 @@
         {/each}
       </div>
     </div>
+    {/if}
     
     <!-- Partners Section - only show if there are partners -->
     {#if partners.length > 0}

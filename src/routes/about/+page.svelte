@@ -191,7 +191,7 @@
 <div class="page-header gradient-background">
   <div class="header-content">
     <h1>About Us</h1>
-    <p>Meet the amazing team behind Hack4Her</p>
+    <p>Learn more about Hack4Her</p>
   </div>
 </div>
 
@@ -230,141 +230,6 @@
   </div>
 </section>
 
-<!-- Team Section -->
-<section class="section gradient-background">
-  <div class="section-container">
-    <h2 class="section-title text-white">Meet Our Team</h2>
-    <p class="section-text text-white">Click on any of the volunteer profiles to find out more!</p>
-    
-    <!-- Project Lead (Anca) centered above -->
-    <div class="project-lead">
-      {#each mainTeamMembers as member, i}
-        {#if member.role === 'Project Lead'}
-          <div 
-            class="team-card project-lead-card"
-            tabindex="0" 
-            role="button"
-            aria-label="View {member.name}'s details"
-            on:click={() => showMemberDetails(member)}
-            on:keydown={(e) => e.key === 'Enter' && showMemberDetails(member)}
-          >
-            <div 
-              class="profile-image"
-              style="background-image: url('/images/h4h_team/{member.imageFile}')"
-            >
-              {#if !member.imageFile}
-                <span class="material-icons">person</span>
-              {/if}
-            </div>
-            <h3>{member.name}</h3>
-            <p>{member.role}</p>
-            <div class="card-buttons">
-              <a 
-                href={member.linkedInUrl} 
-                class="link-button"
-                target="_blank" 
-                rel="noopener noreferrer"
-                on:click|stopPropagation
-              >
-                <span class="material-icons">link</span>
-                LinkedIn
-              </a>
-            </div>
-          </div>
-        {/if}
-      {/each}
-    </div>
-    
-    <!-- Other Team Leads -->
-    <div class="team-grid">
-      {#each mainTeamMembers as member}
-        {#if member.role !== 'Project Lead'}
-          <div 
-            class="team-card"
-            tabindex="0" 
-            role="button"
-            aria-label="View {member.name}'s details"
-            on:click={() => showMemberDetails(member)}
-            on:keydown={(e) => e.key === 'Enter' && showMemberDetails(member)}
-          >
-            <div 
-              class="profile-image"
-              style="background-image: url('/images/h4h_team/{member.imageFile}')"
-            >
-              {#if !member.imageFile}
-                <span class="material-icons">person</span>
-              {/if}
-            </div>
-            <h3>{member.name}</h3>
-            <p>{member.role}</p>
-            <div class="card-buttons">
-              <a 
-                href={member.linkedInUrl} 
-                class="link-button"
-                target="_blank" 
-                rel="noopener noreferrer"
-                on:click|stopPropagation
-              >
-                <span class="material-icons">link</span>
-                LinkedIn
-              </a>
-            </div>
-          </div>
-        {/if}
-      {/each}
-    </div>
-    
-    <!-- Team Members Divider -->
-    <div class="divider">
-      <div class="line"></div>
-      <span>Team Members</span>
-      <div class="line"></div>
-    </div>
-    
-    <!-- Rest of Team -->
-    <div class="compact-team-grid">
-      {#each teamMembers as member}
-        <div 
-          class="compact-team-card"
-          on:click={() => showMemberDetails(member)}
-          on:keydown={(e) => e.key === 'Enter' && showMemberDetails(member)}
-          tabindex="0"
-          role="button"
-          aria-label="View {member.name}'s details"
-        >
-          <div 
-            class="compact-profile-image"
-            style="background-image: url('/images/h4h_team/{member.imageFile}')"
-          >
-            {#if !member.imageFile}
-              <span class="material-icons">person</span>
-            {/if}
-          </div>
-          <div class="compact-info">
-            <div class="compact-text">
-              <h4>{member.name}</h4>
-              <p>{member.role}</p>
-            </div>
-            <div class="compact-buttons">
-              <a 
-                href={member.linkedInUrl} 
-                class="compact-link-button"
-                target="_blank" 
-                rel="noopener noreferrer"
-                aria-label="LinkedIn profile"
-                on:click|stopPropagation
-              >
-                <span class="material-icons">link</span>
-                LinkedIn
-              </a>
-            </div>
-          </div>
-        </div>
-      {/each}
-    </div>
-  </div>
-</section>
-
 <!-- Scientific Committee Section -->
 <section class="section">
   <div class="section-container">
@@ -400,34 +265,6 @@
           <a class="sc-link" href="https://www.tilburguniversity.edu/staff/c-guven">Çiçek Güven</a>, Assist. Prof. at Tilburg University
         </li>
       </ul>
-    </div>
-  </div>
-</section>
-
-<!-- Sponsors Section -->
-<section class="section">
-  <div class="section-container">
-    <h2 class="section-title">Our Sponsors</h2>
-    <p class="section-text">
-      We thank our sponsors for their support in making Hack4Her possible and helping us empower women in technology.
-    </p>
-    
-    <!-- Platinum sponsors (top row, larger) -->
-    <div class="sponsors-grid platinum-grid">
-      {#each sponsors.platinum as sponsor}
-        <div class="sponsor-logo platinum-logo">
-          <img src={sponsor.logo} alt="{sponsor.name} logo" />
-        </div>
-      {/each}
-    </div>
-    
-    <!-- Gold sponsors (bottom row, smaller) -->
-    <div class="sponsors-grid gold-grid">
-      {#each sponsors.gold as sponsor}
-        <div class="sponsor-logo gold-logo">
-          <img src={sponsor.logo} alt="{sponsor.name} logo" />
-        </div>
-      {/each}
     </div>
   </div>
 </section>
