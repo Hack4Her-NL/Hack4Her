@@ -209,9 +209,7 @@
                       <div class="activity-title keynote-title">{item.activity}</div>
                     </button>
                   {:else if isChallengeWorkshop(item.activity)}
-                    <a href={routes.challenges} class="activity-link">
-                      <div class="activity-title">{item.activity}</div>
-                    </a>
+                    <div class="activity-title">{item.activity}</div>
                   {:else if isRegularWorkshop(item.activity)}
                     <a href={routes.workshops} class="activity-link">
                       <div class="activity-title">{item.activity}</div>
@@ -237,9 +235,7 @@
                 <div class="time-column">{item.time}</div>
                 <div class="activity-column">
                   {#if isChallengeWorkshop(item.activity)}
-                    <a href={routes.challenges} class="activity-link">
-                      <div class="activity-title">{item.activity}</div>
-                    </a>
+                    <div class="activity-title">{item.activity}</div>
                   {:else if isRegularWorkshop(item.activity)}
                     <a href={routes.workshops} class="activity-link">
                       <div class="activity-title">{item.activity}</div>
@@ -265,9 +261,7 @@
                 <div class="time-column">{item.time}</div>
                 <div class="activity-column">
                   {#if isChallengeWorkshop(item.activity)}
-                    <a href={routes.challenges} class="activity-link">
-                      <div class="activity-title">{item.activity}</div>
-                    </a>
+                    <div class="activity-title">{item.activity}</div>
                   {:else if isRegularWorkshop(item.activity)}
                     <a href={routes.workshops} class="activity-link">
                       <div class="activity-title">{item.activity}</div>

@@ -26,6 +26,5 @@ export const navigationItems: NavigationItem[] = [
   { title: 'Schedule', route: routes.schedule },
   { title: 'Registration', route: routes.registration },
   { title: 'Workshops', route: routes.workshops },
-  { title: 'Challenges', route: routes.challenges },
   { title: 'Previous Events', route: routes.previousEvents }
 ]; 
