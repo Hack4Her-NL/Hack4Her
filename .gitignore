@@ -27,3 +27,5 @@ vite.config.ts.timestamp-*
 # Node
 package-lock.json
 package.json
+
+pnpm-lock.yaml
