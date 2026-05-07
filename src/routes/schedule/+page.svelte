@@ -153,9 +153,9 @@
 <!-- Schedule Overview -->
 <section class="section">
   <div class="section-container">
-    <h2 class="section-title">June 13-15, 2025</h2>
+    <h2 class="section-title">June 19-21, 2025</h2>
     <p class="section-text">
-      Hack4Her has revised its collaborations and location to ensure full alignment with our core values of inclusivity. This has resulted in a time and location change on Friday, June 13th.
+      Hack4Her has revised its collaborations and location to ensure full alignment with our core values of inclusivity. This has resulted in a time and location change on Friday, June 19th.
       This schedule is subject to some slight changes due to the last-minute edits. We apologize for the inconvenience, and due to these sponsor changes, we do not have the funding to provide full meals on Friday. We are trying to remedy this.
       Saturday and Sunday remain the same.
     </p>

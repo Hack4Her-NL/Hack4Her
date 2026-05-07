@@ -23,7 +23,6 @@ export const navigationItems: NavigationItem[] = [
   { title: 'Home', route: routes.home },
   { title: 'About Us', route: routes.about },
   { title: 'Information', route: routes.information },
-  { title: 'Schedule', route: routes.schedule },
   { title: 'Registration', route: routes.registration },
   { title: 'Workshops', route: routes.workshops },
   { title: 'Previous Events', route: routes.previousEvents }
