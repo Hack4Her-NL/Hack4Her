@@ -70,16 +70,16 @@
 <!-- Registration Button Section -->
 <section class="section">
   <div class="section-container">
-    <h2 class="section-title">Registration for Hack4Her 2026 opens soon!</h2>
+    <h2 class="section-title">Registration for Hack4Her 2026 is now open!</h2>
     <p class="section-text">
       Join us June 19-21, 2026 at VU Amsterdam at our 5th annual event, for an exciting weekend of coding, workshops, and collaboration.
     </p>
-    <!-- <button
+    <button
       class="btn btn-primary register-btn"
-      on:click={() => launchURL('https://forms.gle/crdG5nzErGEuyfar5')}
+      on:click={() => launchURL('https://forms.gle/F6Hu5gFuqpsXUTJN7')}
     >
       Register Here
-    </button> -->
+    </button>
   </div>
 </section>
 
