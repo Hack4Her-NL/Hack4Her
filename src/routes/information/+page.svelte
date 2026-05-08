@@ -166,13 +166,13 @@
 
 <!-- Schedule moved to dedicated /schedule page -->
 
-<!-- Free Travel Policy Section -->
+<!-- Free Travel Policy Section
 <section class="section">
   <div class="section-container">
     <h2 class="section-title">Free Travel Policy</h2>
     <p class="section-text">
       In the past, we have refunded travel costs to Hackers coming from outside the Amsterdam area during the hackathon days. This would not be possible without the support of the universities that the Hackers (you!) come from. To get a better chance at receiving free transport, contact your university to ask whether they would be interested in sponsoring our event!
-    </p>
+    </p> -->
     
     <div class="conduct-card">
       <h3>Eligibility Criteria:</h3>
