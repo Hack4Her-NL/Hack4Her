@@ -62,25 +62,6 @@
     'Note: The organizers retain the right to expel anyone for going against one of the aforementioned rules and guidelines, as well as any ethical/legal/safety concerns not previously mentioned, at their discretion.'
   ];
 
-  // Free Travel Policy
-  const travelPolicy = [
-    'Be eligible to participate in our hackathon.',
-    'Be signed up to participate in our hackathon.',
-    'Be present on Friday, Saturday, and Sunday.',
-    'Be traveling from outside of Amsterdam to our event.',
-    'Have a travel time to Amsterdam Zuid of an hour or more (via public transport route).',
-    'Reconfirm need once within a timely manner (72 hours).'
-  ];
-
-  const travelNotes = [
-    'Parking will only be covered in the VU Parking Garage.',
-    'Carpooling is encouraged and may include gas compensation.',
-    'Group train tickets increase your chances of receiving full compensation.',
-    'While we aim to cover as much as possible, we cannot guarantee full compensation. We will inform you promptly before the event regarding the coverage of your costs.'
-  ];
-
-
-
   // Tab handling
   let activeTab = 'friday';
   
@@ -165,43 +146,6 @@
 
 
 <!-- Schedule moved to dedicated /schedule page -->
-
-<!-- Free Travel Policy Section
-<section class="section">
-  <div class="section-container">
-    <h2 class="section-title">Free Travel Policy</h2>
-    <p class="section-text">
-      In the past, we have refunded travel costs to Hackers coming from outside the Amsterdam area during the hackathon days. This would not be possible without the support of the universities that the Hackers (you!) come from. To get a better chance at receiving free transport, contact your university to ask whether they would be interested in sponsoring our event!
-    </p> -->
-    
-    <div class="conduct-card">
-      <h3>Eligibility Criteria:</h3>
-      
-      <ul class="conduct-list">
-        {#each travelPolicy as item}
-          <li class="bullet-point">
-            <span class="bullet">•</span>
-            <span>{item}</span>
-          </li>
-        {/each}
-      </ul>
-      
-      <h3 class="travel-note-header">Note:</h3>
-      <ul class="conduct-list">
-        {#each travelNotes as note}
-          <li class="bullet-point">
-            <span class="bullet">•</span>
-            <span>{note}</span>
-          </li>
-        {/each}
-      </ul>
-    </div>
-  </div>
-
-  <p class="section-text">
-    We are committed to making the hackathon accessible and ensuring a positive experience for all participants. We look forward to your participation!
-  </p>
-</section>
 
 <!-- Code of Conduct Section -->
 <section class="section">
@@ -360,13 +304,6 @@
     font-size: 18px;
     font-weight: bold;
     margin-bottom: var(--spacing-medium);
-  }
-  
-  .travel-note-header {
-    font-size: 18px;
-    font-weight: bold;
-    margin-top: var(--spacing-medium);
-    margin-bottom: var(--spacing-small);
   }
   
   /* Dark mode adjustment for conduct card */

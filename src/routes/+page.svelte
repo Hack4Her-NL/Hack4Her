@@ -54,20 +54,21 @@
     '/images/events/SP9_01.jpg',
   ];
 
-  const sponsors = {
-    platinum: [
-      { name: 'ServiceNow', logo: '/images/sponsors/Servicenow.jpg', url: 'https://www.servicenow.com/' },
-      { name: 'Randstad Digital', logo: '/images/sponsors/randstad.png', url:'https://www.randstaddigital.nl/nl/'},
-      { name: 'VU CS Department', logo: '/images/sponsors/VU.png', url: 'https://vu.nl/en/about-vu/faculties/faculty-of-science/departments/computer-science' }
-    ],
-    gold: [
-      { name: 'DuckDB', logo: '/images/sponsors/duckdb.svg', url: 'https://duckdb.org/' },
-      { name: 'Network Institute', logo: '/images/sponsors/Network_institute.png', url: 'https://networkinstitute.org/' },
-      { name: 'Postcode Loterij', logo: '/images/sponsors/postcode_loterij.png', url: 'https://www.postcodeloterij.nl/' },
-      { name: 'Tilburg university', logo: '/images/sponsors/tilburg.png', url: 'https://www.tilburguniversity.edu/' }
-    ]
+  const mainSponsor = {
+    name: 'Prosus',
+    logo: '/images/sponsors/ProsusLogo.png',
+    url: 'https://www.prosus.com/'
   };
-  
+
+  const sponsors = [
+    { name: 'Uber', logo: '/images/sponsors/Uber_logo.png', url: 'https://www.uber.com/' },
+    { name: 'Bol', logo: '/images/sponsors/Bol-Transparent-9.png', url: 'https://www.bol.com/' },
+    { name: 'Cloud Nine Digital', logo: '/images/sponsors/Cloud_Nine_Digital_idXOtQtkWv_0.png', url: 'https://www.cloudninedigital.nl/' },
+    { name: 'DuckDB', logo: '/images/sponsors/DuckDB_inline-lightmode.png', url: 'https://duckdb.org/' },
+    { name: 'Network Institute', logo: '/images/sponsors/NetworkInstitute_logo.png', url: 'https://networkinstitute.org/' },
+    { name: 'VU CS Department', logo: '/images/sponsors/VUCSDepartment_logo.jpeg', url: 'https://vu.nl/en/about-vu/faculties/faculty-of-science/departments/computer-science' }
+  ];
+
   const partners = [];
 </script>
 
@@ -176,6 +177,39 @@
     <div class="gallery">
       {#each pastEvents as image}
         <div class="gallery-item" style="background-image: url({image})"></div>
+      {/each}
+    </div>
+  </div>
+</section>
+
+<!-- Sponsors Section -->
+<section class="section sponsors-section">
+  <div class="section-container">
+    <h2 class="section-title">Our Sponsors</h2>
+
+    <p class="sponsor-tier-label">Main Sponsor</p>
+    <div class="main-sponsor-wrapper">
+      <a
+        class="sponsor-card main-sponsor-card"
+        href={mainSponsor.url}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <img src={mainSponsor.logo} alt="{mainSponsor.name} logo" />
+      </a>
+    </div>
+
+    <p class="sponsor-tier-label">With the support of</p>
+    <div class="sponsors-grid">
+      {#each sponsors as sponsor}
+        <a
+          class="sponsor-card gold-card"
+          href={sponsor.url}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img src={sponsor.logo} alt="{sponsor.name} logo" />
+        </a>
       {/each}
     </div>
   </div>
@@ -418,6 +452,29 @@
   .platinum-grid {
     margin-bottom: 2rem;
   }
+
+  /* Sponsors section */
+  .sponsor-tier-label {
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-medium);
+  }
+
+  .main-sponsor-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: var(--spacing-large);
+  }
+
+  .main-sponsor-card {
+    width: 420px;
+    max-width: 100%;
+    height: 220px;
+    padding: 2.5rem;
+  }
   
   .sponsor-card {
     background-color: white;
@@ -555,6 +612,12 @@
     .gold-card, .partner-card {
       width: 170px;
       height: 100px;
+    }
+    
+    .main-sponsor-card {
+      width: 320px;
+      height: 180px;
+      padding: 1.5rem;
     }
     
     .section, .hero, .cta {
