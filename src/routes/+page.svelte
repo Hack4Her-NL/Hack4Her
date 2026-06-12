@@ -454,12 +454,17 @@
   }
 
   /* Sponsors section */
+  .sponsors-section {
+    background-color: rgba(var(--color-primary-rgb), 0.05);
+  }
+
   .sponsor-tier-label {
-    font-size: 1rem;
+    font-size: 0.8rem;
     font-weight: 600;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--color-primary);
+    opacity: 0.8;
     margin-bottom: var(--spacing-medium);
   }
 
@@ -470,12 +475,13 @@
   }
 
   .main-sponsor-card {
-    width: 420px;
+    width: 360px;
     max-width: 100%;
-    height: 220px;
-    padding: 2.5rem;
+    height: 180px;
+    padding: 2rem;
   }
   
+  /* Logos need a light backing so dark-colored logos stay legible in both themes */
   .sponsor-card {
     background-color: white;
     border-radius: var(--border-radius-section);
@@ -484,14 +490,14 @@
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.06);
     position: relative;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
   }
   
   .sponsor-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   }
   
   .platinum-card {
