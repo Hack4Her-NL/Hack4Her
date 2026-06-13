@@ -54,19 +54,21 @@
     '/images/events/SP9_01.jpg',
   ];
 
-  const mainSponsor = {
-    name: 'Prosus',
-    logo: '/images/sponsors/ProsusLogo.png',
-    url: 'https://www.prosus.com/'
-  };
-
-  const sponsors = [
-    { name: 'Uber', logo: '/images/sponsors/Uber_logo.png', url: 'https://www.uber.com/' },
-    { name: 'Bol', logo: '/images/sponsors/Bol-Transparent-9.png', url: 'https://www.bol.com/' },
-    { name: 'Cloud Nine Digital', logo: '/images/sponsors/Cloud_Nine_Digital_idXOtQtkWv_0.png', url: 'https://www.cloudninedigital.nl/' },
-    { name: 'DuckDB', logo: '/images/sponsors/DuckDB_inline-lightmode.png', url: 'https://duckdb.org/' },
-    { name: 'Network Institute', logo: '/images/sponsors/NetworkInstitute_logo.png', url: 'https://networkinstitute.org/' },
+  // Sponsors grouped by prominence (most prominent first)
+  const goldSponsors = [
+    { name: 'Prosus', logo: '/images/sponsors/ProsusLogo.png', url: 'https://www.prosus.com/' },
     { name: 'VU CS Department', logo: '/images/sponsors/VUCSDepartment_logo.jpeg', url: 'https://vu.nl/en/about-vu/faculties/faculty-of-science/departments/computer-science' }
+  ];
+
+  const silverSponsors = [
+    { name: 'Bol', logo: '/images/sponsors/Bol-Transparent-9.png', url: 'https://www.bol.com/' },
+    { name: 'Uber', logo: '/images/sponsors/Uber_logo.png', url: 'https://www.uber.com/' }
+  ];
+
+  const bronzeSponsors = [
+    { name: 'Network Institute', logo: '/images/sponsors/NetworkInstitute_logo.png', url: 'https://networkinstitute.org/' },
+    { name: 'DuckDB', logo: '/images/sponsors/DuckDB_inline-lightmode.png', url: 'https://duckdb.org/' },
+    { name: 'Cloud Nine Digital', logo: '/images/sponsors/Cloud_Nine_Digital_idXOtQtkWv_0.png', url: 'https://www.cloudninedigital.nl/' }
   ];
 
   const partners = [];
@@ -187,23 +189,36 @@
   <div class="section-container">
     <h2 class="section-title">Our Sponsors</h2>
 
-    <p class="sponsor-tier-label">Main Sponsor</p>
-    <div class="main-sponsor-wrapper">
-      <a
-        class="sponsor-card main-sponsor-card"
-        href={mainSponsor.url}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <img src={mainSponsor.logo} alt="{mainSponsor.name} logo" />
-      </a>
+    <div class="sponsors-grid">
+      {#each goldSponsors as sponsor}
+        <a
+          class="sponsor-card gold-tier-card"
+          href={sponsor.url}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img src={sponsor.logo} alt="{sponsor.name} logo" />
+        </a>
+      {/each}
     </div>
 
-    <p class="sponsor-tier-label">With the support of</p>
     <div class="sponsors-grid">
-      {#each sponsors as sponsor}
+      {#each silverSponsors as sponsor}
         <a
-          class="sponsor-card gold-card"
+          class="sponsor-card silver-tier-card"
+          href={sponsor.url}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img src={sponsor.logo} alt="{sponsor.name} logo" />
+        </a>
+      {/each}
+    </div>
+
+    <div class="sponsors-grid">
+      {#each bronzeSponsors as sponsor}
+        <a
+          class="sponsor-card bronze-tier-card"
           href={sponsor.url}
           target="_blank"
           rel="noopener noreferrer"
@@ -458,27 +473,27 @@
     background-color: rgba(var(--color-primary-rgb), 0.05);
   }
 
-  .sponsor-tier-label {
-    font-size: 0.8rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--color-primary);
-    opacity: 0.8;
-    margin-bottom: var(--spacing-medium);
-  }
-
-  .main-sponsor-wrapper {
-    display: flex;
-    justify-content: center;
-    margin-bottom: var(--spacing-large);
-  }
-
-  .main-sponsor-card {
-    width: 360px;
-    max-width: 100%;
-    height: 180px;
+  /* Tiers are sized by prominence (gold largest, bronze smallest) */
+  .gold-tier-card {
+    width: 340px;
+    height: 190px;
     padding: 2rem;
+  }
+
+  .silver-tier-card {
+    width: 240px;
+    height: 140px;
+    padding: 1.5rem;
+  }
+
+  .bronze-tier-card {
+    width: 180px;
+    height: 110px;
+    padding: 1.25rem;
+  }
+
+  .sponsors-grid + .sponsors-grid {
+    margin-top: var(--spacing-medium);
   }
   
   /* Logos need a light backing so dark-colored logos stay legible in both themes */
@@ -498,16 +513,6 @@
   .sponsor-card:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  }
-  
-  .platinum-card {
-    width: 250px;
-    height: 150px;
-  }
-  
-  .gold-card {
-    width: 200px;
-    height: 120px;
   }
   
   .partner-card {
@@ -610,20 +615,19 @@
       height: 150px;
     }
     
-    .platinum-card {
-      width: 220px;
-      height: 130px;
+    .gold-tier-card {
+      width: 280px;
+      height: 160px;
     }
     
-    .gold-card, .partner-card {
-      width: 170px;
+    .silver-tier-card {
+      width: 200px;
+      height: 120px;
+    }
+    
+    .bronze-tier-card, .partner-card {
+      width: 160px;
       height: 100px;
-    }
-    
-    .main-sponsor-card {
-      width: 320px;
-      height: 180px;
-      padding: 1.5rem;
     }
     
     .section, .hero, .cta {
@@ -640,13 +644,19 @@
       max-width: 250px;
     }
     
-    .platinum-card {
-      width: 180px;
-      height: 110px;
+    .gold-tier-card {
+      width: 220px;
+      height: 130px;
+      padding: 1.25rem;
+    }
+    
+    .silver-tier-card {
+      width: 160px;
+      height: 100px;
       padding: 1rem;
     }
     
-    .gold-card, .partner-card {
+    .bronze-tier-card, .partner-card {
       width: 140px;
       height: 90px;
       padding: 0.8rem;
