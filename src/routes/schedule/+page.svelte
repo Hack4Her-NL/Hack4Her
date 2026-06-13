@@ -13,59 +13,47 @@
 
   // Keynote data
   const keynoteData = {
-    title: "Reimagining AI Through Inclusion and Integrity",
-    company: "Women4Cyber",
-    presenters: [
-      {
-        name: "Daphne Van Vliet ",
-        image: "/images/speakers/Daphne.png",
-        bio: "Daphne never set out to work in tech. While pursuing her law degree, she took a student job in the industry, and quickly realized something unexpected: the impact she wanted to make through the legal system could be amplified through technology.\nWhat began as a side job evolved into a career rooted in purpose. Her legal training sharpened her ability to navigate complexity with clarity, ask the right questions, and connect precision with empathy. As a Software Asset Management Consultant, she saw how legal thinking could become a bridge—supporting IT companies in building trust, meeting compliance needs, and driving responsible growth.\nHer work is grounded in human rights, digital ethics, and a belief that technology must serve people, not the other way around. She thrives at the edge of independent thinking, emotional intelligence, and purpose-driven leadership."
-      },
-      {
-        name: "Ilse Parra", 
-        image: "/images/speakers/Ilse.png",
-        bio: "Ilse is passionately dedicated to championing women's empowerment within the Cybersecurity industry and fostering inclusivity for diverse communities, cultures, and perspectives within corporate environments. Her commitment funded the initiative, \"Skilling Women in Cybersecurity\", where she provides personal career motivation for women that would like to step in a formal role in IT."
-      }
-    ],
-    description: "In this keynote, Daphne and Ilse Parra will share the challenges they have overcome to reach the positions they hold today. Building on their experiences, they will introduce key principles of artificial intelligence, encouraging students to consider the concept of just by design—alongside private and secure by design—as a foundational element in AI development. Within this framework, they will present six guiding principles aimed at supporting the creation of AI systems that are just, inclusive, and beneficial for everyone.",
-    time: "15:00 - 15:30",
-    location: "NU-Theatre 1"
+    title: "TBD",
+    company: "TBD",
+    description: "TBD",
+    time: "14:45 - 15:15",
+    location: "NU-Theatre 7"
   };
 
   // Schedule data
   const fridaySchedule = [
-    {time: '13:45 - 14:00', activity: 'Arrival & Check-In', location: 'Vrije Universiteit Amsterdam NU Building Ground Floor'},
-    {time: '14:00 - 14:15', activity: 'Introduction', location: 'NU-Theatre 1'},
-    {time: '14:15 - 15:00', activity: 'A word from our sponsors!', location: 'NU-Theatre 1'},
-    {time: '15:00 - 15:30', activity: 'Keynote', location: 'NU-Theatre 1', isKeynote: true},
-    {time: '15:30 - 16:25', activity: 'Workshops Round 1', location: ''},
-    {time: '16:30 - 17:30', activity: 'Workshops Round 2', location: ''},
-    {time: '17:30 - 19:00', activity: 'Networking Event', location: 'Vrije Universiteit NU Building Ground Floor'},
-    {time: '19:00', activity: 'Day Ends', location: ''}
+    {time: '13:30 - 14:00', activity: 'Arrival & Check-In', location: 'Vrije Universiteit Amsterdam NU Building Ground Floor'},
+    {time: '14:00 - 14:15', activity: 'Introduction', location: 'NU-Theatre 7'},
+    {time: '14:15 - 14:45', activity: 'A word from our sponsors!', location: 'NU-Theatre 7'},
+    {time: '14:45 - 15:15', activity: 'Keynote', location: 'NU-Theatre 7', isKeynote: true},
+    {time: '15:30 - 16:30', activity: 'Workshops Round 1', location: ''},
+    {time: '16:45 - 17:45', activity: 'Workshops Round 2', location: ''},
+    {time: '17:45 - 19:30', activity: 'Networking Event', location: 'Vrije Universiteit NU'},
+    {time: '19:30', activity: 'Day Ends', location: ''}
   ];
 
   const saturdaySchedule = [
     {time: '9:00 - 9:30', activity: 'Arrival & Check-In', location: 'Vrije Universiteit NU Building Ground Floor'},
     {time: '9:30 - 10:00', activity: 'Breakfast', location: 'Vrije Universiteit NU Building Ground Floor'},
-    {time: '10:00 - 10:15', activity: 'Introduction', location: 'NU-Theatre 1'},
-    {time: '10:15 - 11:00', activity: 'Challenge Workshops', location: 'NU-2B01, NU-2B05, NU-2B12, NU-2B17, NU-2B25'},
-    {time: '11:00 - 14:00', activity: 'Hacking', location: 'NU-2B01, NU-2B05, NU-2B12, NU-2B17, NU-2B25'},
-    {time: '14:00 - 15:00', activity: 'Lunch', location: 'Vrije Universiteit NU Building Ground Floor'},
-    {time: '15:00 - 19:00', activity: 'Hacking', location: 'NU-2B01, NU-2B05, NU-2B12, NU-2B17, NU-2B25'},
-    {time: '19:00 - 20:00', activity: 'Dinner', location: 'Vrije Universiteit NU Building Ground Floor'},
-    {time: '20:00 - 22:00', activity: 'Hacking', location: 'NU-2B01, NU-2B05, NU-2B12, NU-2B17, NU-2B25'}
+    {time: '10:00 - 10:15', activity: 'Introduction', location: 'NU-Theatre 7'},
+    {time: '10:15 - 11:00', activity: 'Challenge Workshops', location: 'TBD'},
+    {time: '11:00 - 13:00', activity: 'Hacking', location: 'TBD'},
+    {time: '13:00 - 14:00', activity: 'Lunch', location: 'Vrije Universiteit NU Building Ground Floor'},
+    {time: '14:00 - 18:00', activity: 'Hacking', location: 'TBD'},
+    {time: '18:30 - 19:30', activity: 'Dinner', location: 'Vrije Universiteit NU Building Ground Floor'},
+    {time: '19:30 - 22:00', activity: 'Hacking (optional)', location: 'TBD'}
   ];
 
   const sundaySchedule = [
     {time: '9:00 - 9:30', activity: 'Arrival & Check-In', location: 'Vrije Universiteit NU Building Ground Floor'},
     {time: '9:30 - 10:00', activity: 'Breakfast', location: 'Vrije Universiteit NU Building Ground Floor'},
-    {time: '10:00 - 10:05', activity: 'Introduction', location: 'NU-Theatre 1'},
-    {time: '10:05 - 14:00', activity: 'Hacking', location: 'NU-2B01, NU-2B05, NU-2B12, NU-2B17, NU-2B25'},
-    {time: '14:00 - 15:00', activity: 'Lunch', location: 'Vrije Universiteit NU Building Ground Floor'},
-    {time: '15:00 - 16:00', activity: 'Hacking (Last Hour)', location: 'NU-2B01, NU-2B05, NU-2B12, NU-2B17, NU-2B25'},
-    {time: '16:00 - 18:00', activity: 'Judging/Presenting', location: 'NU-4A06, NU-4A25'},
-    {time: '18:00 - 18:30', activity: 'Deliberation', location: 'NU-4A06, NU-4A25'},
-    {time: '18:30 - 19:30', activity: 'Closing and Presentation of Awards', location: 'NU-Theatre 1'}
+    {time: '10:00 - 10:05', activity: 'Introduction', location: 'NU-Theatre 7'},
+    {time: '10:05 - 13:00', activity: 'Hacking', location: 'TBD'},
+    {time: '13:00 - 14:00', activity: 'Lunch', location: 'Vrije Universiteit NU Building Ground Floor'},
+    {time: '14:00 - 16:00', activity: 'Hacking', location: 'TBD'},
+    {time: '16:00 - 18:00', activity: 'Judging/Presenting', location: 'TBD'},
+    {time: '18:00 - 18:30', activity: 'Deliberation', location: 'TBD'},
+    {time: '18:30 - 19:30', activity: 'Closing and Presentation of Awards', location: 'NU-Theatre 7'}
   ];
 
   // Tab handling
@@ -153,12 +141,7 @@
 <!-- Schedule Overview -->
 <section class="section">
   <div class="section-container">
-    <h2 class="section-title">June 19-21, 2025</h2>
-    <p class="section-text">
-      Hack4Her has revised its collaborations and location to ensure full alignment with our core values of inclusivity. This has resulted in a time and location change on Friday, June 19th.
-      This schedule is subject to some slight changes due to the last-minute edits. We apologize for the inconvenience, and due to these sponsor changes, we do not have the funding to provide full meals on Friday. We are trying to remedy this.
-      Saturday and Sunday remain the same.
-    </p>
+    <h2 class="section-title">June 19-21, 2026</h2>
   </div>
 </section>
 
