@@ -5,6 +5,14 @@
   // Set page-specific SEO metadata
   export const metadata = pageSeo.challenges;
 
+  // Sponsors running a challenge this year
+  const challengeSponsors = [
+    { name: 'Bol', logo: '/images/sponsors/Bol-Transparent-9.png', url: 'https://www.bol.com/' },
+    { name: 'VU CS Department', logo: '/images/sponsors/VUCSDepartment_logo.jpeg', url: 'https://vu.nl/en/about-vu/faculties/faculty-of-science/departments/computer-science' },
+    { name: 'Uber', logo: '/images/sponsors/Uber_logo.png', url: 'https://www.uber.com/' }
+  ];
+
+  /*
   // Challenge data
   const challenges = [
     {
@@ -91,6 +99,7 @@
     }
     expandedChallenges = expandedChallenges; // Trigger reactivity
   }
+  */
 </script>
 
 <svelte:head>
@@ -148,6 +157,29 @@
 -->
 
 
+<!-- Challenge sponsors (challenge details coming soon) -->
+<section class="section">
+  <div class="section-container">
+    <p class="section-text">
+      The challenges for this year's hackathon are being prepared and will be revealed soon. They are brought to you by the following partners:
+    </p>
+
+    <div class="challenge-sponsors-grid">
+      {#each challengeSponsors as sponsor}
+        <a
+          class="challenge-sponsor-card"
+          href={sponsor.url}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img src={sponsor.logo} alt="{sponsor.name} logo" />
+        </a>
+      {/each}
+    </div>
+  </div>
+</section>
+
+<!--
 <section class="section gradient-background">
   <div class="section-container">
     <h2 class="section-title text-white">Challenges</h2>
@@ -203,7 +235,7 @@
     </div>
   </div>
 </section>
-<!--
+--><!--
 <section class="section">
   <div class="section-container">
     <h2 class="section-title">Judging Criteria</h2>
@@ -264,6 +296,50 @@
     max-width: 700px;
     margin: 0 auto var(--spacing-large);
     line-height: 1.6;
+  }
+
+  /* Challenge sponsors */
+  .challenge-sponsors-grid {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap;
+    gap: var(--spacing-large);
+  }
+
+  .challenge-sponsor-card {
+    background-color: white;
+    border-radius: var(--border-radius-section);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    padding: 2rem;
+    width: 320px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .challenge-sponsor-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+
+  .challenge-sponsor-card img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+  }
+
+  @media (max-width: 480px) {
+    .challenge-sponsor-card {
+      width: 100%;
+      max-width: 280px;
+      height: 160px;
+      padding: 1.5rem;
+    }
   }
   
   /* Button styles */
