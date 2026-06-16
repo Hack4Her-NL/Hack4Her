@@ -23,7 +23,7 @@
     // Room 1
     [
       {
-        title: "Can DRM Keep a Secret? An Attack Case on Spotify",
+        title: "Can DRM Keep a Secret?",
         presenter: "Dr. Asia Slowinska",
         company: "Vrije Universiteit Amsterdam",
         image: "/images/speakers/asia_slowinska.jpg",
