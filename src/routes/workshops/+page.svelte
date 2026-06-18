@@ -7,11 +7,11 @@
   export const metadata = pageSeo.workshops;
 
   const rooms = [
-    { name: "Room 1", capacity: "", size: "" },
-    { name: "Room 2", capacity: "", size: "" },
-    { name: "Room 3", capacity: "", size: "" },
-    { name: "Room 4", capacity: "", size: "" },
-    { name: "Room 5", capacity: "", size: "" },
+    { name: "NU-4B17", capacity: "", size: "" },
+    { name: "NU-4B43", capacity: "", size: "" },
+    { name: "NU-4B47", capacity: "", size: "" },
+    { name: "NU-4B05", capacity: "", size: "" },
+    { name: "NU-4B11", capacity: "", size: "" },
   ];
 
   const timeSlots = [
@@ -20,7 +20,7 @@
   ];
 
   const schedule = [
-    // Room 1
+    // NU-4B17
     [
       {
         title: "Can DRM Keep a Secret?",
@@ -33,7 +33,7 @@
         website: "https://www.vusec.net/people/asia-slowinska/"
       },
     ],
-    // Room 2
+    // NU-4B43
     [
       {
         title: "A Practical Guide to Reverse Engineering",
@@ -56,30 +56,43 @@
         rowSpan: 2
       },
     ],
-    // Room 3
+    // NU-4B47
     [
       {
         title: "Building Your Career",
         presenter: "Prosus",
         company: "Prosus",
         image: "",
-        description: "TBD",
-        bio: "TBD",
-        linkedin: ""
+        description: "'Navigating the AI Career Landscape' is a practical, insider-led session designed to help " +
+                "students stand out in today's competitive job market. Attendees will learn how to craft a standout CV" +
+                " and LinkedIn profile, build a compelling personal pitch, and ace interviews—all through the lens of what top" +
+                " tech companies are actually looking for.",
+        bio: "Olga is a Global Talent Advisor at Prosus with over 16 years of recruitment experience across 45 " +
+                "countries. She has partnered with industry leaders including Toyota, PepsiCo, and Uber, and recruited " +
+                "across functions ranging from HR and Finance to AI and Machine Learning. Olga has interviewed thousands " +
+                "of candidates worldwide and is passionate about helping people build meaningful careers.",
+        linkedin: "Prosus"
       },
     ],
-    // Room 4
+    // NU-4B05
     [
       {
         title: "Interviewing skills",
         presenter: "Gosia Janeczko",
         company: "Universiteit van Amsterdam",
         image: "/images/speakers/gosia_janeczko.jpg",
-        description: "TBD",
-        bio: "TBD",
+        description: "The ability to ask good questions is a key skill that helps us become better engineers, researchers, " +
+                "leaders, founders, and friends. By getting the right information from people, we can ensure that we are " +
+                "solving the right problems.\n" +
+                "This workshop is part of our Requirements Engineering course. We will discuss effective interviewing " +
+                "techniques, and immediately put them into practice.\n",
+        bio: "Gosia Janeczko is a software engineer turned educational coordinator of the Software Engineering Master’s " +
+                "programme, with a focus on the human side of SE and on education. She spends her days teaching and " +
+                "evolving the programme.",
         linkedin: "https://www.linkedin.com/in/malgorzatajaneczko/"
       },
-      {
+
+      /*{
         title: "Interviewing skills (repeat)",
         presenter: "Gosia Janeczko",
         company: "Universiteit van Amsterdam",
@@ -87,9 +100,10 @@
         description: "TBD",
         bio: "TBD",
         linkedin: "https://www.linkedin.com/in/malgorzatajaneczko/"
-      },
+      },*/
+
     ],
-    // Room 5
+    // NU-4B11
     [
       null, // First workshop in this room is not decided yet
       {
