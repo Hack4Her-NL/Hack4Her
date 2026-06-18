@@ -68,7 +68,8 @@
   const bronzeSponsors = [
     { name: 'Network Institute', logo: '/images/sponsors/NetworkInstitute_logo.png', url: 'https://networkinstitute.org/' },
     { name: 'DuckDB', logo: '/images/sponsors/DuckDB_inline-lightmode.png', url: 'https://duckdb.org/' },
-    { name: 'Cloud Nine Digital', logo: '/images/sponsors/Cloud_Nine_Digital_idXOtQtkWv_0.png', url: 'https://www.cloudninedigital.nl/' }
+    { name: 'Cloud Nine Digital', logo: '/images/sponsors/Cloud_Nine_Digital_idXOtQtkWv_0.png', url: 'https://www.cloudninedigital.nl/' },
+    { name: 'PCBway', logo: '/images/sponsors/PCBway_logo.png', url: 'https://www.pcbway.com/' }
   ];
 
   const partners = [];
