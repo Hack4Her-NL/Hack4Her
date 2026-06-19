@@ -22,7 +22,7 @@
 
   // Schedule data
   const fridaySchedule = [
-    {time: '13:30 - 14:00', activity: 'Arrival & Check-In', location: 'Vrije Universiteit Amsterdam NU Building Ground Floor'},
+    {time: '13:30 - 14:00', activity: 'Arrival & Check-In', location: 'Vrije Universiteit Amsterdam NU Building 4th Floor'},
     {time: '14:00 - 14:15', activity: 'Introduction', location: 'NU-Theatre 7'},
     {time: '14:15 - 14:45', activity: 'A word from our sponsors!', location: 'NU-Theatre 7'},
     {time: '14:45 - 15:15', activity: 'Keynote', location: 'NU-Theatre 7', isKeynote: true},
