@@ -10,7 +10,7 @@
     {
       sponsor: 'Uber',
       logo: '/images/sponsors/Uber_logo.png',
-      tagline: 'Gamified food discovery',
+      tagline: 'Uber eats Oracle',
       paragraphs: [
         'Help solve the age-old question: "What should we eat?" Design a fun, gamified feature that helps users decide on their next meal while unlocking personalized discounts.',
         'Use user preferences, favorite cuisines, and creative game mechanics to make food discovery engaging, rewarding, and restaurant-friendly.'
@@ -19,7 +19,7 @@
     {
       sponsor: 'Bol',
       logo: '/images/sponsors/Bol-Transparent-9.png',
-      tagline: 'Sustainable shopping',
+      tagline: 'The Honest Price Tag',
       paragraphs: [
         'Every product has two price tags: the one you pay, and the one the planet pays. Build a solution that helps shoppers instantly understand the environmental impact of their choices while browsing Bol.',
         'Your challenge is to make sustainability transparent, trustworthy, and actionable without adding friction to the shopping experience.'
@@ -28,7 +28,7 @@
     {
       sponsor: 'Studsec',
       logo: '/images/sponsors/VUCSDepartment_logo.jpeg',
-      tagline: 'Cybersecurity investigation',
+      tagline: 'Code Red',
       paragraphs: [
         'Download the program and connect to your contact, a cybersecurity manager, who\u2019s spotted something suspicious and needs a hacker they can trust. What starts as a simple recon job on a hospital server quickly unravels into something much bigger. Files are disappearing. A ransom note arrives. And the attackers? They made some mistakes too.',
         'Your contact will be with you the whole way, dropping hints and reacting as things unfold. Pay attention to everything.'
