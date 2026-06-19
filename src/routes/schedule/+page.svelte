@@ -236,7 +236,7 @@
           <div class="schedule-container">
             <div class="day-header">
               <h3>Sunday, June 21</h3>
-              <p>Hackathon Day 2 & Awards &middot; Coffee and snacks are continuously available</p>
+              <p>Hackathon Day 2 & Awards &middot; Coffee and snacks are continuously available &middot; Event Spot is on the ground floor</p>
             </div>
             {#each sundaySchedule as item}
               <div class="schedule-item">
