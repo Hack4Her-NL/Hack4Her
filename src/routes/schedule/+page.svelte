@@ -33,27 +33,26 @@
   ];
 
   const saturdaySchedule = [
-    {time: '9:00 - 9:30', activity: 'Arrival & Check-In', location: 'Vrije Universiteit NU Building Ground Floor'},
-    {time: '9:30 - 10:00', activity: 'Breakfast', location: 'Vrije Universiteit NU Building Ground Floor'},
-    {time: '10:00 - 10:15', activity: 'Introduction', location: 'NU-Theatre 7'},
-    {time: '10:15 - 11:00', activity: 'Challenge Workshops', location: 'TBD'},
-    {time: '11:00 - 13:00', activity: 'Hacking', location: 'TBD'},
-    {time: '13:00 - 14:00', activity: 'Lunch', location: 'Vrije Universiteit NU Building Ground Floor'},
-    {time: '14:00 - 18:00', activity: 'Hacking', location: 'TBD'},
-    {time: '18:30 - 19:30', activity: 'Dinner', location: 'Vrije Universiteit NU Building Ground Floor'},
-    {time: '19:30 - 22:00', activity: 'Hacking (optional)', location: 'TBD'}
+    {time: '9:00 - 9:30', activity: 'Participants arrive (optional breakfast available)', location: 'Balcony NU'},
+    {time: '9:30 - 10:00', activity: 'Team formation (for solo participants & incomplete teams)', location: 'Theatre 7'},
+    {time: '10:00 - 10:15', activity: 'Introduction', location: 'Theatre 7'},
+    {time: '10:15 - 11:00', activity: 'Challenge Workshops', location: 'NU-4B17 (Bol), NU-4B05 (Uber), NU-4B11 (VU)'},
+    {time: '11:00 - 13:00', activity: 'Hacking', location: 'NU-4B17, NU-4B25, NU-4B43, NU-4B47, NU-4B05, NU-4B11'},
+    {time: '13:00 - 14:00', activity: 'Lunch', location: 'Balcony NU'},
+    {time: '14:00 - 18:30', activity: 'Hacking', location: 'NU-4B17, NU-4B25, NU-4B43, NU-4B47, NU-4B05, NU-4B11'},
+    {time: '18:30 - 19:30', activity: 'Dinner', location: 'Balcony NU'},
+    {time: '19:30 - 22:00', activity: 'Hacking (optional)', location: 'NU-4B17, NU-4B25, NU-4B43, NU-4B47, NU-4B05, NU-4B11'}
   ];
 
   const sundaySchedule = [
-    {time: '9:00 - 9:30', activity: 'Arrival & Check-In', location: 'Vrije Universiteit NU Building Ground Floor'},
-    {time: '9:30 - 10:00', activity: 'Breakfast', location: 'Vrije Universiteit NU Building Ground Floor'},
-    {time: '10:00 - 10:05', activity: 'Introduction', location: 'NU-Theatre 7'},
-    {time: '10:05 - 13:00', activity: 'Hacking', location: 'TBD'},
-    {time: '13:00 - 14:00', activity: 'Lunch', location: 'Vrije Universiteit NU Building Ground Floor'},
-    {time: '14:00 - 16:00', activity: 'Hacking', location: 'TBD'},
-    {time: '16:00 - 18:00', activity: 'Judging/Presenting', location: 'TBD'},
-    {time: '18:00 - 18:30', activity: 'Deliberation', location: 'TBD'},
-    {time: '18:30 - 19:30', activity: 'Closing and Presentation of Awards', location: 'NU-Theatre 7'}
+    {time: '9:00 - 10:00', activity: 'Participants arrive (optional breakfast available)', location: 'Event Spot NU'},
+    {time: '10:00 - 10:05', activity: 'Introduction', location: 'Theatre 7'},
+    {time: '10:05 - 13:00', activity: 'Hacking', location: 'NU-4B17, NU-4B25, NU-4B43, NU-4B47, NU-4B05, NU-4B11'},
+    {time: '13:00 - 14:00', activity: 'Lunch', location: 'Event Spot NU'},
+    {time: '14:00 - 16:00', activity: 'Hacking', location: 'NU-4B17, NU-4B25, NU-4B43, NU-4B47, NU-4B05, NU-4B11'},
+    {time: '16:00 - 18:00', activity: 'Judging & Presenting', location: 'Event Spot NU'},
+    {time: '18:00 - 18:30', activity: 'Judge deliberation', location: 'NU-4B17'},
+    {time: '18:30 - 19:30', activity: 'Closing and presentation of awards', location: 'Theatre 7'}
   ];
 
   // Tab handling
@@ -176,7 +175,7 @@
         {#if activeTab === 'friday'}
           <div class="schedule-container">
             <div class="day-header">
-              <h3>Friday, June 13</h3>
+              <h3>Friday, June 19</h3>
               <p>Workshops & Networking</p>
             </div>
             {#each fridaySchedule as item}
@@ -210,8 +209,8 @@
         {:else if activeTab === 'saturday'}
           <div class="schedule-container">
             <div class="day-header">
-              <h3>Saturday, June 14</h3>
-              <p>Hackathon Day 1</p>
+              <h3>Saturday, June 20</h3>
+              <p>Hackathon Day 1 &middot; Coffee and snacks are continuously available &middot; The Balcony will be signed from the ground floor</p>
             </div>
             {#each saturdaySchedule as item}
               <div class="schedule-item">
@@ -236,8 +235,8 @@
         {:else if activeTab === 'sunday'}
           <div class="schedule-container">
             <div class="day-header">
-              <h3>Sunday, June 15</h3>
-              <p>Hackathon Day 2 & Awards</p>
+              <h3>Sunday, June 21</h3>
+              <p>Hackathon Day 2 & Awards &middot; Coffee and snacks are continuously available</p>
             </div>
             {#each sundaySchedule as item}
               <div class="schedule-item">
