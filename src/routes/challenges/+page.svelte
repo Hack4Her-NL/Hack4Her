@@ -5,11 +5,35 @@
   // Set page-specific SEO metadata
   export const metadata = pageSeo.challenges;
 
-  // Sponsors running a challenge this year
-  const challengeSponsors = [
-    { name: 'Bol', logo: '/images/sponsors/Bol-Transparent-9.png', url: 'https://www.bol.com/' },
-    { name: 'VU CS Department', logo: '/images/sponsors/VUCSDepartment_logo.jpeg', url: 'https://vu.nl/en/about-vu/faculties/faculty-of-science/departments/computer-science' },
-    { name: 'Uber', logo: '/images/sponsors/Uber_logo.png', url: 'https://www.uber.com/' }
+  // Challenge descriptions for this year
+  const challenges = [
+    {
+      sponsor: 'Uber',
+      logo: '/images/sponsors/Uber_logo.png',
+      tagline: 'Gamified food discovery',
+      paragraphs: [
+        'Help solve the age-old question: "What should we eat?" Design a fun, gamified feature that helps users decide on their next meal while unlocking personalized discounts.',
+        'Use user preferences, favorite cuisines, and creative game mechanics to make food discovery engaging, rewarding, and restaurant-friendly.'
+      ]
+    },
+    {
+      sponsor: 'Bol',
+      logo: '/images/sponsors/Bol-Transparent-9.png',
+      tagline: 'Sustainable shopping',
+      paragraphs: [
+        'Every product has two price tags: the one you pay, and the one the planet pays. Build a solution that helps shoppers instantly understand the environmental impact of their choices while browsing Bol.',
+        'Your challenge is to make sustainability transparent, trustworthy, and actionable without adding friction to the shopping experience.'
+      ]
+    },
+    {
+      sponsor: 'Studsec',
+      logo: '/images/sponsors/VUCSDepartment_logo.jpeg',
+      tagline: 'Cybersecurity investigation',
+      paragraphs: [
+        'Download the program and connect to your contact, a cybersecurity manager, who\u2019s spotted something suspicious and needs a hacker they can trust. What starts as a simple recon job on a hospital server quickly unravels into something much bigger. Files are disappearing. A ransom note arrives. And the attackers? They made some mistakes too.',
+        'Your contact will be with you the whole way, dropping hints and reacting as things unfold. Pay attention to everything.'
+      ]
+    }
   ];
 
   /*
@@ -157,23 +181,36 @@
 -->
 
 
-<!-- Challenge sponsors (challenge details coming soon) -->
+<!-- Challenges -->
 <section class="section">
-  <div class="section-container">
+  <div class="section-container section-container-wide">
     <p class="section-text">
-      The challenges for this year's hackathon are being prepared and will be revealed soon. They are brought to you by the following partners:
+      This year's hackathon features three challenges, each brought to you by one of our partners. Pick the one that excites you most and start building.
     </p>
 
-    <div class="challenge-sponsors-grid">
-      {#each challengeSponsors as sponsor}
-        <a
-          class="challenge-sponsor-card"
-          href={sponsor.url}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img src={sponsor.logo} alt="{sponsor.name} logo" />
-        </a>
+    <div class="challenges-grid">
+      {#each challenges as challenge, index}
+        <article class="challenge-card">
+          <div class="challenge-card-header">
+            <div class="challenge-logo">
+              {#if challenge.logo}
+                <img src={challenge.logo} alt="{challenge.sponsor} logo" />
+              {:else}
+                <span class="challenge-logo-text">{challenge.sponsor}</span>
+              {/if}
+            </div>
+            <span class="challenge-number">Challenge {index + 1}</span>
+          </div>
+
+          <h3 class="challenge-name">{challenge.sponsor}</h3>
+          <span class="challenge-tagline">{challenge.tagline}</span>
+
+          <div class="challenge-body">
+            {#each challenge.paragraphs as paragraph}
+              <p>{paragraph}</p>
+            {/each}
+          </div>
+        </article>
       {/each}
     </div>
   </div>
@@ -283,6 +320,10 @@
     margin: 0 auto;
     text-align: center;
   }
+
+  .section-container-wide {
+    max-width: 1100px;
+  }
   
   .section-title {
     margin-bottom: var(--spacing-large);
@@ -298,47 +339,119 @@
     line-height: 1.6;
   }
 
-  /* Challenge sponsors */
-  .challenge-sponsors-grid {
-    display: flex;
-    justify-content: center;
-    align-items: stretch;
-    flex-wrap: wrap;
+  /* Challenges grid */
+  .challenges-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: var(--spacing-large);
+    text-align: left;
+    margin-top: var(--spacing-large);
   }
 
-  .challenge-sponsor-card {
-    background-color: white;
-    border-radius: var(--border-radius-section);
+  .challenge-card {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-surface, #ffffff);
     border: 1px solid rgba(0, 0, 0, 0.06);
-    padding: 2rem;
-    width: 320px;
-    height: 200px;
+    border-radius: var(--border-radius-section);
+    padding: 1.75rem;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .challenge-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+  }
+
+  .challenge-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.1);
+  }
+
+  .challenge-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .challenge-logo {
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
-    position: relative;
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    height: 48px;
+    max-width: 140px;
   }
 
-  .challenge-sponsor-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  }
-
-  .challenge-sponsor-card img {
-    max-width: 90%;
-    max-height: 90%;
+  .challenge-logo img {
+    max-height: 48px;
+    max-width: 140px;
     object-fit: contain;
   }
 
-  @media (max-width: 480px) {
-    .challenge-sponsor-card {
-      width: 100%;
-      max-width: 280px;
-      height: 160px;
-      padding: 1.5rem;
+  .challenge-logo-text {
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: var(--color-primary);
+  }
+
+  .challenge-number {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-primary);
+    background-color: rgba(var(--color-primary-rgb), 0.12);
+    padding: 5px 12px;
+    border-radius: 20px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .challenge-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0;
+    color: var(--color-text);
+  }
+
+  .challenge-tagline {
+    display: inline-block;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-secondary);
+    margin-bottom: 1rem;
+  }
+
+  .challenge-body p {
+    font-size: 0.98rem;
+    line-height: 1.6;
+    color: var(--color-text);
+    opacity: 0.85;
+    margin: 0 0 0.9rem;
+  }
+
+  .challenge-body p:last-child {
+    margin-bottom: 0;
+  }
+
+  @media (max-width: 768px) {
+    .challenges-grid {
+      grid-template-columns: 1fr;
     }
   }
   
