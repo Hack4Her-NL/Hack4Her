@@ -47,12 +47,21 @@
   const sundaySchedule = [
     {time: '9:00 - 9:30', activity: 'Arrival & Check-In', location: 'Vrije Universiteit NU Building Ground Floor'},
     {time: '9:30 - 10:00', activity: 'Breakfast', location: 'Vrije Universiteit NU Building Ground Floor'},
-    {time: '10:00 - 10:05', activity: 'Introduction', location: 'NU-Theatre 7'},
-    {time: '10:05 - 13:00', activity: 'Hacking', location: 'TBD'},
+    {time: '10:00 - 13:00', activity: 'Hacking', location: 'NU-4B17, NU\n' +
+              '4B25, NU-4B43,\n' +
+              'NU-4B47, NU\n' +
+              '4B05, NU-4B11 '},
     {time: '13:00 - 14:00', activity: 'Lunch', location: 'Vrije Universiteit NU Building Ground Floor'},
-    {time: '14:00 - 16:00', activity: 'Hacking', location: 'TBD'},
-    {time: '16:00 - 18:00', activity: 'Judging/Presenting', location: 'TBD'},
-    {time: '18:00 - 18:30', activity: 'Deliberation', location: 'TBD'},
+    {time: '14:00 - 16:00', activity: 'Hacking', location: 'NU-4B17, NU\n' +
+              '4B25, NU-4B43,\n' +
+              'NU-4B47, NU\n' +
+              '4B05, NU-4B11 '},
+    {time: '16:00 - 18:00', activity: 'Judging/Presenting', location: 'NU-4B17 (Bol)\n' +
+              'NU-4B05 (Uber ) \n' +
+              'NU-4B11 (VU)'},
+    {time: '18:00 - 18:30', activity: 'Deliberation', location: 'NU-4B17 (Bol)\n' +
+              'NU-4B05 (Uber ) \n' +
+              'NU-4B11 (VU)'},
     {time: '18:30 - 19:30', activity: 'Closing and Presentation of Awards', location: 'NU-Theatre 7'}
   ];
 
