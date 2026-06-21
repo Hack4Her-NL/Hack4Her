@@ -185,7 +185,7 @@
         {#if activeTab === 'friday'}
           <div class="schedule-container">
             <div class="day-header">
-              <h3>Friday, June 13</h3>
+              <h3>Friday, June 19</h3>
               <p>Workshops & Networking</p>
             </div>
             {#each fridaySchedule as item}
@@ -219,7 +219,7 @@
         {:else if activeTab === 'saturday'}
           <div class="schedule-container">
             <div class="day-header">
-              <h3>Saturday, June 14</h3>
+              <h3>Saturday, June 20</h3>
               <p>Hackathon Day 1</p>
             </div>
             {#each saturdaySchedule as item}
@@ -245,7 +245,7 @@
         {:else if activeTab === 'sunday'}
           <div class="schedule-container">
             <div class="day-header">
-              <h3>Sunday, June 15</h3>
+              <h3>Sunday, June 21</h3>
               <p>Hackathon Day 2 & Awards</p>
             </div>
             {#each sundaySchedule as item}
